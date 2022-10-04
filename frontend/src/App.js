@@ -29,6 +29,15 @@ function App() {
   const [role, setRole] = useState();
   const [token, setToken] = useState();
 
+  const [data, setData] = useState('');
+
+  useEffect(() =>{
+    (async function(){
+      const {text} = await( await fetch(`/api/message`)).json();
+      setData(text);
+    })();
+  });
+
   sessionStorage.setItem("currentIDU",idU);
   sessionStorage.setItem("currentUSR",usr);
   sessionStorage.setItem("currentNOM", nom);
@@ -38,6 +47,7 @@ function App() {
   sessionStorage.setItem("currentHeureREST", heureRest);
   sessionStorage.setItem("currentRole", role);
   sessionStorage.setItem("currentToken", token);
+  
 
   const handleSubmit = e => {
     e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
