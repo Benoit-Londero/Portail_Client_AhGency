@@ -12,18 +12,20 @@ function NavBar(){
      const currentName = sessionStorage.getItem("currentNOM");
      const currentPname = sessionStorage.getItem("currentPNOM");
 
+     const LoadMenu = () => {
+      if (currentRole !== "administrator") {
+          SidebarData.filter(recherche => recherche.admin === false).map((donnee) => setMenu(menu => [...menu, donnee]));
+      } else {
+          SidebarData.map((donnee) => setMenu(menu => [...menu, donnee]));
+      }
+    }
+
      useEffect(() => {
           LoadMenu();
           console.log('i fire once')
       }, [LoadMenu]);
   
-     const LoadMenu = () => {
-        if (currentRole !== "administrator") {
-            SidebarData.filter(recherche => recherche.admin === false).map((donnee) => setMenu(menu => [...menu, donnee]));
-        } else {
-            SidebarData.map((donnee) => setMenu(menu => [...menu, donnee]));
-        }
-      }      
+           
         
       return (
           <div className="s-sidebar__nav">
