@@ -10,7 +10,7 @@ module.exports = {
 
         con.query(sqlQuery, function(err,result){
             if(err) throw err;
-            context.res.json(result);
+            return result;
         })
     },
 
