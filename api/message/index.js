@@ -18,12 +18,13 @@ module.exports = async function (context) {
 } */
 
 const todoService = require('../todo');
+const sql = require('../functions/services');
 
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     context.res = {
         status: 200,
-        body: todoService.getTodos(context)
+        body: sql.getUser(context)
     };
 };

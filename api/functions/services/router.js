@@ -1,23 +1,17 @@
-const express = require("express");
 const multer  = require('multer');
-const upload = multer();
 const {con} = require('../../db/db.js');
 const bcrypt = require("bcrypt");
 const viewall = require("../../viewall/index.js");
 
 module.exports = {
 
-    getUser: function(context){
-        try{
-            let sqlQuery = "SELECT ID, Login FROM users";
+    getUser: function(){
+        let sqlQuery = "SELECT ID, Login FROM users";
 
-            con.query(sqlQuery, function(err,result){
-                if(err) throw err;
-                context.res.json(result);
-            })
-        } catch (error) {
-            context.res.status(500).send(error);
-        }
+        con.query(sqlQuery, function(err,result){
+            if(err) throw err;
+            context.res.json(result);
+        })
     },
 
     viewall: function(context){
