@@ -12,13 +12,19 @@
      };
 } */
 
+const mysql = require("mysql");
+
 module.exports = async function (context, req) {
 
     const connectionString = process.env.DATABASE_CONNECTION_STRING;
 
-    const sql = 'SELECT * FROM timesheet';
+    const sql = mysql.createConnection(connectionString);
+    const req = sql.query('SELECT email FROM users where id = 1',function(err,result){
+        if (err) throw err;
+        res.json(result)
+    });
 
     context.res.json({
-        text: sql,
+        text: req,
     });
 };

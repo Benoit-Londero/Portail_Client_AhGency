@@ -6,14 +6,6 @@
 const mysql = require("mysql");
 const fs = require('fs');
 
-// const con =mysql.createConnection(
-//      {host:"av37044-003.eu.clouddb.ovh.net",
-//      user: "PortalCon",
-//      password:"qrdhWpF14Lftcd", //mdp ovh clouddb qrdhWpF14Lftcd
-//      port:35618,
-//      database: "PNodeJS"
-// });
-
 const con =mysql.createConnection(
      {
      host:"mysqcustomerportal.mysql.database.azure.com", 
