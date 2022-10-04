@@ -17,7 +17,7 @@ const con =mysql.createConnection(
      database:"agc_portal_2", //custportaldb
      port:3306,
      ssl: {
-          ca:fs.readFileSync("DigiCertGlobalRootCA.crt.pem")
+          ca:fs.readFileSync('../DigiCertGlobalRootCA.crt.pem')
      }
 });
 
