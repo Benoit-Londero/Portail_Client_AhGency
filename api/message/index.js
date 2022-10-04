@@ -19,7 +19,7 @@ module.exports = async function (context, req) {
     const connectionString = process.env.DATABASE_CONNECTION_STRING;
 
     const sql = mysql.createConnection(connectionString);
-    const req = sql.query('SELECT email FROM users where id = 1',function(err,result){
+    const req = sql.query('SELECT email FROM users where ID = 1',function(err,result){
         if (err) throw err;
         res.json(result)
     });
@@ -27,4 +27,5 @@ module.exports = async function (context, req) {
     context.res.json({
         text: req,
     });
+    
 };
