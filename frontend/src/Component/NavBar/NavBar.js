@@ -25,7 +25,7 @@ function NavBar(){
   
           LoadMenu();
           console.log('i fire once')
-      }, [LoadMenu]);
+      }, []);
   
            
         
