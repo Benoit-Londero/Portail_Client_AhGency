@@ -22,10 +22,9 @@ function NavBar(){
             SidebarData.map((donnee) => setMenu(menu => [...menu, donnee]));
         }
       }
-  
           LoadMenu();
           console.log('i fire once')
-      }, [currentRole, SidebarData]);
+      }, [currentRole]);
   
            
         
