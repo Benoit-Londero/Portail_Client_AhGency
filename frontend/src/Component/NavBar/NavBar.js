@@ -12,15 +12,17 @@ function NavBar(){
      const currentName = sessionStorage.getItem("currentNOM");
      const currentPname = sessionStorage.getItem("currentPNOM");
 
-     const LoadMenu = () => {
-      if (currentRole !== "administrator") {
-          SidebarData.filter(recherche => recherche.admin === false).map((donnee) => setMenu(menu => [...menu, donnee]));
-      } else {
-          SidebarData.map((donnee) => setMenu(menu => [...menu, donnee]));
-      }
-    }
-
+     
      useEffect(() => {
+
+      const LoadMenu = () => {
+        if (currentRole !== "administrator") {
+            SidebarData.filter(recherche => recherche.admin === false).map((donnee) => setMenu(menu => [...menu, donnee]));
+        } else {
+            SidebarData.map((donnee) => setMenu(menu => [...menu, donnee]));
+        }
+      }
+  
           LoadMenu();
           console.log('i fire once')
       }, [LoadMenu]);
