@@ -15,7 +15,7 @@ function NavBar(){
      useEffect(() => {
           LoadMenu();
           console.log('i fire once')
-      }, []);
+      }, [LoadMenu]);
   
      const LoadMenu = () => {
         if (currentRole !== "administrator") {
@@ -29,7 +29,7 @@ function NavBar(){
           <div className="s-sidebar__nav">
 
                 <div id="gen_settings">
-                    <img src={logo}></img>
+                    <img alt="Logo_AhGency" src={logo}></img>
                     <p className="name">{currentName} {currentPname}<br></br><span className="role">{currentRole}</span></p>
                 </div>
 

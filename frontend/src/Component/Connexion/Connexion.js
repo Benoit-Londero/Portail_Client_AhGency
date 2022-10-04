@@ -22,7 +22,7 @@ export default function Connexion(props) {
         {
             navigate('/Home')
         }
-    }, [login])
+    }, [login, navigate])
     
 
   return (

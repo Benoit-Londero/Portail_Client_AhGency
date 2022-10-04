@@ -46,22 +46,6 @@ function App() {
 
     fetch('/api/form', { method: 'POST', body: myform })
 
-        //-------------------TENTATIVE DE FILTRE VIA LE CODE STATUS DE LA REPONSE RECU DU SERVEUR ____ MARCHE PAS CAR LE JSON N'EST PAS LISIBLE PAR LA SUITE: JE SAIS PAS PK
-    // .then(res => {
-    //   console.log(res.ok);
-    //   if(!res.ok)
-    //   {
-    //     setErreur(true);
-    //     throw new Error(`Error! status: ${res.status}`);
-    //   }
-    //   else {
-    //     setErreur(false);
-    //     res.json();
-    //   };
-    // })
-    //----------------------------------------------------------------------------------------------------------------------------------------------------
-
-
     .then(res => res.json())
     .then(json => {if(json.length === 1) {
       setIdU(json[0].ID);
@@ -72,7 +56,7 @@ function App() {
       setHeureTotal(json[0].heures_totales); 
       setHeureRest(json[0].heures_restantes);
       setRole(json[0].Role);
-      //setToken(json[1].token);
+      setToken(json[1].token);
       setErreur(false);
       setLogin(true);
 

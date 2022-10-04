@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import NavBar from "../NavBar/NavBar";
 import "./Home.css";
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { FaFileDownload, FaMonument } from "react-icons/fa";
+import { FaFileDownload } from "react-icons/fa";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Moment from "moment";
@@ -15,14 +15,11 @@ import Moment from "moment";
 export default function Home() {
 
      const currentIDU = sessionStorage.getItem("currentIDU");
-     const currentUSR = sessionStorage.getItem("currentUSR");
      const currentNOM = sessionStorage.getItem("currentNOM");
      const currentPNOM = sessionStorage.getItem("currentPNOM");
      const currentMAIL = sessionStorage.getItem("currentMAIL");
      const currentHeureTOT = sessionStorage.getItem("currentHeureTOT");
      const currentHeureREST = sessionStorage.getItem("currentHeureREST");
-     const currentRole = sessionStorage.getItem("currentRole");
-     const currentToken = sessionStorage.getItem("currentToken");
 
      const [timesheet, setTimesheet] = useState([]);
      

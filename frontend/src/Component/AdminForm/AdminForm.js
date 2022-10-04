@@ -3,10 +3,6 @@ import NavBar from "../NavBar/NavBar";
 import './AdminForm.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
-import Container from "react-bootstrap/esm/Container";
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Alert from 'react-bootstrap/Alert';
 
 export default function AdminForm() {
 
