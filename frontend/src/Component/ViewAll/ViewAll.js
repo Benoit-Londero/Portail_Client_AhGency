@@ -9,22 +9,11 @@ import Moment from "moment";
 
 export default function ViewAll() {
 
-     const currentIDU = sessionStorage.getItem("currentIDU");
-     const currentUSR = sessionStorage.getItem("currentUSR");
-     const currentNOM = sessionStorage.getItem("currentNOM");
-     const currentPNOM = sessionStorage.getItem("currentPNOM");
-     const currentMAIL = sessionStorage.getItem("currentMAIL");
-     const currentHeureTOT = sessionStorage.getItem("currentHeureTOT");
-     const currentHeureREST = sessionStorage.getItem("currentHeureREST");
-     const currentRole = sessionStorage.getItem("currentRole");
-     const currentToken = sessionStorage.getItem("currentToken");
-
      const [alltasks, setAllTasks] = useState([]);
      const [clients, setClients] = useState([]);
      const [filtredtasks, setFiltredtasks] = useState(null);
      
      useEffect (() => {
-          setFiltredtasks(alltasks);
 
           fetch('/api/viewall', {method: 'GET'})
                .then(res => res.json())
