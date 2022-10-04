@@ -1,4 +1,4 @@
-const {con} = require('../db/db');
+c/* onst {con} = require('../db/db');
 
 module.exports = async function (context) {
     context.log('JavaScript HTTP trigger function processed a request.');
@@ -12,7 +12,18 @@ module.exports = async function (context) {
         : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
 
     context.res = {
-        // status: 200, /* Defaults to 200 */
+        // status: 200,
         body: responseMessage
     };
-}
+} */
+
+const todoService = require('../todo');
+
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    context.res = {
+        status: 200,
+        body: todoService.getTodos(context)
+    };
+};
