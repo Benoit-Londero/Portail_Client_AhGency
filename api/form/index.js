@@ -1,7 +1,6 @@
 const {con} = require('../db/db.js');
 const bcrypt = require("bcrypt");
 
-
 module.exports = async function (req, res, next) {
     let mail = req.body.email;
     let pwd = req.body.pwd;
