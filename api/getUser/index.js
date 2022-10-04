@@ -1,10 +1,10 @@
-const {con} = require('../db/db.js');
+const functions = require('../functions/services/router');
 
-module.exports = async function (req, res, next) {
-    let sqlQuery = "SELECT ID, Login FROM users";
-
-    con.query(sqlQuery, function(err,result){
-        if(err) throw err;
-        res.json(result);
-    })
-}
+module.exports = async function (context,req) {
+    context.log('Javascript HTTP trigger function processed a request.');
+    
+    context.res = {
+        status: 200,
+        body: functions.getUser(context)
+    };
+};
