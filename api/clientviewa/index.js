@@ -1,4 +1,4 @@
-module.exports = async function (context, req) {
+module.exports = async function (req, res) {
     let sql = "SELECT * FROM users WHERE Role = 'customer'";
 
     con.query(sql,function(err,result){

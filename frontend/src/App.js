@@ -54,7 +54,11 @@ function App() {
     let logForm = document.getElementById('logForm'); //on récupère l'élement <form> et ces différents <input>
     let myform = new FormData(logForm); //que l'on intègre à un formData
 
-    fetch('/api/form', { method: 'POST', body: myform })
+    fetch('/api/form', { 
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: myform
+    })
 
     .then(res => res.json())
     .then(json => {if(json.length === 1) {
