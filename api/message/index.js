@@ -13,7 +13,12 @@
 } */
 
 module.exports = async function (context, req) {
+
+    const connectionString = process.env.DATABASE_CONNECTION_STRING;
+
+    const sql = 'SELECT * FROM timesheet';
+
     context.res.json({
-        text: "Hello from the API"
+        text: sql,
     });
 };
