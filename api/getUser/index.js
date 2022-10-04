@@ -1,3 +1,5 @@
+const {con} = require('../db/db.js');
+
 module.exports = async function (req, res, next) {
     let sqlQuery = "SELECT ID, Login FROM users";
 

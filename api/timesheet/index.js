@@ -1,13 +1,13 @@
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
+const {con} = require('../db/db.js');
 
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
+module.exports = async function (req, res, next) {
+    let sql = "SELECT * FROM timesheet WHERE ID_Client = ?";
+    let currentUser = req.body.currentIDUser;
 
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
+    con.query(sql,[currentUser],function(err,result){
+        if (err) throw err;
+
+        console.log(result);
+        res.json(result);
+    })
 }
