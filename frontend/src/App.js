@@ -93,6 +93,7 @@ function App() {
 
   return (
     <div className="App">
+      <div>{data}</div>
       <header className="App-header">            
         <Router>
             <Routes>
