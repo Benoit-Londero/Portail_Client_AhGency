@@ -1,4 +1,4 @@
-c/* onst {con} = require('../db/db');
+/* const {con} = require('../db/db');
 
 module.exports = async function (context) {
     context.log('JavaScript HTTP trigger function processed a request.');
