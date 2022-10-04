@@ -1,5 +1,10 @@
+const conn = require('../db/db');
+
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
+
+    const sql = con.query('SELECT * FROM users');
+    console.log(sql);
 
     const name = (req.query.name || (req.body && req.body.name));
     const responseMessage = name
