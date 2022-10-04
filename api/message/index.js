@@ -1,9 +1,9 @@
-const conn = require('../db/db');
+const {con} = require('../db/db');
 
-module.exports = async function (context, req) {
+module.exports = async function (context) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    const sql = conn.query('SELECT * FROM users');
+    const sql = con.query('SELECT * FROM users');
     console.log(sql);
 
     const name = (req.query.name || (req.body && req.body.name));
