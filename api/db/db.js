@@ -1,8 +1,7 @@
 const mysql = require("mysql");
 
-const con =mysql.createConnection(
-          process.env.DATABASE_CONNECTION_STRING
-);
+const connString = process.env.DATABASE_CONNECTION_STRING;
+const con =mysql.createConnection(connString);      
 
 module.exports = {
      con
