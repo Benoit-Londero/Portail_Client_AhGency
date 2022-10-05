@@ -31,9 +31,7 @@ export default function AdminForm() {
         .then(navigate('../ViewAll'))
     }
 
-
   return (      
-    
     <div id='adminForm'>
         <NavBar />
         <h1>Créer une nouvelle entrée</h1>

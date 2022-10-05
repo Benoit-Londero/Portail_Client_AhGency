@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
 import './Inscription.css';
 
@@ -10,21 +11,23 @@ import Col from 'react-bootstrap/Col';
 
 export default function Inscription() {
 
-    const handleSubmit = e => {
+    const { handleSubmit} = useForm();
+
+    const onSubmit = (data, e) => {
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
         
         let inscForm = document.getElementById('inscForm'); //on récupère l'élement <form> et ces différents <input>
         let myInscr = new FormData(inscForm); //que l'on intègre à un formData
-        
-        console.log(myInscr);
 
-        fetch('/api/inscription', { 
+        fetch('/api/inscription', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(myInscr) 
+            body: JSON.stringify(myInscr)
         })
-        .then(res => res.json())
+        //.then(res => res.json())
         .catch(err => console.info(err))
+
+        console.log(data);
+        console.log(myInscr);
     }
 
   return (
@@ -33,7 +36,7 @@ export default function Inscription() {
             <Row className="inscription_form">
                 <Col lg={12}>
                     <h1>CREER MON COMPTE</h1>
-                <form id="inscForm" onSubmit={handleSubmit}>
+                <form id="inscForm" onSubmit={handleSubmit(onSubmit)}>
                     <label>Nom<br/>
                         <input type="text" name="nom" placeholder="Doe" required/>
                     </label><br/>
