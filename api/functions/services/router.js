@@ -7,7 +7,7 @@ module.exports = {
 
     getUser: function(){
 
-        const con  = DATABASE_CONNECTION_STRING;
+        const con  = process.env.DATABASE_CONNECTION_STRING;
         let sqlQuery = "SELECT ID, Login FROM users";
 
         con.query(sqlQuery, function(err,result){
