@@ -1,13 +1,49 @@
-const {con} = require('../db/db.js');
+// hello/index.js
+const mysql = require('mysql');
+const fs = require('fs');
+const {conn} = require('../db/db.js');
 
-module.exports = async function (req, res, next) {
-    let sql = "SELECT * FROM timesheet WHERE ID_Client = ?";
-    let currentUser = req.body.currentIDUser;
+module.exports = async function (context, req) {
+    try {
 
-    con.query(sql,[currentUser],function(err,result){
-        if (err) throw err;
+      const timesheet = [];
 
-        console.log(result);
-        res.json(result);
-    })
-}
+      conn.connect(
+        function (err){
+          if(err){
+            console.log("!!! Cannot connect !!! Error:")
+            throw err;
+          }
+          else {
+            console.log("connection established.");
+            readData();
+          }
+        }
+      )
+
+      function readData(){
+        var sql = conn.query('SELECT * from timesheet', function (err,results){
+          if (err) throw err;
+          console.log(results);
+
+          for (i = 0; i < results.length; i++) {
+            timesheet.push(results[i]);
+          }
+
+        });
+      }
+
+      context.res = {
+        status: 200,
+        body : results
+      };
+    
+
+    } catch(error) {
+      const err = JSON.stringify(error);
+      context.res = {
+        status: 500,
+        body: `Request error. ${err}`
+      };
+    }
+  };
