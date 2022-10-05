@@ -1,4 +1,4 @@
-const {conn} = require('../../db/db.js');
+/* const {conn} = require('../../db/db.js');
 const bcrypt = require("bcrypt");
 
 module.exports = {
@@ -140,4 +140,4 @@ module.exports = {
             return ress;
         })
     }
-}
+} */
