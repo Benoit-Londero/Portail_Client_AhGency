@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 export default function AdminForm() {
 
     const [usersInfos, setUsersInfos] = useState([]);
-    const { register, handleSubmit} = useForm();
 
     const navigate = useNavigate();
 
