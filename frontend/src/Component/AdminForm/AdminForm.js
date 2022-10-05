@@ -3,10 +3,19 @@ import NavBar from "../NavBar/NavBar";
 import './AdminForm.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export default function AdminForm() {
 
     const [usersInfos, setUsersInfos] = useState([]);
+    const { register, handleSubmit} = useForm();
+
+    const onSubmit = (data, e) => {
+      createTask(data).then(res => {
+        props.taskCreated();
+        e.target.reset();
+      })
+    }
 
     const navigate = useNavigate();
 
@@ -24,7 +33,11 @@ export default function AdminForm() {
         let TSForm = document.getElementById('timesheetForm');
         let TSFormData = new FormData(TSForm);
 
-        fetch('/api/TSForm', {method: 'POST', body: TSFormData})
+        fetch('/api/TSForm', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'}, 
+          body: JSON.stringify(TSFormData)
+        })
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.info(err))

@@ -12,12 +12,17 @@ export default function Inscription() {
 
     const handleSubmit = e => {
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
+        
         let inscForm = document.getElementById('inscForm'); //on récupère l'élement <form> et ces différents <input>
         let myInscr = new FormData(inscForm); //que l'on intègre à un formData
         
         console.log(myInscr);
 
-        fetch('/api/inscription', { method: 'POST', body: myInscr })
+        fetch('/api/inscription', { 
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(myInscr) 
+        })
         .then(res => res.json())
         .catch(err => console.info(err))
     }
