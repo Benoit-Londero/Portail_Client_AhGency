@@ -16,15 +16,15 @@ module.exports = async function (context) {
         body: responseMessage
     };
 } */
+var str = process.env.
 
 const todoService = require('../todo');
-const sql = require('../functions/services');
 
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     context.res = {
         status: 200,
-        body: sql.getUser(context)
+        body: todoService.getTodos(context)
     };
 };

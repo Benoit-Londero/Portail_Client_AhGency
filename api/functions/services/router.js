@@ -1,5 +1,5 @@
 const multer  = require('multer');
-const {con} = require('../../db/db.js');
+const {conn} = require('../../db/db.js');
 const bcrypt = require("bcrypt");
 const viewall = require("../../viewall/index.js");
 
@@ -8,7 +8,7 @@ module.exports = {
     getUser: function(){
         let sqlQuery = "SELECT ID, Login FROM users";
 
-        con.query(sqlQuery, function(err,result){
+        conn.query(sqlQuery, function(err,result){
             if(err) throw err;
             return result;
         })
