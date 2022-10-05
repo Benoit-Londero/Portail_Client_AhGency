@@ -16,7 +16,6 @@ module.exports = async function (context) {
         body: responseMessage
     };
 } */
-var str = process.env.
 
 const todoService = require('../todo');
 

@@ -6,9 +6,11 @@ const viewall = require("../../viewall/index.js");
 module.exports = {
 
     getUser: function(){
+
+        const con  = DATABASE_CONNECTION_STRING;
         let sqlQuery = "SELECT ID, Login FROM users";
 
-        conn.query(sqlQuery, function(err,result){
+        con.query(sqlQuery, function(err,result){
             if(err) throw err;
             return result;
         })
