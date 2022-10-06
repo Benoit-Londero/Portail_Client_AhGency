@@ -21,7 +21,7 @@ module.exports = async function (context,req,res) {
                 }
                 else {
                     console.log("connection established.");
-                    insertUser();
+                    insertUser(req);
                 }
             }
         )
