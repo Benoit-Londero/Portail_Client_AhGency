@@ -23,7 +23,7 @@ export default function Inscription() {
         }
         //let myInscr = new URLSearchParams(new FormData(inscForm)); //que l'on intègre à un formData
 
-        console.log(...myInscr);
+        //console.log(...myInscr);
 
         fetch(`/api/inscription`, {
             method: 'POST',
