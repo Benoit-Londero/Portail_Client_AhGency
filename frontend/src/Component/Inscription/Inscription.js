@@ -12,22 +12,16 @@ export default function Inscription() {
 
     const handleSubmit = e => {
 
-        console.log('ha!')
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
         
         let inscForm = document.querySelector('form'); //on récupère l'élement <form> et ces différents <input>
+        let myInscr = new FormData(inscForm); //que l'on intègre à un formData
 
-        const data = new URLSearchParams();
-        for (const pair of new FormData(inscForm)) {
-             data.append(pair[0], pair[1]);
-        }
-        //let myInscr = new URLSearchParams(new FormData(inscForm)); //que l'on intègre à un formData
-
-        //console.log(...myInscr);
+        console.log(myInscr);
 
         fetch(`/api/inscription`, {
-            method: 'POST',
-            body: data
+            method: 'post',
+            body: myInscr
         })
         .then(response => {
             e.target.reset();
