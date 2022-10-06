@@ -2,25 +2,27 @@ const mysql = require('mysql');
 const fs = require('fs');
 const {conn} = require('../db/db.js');
 
-module.exports = async function (context, req) {
+module.exports = async function (context,req) {
     try {
         conn.connect(
             function (err){
-            if(err){
-                console.log("!!! Cannot connect !!! Error:")
-                throw err;
-            }
-            else {
-                console.log("connection established.");
-                insertUser();
-            }
+                if(err){
+                    console.log("!!! Cannot connect !!! Error:")
+                    throw err;
+                }
+                else {
+                    console.log("connection established.");
+                    insertUser();
+                }
             }
         )
+
+        
 
         function insertUser(){
 
             let insc = {
-                nom: req.body.nom,
+                nom: context.req.body.nom,
                 prenom: req.body.prenom,
                 pass: bcrypt.hashSync(req.body.pass,10,function(err,hash){}), // On hash le password avant de l'injecter dans la db
                 mail: req.body.email,
@@ -32,7 +34,7 @@ module.exports = async function (context, req) {
             let sql = "INSERT INTO users(Login,Nom,Prenom,Pass,email) VALUES (?,?,?,?,?)";
             con.query(sql, [insc.login,insc.nom,insc.prenom,insc.pass,insc.mail], function (err,result){
                 if (err) throw err;
-                //res.json(result);
+                res.json(result);
             });
 
             console.log('yo');
