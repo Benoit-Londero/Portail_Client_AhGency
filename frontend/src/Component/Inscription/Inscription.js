@@ -18,16 +18,13 @@ export default function Inscription() {
         let inscForm = document.querySelector('form'); //on récupère l'élement <form> et ces différents <input>
         let myInscr = new URLSearchParams(new FormData(inscForm)); //que l'on intègre à un formData
 
-        for (var [key, value] of myInscr.entries()){
-            console.log(key,value);
-        }
-
         console.log(...myInscr);
-
 
         fetch(`/api/inscription`, {
             method: 'POST',
-            //headers: {'Content-Type': 'application/json'},
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
             body: myInscr
         })
         .then(response => {

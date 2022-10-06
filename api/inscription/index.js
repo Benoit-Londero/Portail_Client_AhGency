@@ -31,7 +31,7 @@ module.exports = async function (context,req,res) {
     function insertUser(){
 
             let insc = {
-                nom: req.body.nom,
+                nom: context.req.body.nom,
                 prenom: context.req.body.prenom,
                 pass: bcrypt.hashSync(context.req.body.pass,10,function(err,hash){}), // On hash le password avant de l'injecter dans la db
                 mail: context.req.body.email,
