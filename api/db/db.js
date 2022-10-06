@@ -1,18 +1,14 @@
-//const conn = process.env.DATABASE_CONNECTION_STRING;
 const fs = require('fs');
 const mysql = require('mysql');
 
-var config = {
-     host:"mysqcustomerportal.mysql.database.azure.com", 
-     user:"ahgadmin", 
-     password:"408pWoWHRQGtDTxu6697OrrCrhLle6", 
-     database:'agc_portal_2', 
-     port:3306, 
-     ssl:{ca:fs.readFileSync("DigiCertGlobalRootCA.crt.pem")}
-   };
-
-const conn = new mysql.createConnection(config);
-
+const con = new mysql.createConnection({
+     host: process.env.AZURE_DATABASE_HOST,
+     user: process.env.AZURE_DATABASE_USER,
+     password: process.env.AZURE_DATABASE_PASS,
+     database: process.env.AZURE_DATABASE_NAME,
+     port: 3306,
+     ssl: {ca:fs.readFileSync("DigiCertGlobalRootCA.crt.pem")}
+});
 module.exports = {
-     conn
+     con
 }
