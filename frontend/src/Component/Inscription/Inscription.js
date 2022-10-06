@@ -15,10 +15,15 @@ export default function Inscription() {
         console.log('ha!')
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
         
-        let inscForm = document.getElementById('inscForm'); //on récupère l'élement <form> et ces différents <input>
+        let inscForm = document.querySelector('form'); //on récupère l'élement <form> et ces différents <input>
         let myInscr = new FormData(inscForm); //que l'on intègre à un formData
 
-        console.log(myInscr);
+        for (var [key, value] of myInscr.entries()){
+            console.log(key,value);
+        }
+
+        console.log(...myInscr);
+
 
         fetch(`/api/inscription`, {
             method: 'POST',
