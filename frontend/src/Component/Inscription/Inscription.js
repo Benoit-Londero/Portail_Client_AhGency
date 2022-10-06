@@ -27,8 +27,8 @@ export default function Inscription() {
 
         fetch(`/api/inscription`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(myInscr)
+            //headers: {'Content-Type': 'application/json'},
+            body: myInscr
         })
         .then(response => {
             e.target.reset();
