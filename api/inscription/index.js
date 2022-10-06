@@ -6,12 +6,6 @@ const bcrypt = require("bcrypt");
 module.exports = async function (context,req,res) {
     context.log('Javascript HTTP trigger function processed a request.');
 
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-        console.log(context.req);
     try {
         con.connect(
             function (err){
@@ -21,7 +15,7 @@ module.exports = async function (context,req,res) {
                 }
                 else {
                     console.log("connection established.");
-                    insertUser(req);
+                    insertUser(context);
                 }
             }
         )
