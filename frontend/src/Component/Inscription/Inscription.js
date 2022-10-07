@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col';
 
 export default function Inscription() {
 
-    const handleSubmit = e => {
+    /* const handleSubmit = e => {
 
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
         
@@ -28,6 +28,35 @@ export default function Inscription() {
         })
         .catch(err => console.info(err));
 
+    } */
+
+    const handleSubmitJson = e => {
+
+        e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
+        
+        let inscForm = document.querySelector('form'); //on récupère l'élement <form> et ces différents <input>
+        
+        const jsonForm = buildJsonFormData(inscForm)
+
+        function buildJsonFormData(inscForm){
+            const jsonFormData = {};
+            for(const pair of new FormData(inscForm)){
+                jsonFormData[pair[0]] = pair[1];
+            }
+
+            return jsonFormData;
+        }
+
+        fetch('/api/inscription', {
+            method: 'post',
+            body: jsonForm
+        })
+        .then( response =>{
+            e.target.reset();
+        })
+        .catch(err =>console.info(err));
+
+
     }
 
   return (
@@ -36,7 +65,7 @@ export default function Inscription() {
             <Row className="inscription_form">
                 <Col lg={12}>
                     <h1>CREER MON COMPTE</h1>
-                <form id="inscForm" onSubmit={handleSubmit}>
+                <form id="inscForm" onSubmit={handleSubmitJson}>
                     <label>Nom<br/>
                         <input type="text" name="nom" placeholder="Doe" required/>
                     </label><br/>
