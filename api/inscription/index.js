@@ -38,7 +38,7 @@ module.exports = async function (context,req,res) {
                 login: context.req.body.nom + context.req.body.prenom // Création du Login avec le nom & prenom
             }
 
-            let sql = "INSERT INTO users(Login,Nom,Prenom,Pass,email) VALUES (?,?,?,?,?)";
+            let sql = "INSERT INTO users(Login,Nom,Prenom,Password,Email) VALUES (?,?,?,?,?)";
             con.query(sql, [insc.login,insc.nom,insc.prenom,insc.pass,insc.mail], function (err,result){
                 if (err) throw err;
                 context.res= {
