@@ -22,17 +22,23 @@ module.exports = async function (context, req) {
         let mail = context.req.body.email;
         let pwd = context.req.body.pwd;
         
-        let sql = "SELECT * FROM users WHERE Email = ? and Password = ?";
-        let reqCheckID = "SELECT ID FROM users WHERE Email = ?";
-        let reqPwd = "SELECT Password FROM users WHERE Email = ?";
+        
+        let reqCheckID = "SELECT ID FROM users WHERE Email = '" + mail + "'";
+        let reqPwd = "SELECT Password FROM users WHERE Email = '" + mail + "'";
 
-        con.query(reqCheckID, [mail], function (err, result) {
+        con.query(reqCheckID, function (err, result) {
             if (err) throw err;
-            if (result.length === 1)
-            {
-                con.query(reqPwd, [mail], function (err, resultat){
+            console.log('AAA');
+
+            if (result.length === 1){
+                con.query(reqPwd, function (err, resultat){
+
+                    console.log('BBBB');
                     if (err) throw err;
-                    let passRes = resultat[0].Pass;
+                    let passRes = resultat[0].Password;
+
+                    let sql = "SELECT * FROM users WHERE Email = '" + mail + "' and Password = '" + passRes + "'";
+
                     bcrypt.compare(pwd, passRes, (err, resp) => {
                         if (err) throw err;
                         if (!resp) {
@@ -44,7 +50,11 @@ module.exports = async function (context, req) {
                         }
                         else {
                             //let TKEN = jwt.sign({userID: result[0].ID},'JETETIENSTUMETIENSPARLABARBICHETTELEPREMIERDENOUSDEUXQUIRRIAAURAUNETAPETTE', { expiresIn: '24h'});
-                            con.query(sql, [mail, passRes],function (err, rlt) {
+                            con.query(sql,function (err, rlt) {
+
+                              
+                              console.log('HIIII');
+                              console.log(rlt);
                                 if (err) throw err;
                                 //rlt.push({token: TKEN})
                                 console.log(rlt);
@@ -66,11 +76,6 @@ module.exports = async function (context, req) {
             }
         })
       }
-
-      context.res = {
-        status: 200,
-        body : rlt
-      } 
 
     } catch(error) {
       const err = JSON.stringify(error);
