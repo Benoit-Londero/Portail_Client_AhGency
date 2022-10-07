@@ -1,11 +1,11 @@
 const mysql = require('mysql');
 const fs = require('fs');
-const {conn} = require('../db/db.js');
+const {con} = require('../db/db.js');
+const bcrypt = require("bcrypt");
 
 module.exports = async function (context, req) {
     try {
-
-      conn.connect(
+      con.connect(
         function (err){
           if(err){
             console.log("!!! Cannot connect !!! Error:")
@@ -19,43 +19,48 @@ module.exports = async function (context, req) {
       )
 
       function form(){
-          let mail = req.body.email;
-        let pwd = req.body.pwd;
+        let mail = context.req.body.email;
+        let pwd = context.req.body.pwd;
         
-        let sql = "SELECT * FROM users WHERE email = ? and Pass = ?";
-        let reqCheckID = "SELECT ID FROM users WHERE email = ?";
-        let reqPwd = "SELECT Pass FROM users WHERE email = ?";
+        let sql = "SELECT * FROM users WHERE Email = ? and Password = ?";
+        let reqCheckID = "SELECT ID FROM users WHERE Email = ?";
+        let reqPwd = "SELECT Password FROM users WHERE Email = ?";
 
-        console.log(req.body);
-
-        conn.query(reqCheckID, [mail], function (err, result) {
+        con.query(reqCheckID, [mail], function (err, result) {
             if (err) throw err;
             if (result.length === 1)
             {
-                conn.query(reqPwd, [mail], function (err, resultat){
+                con.query(reqPwd, [mail], function (err, resultat){
                     if (err) throw err;
                     let passRes = resultat[0].Pass;
                     bcrypt.compare(pwd, passRes, (err, resp) => {
                         if (err) throw err;
                         if (!resp) {
                             console.log('nul');
-                            res.status(401).json({ message: 'mauvais mot de passe' });
+                            context.res = {
+                              status :401,
+                              body: 'mauvais mot de passe' 
+                            };
                         }
                         else {
                             //let TKEN = jwt.sign({userID: result[0].ID},'JETETIENSTUMETIENSPARLABARBICHETTELEPREMIERDENOUSDEUXQUIRRIAAURAUNETAPETTE', { expiresIn: '24h'});
-                            conn.query(sql, [mail, passRes],function (err, rlt) {
+                            con.query(sql, [mail, passRes],function (err, rlt) {
                                 if (err) throw err;
                                 //rlt.push({token: TKEN})
                                 console.log(rlt);
-                                res.status(200).json(rlt);
-                            });
+                                context.res = {
+                                  status: 200,
+                                  body : rlt
+                            }});
                         }
                     })
                 })
             }
             else {
-                res.status(401).json({message: 'mauvais mail'});
-                console.log(res.statusCode);
+                context.res = {
+                  status: 401,
+                  body : 'mauvais mail'
+                };
             }
         })
       }

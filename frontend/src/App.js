@@ -47,17 +47,31 @@ function App() {
   sessionStorage.setItem("currentHeureREST", heureRest);
   sessionStorage.setItem("currentRole", role);
   sessionStorage.setItem("currentToken", token);
-  
+
 
   const handleSubmit = e => {
+
     e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
+
     let logForm = document.getElementById('logForm'); //on récupère l'élement <form> et ces différents <input>
     let myform = new FormData(logForm); //que l'on intègre à un formData
+
+    const conJSON = buildJsonFormData(myform);
+
+    //On crée une boucle pour transformer le FormData en JSON
+    function buildJsonFormData(myform){
+      const jsonFormData = {};
+      for(const pair of myform){
+          jsonFormData[pair[0]] = pair[1];
+      }
+
+      return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+    }
 
     fetch('/api/form', { 
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: myform
+      body: JSON.stringify(conJSON)
     })
 
     .then(res => res.json())
