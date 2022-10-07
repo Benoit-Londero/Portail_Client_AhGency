@@ -66,10 +66,10 @@ module.exports = async function (context, req) {
         })
       }
 
-/*       context.res = {
+      context.res = {
         status: 200,
-        body : `Request succeed`
-      }; */
+        body : rlt
+      } 
 
     } catch(error) {
       const err = JSON.stringify(error);
