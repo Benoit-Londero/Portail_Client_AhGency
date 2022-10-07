@@ -51,8 +51,9 @@ export default function Inscription() {
         console.log(jsonForm);
 
         fetch('/api/inscription', {
-            method: 'post',
-            body: jsonForm
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(jsonForm)
         })
         .then( response =>{
             e.target.reset();
