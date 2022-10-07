@@ -52,7 +52,6 @@ module.exports = async function (context, req) {
                             //let TKEN = jwt.sign({userID: result[0].ID},'JETETIENSTUMETIENSPARLABARBICHETTELEPREMIERDENOUSDEUXQUIRRIAAURAUNETAPETTE', { expiresIn: '24h'});
                             con.query(sql,function (err, rlt) {
 
-                              
                               console.log('HIIII');
                               console.log(rlt);
                                 if (err) throw err;
@@ -62,7 +61,7 @@ module.exports = async function (context, req) {
                                 context.res = {
                                   status: 200,
                                   headers:{ "Content-Type": "application/json" },
-                                  body : rlt
+                                  body : JSON.stringify(rlt)
                             }});
                         }
                     })
