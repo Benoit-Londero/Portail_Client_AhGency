@@ -46,13 +46,10 @@ module.exports = async function (context,req,res) {
                     body: result
                 };
             });
-        }
+    }
 
         context.res = {
             status: 200,
             body : `Request succeed`
         };
-      
-
-
   };
