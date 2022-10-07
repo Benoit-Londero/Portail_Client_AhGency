@@ -48,6 +48,7 @@ module.exports = async function (context, req) {
                                 if (err) throw err;
                                 //rlt.push({token: TKEN})
                                 console.log(rlt);
+                                console.log('Vous êtes connecté');
                                 context.res = {
                                   status: 200,
                                   body : rlt
@@ -65,11 +66,10 @@ module.exports = async function (context, req) {
         })
       }
 
-      context.res = {
+/*       context.res = {
         status: 200,
         body : `Request succeed`
-      };
-    
+      }; */
 
     } catch(error) {
       const err = JSON.stringify(error);
