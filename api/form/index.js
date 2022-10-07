@@ -51,6 +51,7 @@ module.exports = async function (context, req) {
                                 console.log('Vous êtes connecté');
                                 context.res = {
                                   status: 200,
+                                  headers:{ "Content-Type": "application/json" },
                                   body : rlt
                             }});
                         }
