@@ -8,6 +8,8 @@ module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     try {
+      let reponse = '';
+
       con.connect(
         function (err){
           if(err){
@@ -48,10 +50,7 @@ module.exports = async function (context, req) {
                                   console.log('Vous êtes connecté'); 
                                   console.log(lareponse);
 
-                                  context.res = {
-                                    Headers: {"Content-Type": "application/json"},
-                                    body: lareponse
-                                }
+                                  reponse += lareponse;
                               });
                           }
                       })
@@ -70,7 +69,7 @@ module.exports = async function (context, req) {
     )
 
   context.res = {
-    body : 'Yeah'
+    body : ['yeah']
   }
 
   }
