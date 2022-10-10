@@ -68,8 +68,10 @@ module.exports = async function (context, req) {
 
     )
 
+  jsiion = {pwd: "123456"}
+
   context.res = {
-    body : JSON.stringify('yeah')
+    body : JSON.stringify(jsiion)
   }
 
   }
