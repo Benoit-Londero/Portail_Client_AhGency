@@ -9,9 +9,10 @@
       "route": "form"
     },
     {
+      "name": "res",
       "type": "http",
       "direction": "out",
-      "name": "res"
+      "path": "../frontend/app"
     }
   ]
 }
