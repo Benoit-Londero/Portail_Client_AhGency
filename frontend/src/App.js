@@ -27,7 +27,7 @@ function App() {
   const [heureTotal, setHeureTotal] = useState();
   const [heureRest, setHeureRest] = useState();
   const [role, setRole] = useState();
-  const [token, setToken] = useState();
+  const [token] = useState();
 
   const [data, setData] = useState('');
 
@@ -76,7 +76,7 @@ function App() {
 
     .then(res => res.json())
     .then(json => {if(json.length === 1) {
-      setIdU(json[0].ID);
+      /* setIdU(json[0].ID);
       setUsr(json[0].Login); 
       setNom(json[0].Nom); 
       setPrenom(json[0].Prenom);
@@ -85,7 +85,7 @@ function App() {
       setHeureRest(json[0].heures_restantes);
       setRole(json[0].Role);
       setToken(json[1].token);
-      setErreur(false);
+      setErreur(false); */
       setLogin(true);
 
     }

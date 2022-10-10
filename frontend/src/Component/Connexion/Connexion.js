@@ -24,7 +24,6 @@ export default function Connexion(props) {
         }
     }, [login, navigate])
     
-
   return (
     <div id="page_connexion">
         <Container>
