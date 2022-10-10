@@ -8,8 +8,6 @@ module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
     try {
-      let reponse = '';
-
       con.connect(
         function (err){
           if(err){
@@ -39,6 +37,10 @@ module.exports = async function (context, req) {
                           if (err) throw err;
                           if (!resp) {
                               console.log('nul');
+                              context.res = {
+                                status :401,
+                                body: 'mauvais mot de passe' 
+                              };
                           }
                           else {
                               con.query(sql,function (err, rlt) {
@@ -50,7 +52,7 @@ module.exports = async function (context, req) {
                                   console.log('Vous êtes connecté'); 
                                   console.log(lareponse);
 
-                                  reponse += lareponse;
+                                  
                               });
                           }
                       })
@@ -65,15 +67,14 @@ module.exports = async function (context, req) {
             })
           }
         }
-
+        
+    
     )
-
-  jsiion = {pwd: "123456"}
-
-  context.res = {
-    body : JSON.stringify(jsiion)
+  
+    context.res = {
+      Headers: {"Content-Type": "application/json"},
+      body: 'yeah'
   }
-
   }
       
       catch(error) {

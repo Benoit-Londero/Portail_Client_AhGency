@@ -75,7 +75,7 @@ function App() {
     })
 
     .then(res => res.json())
-    .then(json => {if(json.length === 1) {
+    .then(json => {if(json === 'yeah') {
       /* setIdU(json[0].ID);
       setUsr(json[0].Login); 
       setNom(json[0].Nom); 
