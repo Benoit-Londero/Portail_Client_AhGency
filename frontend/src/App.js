@@ -75,7 +75,7 @@ function App() {
     })
 
     .then(res => res.json())
-    .then(json => {if(json === 'yeah') {
+    .then(setLogin(true))
       /* setIdU(json[0].ID);
       setUsr(json[0].Login); 
       setNom(json[0].Nom); 
@@ -86,12 +86,8 @@ function App() {
       setRole(json[0].Role);
       setToken(json[1].token);
       setErreur(false); */
-      setLogin(true);
+      
 
-    }
-    else {
-        setErreur(true)
-    }})
     .catch(err => console.info(err))
   }
 
