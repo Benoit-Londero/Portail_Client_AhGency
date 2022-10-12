@@ -12,7 +12,7 @@ export default function Deconnexion(props) {
         resetLogin();
         navigate('/')
 
-    }, [])
+    }, [navigate,resetLogin])
 
   return (
     <div></div>
