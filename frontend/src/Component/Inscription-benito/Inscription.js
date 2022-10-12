@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import './Inscription.css';
 
@@ -9,19 +9,39 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export default function Inscription() {
+
     const navigate = useNavigate();
 
-    const handleSubmit = e => {
-        e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
-        let inscForm = document.getElementById('inscForm'); //on récupère l'élement <form> et ces différents <input>
-        let myInscr = new FormData(inscForm); //que l'on intègre à un formData
-        
-        console.log(myInscr);
+    const handleSubmitJson = e => {
 
-        fetch('/api/inscription', { method: 'POST', body: myInscr })
-        .then(res => res.json())
-        .then(navigate('/'))
-        .catch(err => console.info(err))
+        e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
+        
+        let inscForm = document.querySelector('form'); //on récupère l'élement <form> et ces différents <input>
+        let myInscr = new FormData(inscForm); //que l'on intègre à un formData
+
+        const jsonForm = buildJsonFormData(myInscr)
+
+        //On crée une boucle pour transformer le FormData en JSON
+        function buildJsonFormData(myInscr){
+            const jsonFormData = {};
+            for(const pair of myInscr){
+                jsonFormData[pair[0]] = pair[1];
+            }
+
+            return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+        }
+        //console.log(jsonForm);
+
+        fetch('/api/inscription', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(jsonForm)
+        })
+        .then( response =>{
+            e.target.reset();
+        })
+        .then(navigate('/')) // On redirige vers le form de connexion
+        .catch(err =>console.info(err));
     }
 
   return (
@@ -30,7 +50,7 @@ export default function Inscription() {
             <Row className="inscription_form">
                 <Col lg={12}>
                     <h1>CREER MON COMPTE</h1>
-                <form id="inscForm" onSubmit={handleSubmit}>
+                <form id="inscForm" onSubmit={handleSubmitJson}>
                     <label>Nom<br/>
                         <input type="text" name="nom" placeholder="Doe" required/>
                     </label><br/>

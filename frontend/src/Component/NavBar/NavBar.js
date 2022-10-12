@@ -8,31 +8,28 @@ import logo from '../../img/logo_ahgency.png';
 function NavBar(){
 
      const [menu, setMenu] = useState([]);
-     const currentRole = sessionStorage.getItem("currentRole");
-     const currentName = sessionStorage.getItem("currentNOM");
-     const currentPname = sessionStorage.getItem("currentPNOM");
+     const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
+     const currentName = (localStorage.getItem("currentNOM").replaceAll('"',''));
+     const currentPname = (localStorage.getItem("currentPNOM").replaceAll('"',''));
 
-     
      useEffect(() => {
-
-      const LoadMenu = () => {
+          LoadMenu();
+          console.log('i fire once')
+      }, []);
+  
+     const LoadMenu = () => {
         if (currentRole !== "administrator") {
             SidebarData.filter(recherche => recherche.admin === false).map((donnee) => setMenu(menu => [...menu, donnee]));
         } else {
             SidebarData.map((donnee) => setMenu(menu => [...menu, donnee]));
         }
-      }
-          LoadMenu();
-          console.log('i fire once')
-      }, [currentRole]);
-  
-           
+      }      
         
       return (
           <div className="s-sidebar__nav">
 
                 <div id="gen_settings">
-                    <img alt="Logo_AhGency" src={logo}></img>
+                    <img src={logo}></img>
                     <p className="name">{currentName} {currentPname}<br></br><span className="role">{currentRole}</span></p>
                 </div>
 
@@ -49,7 +46,7 @@ function NavBar(){
                           )})
                     }
                 
-                { currentRole === 'administrator' ? <h2>Administration</h2> : ''}
+                { currentRole === 'administrator' ? <h2>Administration</h2> : null}
                     {
                       menu.filter(menu => menu.category === 'admin').map((item, index) => {
                           return ( <li key = { index }>

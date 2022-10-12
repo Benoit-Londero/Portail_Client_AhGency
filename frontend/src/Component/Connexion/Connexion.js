@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Connexion.css';
+import { useLocalStorage } from '../../useLocalStorage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
@@ -17,15 +18,18 @@ export default function Connexion(props) {
     const erreur = props.erreur;
     const login = props.login;
 
+
     useEffect(() => {
         if (login === true )
         {
             navigate('/Home')
         }
-    }, [login, navigate])
+    }, [login])
     
+
   return (
     <div id="page_connexion">
+        
         <Container>
             <Row className="connexion_form">
                 <Col lg={12}>

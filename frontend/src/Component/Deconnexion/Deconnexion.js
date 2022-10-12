@@ -8,11 +8,11 @@ export default function Deconnexion(props) {
     const resetLogin = props.resetLogin;
 
     useEffect(() => {
-        sessionStorage.clear();
+        localStorage.clear();
         resetLogin();
         navigate('/')
 
-    }, [navigate,resetLogin])
+    }, [])
 
   return (
     <div></div>

@@ -11,16 +11,17 @@ export default function ViewAll() {
 
      const [alltasks, setAllTasks] = useState([]);
      const [clients, setClients] = useState([]);
+     const [idClient, setIdClient] = useState();
      const [filtredtasks, setFiltredtasks] = useState(null);
      
      useEffect (() => {
 
-          fetch('/api/viewall', {method: 'GET'})
+          fetch('/api/viewall')
                .then(res => res.json())
                .then(json => setAllTasks(json))
                .catch(err => console.info(err))
 
-          fetch('/api/clientviewa', {method: 'GET'})
+          fetch('/api/clientviewa')
                .then(res => res.json())
                .then(json => setClients(json))
                .catch(err => console.info(err))
@@ -33,9 +34,9 @@ export default function ViewAll() {
 
      function handleTasks(e) {
           let theClient = e.target.value;
-          theClient !== "all" 
-               ? setFiltredtasks(filtertask(theClient)) 
-               : setFiltredtasks(alltasks);
+          console.log(theClient);
+          theClient !== "all" ? setFiltredtasks(filtertask(theClient)) : setFiltredtasks(alltasks);
+          theClient === "all" ? setIdClient('') : setIdClient(theClient);
      }
 
      
@@ -63,19 +64,38 @@ export default function ViewAll() {
                     <table>
                          <thead>
                               <tr>
+                              <td><h2>Données horaires</h2></td>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <tr>
+                                   <td>Minutes Totales : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Achetees)}</td>
+                                   <td>Minutes Restantes : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Restantes)}</td>
+                              </tr>
+                         </tbody>
+                    </table>
+               </Col>
+          </Row>
+          <Row className="customer_card_all timesheet">
+               <Col>
+               
+                    <table>
+                         <thead>
+                              <tr>
                               <td><h2>Timesheet</h2></td>
                               </tr>
                          </thead>
                          <tbody>
 
                          {filtredtasks && filtredtasks.map((item,index) => {
-                         var date = Moment(item.date).format('DD-MM-YYYY');
+                         var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
                          return (
                               <tr key={index}>
-                                   <td className='fst_col'><p className="tasks">{ item.informations}</p></td>
+                                   <td><p>{ item.Titre}</p></td>
+                                   <td className='fst_col'><p className="tasks">{ item.Informations}</p></td>
                                    <td><p>{date}</p></td>
-                                   <td><p>{item.time === '' ? 'en cours' : item.time + ' min'} </p></td>
-                                   <td><p className="developer"> {item.developpeur}</p></td>
+                                   <td><p>{item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                   <td><p className="developer"> {item.Agent}</p></td>
                               </tr>
                               )
                          })}

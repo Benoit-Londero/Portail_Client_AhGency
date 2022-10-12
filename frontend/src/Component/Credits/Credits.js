@@ -3,9 +3,9 @@ import NavBar from '../NavBar/NavBar.js';
 
 export default function Boutique() {
 
-     const currentNOM = sessionStorage.getItem("currentNOM");
-     const currentMAIL = sessionStorage.getItem("currentMAIL");
-     const currentRole = sessionStorage.getItem("currentRole");
+     const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
+     const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
+     const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
 
      console.log(currentRole);
      console.log(currentNOM);
@@ -18,7 +18,8 @@ export default function Boutique() {
                
                <stripe-pricing-table pricing-table-id="prctbl_1LmYYuKlBZDgS2fNGsBqBD0A"
                publishable-key="pk_test_51JPNMRKlBZDgS2fN3K4QCPMI17QNsbXjNgIRTxSpl6YX01ZvRMGH68W8M2INZUwvdWzIoDGo5uKzmZzN21PSNvYX00jWbaWGea"
-               client-reference-id={currentMAIL}>
+               client-reference-id={currentMAIL}
+               customer-email={currentMAIL}>
                </stripe-pricing-table>
          </div>
 

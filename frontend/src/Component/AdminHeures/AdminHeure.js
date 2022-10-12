@@ -25,6 +25,7 @@ export default function AdminHeure() {
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.info(err))
+        .then(alert('Données enregistrées'))
     }
 
 

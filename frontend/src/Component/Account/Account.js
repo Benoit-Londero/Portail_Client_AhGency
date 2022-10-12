@@ -11,11 +11,15 @@ import { ImMail4 } from "react-icons/im";
 
 export default function NameForm(props) {
 
+
+     const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
+     const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
+     const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
+
      const identity= {
-          nom : 'Doe',
-          prenom : 'John',
-          mail: 'johndoe@gmail.com',
-          TVA: 'BE 123.456.789'
+          nom : currentNOM,
+          prenom : currentPNOM,
+          mail: currentMAIL
      }
 
      const contact_agc = [
@@ -48,10 +52,9 @@ export default function NameForm(props) {
                          <table className="Profil">
                               <tbody>
                                    <tr><td><RiAccountCircleFill className="account_ppic"/></td></tr>
-                                   <tr><td><p><span className="bold">Nom : </span>{identity.nom}</p></td></tr>
-                                   <tr><td><p><span className="bold">Prénom : </span>{identity.prenom}</p></td></tr>
-                                   <tr><td><p><span className="bold">Mail : </span>{identity.mail}</p></td></tr>
-                                   <tr><td><p><span className="bold">TVA : </span>{identity.TVA}</p></td></tr>
+                                   <tr><td><p className="bold">Nom : {identity.nom}</p></td></tr>
+                                   <tr><td><p className="bold">Prénom : {identity.prenom}</p></td></tr>
+                                   <tr><td><p className="bold">Mail : {identity.mail}</p></td></tr>
                                    <tr>
                                         <td><label for="pass">Modifier mon mot de passe</label><br/>
                                         <input type="password" id="pass" placeholder="********"></input></td>

@@ -12,18 +12,27 @@ import { RiAccountCircleFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Moment from "moment";
 
+import useLocalStorage from "../../useLocalStorage";
+
 export default function Home() {
 
-     const currentIDU = sessionStorage.getItem("currentIDU");
-     const currentNOM = sessionStorage.getItem("currentNOM");
-     const currentPNOM = sessionStorage.getItem("currentPNOM");
-     const currentMAIL = sessionStorage.getItem("currentMAIL");
-     const currentHeureTOT = sessionStorage.getItem("currentHeureTOT");
-     const currentHeureREST = sessionStorage.getItem("currentHeureREST");
-
      const [timesheet, setTimesheet] = useState([]);
+     const [filteredTS, setFilteredTS] = useState([]);
+     const [demande, setDemande] = useState([]);
+
+     const currentIDU = (localStorage.getItem("currentIDU").replaceAll('"',''));
+     const currentUSR= (localStorage.getItem("currentUSR").replaceAll('"',''));
+     const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
+     const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
+     const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
+     const currentHeureTOT = (localStorage.getItem("currentHeureTOT").replaceAll('"',''));
+     const currentHeureREST = (localStorage.getItem("currentHeureREST").replaceAll('"',''));
+     const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
+     //const currentToken = (localStorage.getItem("currentToken").replaceAll('"',''));
      
+     console.log(currentNOM);
      useEffect (() => {
+
           let formdataUserID = document.getElementById('monformdata');
           let dataU = new FormData(formdataUserID);
           console.log(dataU.get('currentIDUser'));
@@ -33,20 +42,11 @@ export default function Home() {
           .catch(err => console.info(err))
      }, [])
 
-     console.log(timesheet);
-     //------------------------------------CODE CHELOU BENOIT---------------------------------------
-
-               // Variables dev factures liées au profil 
-               const facts = [
-                    {reference : 'FA01229082022', date: '29.08.2022', url:'http://ahgency.be'},
-                    {reference : 'FA01329315622', date: '02.09.2022', url:'http://ahgency.be'},
-                    {reference : 'FA01498526522', date: '06.09.2022', url:'http://ahgency.be'}
-               ]
-
-               
-
-     //------------------------------------CODE CHELOU BENOIT---------------------------------------
-
+     const handleFilter = (e) => {
+          let IDTS = e.target.value;
+          let filteredData = timesheet.filter(data => data.ID_TS === parseInt(IDTS));
+          setFilteredTS(filteredData);
+     }
 
      //Calcul temps restants (On soustrait le temps dépensé au temps total)
      const timeSpend = currentHeureTOT - currentHeureREST;
@@ -54,7 +54,7 @@ export default function Home() {
      //Calcul du montant dépensé (temps dépensé)
      const money_spend = Math.round(((timeSpend/60) * 75));
 
-     const percentage = Math.round(((100*currentHeureREST) / currentHeureTOT));
+     const percentage = Math.round(((100*currentHeureREST) / currentHeureTOT));;
 
      return (
 
@@ -67,57 +67,84 @@ export default function Home() {
                <Col className="resume">
                     <RiAccountCircleFill className="PPic" />
                     <h1>Hello {currentNOM} {currentPNOM}</h1>
-
-                    {/* <p>{currentPNOM}</p>
-                        <p>{currentNOM}</p> 
-                    */}
                     <p>{currentMAIL}</p>
-                    <Link to ='/Account'><Button>Vers mon profil</Button></Link>
+                    {/* <Link to ='/Account'><Button>Vers mon profil</Button></Link> */}
                </Col>
                
                <Col className="stats">
                     <h2>Statistiques</h2>
                                       
-                    <CircularProgressbar
+                    {percentage > 10 ? <CircularProgressbar
                          value={percentage}
                          text={`${percentage}%`}
                          styles={{
                               path: {
-                                strokeLinecap: 'round',
-                                transition: 'stroke-dashoffset 0.5s ease 0s',
+                                   strokeLinecap: 'round',
+                                   transition: 'stroke-dashoffset 0.5s ease 0s',
+                                   stroke: '#6610f2'
                               },
                               // Customize the circle behind the path, i.e. the "total progress"
                               trail: {
-                                strokeLinecap: 'round',
+                                   stroke: '#e7e7e7',
+                                   strokeLinecap: 'round',
                               },
+                              
+                              text: {
+                                   transform: 'translate(-20px, 5px)',
+                                   fontSize: '15px',
+                                   fill: '#6610f2'
+                              }
                          }}
-                    />
+                    /> : <CircularProgressbar
+                    value={percentage}
+                    text={`${percentage}%`}
+                    styles={{
+                         path: {
+                              strokeLinecap: 'round',
+                              transition: 'stroke-dashoffset 0.5s ease 0s',
+                              stroke: '#FF0000'
+                         },
+                         // Customize the circle behind the path, i.e. the "total progress"
+                         trail: {
+                              stroke: '#e7e7e7',
+                              strokeLinecap: 'round',
+                         },
+                         
+                         text: {
+                              transform: 'translate(-20px, 5px)',
+                              fontSize: '15px',
+                              fill: '#FF0000'
+                         }
+                    }}
+               />}
                     
                     <p>Heures achetées : {Math.round(currentHeureTOT /60)} h</p>
                     <p className="highlight">Heures restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
                     <p><b>Total dépensé : {money_spend} €</b></p>
+                    {percentage > 10 ? null : <Link to ='/Credits'><Button>Recharger</Button></Link>}
                </Col>
 
-               <Col className="factures">
-                    <h2>Dernières factures</h2>
+               <Col className="tableauTS">
+                    <h2>Dernières taches effectuées</h2>
                     <table>
                          <thead>
                               <tr>
-                                   <th>Référence</th>
+                                   <th>Titre</th>
                                    <th>Date</th>
-                                   <th className="last-child">Action</th>
+                                   <th className="last-child">Agent</th>
                               </tr>
                          </thead>
                          <tbody>
                          {
-                              facts.map((item,index) => {
-                                   var date = Moment(item.date).format('DD-MM-YYYY');
+                              timesheet.map((item,index) => {
+                                   var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
                                    return (
                                         <tr key={index}>
-                                             <td><p className="ref">{ item.reference}</p></td>
+                                             <td><p className="ref">{ item.Titre}</p></td>
                                              
                                              <td><p>{date}</p></td>
-                                             <td className="last-child"><a href={item.url} className="PDF_ddl"><FaFileDownload /></a></td>
+                                             <td><p>{item.Agent}</p></td>
+                                             <td><button name = "Voirplus" value={item.ID_TS} onClick={handleFilter}> Voir plus </button></td>
                                         </tr>
                                    )
                               })
@@ -139,15 +166,14 @@ export default function Home() {
                          </thead>
                          <tbody>
                          {
-                              timesheet.map((item,index) => {
-                                   var date = Moment(item.date).format('DD-MM-YYYY');
+                              filteredTS.map((item,index) => {
+                                   var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
                                    return (
                                         <tr key={index}>
-                                             <td><p>{item.ID}</p></td>
-                                             <td><p className="tasks">{ item.informations}</p></td>
-                                             <td><p>{ date}</p></td>
-                                             <td><p>{ item.time === '' ? 'en cours' : item.time + ' min'} </p></td>
-                                             <td><p className="developer"> {item.developpeur}</p></td>
+                                             <td><p className="tasks">{ item.Informations}</p></td>
+                                             <td><p>{ date }</p></td>
+                                             <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                             <td><p className="developer"> {item.Agent}</p></td>
                                         </tr>
                                    )
                               })

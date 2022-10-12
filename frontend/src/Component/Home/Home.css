@@ -7,7 +7,7 @@ p {
 
 .resume,
 .stats,
-.factures,
+.tableauTS,
 .timesheet {
     height: auto;
     border-radius: 20px;
@@ -41,7 +41,7 @@ h2 {
 }
 
 .stats h2,
-.factures h2,
+.tableauTS h2,
 .timesheet h2 {
     color: black;
 }
@@ -109,20 +109,6 @@ h2 {
     margin-bottom: 40px;
 }
 
-.CircularProgressbar-path {
-    stroke: #6610f2;
-}
-
-.CircularProgressbar-text {
-    transform: translate(-20px, 5px);
-    font-size: 15px;
-    fill: #6610f2;
-}
-
-.CircularProgressbar-trail {
-    stroke: rgb(231, 231, 231);
-}
-
 .highlight {
     background-color: #6610f2;
     color: #fff;
@@ -137,26 +123,26 @@ h2 {
 /*********************************/
 
 
-/*** Tableau Factures récentes ***/
+/*** Tableau tableauTS récentes ***/
 
-.factures table {
+.tableauTS table {
     min-width: 340px;
 }
 
-.factures table th {
+.tableauTS table th {
     font-size: .5em;
     text-align: left;
 }
 
-.factures .last-child {
+.tableauTS .last-child {
     text-align: center;
 }
 
-.factures table tr {
+.tableauTS table tr {
     border: 5px solid rgb(255, 255, 255);
 }
 
-.factures table td {
+.tableauTS table td {
     font-size: .8em;
     font-weight: 300;
     vertical-align: middle;
@@ -165,7 +151,7 @@ h2 {
     line-height: 1.5em;
 }
 
-.factures a {
+.tableauTS a {
     font-size: .7em;
     border: none;
     background: #6610f2;
@@ -174,14 +160,14 @@ h2 {
     border: 2px solid #fff;
 }
 
-.factures a:hover {
+.tableauTS a:hover {
     background: #fff;
     color: #3CEFBE;
     border: 2px solid #6610f2;
 }
 
-.factures button:hover,
-.factures button:focus {
+.tableauTS button:hover,
+.tableauTS button:focus {
     background: #fff;
     color: #3CEFBE;
     border: 2px solid #6610f2;
@@ -271,7 +257,7 @@ h2 {
     
     .resume,
     .stats,
-    .factures,
+    .tableauTS,
     .timesheet {
         height: auto;
         border-radius: 20px;
@@ -301,8 +287,8 @@ h2 {
         padding: 100px 0px;
     }
     /*********************************/
-    /*** Tableau Factures récentes ***/
-    .factures table {
+    /*** Tableau tableauTS récentes ***/
+    .tableauTS table {
         min-width: 90%;
     }
     /*********************************/
