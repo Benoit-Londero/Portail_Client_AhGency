@@ -18,9 +18,29 @@ export default function Inscription() {
         
         console.log(myInscr);
 
-        fetch('/api/inscription', { method: 'POST', body: myInscr })
+        const jsonForm = buildJsonFormData(myInscr)
+
+        //On crée une boucle pour transformer le FormData en JSON
+        function buildJsonFormData(myInscr){
+            const jsonFormData = {};
+            for(const pair of myInscr){
+                jsonFormData[pair[0]] = pair[1];
+            }
+
+            return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+        }
+        //console.log(jsonForm);
+
+        fetch('/api/inscription', { 
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: myInscr 
+        })
         .then(res => res.json())
-        .then(navigate('/'))
+        .then(response=>{
+            e.target.reset();
+        })
+        .then(navigate('/'))// On redirige vers le form de connexion
         .catch(err => console.info(err))
     }
 

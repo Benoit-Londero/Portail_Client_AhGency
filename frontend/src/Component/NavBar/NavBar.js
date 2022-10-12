@@ -29,7 +29,7 @@ function NavBar(){
           <div className="s-sidebar__nav">
 
                 <div id="gen_settings">
-                    <img src={logo}></img>
+                    <img src={logo} alt="Logo_AhGency"></img>
                     <p className="name">{currentName} {currentPname}<br></br><span className="role">{currentRole}</span></p>
                 </div>
 

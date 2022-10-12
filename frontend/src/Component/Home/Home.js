@@ -7,27 +7,27 @@ import Button from 'react-bootstrap/Button';
 import NavBar from "../NavBar/NavBar";
 import "./Home.css";
 import { CircularProgressbar } from 'react-circular-progressbar';
-import { FaFileDownload } from "react-icons/fa";
+//import { FaFileDownload } from "react-icons/fa";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Moment from "moment";
 
-import useLocalStorage from "../../useLocalStorage";
+//import useLocalStorage from "../../useLocalStorage";
 
 export default function Home() {
 
      const [timesheet, setTimesheet] = useState([]);
      const [filteredTS, setFilteredTS] = useState([]);
-     const [demande, setDemande] = useState([]);
+     //const [demande, setDemande] = useState([]);
 
      const currentIDU = (localStorage.getItem("currentIDU").replaceAll('"',''));
-     const currentUSR= (localStorage.getItem("currentUSR").replaceAll('"',''));
+     //const currentUSR= (localStorage.getItem("currentUSR").replaceAll('"',''));
      const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
      const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
      const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
      const currentHeureTOT = (localStorage.getItem("currentHeureTOT").replaceAll('"',''));
      const currentHeureREST = (localStorage.getItem("currentHeureREST").replaceAll('"',''));
-     const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
+     //const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
      //const currentToken = (localStorage.getItem("currentToken").replaceAll('"',''));
      
      console.log(currentNOM);

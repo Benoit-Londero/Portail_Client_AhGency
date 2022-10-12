@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react';
 import NavBar from "../NavBar/NavBar";
 import './AdminForm.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 
 export default function AdminForm() {
 
     const [usersInfos, setUsersInfos] = useState([]);
 
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     useEffect(() => {
         fetch('/api/getUser')

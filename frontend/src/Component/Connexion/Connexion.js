@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Connexion.css';
-import { useLocalStorage } from '../../useLocalStorage';
+//import { useLocalStorage } from '../../useLocalStorage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
