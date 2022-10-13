@@ -22,6 +22,7 @@ function App() {
   const [erreur, setErreur] = useState(false);
   const [login, setLogin] = useState(false);
   
+  /* eslint-disable no-unused-vars */
   const [currentIDU, setCurrentIDU] = useLocalStorage("currentIDU","");
   const [currentUSR, setCurrentUSR] = useLocalStorage("currentUSR","");
   const [currentNOM, setCurrentNOM] = useLocalStorage("currentNOM","");
@@ -31,6 +32,7 @@ function App() {
   const [currentHeureREST, setCurrentHeureREST] = useLocalStorage("currentHeureREST","");
   const [currentRole, setCurrentRole] = useLocalStorage("currentRole","");
   const [currentToken, setCurrentToken] = useLocalStorage("currentToken","");
+  /* eslint-disable no-unused-vars */
 
   const [data, setData] = useState('');
 
