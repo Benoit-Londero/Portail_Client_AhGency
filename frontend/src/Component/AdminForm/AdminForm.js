@@ -25,7 +25,19 @@ export default function AdminForm() {
         let TSForm = document.getElementById('timesheetForm');
         let TSFormData = new FormData(TSForm);
 
-        fetch('/api/postTimesheet', {method: 'POST', body: TSFormData})
+        const conJSON = buildJsonFormData(TSFormData);
+
+        //On crée une boucle pour transformer le FormData en JSON
+        function buildJsonFormData(TSFormData){
+          const jsonFormData = {};
+          for(const pair of TSFormData){
+              jsonFormData[pair[0]] = pair[1];
+          }
+
+          return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+        }
+
+        fetch('/api/postTimesheet', {method: 'POST', body: conJSON})
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.info(err))
