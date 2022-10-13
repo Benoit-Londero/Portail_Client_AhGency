@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import './App.css';
 import Connexion from './Component/Connexion/Connexion.js'
 import Deconnexion from './Component/Deconnexion/Deconnexion.js'
@@ -95,7 +95,6 @@ function App() {
 
   return (
     <div className="App">
-      <div>{data}</div>
       <header className="App-header">            
         <Router>
             <Routes>
