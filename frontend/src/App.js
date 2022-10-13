@@ -16,6 +16,13 @@ import useLocalStorage from "./useLocalStorage";
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
+export async function connect(){
+  const response = await fetch('api/form');
+  return await response.json();
+}
+
+console.log(connect())
+
 
 function App() {
 
@@ -34,7 +41,7 @@ function App() {
   const [currentToken, setCurrentToken] = useLocalStorage("currentToken","");
   /* eslint-disable no-unused-vars */
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
 
     e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
 
@@ -53,14 +60,17 @@ function App() {
       return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
     }
 
-    fetch('/api/form', { 
+    const response = await fetch('/api/form', { 
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json', "Accept": "*/*"},
       body: JSON.stringify(conJSON)
     })
 
-    .then(res => res.json())
-    .then(json => {if(json.length === 1) {
+    const data = await response.text();
+    console.log(data)
+
+    /* .then(res => res.body)
+    /* .then(json => {if(json.length === 1) {
       setCurrentIDU(json[0].ID);
       setCurrentUSR(json[0].Login); 
       setCurrentNOM(json[0].Nom);
@@ -75,9 +85,11 @@ function App() {
 
     }
     else {
-        setErreur(true)
-    }})
-    .catch(err => console.info(err))
+        setErreur(true) 
+    }}) 
+
+    .then(console.log(res => res.text()))
+    .catch(err => console.info(err)) */
   }
 
   const resetLogin = () => {

@@ -3,12 +3,11 @@ const fs = require('fs');
 const {con} = require('../db/db.js');
 const bcrypt = require("bcrypt");
 
-module.exports = async function (context) {
+module.exports = async function (context,res) {
   context.log('JavaScript HTTP trigger function processed a request.');
 
-  let ro;
-
-  ro = await new Promise((resolve,reject) => {
+  let response;
+  response = await new Promise((resolve,reject) => {
     
     let mail = context.req.body.email;
     let pwd = context.req.body.pwd;
@@ -34,9 +33,9 @@ module.exports = async function (context) {
               console.log('Vous êtes connecté');
               console.log(JSON.stringify(rows[0]));
       
-              ro = rows[0] ? JSON.stringify(rows[0])
+              response = rows[0] ? JSON.stringify(rows[0])
                            : 'Erreur dans la réception des données';
-              resolve(ro)
+              resolve(response)
             }
           })
         })
@@ -47,6 +46,8 @@ module.exports = async function (context) {
   })
 
   context.res = {
-    body: ro
+    status: 200,
+    headers: {'Content-Type':'application/json'},
+    body: response
   }
 }

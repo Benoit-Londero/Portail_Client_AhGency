@@ -11,8 +11,7 @@
     {
       "name": "res",
       "type": "http",
-      "direction": "out",
-      "path": "../frontend/app"
+      "direction": "out"
     }
   ]
 }
