@@ -1,22 +1,18 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const fs = require('fs');
-const {conn} = require('../db/db.js');
+const {con} = require('../db/db.js');
 
 module.exports = async function (context, req) {
-    try {
+  context.log('Javascript HTTP trigger function processed a request.');
 
-      conn.connect(
-        function (err){
-          if(err){
-            console.log("!!! Cannot connect !!! Error:")
-            throw err;
-          }
-          else {
-            console.log("connection established.");
-            TSForm();
-          }
-        }
-      )
+  let addTimesheet;
+
+  addTimesheet = await new Promise((resolve,reject) => {
+    con.connect(function(err){
+      if(err) throw err;
+
+      console.log("connection established.");
+      TSForm();
 
       function TSForm(){
           let time = req.body.duree_tache;
@@ -24,33 +20,31 @@ module.exports = async function (context, req) {
           let date = req.body.date_tache;
           let tache = req.body.tache;
           let client = req.body.for_who;
+          let titre = req.body.title;
       
-          let querySQL = "INSERT INTO timesheet(ID_Client,developpeur,time,informations,date_travail) VALUES (?,?,?,?,?)";
+          let querySQL = "INSERT INTO timesheet(ID_Client,Agent,Temps_Min_Tache,Titre,Informations,Date_Tache_Effectuee) VALUES (?,?,?,?,?,?)";
       
-          let querySQL2 = "UPDATE users SET heures_restantes = heures_restantes - ? WHERE ID = ?";
+          let querySQL2 = "UPDATE users SET Minutes_Restantes = Minutes_Restantes - ? WHERE ID = ?";
 
-          con.query(querySQL, [client,developpeur,time,tache,date], function (err,result){
-               if (err) throw err;
-               res.json(result);
+          con.query(querySQL, [client,developpeur,time,titre,tache,date], function (err,result){
+            if (err) throw err;
+
+            console.log('Tache ajoutée')
           })
 
           con.query(querySQL2, [time, client], function (err, resultat) {
-               if (err) throw err;
-               return resultat;
+            if (err) throw err;
+
+            addTimesheet = 'Timesheet enregistrée sans soucis';  
+            resolve(addTimesheet);
           })
       }
-
-      context.res = {
-        status: 200,
-        body : `Request succeed`
-      };
+    })
+  })
     
+    context.res = {
+      status: 200,
+      body : addTimesheet
+    };
 
-    } catch(error) {
-      const err = JSON.stringify(error);
-      context.res = {
-        status: 500,
-        body: `Request error. ${err}`
-      };
-    }
-  };
+};

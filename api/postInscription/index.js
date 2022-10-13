@@ -10,14 +10,10 @@ module.exports = async function (context,req,res) {
 
     inscription = await new Promise((resolve,reject) => {
         con.connect(function (err){
-            if(err){
-                console.log("!!! Cannot connect !!! Error:")
-                throw err;
-            }
-            else {
-                console.log("connection established.");
-                insertUser(context);
-            }
+            if(err) throw err;
+        
+            console.log("connection established.");
+            insertUser(context);
         })
     
     function insertUser(){
