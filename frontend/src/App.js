@@ -87,7 +87,6 @@ function App() {
     .catch(err => console.info(err))
   }
 
-  
   const resetLogin = () => {
     setLogin(false);
     setCurrentIDU('');
@@ -121,8 +120,7 @@ function App() {
         </Router>
       </header>
     </div>
-  );
-  
+  ); 
 }
 
 export default App;
