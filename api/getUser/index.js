@@ -1,40 +1,23 @@
-const mysql = require('mysql');
-const fs = require('fs');
-const {con} = require('../db/db.js');
+const mysql = require('mysql2');
+const {con} = require('../db/db');
 
 module.exports = async function (context, req) {
-    try {
+    context.log('JavaScript HTTP trigger function processed a request.');
 
-      con.connect(
-        function (err){
-          if(err){
-            console.log("!!! Cannot connect !!! Error:")
-            throw err;
-          }
-          else {
-            console.log("connection established.");
-            getUser();
-          }
-        }
-      )
+    let allUsers;
 
-      function getUser(){
-        con.query('SELECT ID, Login FROM users', function (err,result){
-          if (err) throw err;
-          console.log(result);
-        });
-      }
+    allUsers = await new Promise((resolve,reject) => {
+        let query = "SELECT ID,Login FROM users WHERE Role = 'customer'";
+        req = con.query(query, function (err,rows){
+            if (err) throw err;
 
-      context.res = {
-        status: 200,
-        body : `Request succeed`
-      };
+            allUsers = rows;
+            resolve(allUsers)
+        })
+    })
 
-    } catch(error) {
-      const err = JSON.stringify(error);
-      context.res = {
-        status: 500,
-        body: `Request error. ${err}`
-      };
-    }
-  };
+    context.res = {
+        status : 200,
+        body : allUsers
+    }   
+}
