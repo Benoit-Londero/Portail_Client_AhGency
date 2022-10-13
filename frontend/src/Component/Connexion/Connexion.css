@@ -24,8 +24,8 @@
 #logForm {
     background: #fff;
     border-radius: 20px;
-    min-height: 30vh;
-    width: 30vw;
+    min-height: 0vh;
+    width: 50vw;
     margin: auto;
     box-shadow: 5px 5px 15px #ffffff9b;
     padding: 50px;
@@ -36,6 +36,7 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 50px;
+    min-width: 90%;
 }
 
 #logForm input[type="text"],
@@ -46,7 +47,8 @@
     padding: 5px 20px;
     line-height: 1.5em;
     font-size: 16px;
-    min-width: 300px;
+    width:90%;
+    min-width: 90%;
     margin-top: 10px;
     text-align: center;
 }
@@ -56,6 +58,7 @@
     color: #fff;
     border: 2px solid #6610f2;
     min-width: 60%;
+    width:80%;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 16px;
@@ -65,7 +68,7 @@
 #logForm input[type="submit"]:hover,
 #logForm input[type="submit"]:focus {
     background: #fff;
-    color: #3CEFBE;
+    color: #6610f2;
     border: 2px solid #6610f2;
 }
 
