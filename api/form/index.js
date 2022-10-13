@@ -1,4 +1,4 @@
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const fs = require('fs');
 const {con} = require('../db/db.js');
 const bcrypt = require("bcrypt");
@@ -22,6 +22,7 @@ module.exports = async function (context, req) {
     })
 
     function comparePass(){
+
       let mail = context.req.body.email;
       let pwd = context.req.body.pwd;
       
@@ -69,6 +70,8 @@ module.exports = async function (context, req) {
     context.res = {
       body: lareponse
     }
+
+    
   }
     catch(error) {
       const err = error;
@@ -78,54 +81,48 @@ module.exports = async function (context, req) {
       };
     }
 };
+
+
 */
 
 module.exports = async function (context) {
   context.log('JavaScript HTTP trigger function processed a request.');
 
-  let mail = context.req.body.email;
-  let pwd = context.req.body.pwd;
+  let ro;
 
-  let respi;
+  ro = await new Promise((resolve,reject) => {
+    
+    let mail = context.req.body.email;
+    let pwd = context.req.body.pwd;
 
-  console.log(users)
-
-  value = function(){
     let query = "SELECT * FROM users WHERE Email = '" + mail + "'";
 
-    value = con.query(query, (err,rows) => {
-    if (err) throw err
-
-    respi = rows;
-      
-    bcrypt.compare(pwd, rows[0].Password, (err, resp) => {
+    con.query(query, (err,rows) => {
       if (err) throw err;
-      if (!resp) {
-        console.log('nul');
-      }
-      else {   
-        console.log('Vous êtes connecté');
-        console.log(JSON.stringify(rows[0]));
 
-        //return JSON.stringify(rows[0]);
-        respi = JSON.stringify(rows[0]);
-      }
+      console.log('Connexion réussie');
+
+      bcrypt.compare(pwd, rows[0].Password, (err, resp) => {
+        if (err) throw err;
+        if (!resp) {
+          console.log('nul');
+          resolve('nul')
+        }
+        else {   
+          console.log('Vous êtes connecté');
+          console.log(JSON.stringify(rows[0]));
+  
+          ro = JSON.stringify(rows[0]);
+          resolve(ro)
+        }
+      })
+      
     })
   })
-  }
- 
 
-  try {
-    await value();
+  context.res = {
+    body: ro
+  }
 
-    console.log(respi)
-    
-    context.res = {
-      body: 'ha!' + respi
-    }
-  }
-  catch(err) {
-    context.log.error('ERROR', err);
-    throw err;
-  }
-};
+  console.log(ro); 
+}
