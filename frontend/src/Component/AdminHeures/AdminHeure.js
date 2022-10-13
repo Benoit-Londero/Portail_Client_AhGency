@@ -4,33 +4,47 @@ import './AdminHeure.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AdminHeure() {
-
     const [usersInfos, setUsersInfos] = useState([]);
 
     useEffect(() => {
       (async () => {
         const data = await fetch('/api/getUser');
         setUsersInfos(data);
-      })(); 
+      })();
+
+      return () =>{
+        
+      }
     }, [])
-    
-    console.log(usersInfos);
 
     const handleSubmitHeure = evt => {
         evt.preventDefault();
+
         let HForm = document.getElementById('HeureForm');
         let HFormData = new FormData(HForm);
 
-        fetch('/api/postHours', {method: 'POST', body: HFormData})
+        const conJSON = buildJsonFormData(HFormData);
+
+        //On crée une boucle pour transformer le FormData en JSON
+        function buildJsonFormData(HFormData){
+          const jsonFormData = {};
+          for(const pair of HFormData){
+              jsonFormData[pair[0]] = pair[1];
+          }
+
+          return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+        }
+
+        fetch('/api/postHours', {
+          method: 'POST', 
+          body: conJSON
+        })
         .then(res => res.json())
-        .then(json => console.log(json))
         .catch(err => console.info(err))
         .then(alert('Données enregistrées'))
     }
 
-
   return (      
-    
     <div id='adminForm'>
         <NavBar />
         <h1>Créer une nouvelle entrée</h1>
@@ -55,5 +69,4 @@ export default function AdminHeure() {
           </table>
         </form>
     </div>
-    
 )}
