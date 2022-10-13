@@ -66,11 +66,11 @@ function App() {
       body: JSON.stringify(conJSON)
     })
 
-    const data = await response.text();
+    const data = await response.json();
     console.log(data)
     
-    let session = function(data){
-        setCurrentIDU(data.ID);
+  
+        /* setCurrentIDU(data.ID);
         setCurrentUSR(data.Login); 
         setCurrentNOM(data.Nom);
         setCurrentPNOM(data.Prenom);
@@ -80,10 +80,8 @@ function App() {
         setCurrentRole(data.Role);
         //setCurrentToken(json[1].token);
         setErreur(false);
-        setLogin(true);
+        setLogin(true); */
 
-        console.log(data);
-    }
   }
 
   const resetLogin = () => {
