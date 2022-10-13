@@ -81,21 +81,9 @@ function App() {
         //setCurrentToken(json[1].token);
         setErreur(false);
         setLogin(true);
+
+        console.log(data);
     }
-
-    session = await data;
-
-    /* .then(res => res.body)
-    /* .then(json => {if(json.length === 1) {
-      
-
-    }
-    else {
-        setErreur(true) 
-    }}) 
-
-    .then(console.log(res => res.text()))
-    .catch(err => console.info(err)) */
   }
 
   const resetLogin = () => {
