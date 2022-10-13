@@ -34,15 +34,6 @@ function App() {
   const [currentToken, setCurrentToken] = useLocalStorage("currentToken","");
   /* eslint-disable no-unused-vars */
 
-  const [data, setData] = useState('');
-
-  useEffect(() =>{
-    (async function(){
-      const {text} = await( await fetch(`/api/message`)).json();
-      setData(text);
-    })();
-  });
-
   const handleSubmit = e => {
 
     e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
