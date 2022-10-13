@@ -12,22 +12,25 @@ import AdminForm from './Component/AdminForm/AdminForm.js'
 import AdminHeure from './Component/AdminHeures/AdminHeure.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
 
+import useLocalStorage from "./useLocalStorage";
+
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+
 
 function App() {
 
   const [erreur, setErreur] = useState(false);
   const [login, setLogin] = useState(false);
-
-  const [idU, setIdU] = useState();
-  const [usr, setUsr] = useState();
-  const [nom, setNom] = useState();
-  const [prenom, setPrenom] = useState();
-  const [email, setEmail] = useState();
-  const [heureTotal, setHeureTotal] = useState();
-  const [heureRest, setHeureRest] = useState();
-  const [role, setRole] = useState();
-  const [token] = useState();
+  
+  const [currentIDU, setCurrentIDU] = useLocalStorage("currentIDU","");
+  const [currentUSR, setCurrentUSR] = useLocalStorage("currentUSR","");
+  const [currentNOM, setCurrentNOM] = useLocalStorage("currentNOM","");
+  const [currentPNOM, setCurrentPNOM] = useLocalStorage("currentPNOM","");
+  const [currentMAIL, setCurrentMAIL] = useLocalStorage("currentMAIL","");
+  const [currentHeureTOT, setCurrentHeureTOT] = useLocalStorage("currentHeureTOT","");
+  const [currentHeureREST, setCurrentHeureREST] = useLocalStorage("currentHeureREST","");
+  const [currentRole, setCurrentRole] = useLocalStorage("currentRole","");
+  const [currentToken, setCurrentToken] = useLocalStorage("currentToken","");
 
   const [data, setData] = useState('');
 
@@ -37,17 +40,6 @@ function App() {
       setData(text);
     })();
   });
-
-  sessionStorage.setItem("currentIDU",idU);
-  sessionStorage.setItem("currentUSR",usr);
-  sessionStorage.setItem("currentNOM", nom);
-  sessionStorage.setItem("currentPNOM", prenom);
-  sessionStorage.setItem("currentMAIL", email);
-  sessionStorage.setItem("currentHeureTOT", heureTotal);
-  sessionStorage.setItem("currentHeureREST", heureRest);
-  sessionStorage.setItem("currentRole", role);
-  sessionStorage.setItem("currentToken", token);
-
 
   const handleSubmit = e => {
 
@@ -75,18 +67,18 @@ function App() {
     })
 
     .then(res => res.json())
-    .then(json => {if(json === 'yeah') {
-      /* setIdU(json[0].ID);
-      setUsr(json[0].Login); 
-      setNom(json[0].Nom); 
-      setPrenom(json[0].Prenom);
-      setEmail(json[0].email);
-      setHeureTotal(json[0].heures_totales); 
-      setHeureRest(json[0].heures_restantes);
-      setRole(json[0].Role);
-      setToken(json[1].token);
-      setErreur(false); */
-      
+    .then(json => {if(json.length === 1) {
+      setCurrentIDU(json[0].ID);
+      setCurrentUSR(json[0].Login); 
+      setCurrentNOM(json[0].Nom);
+      setCurrentPNOM(json[0].Prenom);
+      setCurrentMAIL(json[0].Email);
+      setCurrentHeureTOT(json[0].Minutes_Achetees); 
+      setCurrentHeureREST(json[0].Minutes_Restantes);
+      setCurrentRole(json[0].Role);
+      //setCurrentToken(json[1].token);
+      setErreur(false);
+      setLogin(true);
 
     }
     else {
@@ -98,14 +90,14 @@ function App() {
   
   const resetLogin = () => {
     setLogin(false);
-    setIdU('');
-    setUsr(''); 
-    setNom(''); 
-    setPrenom('');
-    setEmail('');
-    setHeureTotal(''); 
-    setHeureRest('');
-    setRole('');
+    setCurrentIDU('');
+    setCurrentUSR(''); 
+    setCurrentNOM(''); 
+    setCurrentPNOM('');
+    setCurrentMAIL('');
+    setCurrentHeureREST(''); 
+    setCurrentHeureREST('');
+    setCurrentRole('');
     setErreur(false);
   }
 
@@ -134,5 +126,3 @@ function App() {
 }
 
 export default App;
-
-
