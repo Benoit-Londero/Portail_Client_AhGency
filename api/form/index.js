@@ -110,7 +110,7 @@ module.exports = async function (context) {
             if (err) throw err;
             if (!resp) {
               console.log('nul');
-              resolve('nul')
+              resolve('Le mot de passe est incorrect')
             }
             else {   
               console.log('Vous êtes connecté');
