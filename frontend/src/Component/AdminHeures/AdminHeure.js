@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function AdminHeure() {
     const [usersInfos, setUsersInfos] = useState([]);
 
-    useEffect(() => {
+    /* useEffect(() => {
       const getUsers = async () => {
         const data = await fetch('/api/getUser', {
           method: 'POST',
@@ -17,6 +17,14 @@ export default function AdminHeure() {
       };
 
       getUsers();
+    }, []) */
+
+    useEffect (() => {
+
+      fetch('/api/getUser')
+        .then(res => res.json())
+        .then(json => setUsersInfos(json))
+        .catch(err => console.info(err))
     }, [])
 
     const handleSubmitHeure = evt => {
@@ -58,10 +66,13 @@ export default function AdminHeure() {
                 <td><label for="for_who">Client<span className="required">*</span></label><br></br>
                   <select id='for_who' name="for_who" required>
                     <option default disabled> Sélectionnez un client </option>
-                    {Array.isArray(usersInfos) 
+                    {/* {Array.isArray(usersInfos) 
                           ? usersInfos.map((user, index) => <option key={index} value={user.ID}>{user.Login}</option>)
                           : []
-                    }
+                    } */}
+                    {usersInfos.map((user, index) => 
+                        <option key={index} value={user.ID}>{user.Login}</option>
+                    )}
                   </select>
                 </td>
               </tr>
