@@ -16,13 +16,6 @@ import useLocalStorage from "./useLocalStorage";
 
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
-export async function connect(){
-  const response = await fetch('api/form');
-  return await response.json();
-}
-
-console.log(connect())
-
 
 function App() {
 
