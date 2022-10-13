@@ -12,12 +12,21 @@ export default function AdminForm() {
     //const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('/api/getUser')
-        .then(res => res.json())
-        .then(json => setUsersInfos(json)) 
-        .catch(err => console.info(err))  
-    }, [])
+      const getUsers = async () => {
+        const users = await fetch('/api/getUser', { 
+          method: 'GET',
+          headers: {'Content-Type': 'application/json', "Accept": "*/*"}
+        })
+      
+        const data = await users.json();
+            setUsersInfos(data);
     
+            console.log(data)
+      }
+
+      getUsers();
+    },[usersInfos]);
+            
     console.log(usersInfos);
 
     const handleSubmitTS = evt => {
