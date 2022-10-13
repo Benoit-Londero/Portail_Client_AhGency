@@ -8,10 +8,10 @@ export default function AdminHeure() {
     const [usersInfos, setUsersInfos] = useState([]);
 
     useEffect(() => {
-        fetch('/api/getUser')
-        .then(res => res.json())
-        .then(json => setUsersInfos(json)) 
-        .catch(err => console.info(err))  
+      (async () => {
+        const data = await fetch('/api/getUser');
+        setUsersInfos(data);
+      })(); 
     }, [])
     
     console.log(usersInfos);
