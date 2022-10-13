@@ -56,9 +56,10 @@ export default function AdminHeure() {
                 <td><label for="for_who">Client<span className="required">*</span></label><br></br>
                   <select id='for_who' name="for_who" required>
                     <option default disabled> Sélectionnez un client </option>
-                    {usersInfos.map((user, index) => 
-                        <option key={index} value={user.ID}>{user.Login}</option>
-                    )}
+                    {Array.isArray(usersInfos) 
+                          ? usersInfos.map((user, index) => <option key={index} value={user.ID}>{user.Login}</option>)
+                          : []
+                    }
                   </select>
                 </td>
               </tr>
