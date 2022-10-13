@@ -97,26 +97,34 @@ module.exports = async function (context) {
 
     let query = "SELECT * FROM users WHERE Email = '" + mail + "'";
 
-    con.query(query, (err,rows) => {
+    con.query(query, function (err, result) {
       if (err) throw err;
 
-      console.log('Connexion réussie');
+      if (result.length === 1){
+        con.query(query, (err,rows) => {
+          if (err) throw err;
 
-      bcrypt.compare(pwd, rows[0].Password, (err, resp) => {
-        if (err) throw err;
-        if (!resp) {
-          console.log('nul');
-          resolve('nul')
-        }
-        else {   
-          console.log('Vous êtes connecté');
-          console.log(JSON.stringify(rows[0]));
-  
-          ro = JSON.stringify(rows[0]);
-          resolve(ro)
-        }
-      })
+          console.log('Connexion réussie');
+
+          bcrypt.compare(pwd, rows[0].Password, (err, resp) => {
+            if (err) throw err;
+            if (!resp) {
+              console.log('nul');
+              resolve('nul')
+            }
+            else {   
+              console.log('Vous êtes connecté');
+              console.log(JSON.stringify(rows[0]));
       
+              ro = JSON.stringify(rows[0]);
+              resolve(ro)
+            }
+          })
+          
+        })
+      } else{
+        resolve('L\'email n\'existe pas dans notre base de donnée')
+      }
     })
   })
 
