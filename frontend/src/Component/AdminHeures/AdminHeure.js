@@ -7,10 +7,16 @@ export default function AdminHeure() {
     const [usersInfos, setUsersInfos] = useState([]);
 
     useEffect(() => {
-        const data = fetch('/api/getUser', {
+      const getUsers = async () => {
+        const data = await fetch('/api/getUser', {
           method: 'POST',
           headers: {'Content-Type:':'application/json'},
         });
+
+        setUsersInfos(data);
+      };
+
+      getUsers();
     }, [])
 
     const handleSubmitHeure = evt => {
