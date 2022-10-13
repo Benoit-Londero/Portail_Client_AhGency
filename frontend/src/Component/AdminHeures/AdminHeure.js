@@ -8,7 +8,7 @@ export default function AdminHeure() {
 
     useEffect(() => {
         const data = fetch('/api/getUser', {
-          method: POST,
+          method: 'POST',
           headers: {'Content-Type:':'application/json'},
         });
     }, [])
