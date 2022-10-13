@@ -9,11 +9,11 @@ export default function AdminHeure() {
     useEffect(() => {
       (async () => {
         const data = await fetch('/api/getUser');
-        setUsersInfos(data);
+        setUsersInfos(data.json());
       })();
 
       return () =>{
-        
+
       }
     }, [])
 
