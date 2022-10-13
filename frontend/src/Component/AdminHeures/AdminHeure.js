@@ -21,7 +21,7 @@ export default function AdminHeure() {
         let HForm = document.getElementById('HeureForm');
         let HFormData = new FormData(HForm);
 
-        fetch('/api/HeureFORM', {method: 'POST', body: HFormData})
+        fetch('/api/postHours', {method: 'POST', body: HFormData})
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.info(err))

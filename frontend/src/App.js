@@ -53,7 +53,7 @@ function App() {
       return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
     }
 
-    const response = await fetch('/api/form', { 
+    const response = await fetch('/api/postConnect', { 
       method: 'POST',
       headers: {'Content-Type': 'application/json', "Accept": "*/*"},
       body: JSON.stringify(conJSON)

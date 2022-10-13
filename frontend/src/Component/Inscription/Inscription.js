@@ -31,7 +31,7 @@ export default function Inscription() {
         }
         //console.log(jsonForm);
 
-        fetch('/api/inscription', { 
+        fetch('/api/postInscription', { 
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: jsonForm 

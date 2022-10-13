@@ -16,12 +16,12 @@ export default function ViewAll() {
      
      useEffect (() => {
 
-          fetch('/api/viewall')
+          fetch('/api/getClientTimesheet')
                .then(res => res.json())
                .then(json => setAllTasks(json))
                .catch(err => console.info(err))
 
-          fetch('/api/clientviewa')
+          fetch('/api/getAllClient')
                .then(res => res.json())
                .then(json => setClients(json))
                .catch(err => console.info(err))
@@ -39,7 +39,6 @@ export default function ViewAll() {
           theClient === "all" ? setIdClient('') : setIdClient(theClient);
      }
 
-     
      return (
      <div>
      <NavBar />

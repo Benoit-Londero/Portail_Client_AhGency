@@ -25,16 +25,15 @@ export default function AdminForm() {
         let TSForm = document.getElementById('timesheetForm');
         let TSFormData = new FormData(TSForm);
 
-        fetch('/api/TSForm', {method: 'POST', body: TSFormData})
+        fetch('/api/postTimesheet', {method: 'POST', body: TSFormData})
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.info(err))
         .then(alert('Données enregistrées'))
     }
 
-
   return (      
-    
+
     <div id='adminForm'>
         <NavBar />
         <h1>Créer une nouvelle entrée</h1>

@@ -5,16 +5,13 @@
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ],
-      "route": "timesheet"
+      "methods": ["get","post"],
+      "route": "postConnect"
     },
     {
+      "name": "res",
       "type": "http",
-      "direction": "out",
-      "name": "res"
+      "direction": "out"
     }
   ]
 }
