@@ -68,20 +68,26 @@ function App() {
 
     const data = await response.text();
     console.log(data)
+    
+    let session = function(data){
+        setCurrentIDU(data.ID);
+        setCurrentUSR(data.Login); 
+        setCurrentNOM(data.Nom);
+        setCurrentPNOM(data.Prenom);
+        setCurrentMAIL(data.Email);
+        setCurrentHeureTOT(data.Minutes_Achetees); 
+        setCurrentHeureREST(data.Minutes_Restantes);
+        setCurrentRole(data.Role);
+        //setCurrentToken(json[1].token);
+        setErreur(false);
+        setLogin(true);
+    }
+
+    session = await data;
 
     /* .then(res => res.body)
     /* .then(json => {if(json.length === 1) {
-      setCurrentIDU(json[0].ID);
-      setCurrentUSR(json[0].Login); 
-      setCurrentNOM(json[0].Nom);
-      setCurrentPNOM(json[0].Prenom);
-      setCurrentMAIL(json[0].Email);
-      setCurrentHeureTOT(json[0].Minutes_Achetees); 
-      setCurrentHeureREST(json[0].Minutes_Restantes);
-      setCurrentRole(json[0].Role);
-      //setCurrentToken(json[1].token);
-      setErreur(false);
-      setLogin(true);
+      
 
     }
     else {
