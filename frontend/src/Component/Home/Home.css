@@ -177,6 +177,19 @@ h2 {
     padding: 5px 30px;
 }
 
+.btn_ts_bottom{
+    background: #6610f2;
+    border-bottom: 4px solid #5012b6;
+    padding: 10px 30px;
+    border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    vertical-align: middle;
+}
+
 
 /*********************************/
 

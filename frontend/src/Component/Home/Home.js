@@ -33,12 +33,19 @@ export default function Home() {
      console.log(currentNOM);
      useEffect (() => {
 
+          /*  ---   CODE CHELOU & OBSOLETE QUENTIN   ---  */
+          /*
           let formdataUserID = document.getElementById('monformdata');
-          console.log(formdataUserID);
+          console.log(formdataUserID); 
+
+          <form id="monformdata"><input type="text" name="currentIDUser" value={currentIDU} readOnly hidden></input></form>
+
+          */
+          /*  --- FIN CODE CHELOU & OBSOLETE QUENTIN ---  */
 
           let dataU = {currentIDUser: currentIDU};
 
-          console.log(dataU);
+          //console.log(dataU);
 
           fetch('/api/getTimesheet', { 
                method: 'POST', 
@@ -67,7 +74,6 @@ export default function Home() {
 
      <div>
      <NavBar />
-     <form id="monformdata"><input type="text" name="currentIDUser" value={currentIDU} readOnly hidden></input></form>
      <Container id="page_dashboard">
 
           <Row>
@@ -151,7 +157,7 @@ export default function Home() {
                                              
                                              <td><p>{date}</p></td>
                                              <td><p>{item.Agent}</p></td>
-                                             <td><button name = "Voirplus" value={item.ID_TS} onClick={handleFilter}> Voir plus </button></td>
+                                             <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Voir plus </button></td>
                                         </tr>
                                    )
                               })
