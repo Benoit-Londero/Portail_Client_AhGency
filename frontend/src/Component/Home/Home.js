@@ -36,7 +36,7 @@ export default function Home() {
           let formdataUserID = document.getElementById('monformdata');
           let dataU = new FormData(formdataUserID);
           console.log(dataU.get('currentIDUser'));
-          fetch('/api/getTimesheet', { method: 'POST', body: dataU})
+          fetch('/api/getTimesheet', { method: 'POST', body: JSON.stringify(dataU)})
           .then(res => res.json())
           .then(json => setTimesheet(json))
           .catch(err => console.info(err))
