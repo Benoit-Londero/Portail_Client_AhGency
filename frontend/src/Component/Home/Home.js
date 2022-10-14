@@ -36,7 +36,7 @@ export default function Home() {
           let formdataUserID = document.getElementById('monformdata');
           console.log(formdataUserID);
 
-          let dataU = {id_user: currentIDU};
+          let dataU = {currentIDUser: currentIDU};
 
           console.log(dataU);
 
