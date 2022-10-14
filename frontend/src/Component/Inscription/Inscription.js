@@ -34,7 +34,7 @@ export default function Inscription() {
         fetch('/api/postInscription', { 
             method: 'POST',
             headers: {'Content-Type':'application/json'},
-            body: jsonForm 
+            body: JSON.stringify(jsonForm) 
         })
         .then(res => res.json())
         .then(response=>{
