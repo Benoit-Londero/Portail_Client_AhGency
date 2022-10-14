@@ -59,20 +59,22 @@ function App() {
       body: JSON.stringify(conJSON)
     })
 
+    console.log(response);
+    
     const data = await response.json();
     setCurrentIDU(data.ID);
-        setCurrentUSR(data.Login); 
-        setCurrentNOM(data.Nom);
-        setCurrentPNOM(data.Prenom);
-        setCurrentMAIL(data.Email);
-        setCurrentHeureTOT(data.Minutes_Achetees); 
-        setCurrentHeureREST(data.Minutes_Restantes);
-        setCurrentRole(data.Role);
-        //setCurrentToken(json[1].token);
-        setErreur(false);
-        setLogin(true);
+    setCurrentUSR(data.Login); 
+    setCurrentNOM(data.Nom);
+    setCurrentPNOM(data.Prenom);
+    setCurrentMAIL(data.Email);
+    setCurrentHeureTOT(data.Minutes_Achetees); 
+    setCurrentHeureREST(data.Minutes_Restantes);
+    setCurrentRole(data.Role);
+    //setCurrentToken(json[1].token);
+    setErreur(false);
+    setLogin(true);
 
-        console.log(data)
+    console.log(data)
   }
 
   const resetLogin = () => {

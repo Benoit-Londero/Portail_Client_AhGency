@@ -27,7 +27,7 @@ module.exports = async function (context,res) {
             if (err) throw err;
             if (!resp) {
               console.log('nul');
-              resolve('Le mot de passe est incorrect')
+              reject('Le mot de passe est incorrect')
             }
             else {   
               console.log('Vous êtes connecté');
@@ -40,7 +40,7 @@ module.exports = async function (context,res) {
           })
         })
       } else{
-        resolve('L\'email n\'existe pas dans notre base de donnée')
+        reject('L\'email n\'existe pas dans notre base de donnée')
       }
     })
   })
