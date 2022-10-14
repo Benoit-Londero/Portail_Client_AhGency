@@ -7,14 +7,7 @@ module.exports = async function (context, req) {
   let addHours;
 
   addHours = await new Promise((resolve,reject) => {
-    con.connect(function (err){
-      if(err) throw err;
-  
-      console.log("connection established.");
-      HeureFORM();
-    })
-
-    function HeureFORM(){
+    
       let duree = req.body.heure_achete * 60;
       let client = req.body.for_who;
       let date_achat = req.body.date_Achat;
@@ -36,7 +29,6 @@ module.exports = async function (context, req) {
         addHours = 'Heures & Achat ajoutés'
         resolve(addHours)
       })
-    }
   })
 
   context.res = {

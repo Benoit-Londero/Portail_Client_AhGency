@@ -10,14 +10,7 @@ module.exports = async function (context, req) {
   let clientviewall = [];
 
   clientviewall = await new Promise((resolve,reject) => {
-    con.connect(function(err){
-      if(err) throw err;
-      
-      console.log("connection established.");
-      clientviewa();
-    })
-      
-  function clientviewa(){
+    
     let sql = "SELECT * FROM users WHERE Role = 'customer'";
 
     con.query(sql,function(err,result){
@@ -27,7 +20,6 @@ module.exports = async function (context, req) {
       clientviewall = result;
       resolve(clientviewall);
     })
-  }
   })
 
   context.res = {

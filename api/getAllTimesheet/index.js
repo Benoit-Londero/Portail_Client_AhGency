@@ -9,14 +9,7 @@ module.exports = async function (context, req) {
   let timesheet;
 
   timesheet = await new Promise((resolve,reject) => {
-    con.connect(function (err) {
-      if(err) throw err;
-          
-      console.log("connection established.");
-      readData();
-    })
 
-    function readData(){
       con.query('SELECT * from timesheet', function (err,results){
         if (err) throw err;
         console.log(results);
@@ -28,8 +21,7 @@ module.exports = async function (context, req) {
         }
         resolve(timesheet);
       });
-    }
-  });
+    });
 
   context.res = {
     status: 200,

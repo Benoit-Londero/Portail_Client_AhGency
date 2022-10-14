@@ -9,14 +9,6 @@ module.exports = async function (context, req) {
   let timesheet;
 
   timesheet = await new Promise((resolve,reject) => {
-    con.connect(function (err) {
-      if(err) throw err;
-          
-      console.log("connection established.");
-      readData();
-    })
-
-    function readData(){
       
       let sql = "SELECT * FROM timesheet WHERE ID_Client = ?";
       let currentUser = req.body.currentIDUser;
@@ -32,7 +24,6 @@ module.exports = async function (context, req) {
         }
         resolve(timesheet);
       });
-    }
   });
 
   context.res = {
