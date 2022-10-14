@@ -17,7 +17,7 @@ h1 {
     padding: 20px;
 }
 
-.product-fiche{
+.product_fiche{
     width: 30%;
     background: #fff;
     border-radius: 15px;
@@ -27,24 +27,24 @@ h1 {
     margin-left: 3%;
 }
 
-.product-fiche h2{
+.product_fiche h2{
     color: #6610f2;
     font-size: 18px!important; 
 }
 
-.product-fiche p {
+.product_fiche p {
     color: #bbb;
     text-align: left;
     padding: 20px 0px;
 }
 
-.product-fiche .price{
+.product_fiche .price{
     color: #6610f2;
     font-size: 24px;
     font-weight: 800;
 }
 
-.product-fiche .button-credits{
+.product_fiche .button-credits{
     background: #6610f2;
     border-bottom: 4px solid #5012b6;
     padding: 10px 30px;
@@ -57,8 +57,8 @@ h1 {
     vertical-align: middle;
 }
 
-.product-fiche .button-credits:hover,
-.product-fiche .button-credits:focus{
+.product_fiche .button-credits:hover,
+.product_fiche .button-credits:focus{
     background: #fff!important;
     color: #6610f2!important;
     border-bottom: 0px!important;
