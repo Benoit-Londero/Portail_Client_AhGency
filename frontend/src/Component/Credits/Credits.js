@@ -22,47 +22,37 @@ export default function Boutique() {
                customer-email={currentMAIL}>
                </stripe-pricing-table> */}
 
-               <div>
-                    <div><img src='' alt=''></img></div>
-                    <div>
-                         <h2>Pack 10 heures</h2>
-                         <p>by ahgency creative studio</p>
+               <div class="product_fiche">
+                    <img src='' alt=''></img>
+                    <h2>Pack 10 heures</h2>
+                    <p class="price">600 €</p>
 
-                         <p>600 €</p>
-
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
                             Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
 
-                         <a href='https://buy.stripe.com/28og183lff8T9RS8wx' class="button-credits" client-reference-id={currentMAIL}
-               customer-email={currentMAIL}>Acheter 10 heures</a>
-                    </div>
+                    <a href='https://buy.stripe.com/28og183lff8T9RS8wx' class="button-credits">Acheter 10 heures</a>
                </div>
-               <div>
-                    <div><img src='' alt=''></img></div>
-                    <div>
-                         <h2>Pack 5 heures</h2>
-                         <p>by ahgency creative studio</p>
 
-                         <p>325 €</p>
+               <div class="product_fiche">
+                    <img src='' alt=''></img>
+                    <h2>Pack 5 heures</h2>
+                    <p class='price'>325 €</p>
 
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
-                            Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
+                       Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
 
-                            <a href='https://buy.stripe.com/aEU7uCdZT1i35BC8wy' class="button-credits">Acheter 5 heures</a>
-                    </div>
+                    <a href='https://buy.stripe.com/aEU7uCdZT1i35BC8wy' class="button-credits">Acheter 5 heures</a>
                </div>
-               <div>
-                    <div><img src='' alt=''></img></div>
-                    <div>
-                         <h2>Pack 1 heures</h2>
-                         <p>by ahgency creative studio</p>
 
-                         <p>75 €</p>
+               <div  class="product_fiche">
+                    <img src='' alt=''></img>
+                    <h2>Pack 1 heures</h2>
+                    <p class="price">75 €</p>
 
-                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
-                            Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
+                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
+                      Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
 
-                         <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' class="button-credits">Acheter 1 heures</a>                    </div>
+                    <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' class="button-credits">Acheter 1 heures</a>                    
                </div>
          </div>
 
