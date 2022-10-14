@@ -21,7 +21,7 @@ export default function AdminForm() {
             
     console.log(usersInfos);
 
-    const handleSubmitTS = evt => {
+    const handleSubmitTS = evt =>  {
         evt.preventDefault();
         let TSForm = document.getElementById('timesheetForm');
         let TSFormData = new FormData(TSForm);
@@ -38,7 +38,7 @@ export default function AdminForm() {
           return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
         }
 
-        fetch('/api/postTimesheet', {method: 'POST', body: conJSON})
+        fetch('/api/postTimesheet', {method: 'POST', body: JSON.stringify(conJSON)})
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.info(err))
