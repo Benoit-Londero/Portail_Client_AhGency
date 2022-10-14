@@ -31,7 +31,7 @@ export default function Boutique() {
                     <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
                             Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
 
-                    <a href='https://buy.stripe.com/28og183lff8T9RS8wx' class="button-credits">Acheter 10 heures</a>
+                    <a href='https://buy.stripe.com/28og183lff8T9RS8wx' rel="noreferrer" target="_blank" class="button-credits">Acheter 10 heures</a>
                </div>
 
                <div class="product_fiche">
@@ -42,7 +42,7 @@ export default function Boutique() {
                     <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
                        Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
 
-                    <a href='https://buy.stripe.com/aEU7uCdZT1i35BC8wy' class="button-credits">Acheter 5 heures</a>
+                    <a href='https://buy.stripe.com/aEU7uCdZT1i35BC8wy' rel="noreferrer" target="_blank" class="button-credits">Acheter 5 heures</a>
                </div>
 
                <div  class="product_fiche">
@@ -53,7 +53,7 @@ export default function Boutique() {
                     <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
                       Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
 
-                    <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' class="button-credits">Acheter 1 heures</a>                    
+                    <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' rel="noreferrer" target="_blank" class="button-credits">Acheter 1 heures</a>                    
                </div>
          </div>
 
