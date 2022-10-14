@@ -6,19 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function AdminHeure() {
     const [usersInfos, setUsersInfos] = useState([]);
 
-    /* useEffect(() => {
-      const getUsers = async () => {
-        const data = await fetch('/api/getUser', {
-          method: 'POST',
-          headers: {'Content-Type:':'application/json'},
-        });
-
-        setUsersInfos(data);
-      };
-
-      getUsers();
-    }, []) */
-
     useEffect (() => {
 
       fetch('/api/getUser')
@@ -35,6 +22,8 @@ export default function AdminHeure() {
 
         const conJSON = buildJsonFormData(HFormData);
 
+        console.log(HFormData);
+
         //On crée une boucle pour transformer le FormData en JSON
         function buildJsonFormData(HFormData){
           const jsonFormData = {};
@@ -44,6 +33,8 @@ export default function AdminHeure() {
 
           return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
         }
+
+        console.log(conJSON);
 
         fetch('/api/postHours', {
           method: 'POST', 
