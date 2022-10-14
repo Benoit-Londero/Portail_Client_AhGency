@@ -10,5 +10,9 @@
       "run": "npm start",
       "appDevserverUrl": "http://localhost:3000"
     }
+  },
+  "navigationFallback": {
+    "rewrite": "index.html",
+    "exclude": ["/images/*.{png,jpg,gif}", "/css/*"]
   }
 }
