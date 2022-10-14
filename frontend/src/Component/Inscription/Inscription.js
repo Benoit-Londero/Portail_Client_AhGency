@@ -39,8 +39,7 @@ export default function Inscription() {
         .then(res => res.json())
         .then(response=>{
             e.target.reset();
-        })
-        .then(navigate('/'))// On redirige vers le form de connexion
+        })//On redirige vers le form de connexion
         .catch(err => console.info(err))
     }
 
