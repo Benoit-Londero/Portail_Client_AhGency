@@ -34,7 +34,9 @@ export default function Home() {
      useEffect (() => {
 
           let formdataUserID = document.getElementById('monformdata');
-          let dataU = {id_user: formdataUserID};
+          console.log(formdataUserID);
+
+          let dataU = {id_user: currentIDU};
 
           console.log(dataU);
 
@@ -45,7 +47,7 @@ export default function Home() {
           .then(res => res.json())
           .then(json => setTimesheet(json))
           .catch(err => console.info(err))
-     }, [])
+     }, [currentIDU])
 
      const handleFilter = (e) => {
           let IDTS = e.target.value;
