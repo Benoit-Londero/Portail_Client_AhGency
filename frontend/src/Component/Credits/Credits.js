@@ -1,5 +1,6 @@
 import * as React from 'react';
 import NavBar from '../NavBar/NavBar.js';
+import './Credits.css';
 
 export default function Boutique() {
 
