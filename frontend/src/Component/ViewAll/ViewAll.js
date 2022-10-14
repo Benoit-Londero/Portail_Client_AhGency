@@ -16,12 +16,12 @@ export default function ViewAll() {
      
      useEffect (() => {
 
-          fetch('/api/getClientTimesheet')
+          fetch('/api/getAllTimesheet')
                .then(res => res.json())
                .then(json => setAllTasks(json))
                .catch(err => console.info(err))
 
-          fetch('/api/getAllClient')
+          fetch('/api/getAllUsers')
                .then(res => res.json())
                .then(json => setClients(json))
                .catch(err => console.info(err))
