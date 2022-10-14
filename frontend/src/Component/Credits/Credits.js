@@ -4,7 +4,7 @@ import NavBar from '../NavBar/NavBar.js';
 export default function Boutique() {
 
      const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
-     const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
+     //const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
      const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
 
      console.log(currentRole);
