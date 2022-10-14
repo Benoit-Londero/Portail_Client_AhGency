@@ -38,7 +38,7 @@ export default function AdminHeure() {
 
         fetch('/api/postHours', {
           method: 'POST', 
-          body: conJSON
+          body: JSON.stringify(conJSON)
         })
         .then(res => res.json())
         .catch(err => console.info(err))
