@@ -33,14 +33,18 @@ export default function Home() {
      console.log(currentNOM);
      useEffect (() => {
 
-          let formdataUserID = document.getElementById('monformdata');
-          let dataU = new FormData(formdataUserID);
-          console.log(dataU.get('currentIDUser'));
-          fetch('/api/getTimesheet', { method: 'POST', body: JSON.stringify(dataU)})
+          //let formdataUserID = document.getElementById('monformdata');
+          let dataU = { 'currentIDUSer' : currentIDU};
+
+          console.log(dataU);
+
+          fetch('/api/getTimesheet', { 
+               method: 'POST', 
+               body: JSON.stringify(dataU)})
           .then(res => res.json())
           .then(json => setTimesheet(json))
           .catch(err => console.info(err))
-     }, [])
+     }, [currentIDU])
 
      const handleFilter = (e) => {
           let IDTS = e.target.value;
@@ -60,8 +64,8 @@ export default function Home() {
 
      <div>
      <NavBar />
-     <form id="monformdata"><input type="text" name="currentIDUser" value={currentIDU} readOnly hidden></input></form>
-     <Container id="page_dashboard">
+{/*      <form id="monformdata"><input type="text" name="currentIDUser" value={currentIDU} readOnly hidden></input></form>
+ */}     <Container id="page_dashboard">
 
           <Row>
                <Col className="resume">
