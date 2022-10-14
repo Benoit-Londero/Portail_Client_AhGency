@@ -169,7 +169,7 @@ h2 {
 .tableauTS button:hover,
 .tableauTS button:focus {
     background: #fff;
-    color: #3CEFBE;
+    color: #6610f2;
     border: 2px solid #6610f2;
 }
 
@@ -179,15 +179,17 @@ h2 {
 
 .btn_ts_bottom{
     background: #6610f2;
-    border-bottom: 4px solid #5012b6;
-    padding: 10px 30px;
+    border: none;
+    border-bottom: 4px solid #5012b6!important;
     border-radius: 10px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 10px;
-    text-transform: uppercase;
+    color: #fff!important;
+    font-size: 11px;
     letter-spacing: 2px;
+    padding: 2px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
     vertical-align: middle;
+    height: 30px;
 }
 
 
