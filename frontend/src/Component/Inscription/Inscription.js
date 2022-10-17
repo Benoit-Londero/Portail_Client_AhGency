@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 import './Inscription.css';
@@ -11,7 +11,7 @@ import Col from 'react-bootstrap/Col';
 export default function Inscription() {
     //const navigate = useNavigate();
 
-    const [message, setMessage] = useState(false)
+    const [message, setMessage] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
@@ -46,6 +46,7 @@ export default function Inscription() {
         .catch(err => console.info(err))
     }
 
+    console.log(message);
   return (
     <div id="page_inscription">
         <Container>
