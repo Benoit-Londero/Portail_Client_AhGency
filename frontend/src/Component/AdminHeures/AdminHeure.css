@@ -1,3 +1,8 @@
+#hourForm{
+     width:80vw;
+     padding-top:9vh;
+}
+
 #adminForm h1 {
      text-align: left;
      font-size: 24px;
@@ -14,7 +19,7 @@
      border:1px solid #eee;
      border-radius: 10px;
      padding:20px;
-     width:80vw;
+     width:100%;
      margin-left:20vw;
      box-shadow: 5px 5px 10px rgba(189, 229, 244, 0.4);
 }

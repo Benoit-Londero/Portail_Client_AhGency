@@ -46,7 +46,7 @@ export default function AdminHeure() {
     }
 
   return (      
-    <div id='adminForm'>
+    <div id='hourForm'>
         <NavBar />
         <h1>Créer une nouvelle entrée</h1>
       
