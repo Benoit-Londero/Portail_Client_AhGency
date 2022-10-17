@@ -144,7 +144,7 @@ export default function Home() {
                               <tr>
                                    <th>Titre</th>
                                    <th>Date</th>
-                                   <th className="last-child">Agent</th>
+                                   <th className="last-child">Action</th>
                               </tr>
                          </thead>
                          <tbody>
@@ -154,9 +154,7 @@ export default function Home() {
                                    return (
                                         <tr key={index}>
                                              <td><p className="ref">{ item.Titre}</p></td>
-                                             
                                              <td><p>{date}</p></td>
-                                             <td><p>{item.Agent}</p></td>
                                              <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Voir plus </button></td>
                                         </tr>
                                    )

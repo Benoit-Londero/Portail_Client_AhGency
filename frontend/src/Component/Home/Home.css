@@ -119,9 +119,7 @@ h2 {
     padding: 5px 0px;
 }
 
-
 /*********************************/
-
 
 /*** Tableau tableauTS récentes ***/
 
@@ -192,7 +190,6 @@ h2 {
     height: 30px;
 }
 
-
 /*********************************/
 
 
@@ -260,7 +257,6 @@ h2 {
     display: none;
 }
 
-
 /* Responsive tablet */
 
 @media (min-width:756px) and (max-width:1480px) {
@@ -271,7 +267,6 @@ h2 {
 
 
 /* Responsive Mobile */
-
 
 /*********************/
 
