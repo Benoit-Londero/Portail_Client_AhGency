@@ -248,6 +248,10 @@ h2 {
     color: #444;
 }
 
+.mobile{
+    display: none;
+}
+
 
 /* Responsive tablet */
 
@@ -312,5 +316,14 @@ h2 {
         width: 100%;
         height: auto;
         margin-bottom: 200px;
+    }
+
+    #desktop{
+        display:none;
+    }
+
+
+    .mobile{
+        display:block;
     }
 }

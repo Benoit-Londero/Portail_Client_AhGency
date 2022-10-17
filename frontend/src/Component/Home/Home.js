@@ -168,10 +168,7 @@ export default function Home() {
           </Row>
 
           <Row className="timesheet">
-               <Col>
-
-                         <h2>Timesheet</h2>
-                    
+               <Col>                    
                     <table id="desktop">
                          <thead>
                               <tr>
