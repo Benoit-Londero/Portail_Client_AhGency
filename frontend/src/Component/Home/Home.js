@@ -172,7 +172,7 @@ export default function Home() {
                     <table id="desktop">
                          <thead>
                               <tr>
-                              <td colSpan="4"><h2>Timesheet</h2></td>
+                              <td colSpan="3"><h2>Timesheet</h2></td>
                               <td className="time_hrs_right"> {(Math.round((timeSpend /60)*10)/10) + " / " + Math.round((currentHeureTOT /60)*10)/10 + " H"} </td>
                               </tr>
                          </thead>
@@ -181,7 +181,7 @@ export default function Home() {
                               filteredTS.map((item,index) => {
                                    var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
                                    return (
-                                        <tr key={index}>
+                                        <tr className="detail_TS" key={index}>
                                              <td><p className="tasks">{ item.Informations}</p></td>
                                              <td><p>{ date }</p></td>
                                              <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>

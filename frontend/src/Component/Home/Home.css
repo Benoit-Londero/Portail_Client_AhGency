@@ -110,8 +110,8 @@ h2 {
 }
 
 .highlight {
-    background-color: #6610f2;
-    color: #fff;
+    background-color: #6710f21d;
+    color: #6610f2;
     border-radius: 5px;
     font-weight: 600;
     width: 70%;
@@ -218,8 +218,8 @@ h2 {
 }
 
 .timesheet .developer {
-    background-color: #6610f2;
-    color: #fff;
+    background-color:#6710f21d;
+    color: #6610f2;
     padding: 0px 20px;
     line-height: 2em;
     border-radius: 5px;
@@ -246,6 +246,14 @@ h2 {
     font-size: 14px;
     font-weight: 500;
     color: #444;
+}
+
+.details_TS:first-child{
+    width:28vw;
+}
+
+.details_TS:last-child{
+    max-width: 3vw;
 }
 
 .mobile{
