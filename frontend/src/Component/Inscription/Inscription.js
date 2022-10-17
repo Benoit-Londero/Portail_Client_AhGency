@@ -11,6 +11,8 @@ import Col from 'react-bootstrap/Col';
 export default function Inscription() {
     //const navigate = useNavigate();
 
+    const [message, setMessage] = useState(false)
+
     const handleSubmit = e => {
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
         let inscForm = document.getElementById('inscForm'); //on récupère l'élement <form> et ces différents <input>
@@ -40,6 +42,7 @@ export default function Inscription() {
         .then(response=>{
             e.target.reset();
         })//On redirige vers le form de connexion
+        .then(setMessage(true))
         .catch(err => console.info(err))
     }
 
@@ -47,7 +50,7 @@ export default function Inscription() {
     <div id="page_inscription">
         <Container>
             <Row className="inscription_form">
-                <Col lg={12}>
+                {message === false ? <Col lg={12}>
                     <h1>CREER MON COMPTE</h1>
                 <form id="inscForm" onSubmit={handleSubmit}>
                     <label>Nom<br/>
@@ -66,7 +69,8 @@ export default function Inscription() {
                 </form>
 
                 <Link to ='/'> Retourner à l'accueil</Link>
-                </Col>
+                </Col> : <Col lg={12}><h1>Merci de votre inscription, vous pouvez dès à présent vous connecter !!!</h1>
+                <Link to ='/'> Connexion</Link></Col>}
                </Row>
         </Container>
         
