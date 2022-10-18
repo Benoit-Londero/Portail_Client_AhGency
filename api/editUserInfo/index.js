@@ -3,7 +3,7 @@ const fs = require('fs');
 const {con} = require('../db/db.js');
 const bcrypt = require("bcrypt");
 
-module.exports = async function (context,res) {
+module.exports = async function (context,req,res) {
   context.log('JavaScript HTTP trigger function processed a request.');
 
   let response;
