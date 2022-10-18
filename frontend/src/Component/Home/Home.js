@@ -8,7 +8,6 @@ import NavBar from "../NavBar/NavBar";
 import "./Home.css";
 import { CircularProgressbar } from 'react-circular-progressbar';
 //import { FaFileDownload } from "react-icons/fa";
-import { RiAccountCircleFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Moment from "moment";
 
