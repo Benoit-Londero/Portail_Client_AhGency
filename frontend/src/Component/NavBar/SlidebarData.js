@@ -37,14 +37,14 @@ export const SidebarData = [
         admin: true,
         category: 'admin'
     },
-    // {
-    //     title:'Account',
-    //     path: '/Account',
-    //     icon: <FaIcons.FaUser/>,
-    //     cName: 's-sidebar__nav-link',
-    //     admin: false,
-    //     category: 'account'
-    // },
+    {
+        title:'Account',
+        path: '/Account',
+        icon: <FaIcons.FaUser/>,
+        cName: 's-sidebar__nav-link',
+        admin: false,
+        category: 'account'
+    },
     {
         title:'Achat Crédit Horaire',
         path: '/Credits',

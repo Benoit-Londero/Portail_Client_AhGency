@@ -46,7 +46,6 @@ export default function Inscription() {
         .catch(err => console.info(err))
     }
 
-    console.log(message);
   return (
     <div id="page_inscription">
         <Container>

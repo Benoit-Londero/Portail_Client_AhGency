@@ -59,10 +59,7 @@ function App() {
       body: JSON.stringify(conJSON)
     })
 
-    console.log(response.status);
-
     const data = await response.json();
-    console.log(response.status);
     if(response.status === 200){
       setCurrentIDU(data.ID);
       setCurrentUSR(data.Login); 

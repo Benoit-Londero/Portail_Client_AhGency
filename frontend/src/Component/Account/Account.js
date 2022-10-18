@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from "react";
 import './Account.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
@@ -7,14 +7,17 @@ import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { ImMail4 } from "react-icons/im";
+import * as BiIcons from "react-icons/bi";
 
 
-export default function NameForm(props) {
+export default function NameForm() {
 
+     const [edit, setEdit] = useState(false);
 
      const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
      const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
      const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
+     const currentIDU = localStorage.getItem("currentIDU");
 
      const identity= {
           nom : currentNOM,
@@ -37,6 +40,41 @@ export default function NameForm(props) {
           }
      ]
 
+     const handleClick = async () => {
+          if(edit === false)
+          {
+               setEdit(true);
+          }
+          else {
+               let editForm = document.getElementById('editForm'); //on récupère l'élement <form> et ces différents <input>
+               let dataForm = new FormData(editForm); //que l'on intègre à un formData
+
+               const conJSON = buildJsonFormData(dataForm);
+
+               //On crée une boucle pour transformer le FormData en JSON
+               function buildJsonFormData(dataForm){
+                    const jsonFormData = {};
+                    for(const pair of dataForm){
+                         jsonFormData[pair[0]] = pair[1];
+                    }
+
+                    return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+               }
+
+               const response = await fetch('/api/editUserInfo', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json', "Accept": "*/*"},
+                    body: JSON.stringify(conJSON)
+               })
+
+               const data = await response.json();
+               console.log(data);
+
+               setEdit(false);
+          }
+          
+     }
+
      return (
           <div id="page_account">
                <NavBar />
@@ -47,7 +85,7 @@ export default function NameForm(props) {
                     </Row>
 
                     <Row>
-                         <Col md={8} className="account_section">
+                         {edit === false ? <Col md={8} className="account_section">
                          <h2>Informations générales</h2>
                          <table className="Profil">
                               <tbody>
@@ -55,7 +93,7 @@ export default function NameForm(props) {
                                    <tr><td><p className="bold">Nom : {identity.nom}</p></td></tr>
                                    <tr><td><p className="bold">Prénom : {identity.prenom}</p></td></tr>
                                    <tr><td><p className="bold">Mail : {identity.mail}</p></td></tr>
-                                   <tr>
+                                   {/* <tr>
                                         <td><label for="pass">Modifier mon mot de passe</label><br/>
                                         <input type="password" id="pass" placeholder="********"></input></td>
                                    </tr>
@@ -63,17 +101,29 @@ export default function NameForm(props) {
                                    <tr>
                                         <td><label for="confpass">Confirmer nouveau mot de passe</label><br/>
                                         <input type="password" id="confpass" placeholder="********"></input></td>
-                                   </tr>
+                                   </tr> */}
 
                                    <tr>
-                                        <td><input type="submit" value="Enregistrer"/></td>
+                                        <td><button onClick={handleClick}><BiIcons.BiPencil /></button></td>
                                         <span className="clear"></span>
                                    </tr>
                               </tbody>
                          </table>
                          
                          
-                         </Col>
+                         </Col> : <Col md={8} className="account_section"><form id="editForm" onSubmit={handleClick}>
+                              <label>Nom<br/>
+                              <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/>
+                              </label><br/>
+                              <label>Prénom<br/>
+                              <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/>
+                              </label><br/>
+                              <label>Email<br/>
+                              <input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/>
+                              <input type="number" name="idu" value ={currentIDU} hidden/>
+                              </label><br/>
+                              <input type="submit" name="modifier" value="Enregistrer" />
+                         </form></Col> }
 
                          <Col md={{span: 3, offset: 1}} className="account_section my_contact">
                          <h2>Mes contacts</h2>
@@ -96,7 +146,7 @@ export default function NameForm(props) {
                          </Col>
                     </Row>
 
-                    <Row className="account_section delete_account">
+                    {/* <Row className="account_section delete_account">
                          <Col lg={12}>
                          <table >
                               <tbody>
@@ -108,7 +158,7 @@ export default function NameForm(props) {
                          </table>
 
                          </Col>
-                    </Row>
+                    </Row> */}
                </Container>        
          </div>
      )

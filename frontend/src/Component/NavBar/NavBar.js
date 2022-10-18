@@ -11,6 +11,7 @@ function NavBar(){
      const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
      const currentName = (localStorage.getItem("currentNOM").replaceAll('"',''));
      const currentPname = (localStorage.getItem("currentPNOM").replaceAll('"',''));
+     const currentMail = (localStorage.getItem("currentMAIL").replaceAll('"',''));
 
      useEffect(() => {
       const LoadMenu = () => {
@@ -29,7 +30,7 @@ function NavBar(){
 
                 <div id="gen_settings">
                     <img src={logo} alt="Logo_AhGency"></img>
-                    <p className="name">{currentName} {currentPname}<br></br><span className="role">{currentRole}</span></p>
+                    <p className="name">{currentName} {currentPname}<br></br><span>{currentMail}</span><br></br><span className="role">{currentRole}</span></p>
                 </div>
 
                <ul className="NavBar">

@@ -23,8 +23,8 @@ export default function Home() {
      const currentIDU = (localStorage.getItem("currentIDU").replaceAll('"',''));
      //const currentUSR= (localStorage.getItem("currentUSR").replaceAll('"',''));
      const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
-     const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
-     const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
+     //const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
+     //const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
      const currentHeureTOT = (localStorage.getItem("currentHeureTOT").replaceAll('"',''));
      const currentHeureREST = (localStorage.getItem("currentHeureREST").replaceAll('"',''));
      //const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
@@ -76,14 +76,7 @@ export default function Home() {
      <NavBar />
      <Container id="page_dashboard">
 
-          <Row>
-               <Col className="resume">
-                    <RiAccountCircleFill className="PPic" />
-                    <h1>Hello {currentNOM} {currentPNOM}</h1>
-                    <p>{currentMAIL}</p>
-                    {/* <Link to ='/Account'><Button>Vers mon profil</Button></Link> */}
-               </Col>
-               
+          <Row>         
                <Col className="stats">
                     <h2>Statistiques</h2>
                                       
@@ -160,6 +153,19 @@ export default function Home() {
                                    )
                               })
                          }
+                         </tbody>
+                    </table>
+               </Col>
+
+               <Col className="tableauTS">
+                    <h2>Demandes effectuées</h2>
+                    <table>
+                         <thead>
+                              <tr>
+                                   <th>EN COURS DE DEVELOPPEMENT</th>
+                              </tr>
+                         </thead>
+                         <tbody>
                          </tbody>
                     </table>
                </Col>
