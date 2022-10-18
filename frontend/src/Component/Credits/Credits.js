@@ -55,6 +55,12 @@ export default function Boutique() {
 
                     <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' rel="noreferrer" target="_blank" class="button-credits">Acheter 1 heures</a>                    
                </div>
+
+               <div id='catchow'>
+                    <h2>Toujours pas convaincu ? Ou vous avez la moindre question ?</h2>
+                    <p> N'hésitez pas à nous contacter au 02 319 29 20 ou bien à l'adresse <a href='mailto:info@ahgency.be'>info@ahgency.be</a> </p>
+                    <img src='' alt='illustration'></img>
+               </div>
          </div>
 
      )

@@ -68,8 +68,8 @@ export default function ViewAll() {
                          </thead>
                          <tbody>
                               <tr>
-                                   <td>Minutes Totales : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Achetees)}</td>
-                                   <td>Minutes Restantes : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Restantes)}</td>
+                                   <td><p>Minutes Totales : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Achetees)}</p></td>
+                                   <td><p>Minutes Restantes : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Restantes)}</p></td>
                               </tr>
                          </tbody>
                     </table>
@@ -78,7 +78,7 @@ export default function ViewAll() {
           <Row className="customer_card_all timesheet">
                <Col>
                
-                    <table>
+                    <table id="desktop">
                          <thead>
                               <tr>
                               <td><h2>Timesheet</h2></td>
@@ -100,6 +100,27 @@ export default function ViewAll() {
                          })}
                          </tbody>
                     </table>
+
+                    <div class="mobile">
+                         <h2>Timesheet</h2>
+
+                         {filtredtasks && filtredtasks.map((item,index) => {
+                              var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
+                              return(
+                              <table key={index} class="mobile">
+                                   <thead></thead>
+                                   <tbody>
+                                        <tr><td><p className="tasks">{ item.Informations}</p></td></tr>
+                                        <tr><td><p>{ date }</p></td></tr>
+                                        <tr><td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td></tr>
+                                        <tr><td><p className="developer"> {item.Agent}</p></td></tr>
+                                   </tbody>
+                              </table>)
+                         })
+                         }
+                    
+                    
+                    </div>
                </Col>
           </Row>
      </Container>
