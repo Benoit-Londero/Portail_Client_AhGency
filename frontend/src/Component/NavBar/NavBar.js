@@ -32,6 +32,7 @@ function NavBar(){
                     <img src={logo} alt="Logo_AhGency"></img>
                     <p className="name">Hello {currentName} {currentPname}
                       <br></br>
+                      <span className="role">{currentMail}</span>
                       <span className="role">{currentRole}</span>
                     </p>
                 </div>
