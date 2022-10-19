@@ -75,7 +75,7 @@ export default function Home() {
      <NavBar />
      <Container id="page_dashboard">
 
-          <h1>Hello, {currentPNOM} {currentNOM}</h1>
+          <h1>Dashboard</h1>
 
           <Row>         
                <Col className="stats">

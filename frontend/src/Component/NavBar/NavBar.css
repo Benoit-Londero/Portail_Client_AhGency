@@ -90,6 +90,7 @@
     text-align: left;
     margin-bottom: 50px;
     font-size: 2vh;
+    text-transform: capitalize;
 }
 
 .role{
