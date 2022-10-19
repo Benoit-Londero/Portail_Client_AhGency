@@ -71,7 +71,7 @@
     margin-top: 80px;
     text-align: left;
     background: #eee;
-    padding: 50px;
+    padding: 30px;
 }
 
 #catchow h2{
@@ -80,9 +80,17 @@
 
 #catchow .col-gch{
     display:inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+}
+
+#catchow .col-gch a{
+    color:#6610f2;
 }
 
 #catchow img{
     display:inline-block;
-    width:40%;
+    width: 20%;
+    margin-top: -20px;
+    margin-left: 220px;
 }
