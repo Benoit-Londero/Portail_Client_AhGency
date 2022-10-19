@@ -14,7 +14,7 @@ export default function Boutique() {
      return (
           <div id="page_boutique">
                <NavBar />
-               <h1 className="resume">Commander des heures {currentNOM}</h1>
+               <h1 className="resume">Commander des heures</h1>
 
                
               {/*  <stripe-pricing-table pricing-table-id="prctbl_1LmYYuKlBZDgS2fNGsBqBD0A"
