@@ -23,15 +23,15 @@ export default function Boutique() {
                customer-email={currentMAIL}>
                </stripe-pricing-table> */}
 
-               <div class="product_fiche">
+               <div  class="product_fiche">
                     <img src='' alt=''></img>
-                    <h2>Pack 10 heures</h2>
-                    <p class="price">600 €</p>
+                    <h2>Pack 1 heures</h2>
+                    <p class="price">75 €</p>
 
                     <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
-                            Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
+                      Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
 
-                    <a href='https://buy.stripe.com/28og183lff8T9RS8wx' rel="noreferrer" target="_blank" class="button-credits">Acheter 10 heures</a>
+                    <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' rel="noreferrer" target="_blank" class="button-credits">Acheter 1 heures</a>                    
                </div>
 
                <div class="product_fiche">
@@ -44,19 +44,19 @@ export default function Boutique() {
 
                     <a href='https://buy.stripe.com/aEU7uCdZT1i35BC8wy' rel="noreferrer" target="_blank" class="button-credits">Acheter 5 heures</a>
                </div>
-
-               <div  class="product_fiche">
+               
+               <div class="product_fiche">
                     <img src='' alt=''></img>
-                    <h2>Pack 1 heures</h2>
-                    <p class="price">75 €</p>
+                    <h2>Pack 10 heures</h2>
+                    <p class="price">600 €</p>
 
                     <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
-                      Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
+                            Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
 
-                    <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' rel="noreferrer" target="_blank" class="button-credits">Acheter 1 heures</a>                    
+                    <a href='https://buy.stripe.com/28og183lff8T9RS8wx' rel="noreferrer" target="_blank" class="button-credits">Acheter 10 heures</a>
                </div>
 
-               <div id='catchow'>
+               <div id="catchow">
                     <h2>Toujours pas convaincu ? Ou vous avez la moindre question ?</h2>
                     <p> N'hésitez pas à nous contacter au 02 319 29 20 ou bien à l'adresse <a href='mailto:info@ahgency.be'>info@ahgency.be</a> </p>
                     <img src='' alt='illustration'></img>
