@@ -1,3 +1,9 @@
+#HeureForm{
+     margin-left:15vw;
+     width:80vw;
+     padding-top:9vh;
+}
+
 #hourForm h1 {
      text-align: left;
      font-size: 24px;
@@ -14,9 +20,6 @@
      border:1px solid #eee;
      border-radius: 10px;
      padding:20px;
-     margin-left:20vw;
-     width:80vw;
-     padding-top:9vh;
      box-shadow: 5px 5px 10px rgba(189, 229, 244, 0.4);
 }
 
