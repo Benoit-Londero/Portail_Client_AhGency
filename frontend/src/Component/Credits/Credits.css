@@ -1,4 +1,13 @@
-h1 {
+#page_boutique{
+    padding-top:9vh;
+    width: 80vw!important;
+    margin-left:15vw;
+    /*box-shadow: 5px 5px 10px #BDE5F4;*/
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#page_boutique h1 {
     font-family: 'Lato';
     text-align: left;
     font-size: 1.3em;
@@ -7,15 +16,6 @@ h1 {
     font-weight: 400!important;
     color: #6610f2;
     margin-bottom: 80px;
-}
-
-#page_boutique{
-    padding-top:9vh;
-    width: 80vw!important;
-    margin-left:15vw;
-    /*box-shadow: 5px 5px 10px #BDE5F4;*/
-    border-radius: 10px;
-    padding: 20px;
 }
 
 .product_fiche{
@@ -67,14 +67,14 @@ h1 {
     border: 3px solid #6610f2!important;
 }
 
-.catchow{
+#catchow{
     margin-top: 80px;
     text-align: left;
     background: #eee;
     padding: 50px;
 }
 
-.catchow h2{
+#catchow h2{
     color: #333;
     width: 50%;
 }
