@@ -155,7 +155,13 @@ h2 {
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;
-    height: 30px;
+    height: 35px;
+}
+
+.btn_ts_bottom:hover,
+.btn_ts_bottom:focus{
+    border: 2px solid #5012b6!important;
+    color: #6610f2!important;
 }
 
 /*********************************/
