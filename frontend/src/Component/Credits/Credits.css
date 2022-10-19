@@ -120,19 +120,29 @@
     }
 
     .product_fiche{
-        width: 80%;
+        width: 100%;
         background: #fff;
         border-radius: 15px;
         padding: 20px;
         box-shadow: 7px 6px 9px 0px rgb(132 131 147 / 32%);
         display: block;
-        margin-top: 3%;
+        margin-top:5%;
+        margin-left: 0px;
     }
 
     #catchow .col-gch,
     #catchow img{
-    display: block;
-    margin-top: 20px;
-}
+        display: block;
+        margin-top: 20px;
+    }
+
+    #catchow img{
+        width: 70%;
+        margin:auto;
+    }
+
+    .resume{
+        margin:auto!important;
+    }
     
 }
