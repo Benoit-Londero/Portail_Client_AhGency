@@ -45,6 +45,8 @@ module.exports = async function (context,res) {
     })
   })
 
+  console.log(response);
+
   context.res = {
     status: 200,
     headers: {'Content-Type':'application/json'},

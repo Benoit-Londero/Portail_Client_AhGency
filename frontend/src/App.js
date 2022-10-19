@@ -72,6 +72,7 @@ function App() {
       //setCurrentToken(json[1].token);
       setErreur(false);
       setLogin(true);
+      console.log(response);
 
     } else {
       setErreur(true);
