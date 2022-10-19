@@ -44,8 +44,7 @@ export default function ViewAll() {
      <NavBar />
      <Container id="page_viewall">
           <Row>
-               <Col className="resume"><h1>Timesheet</h1></Col>
-               <Col></Col>
+               <h1>Timesheet</h1>
           </Row>
           <Row>
           <h2>Clients</h2>
