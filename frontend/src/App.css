@@ -45,3 +45,18 @@
         transform: rotate(360deg);
     }
 }
+
+h1{
+    text-align: left;
+    font-size: 24px;
+    letter-spacing: 2px;
+    font-weight: 500!important;
+    color: #6610f2;
+    padding:20px;
+    background-color: #6710f21d;
+    border-radius: 10px;
+}
+
+p {
+    font-size: 14px;
+}
