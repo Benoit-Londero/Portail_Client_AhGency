@@ -2,7 +2,7 @@ import React from 'react'
 import * as FaIcons from "react-icons/fa";
 import * as RiIcons from "react-icons/ri";
 import * as GrIcons from "react-icons/gr";
-import { MdOutlineMoreTime } from "react-icons/md";
+import * as MdIcons from "react-icons/md";
 
 //création Array pour les icones et chemin de navigation
 export const SidebarData = [
@@ -25,7 +25,7 @@ export const SidebarData = [
     {
         title:'Formulaire Achat Client',
         path: '/AdminHeure',
-        icon: { MdOutlineMoreTime },
+        icon: <MdIcons.MdOutlineMoreTime />,
         cName: 's-sidebar__nav-link admin__viewall-link',
         admin: true,
         category: 'admin'
