@@ -56,15 +56,11 @@ h2 {
     background-color: #6710f21d;
     box-shadow: none;
     text-align: left;
-}
-
-.resume p {
     color: #6610f2;
     font-size: 12px;
     line-height: 1.5em;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-align: left;
 }
 
 .PPic {

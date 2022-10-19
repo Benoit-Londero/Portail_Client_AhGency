@@ -22,7 +22,7 @@ export default function Home() {
      const currentIDU = (localStorage.getItem("currentIDU").replaceAll('"',''));
      //const currentUSR= (localStorage.getItem("currentUSR").replaceAll('"',''));
      const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
-     //const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
+     const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
      //const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
      const currentHeureTOT = (localStorage.getItem("currentHeureTOT").replaceAll('"',''));
      const currentHeureREST = (localStorage.getItem("currentHeureREST").replaceAll('"',''));
@@ -74,6 +74,8 @@ export default function Home() {
      <div>
      <NavBar />
      <Container id="page_dashboard">
+
+          <h1 class="resume">Hello, {currentPNOM} {currentNOM}</h1>
 
           <Row>         
                <Col className="stats">
