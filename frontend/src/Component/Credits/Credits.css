@@ -72,6 +72,10 @@
     border: 3px solid #6610f2!important;
 }
 
+.pdt_highlight{
+    margin-top:-20px;
+}
+
 #catchow{
     margin-top: 80px;
     text-align: left;

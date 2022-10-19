@@ -35,7 +35,7 @@ export default function Boutique() {
                     <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' rel="noreferrer" target="_blank" class="button-credits">Acheter 1 heures</a>                    
                </div>
 
-               <div class="product_fiche">
+               <div class="product_fiche pdt_highlight">
                     <img src='' alt=''></img>
                     <h2>Pack 5 heures</h2>
                     <p class='price'>325 €</p>
