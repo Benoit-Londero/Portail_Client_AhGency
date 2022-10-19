@@ -78,7 +78,7 @@
     padding: 8px 12px 8px 16px;
 }
 
-.name{
+.myinfo_nav{
     color:#212B36;
     font-weight: 500;
     background: #f2f3f5;
@@ -89,7 +89,10 @@
     margin-top: 50px;
     text-align: left;
     margin-bottom: 50px;
-    font-size: 2vh;
+    font-size: 1.3em;
+}
+
+.name{
     text-transform: capitalize;
 }
 
