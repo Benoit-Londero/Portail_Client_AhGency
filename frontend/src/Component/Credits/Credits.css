@@ -5,14 +5,15 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 400!important;
-    color: #444;
+    color: #6610f2;
+    margin-bottom: 80px;
 }
 
 #page_boutique{
     padding-top:9vh;
     width: 80vw!important;
-    margin-left:20vw;
-    box-shadow: 5px 5px 10px #BDE5F4;
+    margin-left:15vw;
+    /*box-shadow: 5px 5px 10px #BDE5F4;*/
     border-radius: 10px;
     padding: 20px;
 }
@@ -23,7 +24,7 @@ h1 {
     border-radius: 15px;
     padding: 20px;
     box-shadow: 7px 6px 9px 0px rgb(132 131 147 / 32%);
-    float:left;
+    display:inline-block;
     margin-left: 3%;
 }
 
@@ -42,6 +43,7 @@ h1 {
     color: #6610f2;
     font-size: 24px;
     font-weight: 800;
+    text-align: center;
 }
 
 .product_fiche .button-credits{
@@ -63,4 +65,16 @@ h1 {
     color: #6610f2!important;
     border-bottom: 0px!important;
     border: 3px solid #6610f2!important;
+}
+
+.catchow{
+    margin-top: 80px;
+    text-align: left;
+    background: #eee;
+    padding: 50px;
+}
+
+.catchow h2{
+    color: #333;
+    width: 50%;
 }
