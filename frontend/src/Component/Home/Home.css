@@ -20,17 +20,8 @@ p {
 
 #page_dashboard{
     width: 80vw!important;
-    margin-left: 20vw;
+    margin-left: 15vw;
     padding-top:9vh;
-}
-
-#page_dashboard .resume h1 {
-    font-family: 'Lato';
-    text-align: left;
-    font-size: 1.3em;
-    letter-spacing: 2px;
-    font-weight: 500!important;
-    color: #6610f2;
 }
 
 h2 {
@@ -46,25 +37,10 @@ h2 {
     color: black;
 }
 
-
 /***********************/
-
-
 /***** Panel User ******/
 
-.resume {
-    background-color: #6710f21d;
-    box-shadow: none;
-    text-align: left;
-    color: #6610f2;
-    font-size: 12px;
-    line-height: 1.5em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
 .PPic {
-    /*border: 2px solid #fff;*/
     color: #fff;
     min-height: 70px;
     min-width: 70px;
@@ -87,10 +63,7 @@ h2 {
 
 
 /*************************/
-
-
 /***** Statistiques ******/
-
 
 /*Progress Bar*/
 
@@ -115,8 +88,7 @@ h2 {
     padding: 5px 0px;
 }
 
-/*********************************/
-
+/**********************************/
 /*** Tableau tableauTS récentes ***/
 
 .tableauTS table {
@@ -187,8 +159,6 @@ h2 {
 }
 
 /*********************************/
-
-
 /***** Timesheet ******/
 
 .timesheet {
@@ -263,7 +233,6 @@ h2 {
 
 
 /* Responsive Mobile */
-
 /*********************/
 
 @media screen and (max-width:756px) and (orientation: portrait) {
