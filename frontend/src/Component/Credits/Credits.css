@@ -46,7 +46,8 @@
     text-align: center;
 }
 
-.product_fiche .button-credits{
+.product_fiche .button-credits,
+#catchow .btn_to_agc{
     background: #6610f2;
     border-bottom: 4px solid #5012b6;
     padding: 10px 30px;

@@ -61,6 +61,9 @@ export default function Boutique() {
                     <div class="col-gch">
                          <h2>Toujours pas convaincu ? Ou vous avez la moindre question ?</h2>
                          <p> N'hésitez pas à nous contacter au 02 319 29 20 ou bien à l'adresse <a href='mailto:info@ahgency.be'>info@ahgency.be</a> </p>
+
+                         <a href="https://www.ahgency.be" class="btn_to_agc" rel="noreferrer" target="_blank"><HiArrowNarrowLeft/>Visitez le site</a>
+
                     </div>
                     <img src={illu} alt='illustration'></img>
                </div>
