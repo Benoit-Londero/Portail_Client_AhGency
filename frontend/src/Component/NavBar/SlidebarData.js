@@ -15,7 +15,7 @@ export const SidebarData = [
         category: 'app'
     },
     {
-        title:'Formulaire Timesheet',
+        title:'Ajout timesheet',
         path: '/AdminForm',
         icon: <GrIcons.GrTableAdd />,
         cName: 's-sidebar__nav-link admin__nav-link',
@@ -23,7 +23,7 @@ export const SidebarData = [
         category: 'admin'
     },
     {
-        title:'Formulaire Achat Client',
+        title:'Ajout heures',
         path: '/AdminHeure',
         icon: <MdIcons.MdOutlineMoreTime />,
         cName: 's-sidebar__nav-link admin__viewall-link',
@@ -39,7 +39,7 @@ export const SidebarData = [
         category: 'admin'
     },
     {
-        title:'Account',
+        title:'Mon compte',
         path: '/Account',
         icon: <FaIcons.FaUser/>,
         cName: 's-sidebar__nav-link',
@@ -47,7 +47,7 @@ export const SidebarData = [
         category: 'account'
     },
     {
-        title:'Achat Crédit Horaire',
+        title:'Achat crédit',
         path: '/Credits',
         icon: <FaIcons.FaPlus/>,
         cName: 's-sidebar__nav-link',
