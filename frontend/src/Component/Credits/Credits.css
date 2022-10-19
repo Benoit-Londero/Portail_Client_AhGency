@@ -78,3 +78,12 @@
     color: #333;
     width: 50%;
 }
+
+#catchow .col_gch{
+    display:inline-block;
+}
+
+#catchow img{
+    display:inline-block;
+    width:30%;
+}

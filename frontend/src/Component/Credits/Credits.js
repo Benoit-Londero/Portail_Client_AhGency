@@ -58,8 +58,10 @@ export default function Boutique() {
                </div>
 
                <div id="catchow">
-                    <h2>Toujours pas convaincu ? Ou vous avez la moindre question ?</h2>
-                    <p> N'hésitez pas à nous contacter au 02 319 29 20 ou bien à l'adresse <a href='mailto:info@ahgency.be'>info@ahgency.be</a> </p>
+                    <div class="col-gch">
+                         <h2>Toujours pas convaincu ? Ou vous avez la moindre question ?</h2>
+                         <p> N'hésitez pas à nous contacter au 02 319 29 20 ou bien à l'adresse <a href='mailto:info@ahgency.be'>info@ahgency.be</a> </p>
+                    </div>
                     <img src={illu} alt='illustration'></img>
                </div>
          </div>
