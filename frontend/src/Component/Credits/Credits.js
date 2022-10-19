@@ -1,6 +1,7 @@
 import * as React from 'react';
 import NavBar from '../NavBar/NavBar.js';
 import './Credits.css';
+import illu from '../../img/Brainstorming_session_Monochromatic.png';
 
 export default function Boutique() {
 
@@ -59,7 +60,7 @@ export default function Boutique() {
                <div id="catchow">
                     <h2>Toujours pas convaincu ? Ou vous avez la moindre question ?</h2>
                     <p> N'hésitez pas à nous contacter au 02 319 29 20 ou bien à l'adresse <a href='mailto:info@ahgency.be'>info@ahgency.be</a> </p>
-                    <img src='../../img/Brainstorming_session_Monochromatic.png' alt='illustration'></img>
+                    <img src={illu} alt='illustration'></img>
                </div>
          </div>
 
