@@ -62,7 +62,10 @@
 }
 
 .product_fiche .button-credits:hover,
-.product_fiche .button-credits:focus{
+.product_fiche .button-credits:focus,
+#catchow .btn_to_agc:hover,
+#catchow .btn_to_agc:focus {
+
     background: #fff!important;
     color: #6610f2!important;
     border-bottom: 0px!important;
@@ -86,8 +89,16 @@
     margin-top: 20px;
 }
 
+#catchow p{
+    margin-bottom: 60px;
+}
+
 #catchow .col-gch a{
     color:#6610f2;
+}
+
+#catchow .btn_to_agc{
+    color:#fff!important;
 }
 
 #catchow img{
