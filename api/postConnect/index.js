@@ -7,7 +7,7 @@ module.exports = async function (context,res) {
   context.log('JavaScript HTTP trigger function processed a request.');
 
   let response;
-  response = await new Promise((resolve,reject) => {
+/*   response = await new Promise((resolve,reject) => {
     
     let mail = context.req.body.email;
     let pwd = context.req.body.pwd;
@@ -43,13 +43,60 @@ module.exports = async function (context,res) {
         reject('L\'email n\'existe pas dans notre base de donnée')
       }
     })
+  }) */
+
+  response = await new Promise((resolve,reject) => {
+    
+    let mail = context.req.body.email;
+    let pwd = context.req.body.pwd;
+  
+    let query = "SELECT * FROM users WHERE Email = '" + mail + "'";
+  
+    con.query(query, function (err, result) {
+      if (err){
+        console.log(err)
+        reject(err);
+      } 
+      else{
+        console.log('Step 1')
+        con.query(query, (err,rows) => {
+          if(err){
+            reject(err);
+            console.log(err);
+          }
+          else {
+            console.log('Decryptage en cours')
+            bcrypt.compare(pwd, rows[0].Password, function(err, resp) {
+              if(err){
+                reject(err);
+              }
+              console.log(resp);
+              
+              if(resp){
+                  console.log('victoire');
+                  console.log(JSON.stringify(rows[0]));
+                  response = [200, JSON.stringify(rows[0])];
+
+                  resolve(response);
+                
+                } else {
+                  console.log('sorry')
+                  response = [206, resp];
+
+                  resolve(response);
+                }
+            })
+          }
+        })
+      }
+    })
   })
 
-  console.log(response);
-
   context.res = {
-    status: 200,
+    status: response[0],
     headers: {'Content-Type':'application/json'},
-    body: response
+    body: response[1]
   }
 }
+
+
