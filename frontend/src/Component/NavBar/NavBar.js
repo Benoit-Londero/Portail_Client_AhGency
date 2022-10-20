@@ -30,7 +30,7 @@ function NavBar(){
 
                 <div id="gen_settings">
                     <img src={logo} alt="Logo_AhGency"></img>
-                    <p classname="myinfo_nav"><span className="name">Hello {currentName} {currentPname}</span>
+                    <p className="myinfo_nav"><span className="name">Hello {currentName} {currentPname}</span>
                       <br></br>
                       <span className="role">{currentMail}</span>
                       <br></br>

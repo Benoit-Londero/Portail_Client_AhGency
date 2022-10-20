@@ -43,6 +43,7 @@ export default function AdminForm() {
         .then(json => console.log(json))
         .catch(err => console.info(err))
         .then(alert('Données enregistrées'))
+        .then(fetch('s978qlou8k7k7cuiqije21kc25hixa5q@hook.eu1.make.com', {method: 'GET', }))
     }
 
   return (      
