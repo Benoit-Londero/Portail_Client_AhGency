@@ -33,6 +33,11 @@ export default function Inscription() {
         }
         //console.log(jsonForm);
 
+        fetch('https://hook.eu1.make.com/lyhgb44gpc0k244hxwi2h5udqtkq533o',{
+            method: 'POST',
+            body: JSON.stringify(jsonForm)
+        })
+
         fetch('/api/postInscription', { 
             method: 'POST',
             headers: {'Content-Type':'application/json'},
