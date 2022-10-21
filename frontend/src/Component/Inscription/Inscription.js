@@ -56,27 +56,30 @@ export default function Inscription() {
         <Container>
             <Row className="inscription_form">
                 {message === false ? <Col lg={12}>
-                    <h1>CREER MON COMPTE</h1>
-                <form id="inscForm" onSubmit={handleSubmit}>
-                    <label>Nom<br/>
-                        <input type="text" name="nom" placeholder="Doe" required/>
-                    </label><br/>
-                    <label>Prénom<br/>
-                        <input type="text" name="prenom" placeholder="John" required/>
-                    </label><br/>
-                    <label>Email<br/>
-                        <input type="email" name="email" placeholder="johndoe@mail.be" required/>
-                    </label><br/>
-                    <label>Mot de passe<br/>
-                        <input type="password" name="pass" placeholder="*********" required/>
-                    </label><br/>
-                    <input type="submit" name="inscription" value="M'inscrire" />
-                </form>
+                                        <h1>CREER MON COMPTE</h1>
+                                        <form id="inscForm" onSubmit={handleSubmit}>
+                                            <label>Nom<br/>
+                                                <input type="text" name="nom" placeholder="Doe" required/>
+                                            </label><br/>
+                                            <label>Prénom<br/>
+                                                <input type="text" name="prenom" placeholder="John" required/>
+                                            </label><br/>
+                                            <label>Email<br/>
+                                                <input type="email" name="email" placeholder="johndoe@mail.be" required/>
+                                            </label><br/>
+                                            <label>Mot de passe<br/>
+                                                <input type="password" name="pass" placeholder="*********" required/>
+                                            </label><br/>
+                                            <input type="submit" name="inscription" value="M'inscrire" />
+                                        </form>
 
-                <Link to ='/'> Retourner à l'accueil</Link>
-                </Col> : <Col lg={12}><h1>Merci de votre inscription, vous pouvez dès à présent vous connecter !!!</h1>
-                <Link to ='/'> Connexion</Link></Col>}
-               </Row>
+                                        <Link to ='/'> Retourner à l'accueil</Link>
+                                    </Col> 
+                                  :   <Col lg={12} className="thx_message">
+                                        <h1>Merci de votre inscription, vous pouvez dès à présent vous connecter !!!</h1>
+                                        <Link to ='/'> Connexion</Link>
+                                      </Col>}
+            </Row>
         </Container>
         
     </div>
