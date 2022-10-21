@@ -111,18 +111,20 @@ export default function NameForm() {
                          </table>
                          
                          
-                         </Col> : <Col md={8} className="account_section"><form id="editForm" onSubmit={handleClick}>
-                              <label>Nom<br/>
-                              <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/>
-                              </label><br/>
-                              <label>Prénom<br/>
-                              <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/>
-                              </label><br/>
-                              <label>Email<br/>
-                              <input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/>
-                              <input type="number" name="idu" value ={currentIDU} hidden/>
-                              </label><br/>
-                              <input type="submit" name="modifier" value="Enregistrer" />
+                         </Col> : <Col md={8} className="account_section">
+                              <span>La modification de vos informations de profil ne sera visible qu'après une reconnexion !!</span>
+                              <form id="editForm" onSubmit={handleClick}>
+                                   <label>Nom<br/>
+                                   <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/>
+                                   </label><br/>
+                                   <label>Prénom<br/>
+                                   <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/>
+                                   </label><br/>
+                                   <label>Email<br/>
+                                   <input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/>
+                                   <input type="number" name="idu" value ={currentIDU} hidden/>
+                                   </label><br/>
+                                   <input type="submit" name="modifier" value="Enregistrer" />
                          </form></Col> }
 
                          <Col md={{span: 3, offset: 1}} className="account_section my_contact">
