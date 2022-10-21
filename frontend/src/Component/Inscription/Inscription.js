@@ -75,9 +75,9 @@ export default function Inscription() {
 
                                         <Link to ='/'> Retourner à l'accueil</Link>
                                     </Col> 
-                                  :   <Col lg={12} className="thx_message">
-                                        <h1>Merci de votre inscription, vous pouvez dès à présent vous connecter !!!</h1>
-                                        <Link to ='/'> Connexion</Link>
+                                  :   <Col lg={12}><div className="thx_message">
+                                        <h1>Merci de votre inscription, <br></br>vous pouvez dès à présent vous connecter !!!</h1>
+                                        <Link to ='/'> Connexion</Link></div>
                                       </Col>}
             </Row>
         </Container>

@@ -72,8 +72,24 @@
 }
 
 .thx_message{
-    background: #fff;
-    width: 50vh;
-    border-radius: 20px;
-    padding:50px;
+    background: white;
+    border-radius: 25px;
+    width: 40vw;
+    margin: auto;
+    padding: 50px;
+}
+
+.thx_message h1{
+    background: none;
+    margin-bottom: 50px;
+    text-transform:none;
+}
+
+.thx_message a{
+    background: #6610f2;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border-bottom: 4px solid #3f0b94;
+    text-decoration: none;
+    margin-top: 80px;
 }
