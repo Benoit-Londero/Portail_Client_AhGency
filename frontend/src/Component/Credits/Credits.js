@@ -50,7 +50,7 @@ export default function Boutique() {
                     <img src='' alt=''></img>
                     <h2>Pack 10 heures</h2>
                     <p class="price">600 €</p>
-                    <span><p style="text-decoration: line-through;">SOIT 2H OFFERTES</p></span>
+                    <span><p class="barred">SOIT 2H OFFERTES</p></span>
 
                     <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
                             Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
