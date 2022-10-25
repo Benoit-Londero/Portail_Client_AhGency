@@ -136,3 +136,7 @@
 .btn_mail:focus {
     color: #6610f2;
 }
+
+span {
+    color: red;
+}
