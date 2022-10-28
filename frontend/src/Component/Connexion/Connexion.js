@@ -45,7 +45,8 @@ export default function Connexion(props) {
                     <input type="submit" name="Connexion" value="se connecter" />
                 </form>
 
-                <Link to ='/Inscription'> Créer un compte</Link>
+                <Col lg={12}><Link to ='/Inscription'> Créer un compte</Link></Col>
+                <Col lg={12}><Link to ='/Recuperation'> Mot de passe oublié</Link></Col>
                 
                 </Col>
             </Row>
