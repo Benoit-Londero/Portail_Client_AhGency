@@ -14,7 +14,7 @@ export default function Recuperation() {
     const [recupEmail, setRecupEmail] = useState();
     const [messageValidation, setMessageValidation] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
         console.log(recupEmail);
         let mdpForm = document.getElementById('mdpForm');
@@ -33,12 +33,22 @@ export default function Recuperation() {
         }
         
 
-        fetch('/api/recuperation', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(jsonForm) })
-        .then(setMessageValidation(true))
-        .then(res => res.json())
-        .then(json => console.log(json))
-        .catch(err => console.info(err))
+        const response = await fetch('/api/recuperation', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(jsonForm) });
+        const reset = await response.json();
+        console.log(reset);
+        
+        if(response.status === 200){
+            setMessageValidation(true);
+            console.log('je trigger');
+            fetch('https://hook.eu1.make.com/2kri242ac2ssrozcnb44z0zc72j03nck', { method: 'POST', body: JSON.stringify(reset) }); 
+        }else {
+            setMessageValidation(false);
+            alert("une erreur est survenue, merci de réessayer plus tard");
+        }
     }
+
+    
+
 
     const handleChange = (e) => {
         setRecupEmail(e.target.value);

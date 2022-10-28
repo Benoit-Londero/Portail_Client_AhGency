@@ -112,7 +112,7 @@ export default function NameForm() {
                          
                          
                          </Col> : <Col md={8} className="account_section">
-                              <span>La modification de vos informations de profil ne sera visible qu'après une reconnexion !!</span>
+                              <span className="avertissement">La modification de vos informations de profil ne sera visible qu'après une reconnexion !!</span>
                               <form id="editForm" onSubmit={handleClick}>
                                    <label>Nom<br/>
                                    <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/>
