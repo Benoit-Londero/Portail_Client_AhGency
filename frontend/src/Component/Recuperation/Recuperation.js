@@ -34,6 +34,7 @@ export default function Recuperation() {
         
 
         fetch('/api/recuperation', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(jsonForm) })
+        .then(setMessageValidation(true))
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.info(err))
