@@ -12,15 +12,28 @@ import Col from 'react-bootstrap/Col';
 export default function Recuperation() {
 
     const [recupEmail, setRecupEmail] = useState();
+    const [messageValidation, setMessageValidation] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
         console.log(recupEmail);
         let mdpForm = document.getElementById('mdpForm');
         let dataForm = new FormData(mdpForm);
+
+        const jsonForm = buildJsonFormData(dataForm)
+
+        //On crée une boucle pour transformer le FormData en JSON
+        function buildJsonFormData(myInscr){
+            const jsonFormData = {};
+            for(const pair of myInscr){
+                jsonFormData[pair[0]] = pair[1];
+            }
+
+            return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+        }
         
 
-        fetch('/api/recuperation', { method: 'POST', body: dataForm})
+        fetch('/api/recuperation', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(jsonForm) })
         .then(res => res.json())
         .then(json => console.log(json))
         .catch(err => console.info(err))
@@ -32,19 +45,22 @@ export default function Recuperation() {
 
 
     return (
-        <div id="page_connexion">
+        <div id="page_recup">
             <Container>
-                <Row className="connexion_form">
-                    <Col lg={12}>
+                <Row className="recup_form">
+                {messageValidation === false ? <Col lg={12}>
                         <h1>Merci d'entrer votre email !!</h1>
                     <form id="mdpForm" onSubmit={handleSubmit}>
                         <label>Email<br/>
-                            <input type="text" name="email" placeholder="Votre email" required onChange={handleChange}/>
+                            <input type="email" name="email" placeholder="Votre email" required onChange={handleChange}/>
                         </label><br/>
                         <input type="submit" name="recuperation" value="Valider" />
                     </form>                
-                    </Col>
-                </Row>
+                    </Col> : <Col lg={12}><div className="thx_message">
+                            <h1>Votre demande a bien été pris en compte, vous allez recevoir un mail avec votre nouveau mot de passe temporaire !!</h1>
+                            <Link to ='/'> Connexion</Link></div>
+                    </Col>}
+                </Row> 
                 <Row className="link">
                     <Col>
                         <Link to ='/'> Retourner à l'accueil</Link>
