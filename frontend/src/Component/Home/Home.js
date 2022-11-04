@@ -44,8 +44,6 @@ export default function Home() {
 
           let dataU = {currentIDUser: currentIDU};
 
-          //console.log(dataU);
-
           fetch('/api/getTimesheet', { 
                method: 'POST', 
                body: JSON.stringify(dataU)
@@ -75,7 +73,8 @@ export default function Home() {
      <NavBar />
      <Container id="page_dashboard">
 
-          <h1>Dashboard</h1>
+          <p><span>Hello, {currentNOM}</span></p>
+          <h1>Bienvenue</h1>
 
           <Row>         
                <Col className="stats">
@@ -88,7 +87,7 @@ export default function Home() {
                               path: {
                                    strokeLinecap: 'round',
                                    transition: 'stroke-dashoffset 0.5s ease 0s',
-                                   stroke: '#6610f2'
+                                   stroke: '#190933'
                               },
                               // Customize the circle behind the path, i.e. the "total progress"
                               trail: {
@@ -99,7 +98,7 @@ export default function Home() {
                               text: {
                                    transform: 'translate(-20px, 5px)',
                                    fontSize: '15px',
-                                   fill: '#6610f2'
+                                   fill: '#fff'
                               }
                          }}
                     /> : <CircularProgressbar
