@@ -15,7 +15,10 @@ p {
     margin: 10px;
     padding: 20px 30px;
     min-width: 350px;
-    
+}
+
+.stats{
+    background-color: #C8B6F2;
 }
 
 #page_dashboard{
@@ -26,12 +29,10 @@ p {
 
 h2 {
     color: #fff;
-    text-transform: uppercase;
     font-size: 14px!important;
     letter-spacing: 5px;
 }
 
-.stats h2,
 .tableauTS h2,
 .timesheet h2 {
     color: black;
@@ -67,6 +68,10 @@ h2 {
 
 /*Progress Bar*/
 
+.stats h2{
+    color:#fff;
+}
+
 .stats p {
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -78,14 +83,14 @@ h2 {
     margin-bottom: 40px;
 }
 
-.highlight {
-    background-color: #6710f21d;
-    color: #6610f2;
+.stats .highlight {
+    background-color: #fff;
+    color: #190933;
     border-radius: 5px;
     font-weight: 600;
     width: 70%;
     margin: auto;
-    padding: 5px 0px;
+    padding: 10px 0px;
 }
 
 /**********************************/
@@ -120,7 +125,7 @@ h2 {
 .tableauTS a {
     font-size: .7em;
     border: none;
-    background: #6610f2;
+    background: rgba(43,43,43,0.5);
     color: #fff;
     border-radius: 10px;
     border: 2px solid #fff;
@@ -135,8 +140,8 @@ h2 {
 .tableauTS button:hover,
 .tableauTS button:focus {
     background: #fff;
-    color: #6610f2;
-    border: 2px solid #6610f2;
+    color: #00c0cb;
+    border: 2px solid #00c0cb;
 }
 
 .PDF_ddl {
@@ -160,8 +165,8 @@ h2 {
 
 .btn_ts_bottom:hover,
 .btn_ts_bottom:focus{
-    border: 2px solid #5012b6!important;
-    color: #6610f2!important;
+    border: 2px solid #00c0cb!important;
+    color: #00c0cb!important;
 }
 
 /*********************************/
