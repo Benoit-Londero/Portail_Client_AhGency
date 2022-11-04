@@ -31,7 +31,8 @@ p {
 h2 {
     color: #fff;
     font-size: 14px!important;
-    letter-spacing: 5px;
+    font-size:16px;
+    font-weight:500;
 }
 
 .tableauTS h2,
@@ -71,6 +72,11 @@ h2 {
 
 .stats h2{
     color:#fff;
+}
+
+.name_user{
+    text-align:left;
+    font-size:1.2em;
 }
 
 .stats p {

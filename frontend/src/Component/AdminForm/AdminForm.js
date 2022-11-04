@@ -50,13 +50,14 @@ export default function AdminForm() {
 
     <div id='adminForm'>
         <NavBar />
+
         <h1>Créer une nouvelle entrée</h1>
       
         <form id="timesheetForm" onSubmit={handleSubmitTS}>
           <table>
             <tbody>
             <tr><td><label for="title">Titre de la tache <span className="required">*</span></label><br></br><input type="text" placeholder="titre" id="title" name="title" required/></td></tr>
-              <tr><td><label for="tache">Tâche réalisée <span className="required">*</span></label><br></br><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td></tr>
+              <tr><td><label for="tache">Tâche réalisée (description) <span className="required">*</span></label><br></br><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td></tr>
               <tr><td><label for="durée_tache">Durée de la tache (en min.)<span className="required">*</span></label><br></br><input type="number" placeholder="25" id="duree_tache" name="duree_tache" required/></td></tr>
               <tr><td><label for="date_tache">Date d'éxecution<span className="required">*</span></label><br></br><input type="date" placeholder="Date" id='date_tache' name="date_tache" required/></td></tr>
               <tr>
@@ -78,7 +79,9 @@ export default function AdminForm() {
                   </select>
                 </td>
               </tr>
-              <tr><td><input type="submit" value="Enregistrer"/></td></tr>
+              <tr>
+                <td><input type="reset" id="reset"></input></td>
+                <td><input type="submit" value="Enregistrer"/></td></tr>
             </tbody>
           </table>
         </form>

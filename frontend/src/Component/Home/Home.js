@@ -73,7 +73,7 @@ export default function Home() {
      <NavBar />
      <Container id="page_dashboard">
 
-          <p><span>Hello, {currentNOM}</span></p>
+          <span className="name_user">Hello, {currentNOM}</span>
           <h1>Bienvenue</h1>
 
           <Row>         
