@@ -11,10 +11,11 @@ p {
 .timesheet {
     height: auto;
     border-radius: 20px;
-    box-shadow: 5px 5px 10px #BDE5F4;
+    box-shadow: 5px 5px 10px #00000016;
     margin: 10px;
     padding: 20px 30px;
     min-width: 350px;
+    background:#fff;
 }
 
 .stats{
