@@ -41,11 +41,12 @@ export default function Connexion(props) {
                     </label><br/>
                     <label>Mot de passe<br/>
                         <input type="password" name="pwd" placeholder="Votre mot de passe" required/>
+                        <Link to ='/Recuperation'> Mot de passe oublié</Link>
                     </label><br/>
                     <input type="submit" name="Connexion" value="se connecter" />
                 </form>
 
-                <Link to ='/Recuperation'> Mot de passe oublié</Link>
+                
                 </Col>
 
                 <Col lg={12}><Link to ='/Inscription'> Créer un compte</Link></Col>

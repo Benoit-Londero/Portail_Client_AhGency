@@ -75,8 +75,9 @@ h2 {
 }
 
 .name_user{
-    text-align:left;
-    font-size:1.2em;
+    font-size: .7em;
+    text-align: left;
+    font-weight: 300;
 }
 
 .stats p {
