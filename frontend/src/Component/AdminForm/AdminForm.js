@@ -80,8 +80,11 @@ export default function AdminForm() {
                 </td>
               </tr>
               <tr>
-                <td><input type="reset" id="reset"></input></td>
-                <td><input type="submit" value="Enregistrer"/></td></tr>
+                <td>
+                  <input type="reset" id="reset"></input>
+                  <input type="submit" value="Enregistrer"/>
+                  </td>
+                </tr>
             </tbody>
           </table>
         </form>

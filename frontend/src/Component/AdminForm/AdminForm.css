@@ -1,18 +1,18 @@
 #adminForm{
-     margin-left: 15vw;
-     width:80vw;
-     margin-top:9vh;
+     padding-top:9vh;
 }
 
 #timesheetForm{
      border:1px solid #eee;
-     border-radius: 10px;
+     border-radius: 20px;
      padding:20px;
+     width: 45vw;
      box-shadow: 5px 5px 10px rgba(189, 229, 244, 0.4);
 }
 
 #adminForm label{
-     font-size: 16px;
+     font-size: 14px;
+     font-weight:500;
      width:100%;
      margin-top: 50px;
      text-align: left!important;
