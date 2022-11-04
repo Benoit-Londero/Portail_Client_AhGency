@@ -10,7 +10,6 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 //import { FaFileDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Moment from "moment";
-import HorizontalTimeline from "react-horizontal-timeline";
 
 //import useLocalStorage from "../../useLocalStorage";
 
