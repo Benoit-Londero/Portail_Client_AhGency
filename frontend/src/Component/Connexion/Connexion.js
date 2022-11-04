@@ -40,7 +40,7 @@ export default function Connexion(props) {
                         <input type="text" name="email" placeholder="Votre email" required/>
                     </label><br/>
                     <label>Mot de passe<br/>
-                        <input type="password" name="pwd" placeholder="Votre mot de passe" required/>
+                        <input type="password" name="pwd" placeholder="Votre mot de passe" required/><br></br>
                         <Link to ='/Recuperation'> Mot de passe oublié</Link>
                     </label><br/>
                     <input type="submit" name="Connexion" value="se connecter" />
