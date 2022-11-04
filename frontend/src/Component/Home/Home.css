@@ -129,6 +129,10 @@ h2 {
     line-height: 1.5em;
 }
 
+.stats p{
+    color:#fff;
+}
+
 .tableauTS a {
     font-size: .7em;
     border: none;
@@ -156,9 +160,9 @@ h2 {
 }
 
 .btn_ts_bottom{
-    background: #6610f2;
+    background: #949494;
     border: none;
-    border-bottom: 4px solid #5012b6!important;
+    border-bottom: 4px solid #5f5f5f!important;
     border-radius: 10px;
     color: #fff!important;
     font-size: 11px;

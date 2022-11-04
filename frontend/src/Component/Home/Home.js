@@ -176,7 +176,7 @@ export default function Home() {
                     <table id="desktop">
                          <thead>
                               <tr>
-                              <td colSpan="3"><h2>Timesheet</h2></td>
+                              <td colSpan="3"><h2>Détails</h2></td>
                               <td className="time_hrs_right"> {(Math.round((timeSpend /60)*10)/10) + " / " + Math.round((currentHeureTOT /60)*10)/10 + " H"} </td>
                               </tr>
                          </thead>
