@@ -47,9 +47,10 @@
 }
 
 h1{
+    font-family: 'Poppins';
     text-align: left;
     font-size: 24px;
-    font-weight: 600!important;
+    font-weight: 500!important;
     color: #190933!important;
     padding:20px;
     border-radius: 10px;

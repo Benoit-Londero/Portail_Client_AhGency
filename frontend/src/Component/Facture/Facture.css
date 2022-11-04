@@ -1,16 +1,7 @@
-h1 {
-    font-family: 'Lato';
-    text-align: left;
-    font-size: 1.3em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 400!important;
-    color: #444;
-}
+
 
 .facture_section h2 {
-    color: rgb(67, 67, 67);
-    text-transform: uppercase;
+    color: #190933;
     font-size: 14px!important;
     min-width: 100%;
     text-align: left;
