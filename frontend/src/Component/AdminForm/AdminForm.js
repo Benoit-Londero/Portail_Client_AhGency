@@ -55,6 +55,9 @@ export default function AdminForm() {
       
         <form id="timesheetForm" onSubmit={handleSubmitTS}>
           <table>
+            <thead>
+              <tr><td><h2>Encoder une tâche éffectuées</h2></td></tr>
+            </thead>
             <tbody>
             <tr><td><label for="title">Titre de la tache <span className="required">*</span></label><br></br><input type="text" placeholder="titre" id="title" name="title" required/></td></tr>
               <tr><td><label for="tache">Tâche réalisée (description) <span className="required">*</span></label><br></br><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td></tr>
