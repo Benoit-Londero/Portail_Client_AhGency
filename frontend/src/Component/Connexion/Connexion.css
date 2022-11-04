@@ -1,7 +1,7 @@
 #page_connexion .container {
     min-height: 100vh;
     min-width: 100vw!important;
-    background: #6610f2!important;
+    background: #fafafa!important;
 }
 
 .connexion_form {
@@ -9,7 +9,7 @@
 }
 
 .connexion_form a {
-    color: #fff;
+    color: #190933;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
@@ -42,7 +42,7 @@
 #logForm input[type="text"],
 #logForm input[type="password"] {
     border: none;
-    box-shadow: inset 5px 5px 10px #BDE5F4;
+    box-shadow: inset 5px 5px 10px #00000026;
     border-radius: 5px;
     padding: 5px 20px;
     line-height: 1.5em;
@@ -54,9 +54,9 @@
 }
 
 #logForm input[type="submit"] {
-    background: #6610f2;
+    background: #672bf2;
     color: #fff;
-    border: 2px solid #6610f2;
+    border: 2px solid #672bf2;
     min-width: 60%;
     width:80%;
     text-transform: uppercase;
@@ -77,9 +77,8 @@
 }
 
 .link a {
-    color: #fff;
+    color: #672bf2;
     text-decoration: none;
-    text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
