@@ -10,6 +10,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 //import { FaFileDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Moment from "moment";
+import HorizontalTimeline from "react-horizontal-timeline";
 
 //import useLocalStorage from "../../useLocalStorage";
 
@@ -29,6 +30,24 @@ export default function Home() {
      //const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
      //const currentToken = (localStorage.getItem("currentToken").replaceAll('"',''));
      
+
+     /* --- Debut Amélioration Timeline --- */
+
+     const [value, setValue] = useState(0);
+     const [previous, setPrevious] = useState(0);
+
+     // Values should be only date
+     const VALUES = ["2021-01-01", "2021-01-15", "2021-03-22"];
+     
+     // Description array corresponding to values
+     const description = [
+     "The event of 1 Jan 2021 : Happy New Year",
+     "The event of 15 Jan 2021 : Festival",
+     "The event of 22 March 2021 : Board Exam",
+     ];
+
+     /* --- Fin Amélioration Timeline  --- */
+
      console.log(currentNOM);
      useEffect (() => {
 
@@ -199,7 +218,7 @@ export default function Home() {
 
                     
                     <div class="mobile">
-                         <h2>Timesheet</h2>
+                         <h2>Détails</h2>
                          <p className="time_hrs_right"> {(Math.round((timeSpend /60)*10)/10) + " / " + Math.round((currentHeureTOT /60)*10)/10 + " H"}</p>
 
                          {filteredTS.map((item,index) => {
@@ -216,7 +235,23 @@ export default function Home() {
                               </table>)
                          })
                          }
-                    
+
+                         <div>
+                         <div style={{ width: "60%",
+                                        height: "100px", 
+                                        margin: "0 auto" }}>
+                         <HorizontalTimeline
+                              styles={{ outline: "#DFA867", foreground: "#19295C" }}
+                              index={value}
+                              indexClick={(index) => {
+                              setValue(index);
+                              setPrevious(value);
+                              }}
+                              values={VALUES}
+                         />
+                         </div>
+                         <div className="text-center">{description[value]}</div>
+                         </div>
                     
                     </div>
 
