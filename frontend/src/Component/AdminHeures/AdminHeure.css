@@ -5,10 +5,11 @@
 }
 
 #HeureForm{
-     border:1px solid #eee;
-     border-radius: 10px;
+     background:#fff;
+     border-radius: 20px;
      padding:20px;
-     box-shadow: 5px 5px 10px rgba(189, 229, 244, 0.4);
+     width: 45vw;
+     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.183);
 }
 
 #HeureForm label{
