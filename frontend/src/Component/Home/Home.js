@@ -158,6 +158,9 @@ export default function Home() {
                     </table>
                </Col>
 
+               {/* 
+               
+               AMELIORATIONS
                <Col className="tableauTS">
                     <h2>Demandes effectuées</h2>
                     <table>
@@ -169,7 +172,7 @@ export default function Home() {
                          <tbody>
                          </tbody>
                     </table>
-               </Col>
+               </Col> */}
           </Row>
 
           <Row className="timesheet">
