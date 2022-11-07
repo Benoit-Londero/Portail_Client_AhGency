@@ -45,8 +45,8 @@ export default function ViewAll() {
      <Container id="page_viewall">
           <Row>
                <h1>Timesheet</h1>
-          </Row>
           <Row>
+          </Row>
           <h2>Clients</h2>
                <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
 
