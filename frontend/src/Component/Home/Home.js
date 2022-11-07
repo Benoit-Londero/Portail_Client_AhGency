@@ -215,7 +215,10 @@ export default function Home() {
                          <p className="time_hrs_right"> {(Math.round((timeSpend /60)*10)/10) + " / " + Math.round((currentHeureTOT /60)*10)/10 + " H"}</p>
 
                          {filteredTS.map((item,index) => {
-                              var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
+                              /* var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY'); */
+
+                              var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                                   var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                               return(
                               <table key={index} class="mobile">
                                    <thead></thead>
