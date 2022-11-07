@@ -147,9 +147,9 @@ export default function Home() {
                                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (
                                         <tr key={index}>
-                                             <td><p className="date_badge">{day}<br></br>{Month}</p></td>
+                                             <td><p className="date_badge">{day}<br></br>{Month}.</p></td>
                                              <td><p className="ref">{ item.Titre}</p></td>
-                                             <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Voir plus </button></td>
+                                             <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
                                         </tr>
                                    )
                               })
@@ -224,7 +224,7 @@ export default function Home() {
                                    <thead></thead>
                                    <tbody>
                                         <tr>
-                                             <td><p className="date_badge">{day}<br></br>{Month}</p></td>
+                                             <td className="col_mobile_badge"><p className="date_badge">{day}<br></br>{Month}</p></td>
                                              <td>
                                                   <p className="title_of_task">{ item.Titre }</p>
                                                   <p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>

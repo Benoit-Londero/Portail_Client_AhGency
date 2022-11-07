@@ -330,4 +330,26 @@ h2 {
     .mobile{
         display:block;
     }
+
+    .col_mobile_badge{
+        vertical-align:top;
+    }
+
+    .title_of_task{
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .developer{
+        max-width: 70%;
+    }
+
+    .tasks{
+        font-size:12px;
+        font-weight: 300;
+    font-style: italic;
+    margin-top: 20px;
+    width: auto;
+    text-align: justify;
+    }
 }
