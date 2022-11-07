@@ -9,7 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
 
-import ahgency_logo from '../img/logo_ahgency';
+import logo from '../../img/logo_ahgency.png';
 
 import {HiArrowNarrowLeft} from 'react-icons/hi';
 
@@ -36,7 +36,7 @@ export default function Connexion(props) {
             <Row className="connexion_form">
                 <Col lg={12}>
                     <h1>AHGENCY CREATIVE STUDIO</h1>
-                    {ahgency_logo}
+                    <img src={logo} alt="Logo_AhGency"></img>
                 {erreur === true ? <Alert variant="danger">Email ou mot de passe érroné</Alert> : null }
                 <form id="logForm" onSubmit={handleSubmit}>
                     <label>Adresse email<br/>
