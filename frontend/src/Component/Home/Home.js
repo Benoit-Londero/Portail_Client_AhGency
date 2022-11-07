@@ -135,8 +135,8 @@ export default function Home() {
                     <table>
                          <thead>
                               <tr>
-                                   <th>Titre</th>
                                    <th>Date</th>
+                                   <th>Titre</th>
                                    <th className="last-child">Action</th>
                               </tr>
                          </thead>
@@ -147,8 +147,8 @@ export default function Home() {
                                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (
                                         <tr key={index}>
-                                             <td><p className="ref">{ item.Titre}</p></td>
                                              <td><p className="date_badge">{day}<br></br>{Month}</p></td>
+                                             <td><p className="ref">{ item.Titre}</p></td>
                                              <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Voir plus </button></td>
                                         </tr>
                                    )
@@ -184,11 +184,12 @@ export default function Home() {
                          <tbody>
                          {
                               filteredTS.map((item,index) => {
-                                   var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
+                                   var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                                   var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (
                                         <tr className="detail_TS" key={index}>
+                                             <td><p className="date_badge">{day}<br></br>{Month}</p></td>
                                              <td><p className="tasks">{ item.Informations}</p></td>
-                                             <td><p>{ date }</p></td>
                                              <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                              <td><p className="developer"> {item.Agent}</p></td>
                                         </tr>

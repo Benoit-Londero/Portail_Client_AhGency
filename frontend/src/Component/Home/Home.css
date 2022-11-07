@@ -64,6 +64,16 @@ h2 {
     margin-top: 30px;
 }
 
+.date_badge{
+    font-family: 'Poppins';
+    background: #b8b8ff;
+    color: #190933;
+    border-radius: 10px;
+    font-weight: 500;
+    line-height: 20px;
+    padding: 7px 3px;
+}
+
 
 /*************************/
 /***** Statistiques ******/
@@ -78,6 +88,7 @@ h2 {
     font-size: .7em;
     text-align: left;
     font-weight: 300;
+    text-transform: capitalize;
 }
 
 .stats p {
