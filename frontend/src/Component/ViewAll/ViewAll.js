@@ -50,11 +50,19 @@ export default function ViewAll() {
           <h2>Clients</h2>
                <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
 
+               <label>Sélectionner un client</label>
+               <select>
                {clients && clients.map((item,index) => {
+                    return(
+                         <option  key={index} value={item.ID} className="client_list" onClick={handleTasks} >{item.Nom} {item.Prenom}</option>
+                    ) 
+               })}
+               </select>
+               {/* {clients && clients.map((item,index) => {
                     return(
                          <button  key={index} value={item.ID} className="client_list" onClick={handleTasks} >{item.Nom} {item.Prenom}</button>
                     ) 
-               })}
+               })} */}
           </Row>
           <Row className="customer_card_all timesheet">
                <Col>
