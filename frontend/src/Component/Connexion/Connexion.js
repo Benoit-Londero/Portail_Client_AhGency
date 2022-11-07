@@ -35,7 +35,7 @@ export default function Connexion(props) {
         <Container>
             <Row className="connexion_form">
                 <Col lg={12}>
-                    <img src={logo} style="width:250px;margin-bottom:50px;" alt="Logo_AhGency"></img>
+                    <img src={logo} class="logo_ahgency" alt="Logo_AhGency"></img>
                 {erreur === true ? <Alert variant="danger">Email ou mot de passe érroné</Alert> : null }
                 <form id="logForm" onSubmit={handleSubmit}>
                     <label>Adresse email<br/>
