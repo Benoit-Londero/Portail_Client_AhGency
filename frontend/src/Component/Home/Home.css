@@ -65,13 +65,15 @@ h2 {
 }
 
 .date_badge{
-    font-family: 'Poppins';
     background: #b8b8ff;
-    color: #190933;
     border-radius: 10px;
+    color: #ffffff;
+    font-family: 'Poppins';
     font-weight: 500;
     line-height: 20px;
     padding: 7px 3px;
+    aspect-ratio: 1;
+    max-height: 60px;
 }
 
 

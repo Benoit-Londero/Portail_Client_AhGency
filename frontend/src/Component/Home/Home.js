@@ -196,8 +196,8 @@ export default function Home() {
                                                             <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                                             <td><p className="developer"> {item.Agent}</p></td>
                                                        </tr>
-                                                       <tr><td><p className="tasks">{ item.Informations}</p></td></tr>
-                                                       <tr><td>timeline</td></tr>
+                                                       <tr><td colspan="4"><p className="tasks">{ item.Informations}</p></td></tr>
+                                                       {/* AMELIORATION <tr><td><p>timeline</p></td></tr> */}
                                                   </table>
                                              </td>
                                         </tr>
