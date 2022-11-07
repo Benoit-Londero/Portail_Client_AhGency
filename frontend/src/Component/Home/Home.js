@@ -143,11 +143,12 @@ export default function Home() {
                          <tbody>
                          {
                               timesheet.map((item,index) => {
-                                   var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
+                                   var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                                   var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (
                                         <tr key={index}>
                                              <td><p className="ref">{ item.Titre}</p></td>
-                                             <td><p>{date}</p></td>
+                                             <td><p className="date_badge">{day}<br></br>{Month}</p></td>
                                              <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Voir plus </button></td>
                                         </tr>
                                    )
