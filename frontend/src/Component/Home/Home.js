@@ -173,8 +173,8 @@ export default function Home() {
           </Row>
 
           <Row className="timesheet">
-               <Col>                    
-                    <table id="desktop">
+               <Col>     
+                    <table id="desktop">               
                          <thead>
                               <tr>
                               <td colSpan="3"><h2>Détails</h2></td>
@@ -186,12 +186,20 @@ export default function Home() {
                               filteredTS.map((item,index) => {
                                    var day = Moment(item.Date_Tache_Effectuee).format('DD');
                                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
-                                   return (
+                                   return (                                   
                                         <tr className="detail_TS" key={index}>
-                                             <td><p className="date_badge">{day}<br></br>{Month}</p></td>
-                                             <td><p className="tasks">{ item.Informations}</p></td>
-                                             <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                             <td><p className="developer"> {item.Agent}</p></td>
+                                             <td>
+                                                  <table>
+                                                       <tr>
+                                                            <td><p className="date_badge">{day}<br></br>{Month}</p></td>
+                                                            <td><p className="title_of_task">{ item.Titre }</p></td>
+                                                            <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                                            <td><p className="developer"> {item.Agent}</p></td>
+                                                       </tr>
+                                                       <tr><td><p className="tasks">{ item.Informations}</p></td></tr>
+                                                       <tr><td>timeline</td></tr>
+                                                  </table>
+                                             </td>
                                         </tr>
                                    )
                               })
