@@ -45,8 +45,8 @@ export default function ViewAll() {
      <Container id="page_viewall">
           <Row>
                <h1>Timesheet</h1>
-          <Row>
           </Row>
+          <Row>
           <h2>Clients</h2>
                <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
 
@@ -54,7 +54,7 @@ export default function ViewAll() {
                <select>
                {clients && clients.map((item,index) => {
                     return(
-                         <option  key={index} value={item.ID} className="client_list" onSelect={handleTasks} >{item.Nom} {item.Prenom}</option>
+                         <option  key={index} value={item.ID} className="client_list" onChange={handleTasks} >{item.Nom} {item.Prenom}</option>
                     ) 
                })}
                </select>
