@@ -83,7 +83,7 @@ export default function ViewAll() {
                               </tr>
                          </tbody>
                     </table>
-               <{/* /Col>
+          {/* </Col>
           </Row>
           <Row className="customer_card_all timesheet">
                <Col> */}
