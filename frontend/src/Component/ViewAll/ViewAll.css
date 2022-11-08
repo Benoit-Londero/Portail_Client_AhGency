@@ -56,12 +56,24 @@
 }
 
 @media screen and (max-width:756px) and (orientation: portrait) {
+     #page_viewall{
+          margin-top: 9vh;
+          margin-left: 0px;
+          width: 90vw;
+     }
+
      .mobile{
           display:block;
       }
   
       .hide_mobile{
           display:none;
+      }
+
+      .client_list{
+          margin: auto;
+          text-align: center;
+          width: 25vw;
       }
   
       .col_mobile_badge{
@@ -71,6 +83,10 @@
           background: linear-gradient(90deg, rgba(255,255,255,0.34919905462184875) 48%,
                                              rgba(231,231,231,1) 50%,
                                              rgba(255,255,255,0) 52%);
+      }
+
+      .col_right_descr{
+          padding-left: 15px;
       }
   
       .title_of_task{
@@ -82,13 +98,19 @@
           font-size:12px;
           font-weight: 300;
           font-style: italic;
-          margin-top: 20px;
+          margin-top: 10px;
+          margin-bottom: 30px;
           width: auto;
           text-align: justify;
       }
   
       .dateoftask{
           text-align: left;
+          line-height: 3em;
+      }
+
+      .time{
+          text-align:left;
           line-height: 3em;
       }
   }

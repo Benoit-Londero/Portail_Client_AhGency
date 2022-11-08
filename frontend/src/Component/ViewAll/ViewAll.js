@@ -67,7 +67,9 @@ export default function ViewAll() {
           </Row>
           <Row className="customer_card_all timesheet">
                <Col>
-               
+
+                    <h2>{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom)}</h2>
+
                     <table>
                          <thead>
                               <tr>
@@ -81,10 +83,10 @@ export default function ViewAll() {
                               </tr>
                          </tbody>
                     </table>
-               </Col>
+               <{/* /Col>
           </Row>
           <Row className="customer_card_all timesheet">
-               <Col>
+               <Col> */}
                
                     <table id="desktop">
                          <thead>
@@ -125,10 +127,10 @@ export default function ViewAll() {
                                    <thead></thead>
                                    <tbody>
                                         <tr>
-                                        <td className="col_mobile_badge"><p className="date_badge">{day}<br></br>{Month}</p></td>
-                                             <td>
+                                             <td className="col_mobile_badge"><p className="date_badge">{day}<br></br>{Month}</p></td>
+                                             <td className="col_right_descr">
                                                   <p className="title_of_task">{ item.Titre }</p>
-                                                  <p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
+                                                  <p className="time">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
                                                   <p className="developer"> {item.Agent}</p>
                                                   <p className="tasks">{ item.Informations}</p>
                                              </td>
