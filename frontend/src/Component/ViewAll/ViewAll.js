@@ -51,14 +51,14 @@ export default function ViewAll() {
                <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
 
                <label>Sélectionner un client</label>
-               <input type="select" onChange={handleTasks}>
-                    <option name='default' disabled> Default </option>
+               <select onChange={handleTasks}>
+                    <option name="default" disabled> Default </option>
                     {clients && clients.map((item,index) => {
                          return(
                               <option  key={index} value={item.ID} className="client_list" >{item.Nom} {item.Prenom}</option>
                          ) 
                     })}
-               </input>
+               </select>
                {/* {clients && clients.map((item,index) => {
                     return(
                          <button  key={index} value={item.ID} className="client_list" onClick={handleTasks} >{item.Nom} {item.Prenom}</button>
