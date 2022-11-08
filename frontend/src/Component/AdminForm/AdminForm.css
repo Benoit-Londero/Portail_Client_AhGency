@@ -1,5 +1,6 @@
 #adminForm{
      padding-top:9vh;
+     margin-bottom: 200px;
 }
 
 #timesheetForm{
@@ -30,7 +31,7 @@ select{
      padding: 10px 20px;
 }
 
-input[type="submit"]{
+#adminForm input[type="submit"]{
      width:45%;
      color:#fff;
      text-align: center;
@@ -56,6 +57,10 @@ input[type="submit"]:hover{
     color:#fff;
      text-align: center;
      background-color: #672bf2;
+}
+
+.row_submit{
+     margin-top:50px;
 }
 
 @media screen and (max-width:756px) and (orientation: portrait) {

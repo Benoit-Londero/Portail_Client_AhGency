@@ -140,3 +140,12 @@
 .avertissement {
     color: red;
 }
+
+
+@media screen and (max-width:756px) and (orientation: portrait) {
+    #page_account{
+        width: 90vw;
+        margin-left:0px;
+        margin-top:9vh;
+    }
+}

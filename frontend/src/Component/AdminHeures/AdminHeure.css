@@ -31,7 +31,7 @@ select{
      padding: 10px 20px;
 }
 
-input[type="submit"]{
+#HeureForm input[type="submit"]{
      margin-top: 70px;
      color:#fff;
      text-align: center;

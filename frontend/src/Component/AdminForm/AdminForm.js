@@ -82,9 +82,9 @@ export default function AdminForm() {
                   </select>
                 </td>
               </tr>
-              <tr>
+              <tr className="row_submit">
                 <td>
-                  <input type="reset" id="reset"></input>
+                  <input type="reset" id="reset"/>
                   <input type="submit" value="Enregistrer"/>
                   </td>
                 </tr>

@@ -79,12 +79,10 @@ export default function NameForm() {
           <div id="page_account">
                <NavBar />
                <Container>
-                    
-                    <Row>
-                         <Col><h1 className="resume">Mon compte</h1></Col>
-                    </Row>
 
-                    <Row>
+                    <h1 className="resume">Mon compte</h1>
+
+                    <Row className="account_section">
                          {edit === false ? <Col md={8} className="account_section">
                          <h2>Informations générales</h2>
                          <table className="Profil">
