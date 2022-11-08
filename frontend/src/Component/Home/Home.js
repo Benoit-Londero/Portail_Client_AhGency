@@ -135,7 +135,7 @@ export default function Home() {
                     <table>
                          <thead>
                               <tr>
-                                   <th>Date</th>
+                                   <th className="hide_mobile">Date</th>
                                    <th>Titre</th>
                                    <th className="last-child">Action</th>
                               </tr>
@@ -147,7 +147,7 @@ export default function Home() {
                                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (
                                         <tr key={index}>
-                                             <td><p className="date_badge">{day}<br></br>{Month}.</p></td>
+                                             <td><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></td>
                                              <td><p className="ref">{ item.Titre}</p></td>
                                              <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
                                         </tr>

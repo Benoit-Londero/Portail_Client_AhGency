@@ -324,19 +324,22 @@ h2 {
         display:block;
     }
 
+    .hide_mobile{
+        display:none;
+    }
+
     .col_mobile_badge{
         vertical-align:top;
         min-width:60px;
         margin-right:10px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.34919905462184875) 48%,
+                                           rgba(231,231,231,1) 50%,
+                                           rgba(255,255,255,0) 52%);
     }
 
     .title_of_task{
         text-align: left;
         font-weight: 600;
-    }
-
-    .developer{
-        max-width: 70%;
     }
 
     .tasks{
@@ -349,7 +352,7 @@ h2 {
     }
 
     .dateoftask{
-        text-align: right;
-        line-height: 1.2em;
+        text-align: left;
+        line-height: 3em;
     }
 }

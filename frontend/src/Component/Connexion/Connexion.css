@@ -47,7 +47,6 @@
     padding: 5px 20px;
     line-height: 1.5em;
     font-size: 16px;
-    width:90%;
     min-width: 90%;
     margin-top: 10px;
     text-align: center;
@@ -84,6 +83,11 @@
     letter-spacing: 1px;
 }
 
+a:hover,
+a:focus{
+    color: #672bf2;
+}
+
 .alert-warning,
 .alert-danger {
     width: 40vw;
@@ -96,18 +100,27 @@
     margin-bottom:50px;
 }
 
-
 /* Responsive Mobile */
 
 @media screen and (max-width:756px) and (orientation: portrait) {
+
+    .connexion_form {
+        padding-top: 10vh;
+    }
+
+    #logForm label {
+        text-transform: inherit;
+        text-align:left;
+    }
+
     #logForm {
         background: #fff;
         border-radius: 20px;
         min-height: 30vh;
         min-width: 90vw;
         margin: auto;
-        box-shadow: 5px 5px 15px #ffffff9b;
-        padding: 50px;
+        box-shadow: 5px 5px 15px #e9e9e99b;
+        padding: 20px;
     }
     .alert-warning,
     .alert-danger {
