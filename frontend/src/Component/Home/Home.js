@@ -227,7 +227,7 @@ export default function Home() {
                                              <td className="col_mobile_badge"><p className="date_badge">{day}<br></br>{Month}</p></td>
                                              <td>
                                                   <p className="title_of_task">{ item.Titre }</p>
-                                                  <p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
+                                                  <p className="dateoftask">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
                                                   <p className="developer"> {item.Agent}</p>
                                                   <p className="tasks">{ item.Informations}</p>
                                              </td>

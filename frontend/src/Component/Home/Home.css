@@ -296,7 +296,6 @@ h2 {
     }
 
     .resume h1{
-        padding:10px;
         font-size: 2em!important;
     }
 
@@ -304,11 +303,6 @@ h2 {
         display:none;
     }
 
-    h1 {
-        font-size: 2em;
-        text-align: center;
-        padding: 100px 0px;
-    }
     /*********************************/
     /*** Tableau tableauTS récentes ***/
     .tableauTS table {
@@ -333,6 +327,8 @@ h2 {
 
     .col_mobile_badge{
         vertical-align:top;
+        min-width:60px;
+        margin-right:10px;
     }
 
     .title_of_task{
@@ -347,9 +343,14 @@ h2 {
     .tasks{
         font-size:12px;
         font-weight: 300;
-    font-style: italic;
-    margin-top: 20px;
-    width: auto;
-    text-align: justify;
+        font-style: italic;
+        margin-top: 20px;
+        width: auto;
+        text-align: justify;
+    }
+
+    .dateoftask{
+        text-align: right;
+        line-height: 1.2em;
     }
 }
