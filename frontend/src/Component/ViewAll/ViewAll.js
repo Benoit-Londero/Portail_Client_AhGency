@@ -95,12 +95,15 @@ export default function ViewAll() {
                          <tbody>
 
                          {filtredtasks && filtredtasks.map((item,index) => {
-                         var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
+                         /* var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY'); */
+                         var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                         var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+
                          return (
                               <tr key={index}>
+                                   <td><p className="date_badge">{day}<br></br>{Month}.</p></td>
                                    <td><p>{ item.Titre}</p></td>
                                    <td className='fst_col'><p className="tasks">{ item.Informations}</p></td>
-                                   <td><p>{date}</p></td>
                                    <td><p>{item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                    <td><p className="developer"> {item.Agent}</p></td>
                               </tr>
@@ -113,21 +116,27 @@ export default function ViewAll() {
                          <h2>Timesheet</h2>
 
                          {filtredtasks && filtredtasks.map((item,index) => {
-                              var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY');
+                              /* var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY'); */
+                              var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                              var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+
                               return(
                               <table key={index} class="mobile">
                                    <thead></thead>
                                    <tbody>
-                                        <tr><td><p className="tasks">{ item.Informations}</p></td></tr>
-                                        <tr><td><p>{ date }</p></td></tr>
-                                        <tr><td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td></tr>
-                                        <tr><td><p className="developer"> {item.Agent}</p></td></tr>
+                                        <tr>
+                                        <td className="col_mobile_badge"><p className="date_badge">{day}<br></br>{Month}</p></td>
+                                             <td>
+                                                  <p className="title_of_task">{ item.Titre }</p>
+                                                  <p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
+                                                  <p className="developer"> {item.Agent}</p>
+                                                  <p className="tasks">{ item.Informations}</p>
+                                             </td>
+                                        </tr>
                                    </tbody>
                               </table>)
                          })
                          }
-                    
-                    
                     </div>
                </Col>
           </Row>

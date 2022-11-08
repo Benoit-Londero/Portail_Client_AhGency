@@ -54,3 +54,41 @@
 .customer_card_all table h2{
      margin-top:0px!important;
 }
+
+@media screen and (max-width:756px) and (orientation: portrait) {
+     .mobile{
+          display:block;
+      }
+  
+      .hide_mobile{
+          display:none;
+      }
+  
+      .col_mobile_badge{
+          vertical-align:top;
+          min-width:60px;
+          margin-right:10px;
+          background: linear-gradient(90deg, rgba(255,255,255,0.34919905462184875) 48%,
+                                             rgba(231,231,231,1) 50%,
+                                             rgba(255,255,255,0) 52%);
+      }
+  
+      .title_of_task{
+          text-align: left;
+          font-weight: 600;
+      }
+  
+      .tasks{
+          font-size:12px;
+          font-weight: 300;
+          font-style: italic;
+          margin-top: 20px;
+          width: auto;
+          text-align: justify;
+      }
+  
+      .dateoftask{
+          text-align: left;
+          line-height: 3em;
+      }
+  }

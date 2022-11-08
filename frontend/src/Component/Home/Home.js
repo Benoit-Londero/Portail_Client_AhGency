@@ -218,7 +218,8 @@ export default function Home() {
                               /* var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY'); */
 
                               var day = Moment(item.Date_Tache_Effectuee).format('DD');
-                                   var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+                              var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+                              
                               return(
                               <table key={index} class="mobile">
                                    <thead></thead>
