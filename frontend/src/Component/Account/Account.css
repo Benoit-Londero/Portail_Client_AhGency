@@ -141,6 +141,11 @@
     color: red;
 }
 
+.title_accordeon{
+    color:#190933;
+    background: #C8B6F2;
+}
+
 
 @media screen and (max-width:756px) and (orientation: portrait) {
     #page_account{
