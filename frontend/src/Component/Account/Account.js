@@ -84,7 +84,7 @@ export default function NameForm() {
                     <h1 className="resume">Mon compte</h1>
 
                     <Row className="account_section">
-                         {edit === false ? <Col md={8} className="account_section">
+                         {edit === false ? <Col md={8}>
                          <h2>Informations générales</h2>
                          <table className="Profil">
                               <tbody>
@@ -110,7 +110,7 @@ export default function NameForm() {
                          </table>
                          
                          
-                         </Col> : <Col md={8} className="account_section">
+                         </Col> : <Col md={8}>
                               <span className="avertissement">La modification de vos informations de profil ne sera visible qu'après une reconnexion !!</span>
                               <form id="editForm" onSubmit={handleClick}>
                                    <label>Nom<br/>
@@ -126,7 +126,7 @@ export default function NameForm() {
                                    <input type="submit" name="modifier" value="Enregistrer" />
                          </form></Col> }
 
-                         <Col md={{span: 3, offset: 1}} className="account_section my_contact">
+                         <Col md={{span: 3, offset: 1}} className="my_contact">
                          <h2>Mes contacts</h2>
                               <ul>
                                    {contact_agc.map((item,index) => {
@@ -145,7 +145,6 @@ export default function NameForm() {
                                    })}
                               </ul>
                          </Col>
-                    </Row>
 
                     {/* <Row className="account_section delete_account">
                          <Col lg={12}>
@@ -160,32 +159,31 @@ export default function NameForm() {
 
                          </Col>
                     </Row> */}
-
-                    <Row>
                          <Col>
+                              <h2>FAQ</h2>
                               <Accordion defaultActiveKey="0">
                                    <Accordion.Item eventKey="0">
-                                   <Accordion.Header>Accordion Item #1</Accordion.Header>
+                                   <Accordion.Header className="title_accordeon">Que se passe-t'il si je n'ai plus assez de crédit pendant un projet ?</Accordion.Header>
                                    <Accordion.Body>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
                                         minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                                         aliquip ex ea commodo consequat. Duis aute irure dolor in
                                         reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                                         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.
+                                        culpa qui officia deserunt mollit anim id est laborum.</p>
                                    </Accordion.Body>
                                    </Accordion.Item>
                                    <Accordion.Item eventKey="1">
                                    <Accordion.Header>Accordion Item #2</Accordion.Header>
                                    <Accordion.Body>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
                                         minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                                         aliquip ex ea commodo consequat. Duis aute irure dolor in
                                         reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                                         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.
+                                        culpa qui officia deserunt mollit anim id est laborum.</p>
                                    </Accordion.Body>
                                    </Accordion.Item>
                               </Accordion>

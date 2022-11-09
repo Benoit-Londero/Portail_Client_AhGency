@@ -6,6 +6,7 @@
 
 .account_section {
     box-shadow: 5px 5px 10px #BDE5F4;
+    background:#fff;
     border-radius: 10px;
     padding: 20px;
 }
@@ -139,6 +140,11 @@
 
 .avertissement {
     color: red;
+}
+
+.title_accordeon{
+    color:#190933;
+    background: #C8B6F2;
 }
 
 
