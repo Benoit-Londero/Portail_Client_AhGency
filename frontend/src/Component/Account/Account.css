@@ -139,10 +139,15 @@
 }
 
 .avertissement {
-    color: red;
+    color:red;
+    background: #ff000030;
+    font-size: 15px;
+    padding: 10px 40px;
+    width: 100%;
+    border-radius: 5px;
 }
 
-.title_accordeon{
+.title_accordeon, .accordion-button{
     color:#190933;
     background: #C8B6F2;
 }

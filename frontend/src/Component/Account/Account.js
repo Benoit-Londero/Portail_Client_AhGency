@@ -81,7 +81,7 @@ export default function NameForm() {
                <NavBar />
                <Container>
 
-                    <h1 className="resume">Mon compte</h1>
+                    <h1>Mon compte</h1>
 
                     <Row className="account_section">
                          {edit === false ? <Col md={8}>
