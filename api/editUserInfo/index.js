@@ -14,12 +14,25 @@ module.exports = async function (context,req,res) {
     let pnom = req.body.prenom;
     let idu = req.body.idu;
 
-    let sql = "UPDATE users SET Nom = ?, Prenom = ?, Email = ? WHERE ID = ?";
+    let pass = req.body.pass;
+
+    if(pass.length !== 0){
+      console.log(pass);
+      pass = bcrypt.hashSync(context.req.body.pass,10,function(err,hash){});
+
+    } else {
+      let passSql = "SELECT Password from Users WHERE id = ?";
+      con.query(passSql, [idu], function (err,result){
+          console.log(result);
+          pass = result;
+      })
+    }
+
+    let sql = "UPDATE users SET Nom = ?, Prenom = ?, Email = ?, Password = ? WHERE ID = ?";
 
     //Insert dans la DB
-    con.query(sql, [nom, pnom, mail, idu], function (err,result){
+    con.query(sql, [nom, pnom, mail, pass, idu], function (err,result){
         if (err) throw err;
-        
         
         response = result;
         resolve(response)
