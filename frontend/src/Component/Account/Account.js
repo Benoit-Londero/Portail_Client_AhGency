@@ -67,14 +67,12 @@ export default function NameForm() {
 
                setEdit(false);
           }
-          
      }
 
      return (
           <div id="page_account">
                <NavBar />
                <Container>
-
                     <h1>Mon compte</h1>
 
                     <Row className="account_section">
@@ -121,19 +119,8 @@ export default function NameForm() {
                               </ul>
                          </Col>
 
-                    {/* <Row className="account_section delete_account">
-                         <Col lg={12}>
-                         <table >
-                              <tbody>
-                                   <tr>
-                                        <td><label for="deleteacc">Supprimer mon compte (ATTENTION !! Cette action est irréversible)</label></td>
-                                        <td><input type="submit" id="deleteacc" value="Supprimer mon compte"/></td>
-                                   </tr>                                
-                              </tbody>
-                         </table>
-
-                         </Col>
-                    </Row> */}
+                    </Row>
+                    <Row>
                          <Col>
                               <h2>FAQ</h2>
                               <Accordion defaultActiveKey="0">
