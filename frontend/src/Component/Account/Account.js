@@ -13,8 +13,6 @@ import Accordion from 'react-bootstrap/Accordion';
 
 export default function NameForm() {
 
-     const [edit, setEdit] = useState(false);
-
      const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
      const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
      const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
@@ -36,11 +34,6 @@ export default function NameForm() {
      ]
 
      const handleClick = async () => {
-          if(edit === false)
-          {
-               setEdit(true);
-          }
-          else {
                let editForm = document.getElementById('editForm'); //on récupère l'élement <form> et ces différents <input>
                let dataForm = new FormData(editForm); //que l'on intègre à un formData
 
@@ -64,9 +57,6 @@ export default function NameForm() {
 
                const data = await response.json();
                console.log(data);
-
-               setEdit(false);
-          }
      }
 
      return (
@@ -89,10 +79,6 @@ export default function NameForm() {
                                              <tr><td><label className="bold"> Mot de passe : </label><input type="password" id="confpass" placeholder="********"></input></td></tr>
                                              <tr><td><input type="submit" name="modifier" value="Enregistrer" /></td></tr>
 
-                                             <tr>
-                                                  <td><button onClick={handleClick}><BiIcons.BiPencil /></button></td>
-                                                  <span className="clear"></span>
-                                             </tr>
                                         </form>
                                    </tbody>
                               </table>
