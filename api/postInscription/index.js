@@ -18,11 +18,11 @@ module.exports = async function (context,req,res) {
         }
 
         let sql = "INSERT INTO users(Login,Nom,Prenom,Password,Email) VALUES (?,?,?,?,?)";
-        let checkMail = "SELECT COUNT Email FROM users where Email = ?";
+        let checkMail = "SELECT COUNT (Email) FROM users where Email = ?";
 
-        con.query(checkMail, [mail], function (err, resultat) {
+        con.query(checkMail, [insc.mail], function (err, resultat) {
             if (err) throw err;
-            if (resultat !== 0) {
+            if (resultat !==0) {
                 response = 'Error';
                 resolve(response);
             } else {
