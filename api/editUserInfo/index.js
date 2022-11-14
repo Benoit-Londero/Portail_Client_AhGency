@@ -14,29 +14,45 @@ module.exports = async function (context,req,res) {
     let pnom = req.body.prenom;
     let idu = req.body.idu;
 
-    let pass = req.body.pass;
+    let check = req.body.pass;
+    console.log(check);
 
-    if(pass.length !== 0){
+    console.log('haaaaa');
+
+    if(check !== ""){
+      let pass = bcrypt.hashSync(req.body.pass,10,function(err,hash){});
       console.log(pass);
-      pass = bcrypt.hashSync(context.req.body.pass,10,function(err,hash){});
+      let sql = "UPDATE users SET Nom = ?, Prenom = ?, Email = ?, Password = ? WHERE ID = ?";
+
+      //Insert dans la DB
+      con.query(sql, [nom, pnom, mail, pass, idu], function (err,result){
+          if (err) throw err;
+          
+          response = result;
+          resolve(response)
+      })
 
     } else {
-      let passSql = "SELECT Password from Users WHERE id = ?";
+      
+      let passSql = "SELECT Password from users WHERE ID = ?";
+      
       con.query(passSql, [idu], function (err,result){
-          console.log(result);
-          pass = result;
+
+          let jsonpass = result[0].Password;
+          console.log(jsonpass)
+          let pass = jsonpass;
+
+          let sql = "UPDATE users SET Nom = ?, Prenom = ?, Email = ?, Password = ? WHERE ID = ?";
+
+          //Insert dans la DB
+          con.query(sql, [nom, pnom, mail, pass, idu], function (err,result){
+              if (err) throw err;
+              
+              response = result;
+              resolve(response)
+          })
       })
     }
-
-    let sql = "UPDATE users SET Nom = ?, Prenom = ?, Email = ?, Password = ? WHERE ID = ?";
-
-    //Insert dans la DB
-    con.query(sql, [nom, pnom, mail, pass, idu], function (err,result){
-        if (err) throw err;
-        
-        response = result;
-        resolve(response)
-    })
   })
 
   context.res = {

@@ -104,6 +104,13 @@
     background: #fff;
 }
 
+.my_contact{
+    background: #B8B8FF;
+    padding: 25px;
+    border-radius: 15px;
+    color: #6610F2;
+}
+
 .my_contact ul {
     padding: 0px!important;
 }

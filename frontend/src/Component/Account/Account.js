@@ -72,11 +72,13 @@ export default function NameForm() {
                               <table className="Profil">
                                    <tbody>
                                         <tr><td><RiAccountCircleFill className="account_ppic"/></td></tr>
-                                        <tr><td><label className="bold">Nom : </label> <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td></tr>
-                                        <tr><td><label className="bold">Prénom : </label> <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td></tr>
-                                        <tr><td><label className="bold"> Mail : </label><input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/></td></tr>
+                                        <tr>
+                                             <td><label className="bold">Nom : </label> <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td>
+                                             <td><label className="bold">Prénom : </label> <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td>
+                                        </tr>
+                                        <tr><td><label className="bold"> Adresse email : </label><input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/></td></tr>
                                         <tr><td><label className="bold"> Mot de passe : </label><input type="password" id="pass" placeholder="********"></input></td></tr>
-                                        <tr><td><label className="bold"> Mot de passe : </label><input type="password" id="confpass" placeholder="********"></input></td></tr>
+                                        <tr><td><label className="bold"> Confirmation du mot de passe : </label><input type="password" id="confpass" placeholder="********"></input></td></tr>
                                         <tr><td><input type="hidden" name="idu" value ={currentIDU}/></td></tr>
                                         <tr><td><input type="submit" name="modifier" value="Enregistrer" /></td></tr>
                                    </tbody>
