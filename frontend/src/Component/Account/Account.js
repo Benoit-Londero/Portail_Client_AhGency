@@ -83,8 +83,7 @@ export default function NameForm() {
                                    </tbody>
                               </table>
                          </Col>
-                    </Row>
-                    <Row>
+
                          <Col md={{span: 3, offset: 1}} className="my_contact">
                          <h2>Mes contacts</h2>
                               <ul>
@@ -104,7 +103,6 @@ export default function NameForm() {
                                    })}
                               </ul>
                          </Col>
-
                     </Row>
                     <Row>
                          <Col>
