@@ -22,7 +22,6 @@ module.exports = async function (context, req, res) {
 
     con.query(sqlQUERY, [rdmPwdHashSalt, mail], function (err,result){
         if (err) throw err;
-        resolve(randomstring);
     });
 
     context.res = {
