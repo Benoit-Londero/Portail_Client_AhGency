@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import './Account.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
@@ -7,7 +7,6 @@ import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { ImMail4 } from "react-icons/im";
-import * as BiIcons from "react-icons/bi";
 import Accordion from 'react-bootstrap/Accordion';
 
 
