@@ -69,5 +69,13 @@ export const SidebarData = [
         cName: 's-sidebar__nav-link',
         admin: false,
         category: 'account'
+    },
+    {
+        title:'FAQ',
+        path:'/Faq',
+        icon: <RiIcons.RiQuestionnaireLine />,
+        cName: 's-sidebar__nav-link',
+        admin: true,
+        category: 'account'
     }
 ]
