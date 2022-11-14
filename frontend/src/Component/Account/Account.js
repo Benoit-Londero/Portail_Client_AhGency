@@ -18,13 +18,7 @@ export default function NameForm() {
      const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
      const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
      const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
-     const currentIDU = localStorage.getItem("currentIDU");
-
-     const identity= {
-          nom : currentNOM,
-          prenom : currentPNOM,
-          mail: currentMAIL
-     }
+     //const currentIDU = localStorage.getItem("currentIDU");
 
      const contact_agc = [
           {
@@ -84,53 +78,29 @@ export default function NameForm() {
                     <h1>Mon compte</h1>
 
                     <Row className="account_section">
-                         {edit === false ? <Col md={8}>
-                         <h2>Informations générales</h2>
-                         <table className="Profil">
-                              <tbody>
-                                   <tr><td><RiAccountCircleFill className="account_ppic"/></td></tr>
-                                   <tr><td><label className="bold">Nom : </label> <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td></tr>
-                                   <tr><td><label className="bold">Prénom : </label> <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td></tr>
-                                   <tr><td><label className="bold"> Mail : </label><input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required disabled/></td></tr>
-                                   <tr><td><label className="bold"> Mot de passe : </label><input type="password" id="confpass" placeholder="********"></input></td></tr>
-                                   {/* <tr>
-                                        <td><label for="pass">Modifier mon mot de passe</label><br/>
-                                        <input type="password" id="pass" placeholder="********"></input></td>
-                                   </tr>
+                         <Col>
+                              <h2>Informations générales</h2>
+                              <table className="Profil">
+                                   <tbody>
+                                        <form id="editForm" onSubmit={handleClick}>
+                                             <tr><td><RiAccountCircleFill className="account_ppic"/></td></tr>
+                                             <tr><td><label className="bold">Nom : </label> <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td></tr>
+                                             <tr><td><label className="bold">Prénom : </label> <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td></tr>
+                                             <tr><td><label className="bold"> Mail : </label><input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required disabled/></td></tr>
+                                             <tr><td><label className="bold"> Mot de passe : </label><input type="password" id="pass" placeholder="********"></input></td></tr>
+                                             <tr><td><label className="bold"> Mot de passe : </label><input type="password" id="confpass" placeholder="********"></input></td></tr>
+                                             <tr><td><input type="submit" name="modifier" value="Enregistrer" /></td></tr>
 
-                                   <tr>
-                                        <td><label for="confpass">Confirmer nouveau mot de passe</label><br/>
-                                        <input type="password" id="confpass" placeholder="********"></input></td>
-                                   </tr> */}
-
-                                   <tr>
-                                        <td><button onClick={handleClick}><BiIcons.BiPencil /></button></td>
-                                        <span className="clear"></span>
-                                   </tr>
-                              </tbody>
-                         </table>
-                         
-                         
-                         </Col> : <Col md={8}>
-                              <span className="avertissement">La modification de vos informations de profil ne sera visible qu'après une reconnexion !!</span>
-                              <form id="editForm" onSubmit={handleClick}>
-                                   <label>Nom<br/>
-                                   <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/>
-                                   </label><br/>
-                                   <label>Prénom<br/>
-                                   <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/>
-                                   </label><br/>
-                                   <label>Email<br/>
-                                   <input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/>
-                                   <input type="number" name="idu" value ={currentIDU} hidden/>
-                                   </label><br/>
-                                   <input type="submit" name="modifier" value="Enregistrer" />
-                         </form></Col> }
-
-                         </Row>
-
-                         <Row>
-                    
+                                             <tr>
+                                                  <td><button onClick={handleClick}><BiIcons.BiPencil /></button></td>
+                                                  <span className="clear"></span>
+                                             </tr>
+                                        </form>
+                                   </tbody>
+                              </table>
+                         </Col>
+                    </Row>
+                    <Row>
                          <Col md={{span: 3, offset: 1}} className="my_contact">
                          <h2>Mes contacts</h2>
                               <ul>
