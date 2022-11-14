@@ -12,8 +12,9 @@ export default function Inscription() {
     //const navigate = useNavigate();
 
     const [message, setMessage] = useState(false);
+    const [error, setError] = useState(false);
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
         let inscForm = document.getElementById('inscForm'); //on récupère l'élement <form> et ces différents <input>
         let myInscr = new FormData(inscForm); //que l'on intègre à un formData
@@ -38,17 +39,30 @@ export default function Inscription() {
             body: JSON.stringify(jsonForm)
         })
 
-        fetch('/api/postInscription', { 
+        // fetch('/api/postInscription', { 
+        //     method: 'POST',
+        //     headers: {'Content-Type':'application/json'},
+        //     body: JSON.stringify(jsonForm) 
+        // })
+        // .then(res => res.json())
+        // .then(response=>{})
+        // .then(setMessage(true))
+        // .catch(err => console.info(err))
+
+        const reception = await fetch('/api/postInscription', { 
             method: 'POST',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(jsonForm) 
         })
-        .then(res => res.json())
-        .then(response=>{
-            e.target.reset();
-        })//On redirige vers le form de connexion
-        .then(setMessage(true))
-        .catch(err => console.info(err))
+      
+        const ress = await reception.json();
+        if(ress === "Error"){
+            console.log("error reçu");
+            setError(true);
+        } else {
+            console.log('success recu');
+            setMessage(true);
+        }
     }
 
   return (
@@ -64,7 +78,7 @@ export default function Inscription() {
                                             <label>Prénom<br/>
                                                 <input type="text" name="prenom" placeholder="John" required/>
                                             </label><br/>
-                                            <label>Email<br/>
+                                            <label>Email<br/>{error === true ? <span>Un compte existe déjà avec cette adresse email !</span> : null}
                                                 <input type="email" name="email" placeholder="johndoe@mail.be" required/>
                                             </label><br/>
                                             <label>Mot de passe<br/>

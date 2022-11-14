@@ -23,12 +23,12 @@ module.exports = async function (context,req,res) {
         con.query(checkMail, [insc.mail], function (err, resultat) {
             if (err) throw err;
             if (resultat.length !==0) {
-                response = 'Error';
+                response  =  JSON.stringify('Error');
                 resolve(response);
             } else {
                 con.query(sql, [insc.login,insc.nom,insc.prenom,insc.pass,insc.mail], function (err,result){
                     if (err) throw err;
-                    response  = 'Success';
+                    response  =  JSON.stringify('Success');
                     resolve(response);
                 });
             }
