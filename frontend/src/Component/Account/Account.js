@@ -7,7 +7,6 @@ import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { ImMail4 } from "react-icons/im";
-import Accordion from 'react-bootstrap/Accordion';
 
 
 export default function NameForm() {
@@ -106,37 +105,7 @@ export default function NameForm() {
                               </ul>
                          </Col>
                     </Row>
-                    <Row>
-                         <Col>
-                              <h2>FAQ</h2>
-                              <Accordion defaultActiveKey="0">
-                                   <Accordion.Item eventKey="0">
-                                   <Accordion.Header className="title_accordeon">Que se passe-t'il si je n'ai plus assez de crédit pendant un projet ?</Accordion.Header>
-                                   <Accordion.Body>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.</p>
-                                   </Accordion.Body>
-                                   </Accordion.Item>
-                                   <Accordion.Item eventKey="1">
-                                   <Accordion.Header>Accordion Item #2</Accordion.Header>
-                                   <Accordion.Body>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                        culpa qui officia deserunt mollit anim id est laborum.</p>
-                                   </Accordion.Body>
-                                   </Accordion.Item>
-                              </Accordion>
-                         </Col>
-                    </Row>
+                    
                </Container>        
          </div>
      )

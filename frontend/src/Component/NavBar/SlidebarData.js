@@ -63,19 +63,19 @@ export const SidebarData = [
     //     category: 'app'
     // },
     {
-        title:'LogOut',
-        path: '/Logout',
-        icon: <RiIcons.RiLogoutBoxLine />,
-        cName: 's-sidebar__nav-link',
-        admin: false,
-        category: 'account'
-    },
-    {
         title:'FAQ',
         path:'/Faq',
         icon: <RiIcons.RiQuestionnaireLine />,
         cName: 's-sidebar__nav-link',
         admin: true,
+        category: 'account'
+    },
+    {
+        title:'LogOut',
+        path: '/Logout',
+        icon: <RiIcons.RiLogoutBoxLine />,
+        cName: 's-sidebar__nav-link',
+        admin: false,
         category: 'account'
     }
 ]
