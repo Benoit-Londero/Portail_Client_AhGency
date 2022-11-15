@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 import Accordion from 'react-bootstrap/Accordion';
-
+import Call_Center from '../../img/Call_Center.png';
 
 export default function FaqPage() {
 
@@ -15,6 +15,11 @@ export default function FaqPage() {
                <NavBar />
                <Container>
                     <h1>Foire aux questions</h1>
+
+                    <Row className="header_section">
+                         <Col><h2>Répondons à quelques questions !</h2>
+                         <img src={Call_Center} alt="call_center" /></Col>
+                    </Row>
 
                     <Row>
                          <Col>
