@@ -10,18 +10,30 @@ import Call_Center from '../../img/Call_Center.png';
 
 export default function FaqPage() {
 
+     const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
+
      return (
           <div id="page_faq">
                <NavBar />
                <Container>
                     <h1>Foire aux questions</h1>
+                    
+                    { currentRole === 'administrator'
+                              ?<form method="post">
+                                   <h2>Administration</h2>
+                                   <label>Titre</label>
+                                   <input type="text" placeholder="Quel est la question?"></input>
 
-                    <Row className="header_section">
-                         <Col><h2>Répondons à quelques questions !</h2>
-                         <img src={Call_Center} alt="call_center" /></Col>
-                    </Row>
+                                   <label>Réponse</label>
+                                   <textarea></textarea>
+                                                       
+                              </form> : null}
 
+                         
                     <Row>
+                         <Col className="col_left">
+                              <img src={Call_Center} alt="call_center" />
+                         </Col>
                          <Col>
                               <Accordion defaultActiveKey="0">
                                    <Accordion.Item eventKey="0">

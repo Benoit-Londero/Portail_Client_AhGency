@@ -3,30 +3,11 @@
      margin-left:15vw;
      margin-top:9vh;
  }
- 
- .header_section {
-     background:#fff;
-     border-radius: 10px;
-     padding: 20px;
- }
-
- .header_section img{
-     margin:auto;
- }
- 
- .header_section h2 {
-     color: rgb(67, 67, 67);
-     text-transform: uppercase;
-     font-size: 14px!important;
-     min-width: 100%;
-     text-align: left;
- }
 
  .title_accordeon, .accordion-button{
      color:#190933;
-     background: #C8B6F2;
+     background: #ffffff;
  }
- 
  
  @media screen and (max-width:756px) and (orientation: portrait) {
      #page_account{
