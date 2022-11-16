@@ -105,10 +105,10 @@
 }
 
 .my_contact{
-    background: #B8B8FF;
+    background: #ededed;
     padding: 25px;
     border-radius: 15px;
-    color: #6610F2;
+    color: #190933;
 }
 
 .my_contact ul {
@@ -135,7 +135,7 @@
 }
 
 .btn_mail {
-    color: #eee;
+    color: rgb(82, 82, 82);
     font-size: 30px;
     text-align: right!important;
 }
@@ -165,5 +165,10 @@
         width: 90vw;
         margin-left:0px;
         margin-top:9vh;
+        margin-bottom: 20vh;
+    }
+
+    .my-contact{
+        margin-top:50px;
     }
 }

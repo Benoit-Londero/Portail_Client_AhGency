@@ -30,7 +30,7 @@
 }
 
 .product_fiche .price{
-    color: #6610f2;
+    color: #672bf2;
     font-size: 24px;
     font-weight: 800;
     text-align: center;
@@ -38,7 +38,7 @@
 
 .product_fiche .button-credits,
 #catchow .btn_to_agc{
-    background: #6610f2;
+    background: #672bf2;
     border-bottom: 4px solid #5012b6;
     padding: 10px 30px;
     border-radius: 10px;
@@ -56,9 +56,9 @@
 #catchow .btn_to_agc:focus {
 
     background: #fff!important;
-    color: #6610f2!important;
+    color: #672bf2!important;
     border-bottom: 0px!important;
-    border: 3px solid #6610f2!important;
+    border: 3px solid #672bf2!important;
 }
 
 .pdt_highlight{
@@ -87,7 +87,7 @@
 }
 
 #catchow .col-gch a{
-    color:#6610f2;
+    color:#672bf2;
 }
 
 #catchow .btn_to_agc{

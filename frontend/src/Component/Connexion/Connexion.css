@@ -5,7 +5,7 @@
 }
 
 .connexion_form {
-    padding-top: 25vh;
+    padding-top: 20vh;
 }
 
 .connexion_form a {
@@ -49,7 +49,7 @@
     font-size: 16px;
     min-width: 90%;
     margin-top: 10px;
-    text-align: center;
+    text-align: center!important;
 }
 
 #logForm input[type="submit"] {
