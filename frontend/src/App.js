@@ -12,6 +12,7 @@ import AdminForm from './Component/AdminForm/AdminForm.js'
 import AdminHeure from './Component/AdminHeures/AdminHeure.js'
 import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
+import Faq from './Component/Faq/Faq.js'
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -108,6 +109,7 @@ function App() {
               <Route path="/AdminHeure" element={< AdminHeure />}></Route>
               <Route path="/ViewAll" element={< ViewAll />}></Route>
               <Route path='/Account' element={< NameForm />}></Route>
+              <Route path="/Faq" element={< Faq />}></Route>
               <Route path="/Recuperation" element={< Recuperation />}></Route>
               <Route path='/Credits' element={< Boutique />}></Route>
               <Route path='/Factures' element={< Facture />}></Route>

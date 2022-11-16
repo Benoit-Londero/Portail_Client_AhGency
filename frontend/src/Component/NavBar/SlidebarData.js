@@ -63,6 +63,14 @@ export const SidebarData = [
     //     category: 'app'
     // },
     {
+        title:'FAQ',
+        path:'/Faq',
+        icon: <RiIcons.RiQuestionnaireLine />,
+        cName: 's-sidebar__nav-link',
+        admin: true,
+        category: 'account'
+    },
+    {
         title:'LogOut',
         path: '/Logout',
         icon: <RiIcons.RiLogoutBoxLine />,

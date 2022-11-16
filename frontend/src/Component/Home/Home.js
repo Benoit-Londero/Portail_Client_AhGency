@@ -77,7 +77,7 @@ export default function Home() {
           <h1>Bienvenue</h1>
 
           <Row>         
-               <Col className="stats">
+               <Col className="stats" xl={4} md={4}>
                     <h2>Statistiques</h2>
                                       
                     {percentage > 10 ? <CircularProgressbar

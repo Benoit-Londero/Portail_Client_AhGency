@@ -55,10 +55,15 @@ input[type="submit"]:hover{
 }
 
 @media screen and (max-width:756px) and (orientation: portrait) {
+
+     #hourForm{
+          margin:auto;
+     }
+
      #hourForm h1,
      #HeureForm{
           margin-left:auto;
           margin-right:auto;
-          width:90vw;
+          width:100%;
      }
 }

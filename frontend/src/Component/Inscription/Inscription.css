@@ -1,7 +1,7 @@
 #page_inscription .container {
     min-height: 100vh;
     min-width: 100vw!important;
-    background: #6610f2!important;
+    background: #fafafa!important;
 }
 
 .inscription_form {
@@ -17,14 +17,14 @@
     background: #fff;
     border-radius: 20px;
     min-height: 30vh;
-    width: 60vw;
+    width: 50vw;
     margin: auto;
     box-shadow: 5px 5px 15px #ffffff9b;
     padding: 40px;
 }
 
 .inscription_form a {
-    color: #fff;
+    color: #6610f2;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
@@ -32,11 +32,11 @@
 }
 
 #inscForm label {
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 50px;
-    min-width: 90%;
+    min-width: 100%;
 }
 
 #inscForm input[type="text"],
@@ -49,8 +49,7 @@
     line-height: 1.5em;
     font-size: 16px;
     margin-top: 10px;
-    text-align: center;
-    width: 80%!important;
+    text-align: left;
 }
 
 #inscForm input[type="submit"] {
@@ -62,6 +61,7 @@
     letter-spacing: 2px;
     font-size: 16px;
     border-radius: 5px;
+    text-align:center;
 }
 
 #inscForm input[type="submit"]:hover,

@@ -104,6 +104,13 @@
     background: #fff;
 }
 
+.my_contact{
+    background: #ededed;
+    padding: 25px;
+    border-radius: 15px;
+    color: #190933;
+}
+
 .my_contact ul {
     padding: 0px!important;
 }
@@ -128,7 +135,7 @@
 }
 
 .btn_mail {
-    color: #eee;
+    color: rgb(82, 82, 82);
     font-size: 30px;
     text-align: right!important;
 }
@@ -139,10 +146,15 @@
 }
 
 .avertissement {
-    color: red;
+    color:red;
+    background: #ff000030;
+    font-size: 15px;
+    padding: 10px 40px;
+    width: 100%;
+    border-radius: 5px;
 }
 
-.title_accordeon{
+.title_accordeon, .accordion-button{
     color:#190933;
     background: #C8B6F2;
 }
@@ -153,5 +165,10 @@
         width: 90vw;
         margin-left:0px;
         margin-top:9vh;
+        margin-bottom: 20vh;
+    }
+
+    .my-contact{
+        margin-top:50px;
     }
 }
