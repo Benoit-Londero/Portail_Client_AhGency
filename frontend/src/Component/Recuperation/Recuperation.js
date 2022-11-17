@@ -40,7 +40,7 @@ export default function Recuperation() {
         if(response.status === 200){
             setMessageValidation(true);
             console.log('je trigger');
-            fetch('https://hook.eu1.make.com/2kri242ac2ssrozcnb44z0zc72j03nck', { method: 'POST', body: JSON.stringify({reset: reset, mail : recupEmail})}); 
+            fetch('https://hook.eu1.make.com/2kri242ac2ssrozcnb44z0zc72j03nck', { method: 'POST', body: JSON.stringify({reset: reset, mail : recupEmail, objet: "réinit"})}); 
         }else {
             setMessageValidation(false);
             alert("une erreur est survenue, merci de réessayer plus tard");
