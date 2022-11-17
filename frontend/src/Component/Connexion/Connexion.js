@@ -55,7 +55,7 @@ export default function Connexion(props) {
             </Row>
             <Row className="link">
                 <Col>
-                <a href="https://www.ahgency.be" rel="noopener noreferrer" target="_blank"><HiArrowNarrowLeft/> Visitez AhGency.be</a>
+                <a href="https://www.ahgency.be" rel="noopener noreferrer" target="_blank"><HiArrowNarrowLeft/> AhGency.be</a>
                 </Col>
             </Row>
         </Container>
