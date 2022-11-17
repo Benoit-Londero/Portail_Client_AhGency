@@ -8,6 +8,7 @@ import NameForm from './Component/Account/Account.js'
 import Home from './Component/Home/Home.js'
 import Facture from './Component/Facture/Facture.js'
 import Inscription from './Component/Inscription/Inscription.js'
+import Demande from './Component/Demande/Demande.js'
 import AdminForm from './Component/AdminForm/AdminForm.js'
 import AdminHeure from './Component/AdminHeures/AdminHeure.js'
 import Recuperation from './Component/Recuperation/Recuperation.js'
@@ -111,6 +112,7 @@ function App() {
               <Route path='/Account' element={< NameForm />}></Route>
               <Route path="/Faq" element={< Faq />}></Route>
               <Route path="/Recuperation" element={< Recuperation />}></Route>
+              <Route path="/Demande" element={< Demande />}></Route>
               <Route path='/Credits' element={< Boutique />}></Route>
               <Route path='/Factures' element={< Facture />}></Route>
               <Route path='/Inscription' element={< Inscription />}></Route>

@@ -1,40 +1,34 @@
+const { con } = require("../db/db");
+
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-
-    /* let name = context.req.body.email;
-    let date = context.req.body.date;
-    let descr = context.req.body.descr;
-    let title = context.req.body.demande;
-    let cont_ma = context.req.body.contrat;
-
-    let contrat;
-
-    if(cont_ma === "oui"){
-        contrat = "Vous avez un contrat de maintenance";
+      
+    let result;
     
-    } else {
-        contrat = "Vous n'avez pas de contrat";
-    }
-
-    const responseMessage = name
-        ? "Hello, " + name + ". We receive your new ticket :." + title + " " + descr + " le " + date + " " + contrat
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
- */
-
-        let data = context.req.body.data.fields;
+    result = await new Promise((resolve,reject) => {
         
-        const result = await new Promise((resolve,reject) => {
-            
-            /* data.forEach( key =>{
-                array += key.value;
+        let email = context.req.body.email;
+        let date = context.req.body.dateEnvoi;
+        let userID = context.req.body.iduser;
+        let title = context.req.body.title;
+        let detail = context.req.body.tache;
+        let url = context.req.body.siteURL;
+        let contrat = context.req.body.contrat;
+        let Status = "Non démarré";
 
-            }) */
+        let sqlTicket = "INSERT INTO tickets(Tickets,ID_Client,Date,Statut,Email,Maintenance,Description,URL) VALUES (?,?,?,?,?,?,?,?)";
 
-        })
+        con.query(sqlTicket, [title, userID, date, Status, email, contrat, detail, url], function (err, resultat) {
+            if (err) throw err;
+            result = JSON.stringify('Demande OK');
+            resolve(result);
+        });
+
+    })
 
 
     context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: data
+        status: 200,
+        body: result
     };
 }
