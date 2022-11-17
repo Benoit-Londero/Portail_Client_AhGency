@@ -86,7 +86,7 @@ export default function NameForm() {
                          </Col>
 
                          <Col md={{span: 3, offset: 1}} className="my_contact">
-                         <h2>Contacter ahgency</h2>
+                         <h2>Envoyer un mail à</h2>
                               <ul>
                                    {contact_agc.map((item,index) => {
                                         return (

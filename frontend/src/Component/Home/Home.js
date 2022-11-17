@@ -181,7 +181,6 @@ export default function Home() {
                          <thead>
                               <tr>
                               <td colSpan="3"><h2>Détails</h2></td>
-                              <td className="time_hrs_right"> {(Math.round((timeSpend /60)*10)/10) + " / " + Math.round((currentHeureTOT /60)*10)/10 + " H"} </td>
                               </tr>
                          </thead>
                          <tbody>
@@ -212,7 +211,6 @@ export default function Home() {
                     
                     <div class="mobile">
                          <h2>Détails</h2>
-                         <p className="time_hrs_right"> {(Math.round((timeSpend /60)*10)/10) + " / " + Math.round((currentHeureTOT /60)*10)/10 + " H"}</p>
 
                          {filteredTS.map((item,index) => {
                               /* var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY'); */
