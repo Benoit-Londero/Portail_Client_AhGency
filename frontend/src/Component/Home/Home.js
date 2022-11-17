@@ -17,6 +17,7 @@ export default function Home() {
 
      const [timesheet, setTimesheet] = useState([]);
      const [filteredTS, setFilteredTS] = useState([]);
+     const [checkPercent, setCheckPercent] = useState();
      //const [demande, setDemande] = useState([]);
 
      const currentIDU = (localStorage.getItem("currentIDU").replaceAll('"',''));
@@ -30,7 +31,6 @@ export default function Home() {
      //const currentToken = (localStorage.getItem("currentToken").replaceAll('"',''));
      
 
-     console.log(currentNOM);
      useEffect (() => {
 
           /*  ---   CODE CHELOU & OBSOLETE QUENTIN   ---  */
@@ -44,6 +44,8 @@ export default function Home() {
           /*  --- FIN CODE CHELOU & OBSOLETE QUENTIN ---  */
 
           let dataU = {currentIDUser: currentIDU};
+          
+          handleNaN();
 
           fetch('/api/getTimesheet', { 
                method: 'POST', 
@@ -65,7 +67,17 @@ export default function Home() {
 
      //Calcul du montant dépensé (temps dépensé)
      const money_spend = Math.round(((timeSpend/60) * 75));
-     const percentage = Math.round(((100*currentHeureREST) / currentHeureTOT));;
+
+
+     const handleNaN = () => {
+          if (currentHeureTOT === 0) {
+               const percentage = Math.round(((100*currentHeureREST) / 1));
+               setCheckPercent(percentage);
+          } else {
+               const percentage = Math.round(((100*currentHeureREST) / currentHeureTOT));
+               setCheckPercent(percentage);
+          }
+     }
 
      return (
 
@@ -80,9 +92,9 @@ export default function Home() {
                <Col className="stats" xl={4} md={4}>
                     <h2>Statistiques</h2>
                                       
-                    {percentage > 10 ? <CircularProgressbar
-                         value={percentage}
-                         text={`${percentage}%`}
+                    {checkPercent > 10 ? <CircularProgressbar
+                         value={checkPercent}
+                         text={`${checkPercent}%`}
                          styles={{
                               path: {
                                    strokeLinecap: 'round',
@@ -102,8 +114,8 @@ export default function Home() {
                               }
                          }}
                     /> : <CircularProgressbar
-                    value={percentage}
-                    text={`${percentage}%`}
+                    value={checkPercent}
+                    text={`${checkPercent}%`}
                     styles={{
                          path: {
                               strokeLinecap: 'round',
@@ -127,7 +139,7 @@ export default function Home() {
                     <p>Heures achetées : {Math.round(currentHeureTOT /60)} h</p>
                     <p className="highlight">Heures restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
                     <p><b>Total dépensé : {money_spend} €</b></p>
-                    {percentage > 10 ? null : <Link to ='/Credits'><Button>Recharger</Button></Link>}
+                    {checkPercent > 10 ? null : <Link to ='/Credits'><Button>Recharger</Button></Link>}
                </Col>
 
                <Col className="tableauTS">
