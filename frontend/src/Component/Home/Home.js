@@ -22,7 +22,7 @@ export default function Home() {
 
      const currentIDU = (localStorage.getItem("currentIDU").replaceAll('"',''));
      //const currentUSR= (localStorage.getItem("currentUSR").replaceAll('"',''));
-     const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
+     //const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
      //const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
      //const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
      const currentHeureTOT = (localStorage.getItem("currentHeureTOT").replaceAll('"',''));
@@ -70,13 +70,14 @@ export default function Home() {
 
 
      const handleNaN = () => {
-          if (currentHeureTOT === 0) {
-               const percentage = Math.round(((100*currentHeureREST) / 1));
+          if (parseInt(currentHeureTOT) === 0) {
+               const percentage = 0;
                setCheckPercent(percentage);
           } else {
                const percentage = Math.round(((100*currentHeureREST) / currentHeureTOT));
                setCheckPercent(percentage);
           }
+          
      }
 
      return (
@@ -84,9 +85,6 @@ export default function Home() {
      <div>
      <NavBar />
      <Container id="page_dashboard">
-
-          <p className="name_user">Hello, {currentNOM}</p>
-          <h1>Bienvenue</h1>
 
           <Row>         
                <Col className="stats" xl={4} md={4}>

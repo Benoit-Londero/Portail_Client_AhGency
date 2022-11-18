@@ -74,15 +74,11 @@ function App() {
       //setCurrentToken(json[1].token);
       setErreur(false);
       setLogin(true);
-      console.log(response);
 
     } else {
       setErreur(true);
       console.log('erreur');
     }
-    
-    console.log(response)
-    console.log(data)
   }
 
   const resetLogin = () => {
