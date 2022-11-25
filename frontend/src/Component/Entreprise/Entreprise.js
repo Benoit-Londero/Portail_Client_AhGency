@@ -5,7 +5,7 @@ import './Entreprise.css'
 export default function Entreprise() {
   return (
     <div>
-          <Navbar/>
+          <NavBar/>
           <h1>Entreprise</h1>
      </div>
   )
