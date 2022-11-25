@@ -54,6 +54,14 @@ export const SidebarData = [
         admin: false,
         category: 'app'
     },
+    {
+        title:'Entreprise',
+        path: '/Entreprise',
+        icon: <RiIcons.RiLogoutBoxLine />,
+        cName: 's-sidebar__nav-link',
+        admin: true,
+        category: 'account'
+    },
     // {
     //     title:'Factures',
     //     path: '/Factures',

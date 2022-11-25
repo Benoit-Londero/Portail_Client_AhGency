@@ -13,6 +13,7 @@ import AdminHeure from './Component/AdminHeures/AdminHeure.js'
 import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
 import Faq from './Component/Faq/Faq.js'
+import Entreprise from './Component/Entreprise/Entreprise.js'
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -105,6 +106,7 @@ function App() {
               <Route path="/AdminHeure" element={< AdminHeure />}></Route>
               <Route path="/ViewAll" element={< ViewAll />}></Route>
               <Route path='/Account' element={< NameForm />}></Route>
+              <Route path="/Entreprise" element={< Entreprise />}></Route>
               <Route path="/Faq" element={< Faq />}></Route>
               <Route path="/Recuperation" element={< Recuperation />}></Route>
               <Route path='/Credits' element={< Boutique />}></Route>
