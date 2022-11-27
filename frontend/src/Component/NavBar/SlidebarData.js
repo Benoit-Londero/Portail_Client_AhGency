@@ -16,8 +16,8 @@ export const SidebarData = [
         category: 'app'
     },
     {
-        title:'',
-        path: '/project',
+        title:'Projet',
+        path: '/Projet',
         icon : <FaIcons.FaRegPlusSquare />,
         cName: 's-project__nav-link',
         admin: true,
