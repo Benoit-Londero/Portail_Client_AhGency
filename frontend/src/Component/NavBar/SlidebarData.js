@@ -16,6 +16,14 @@ export const SidebarData = [
         category: 'app'
     },
     {
+        title:'',
+        path: '/project',
+        icon : <FaIcons.FaRegPlusSquare />,
+        cName: 's-project__nav-link',
+        admin: true,
+        category: 'app'
+    },
+    {
         title:'Ajout timesheet',
         path: '/AdminForm',
         icon: <GrIcons.GrTableAdd />,

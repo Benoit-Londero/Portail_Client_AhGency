@@ -14,6 +14,7 @@ import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
 import Faq from './Component/Faq/Faq.js'
 import Entreprise from './Component/Entreprise/Entreprise.js'
+import Projet from './Component/Projet/Projet.js'
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -101,6 +102,7 @@ function App() {
         <Router>
             <Routes>
               <Route exact path="/" element={<Connexion handleSubmit={handleSubmit} erreur={erreur} login={login}/>}></Route>
+              <Route path="/Projet" element={< Projet />}></Route>
               <Route path="/Home" element={< Home />}></Route>
               <Route path="/AdminForm" element={< AdminForm />}></Route>
               <Route path="/AdminHeure" element={< AdminHeure />}></Route>
