@@ -19,6 +19,8 @@ export default function NameForm() {
      const [currentPNOM, setCurrentPNOM] = useState();
      const [currentMAIL, setCurrentMAIL] = useState();
 
+     const displayEntreprise = false;
+
      useEffect(() => {
           let dataU = {currentIDUser: currentIDU};
           
@@ -107,15 +109,22 @@ export default function NameForm() {
                setError(true);
                setValidation(false);
           }           
+          
+          
+ 
      }
 
      return (
           <div id="page_account">
                <NavBar />
                <Container>
-                    <h1>Mon compte</h1>
-
-                    <Row>
+                    <ul>
+                         <li><h1>Mon compte</h1></li>
+                         <li><button onClick={displayEntreprise ? true : false}>Entreprise</button></li>
+                    </ul>
+                    
+                   {displayEntreprise === false ? 
+                         <Row>
                          <Col className="account_section">
                               <h2>Informations générales</h2>
                               
@@ -159,6 +168,48 @@ export default function NameForm() {
                               </ul>
                          </Col>
                     </Row>
+
+                   : 
+                         <Row>
+                              <Col>
+                              <form id="editForm" onSubmit={handleClick}>
+                                   <table className="Profil">
+                                        <tbody>
+                                             <tr>
+                                                  <td><label className="bold">Nom : </label> <input type="text" name="nom" placeholder="Nom de l'entreprise" defaultValue ={currentNomE} required/></td>
+                                                  <td><label className="bold">Numéro de TVA: </label> <input type="text" name="tva" placeholder="BE123456789" defaultValue ={currentTVA} required/></td>
+                                             </tr>
+                                             <tr><td colspan="2"><label className="bold"> Adresse : </label><input type="text" name="adresse" placeholder="Votre adresse" defaultValue ={currentADRESSE} required/></td></tr>
+                                             <tr><td colspan="2"><label className="bold"> Téléphone : </label><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue ={currentTEL}></input></td></tr>
+
+                                             <tr><td colspab="2"><label className="bold"> Email : </label><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue= {currentEMAILE}></input></td></tr>
+                                             <tr><td colspab="2"><label className="bold"> Site : </label><input type="text" id="web" name="web"  defaultValue= {currentSITE}></input></td></tr>
+                                             <tr><td colspab="2"><label className="bold"> Email : </label><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue= {currentEMAILE}></input></td></tr>
+                                             
+                                             <tr><td colspan="3"><input type="submit" name="modifier" value="Enregistrer" /></td></tr>
+                                        </tbody>
+                                   </table>
+                              </form>
+
+                              <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p>
+
+                              <form>
+                                   <label>Ajouter des membres à mon entreprise </label>
+                                   <select>
+                                        {
+                                        users.map((item,index) => {
+                                             return(
+                                                  <option key={index} value={item}>{item}</option>
+                                             )
+                                        })
+                                        }
+                                   </select>
+                              </form>
+                              </Col>
+
+                         </Row>
+                   } 
+                    
                     
                </Container>        
          </div>
