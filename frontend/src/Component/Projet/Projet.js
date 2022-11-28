@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import NavBar from "../NavBar/NavBar";
-import './Demande.css';
+import './Projet.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Demande() {
+export default function Projet() {
 
     const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
     const currentIDU = localStorage.getItem("currentIDU");
