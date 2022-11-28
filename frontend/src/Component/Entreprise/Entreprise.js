@@ -66,7 +66,9 @@ export default function Entreprise() {
           }
 
           return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
-     }   
+     }
+
+     console.log(conJSON);  
   }      
 
   return (
@@ -75,6 +77,7 @@ export default function Entreprise() {
           <Container>
                <h1>Entreprise</h1>
                <Row>
+                    <Col>
                     <form id="editForm" onSubmit={handleClick}>
                          <table className="Profil">
                               <tbody>
@@ -108,6 +111,7 @@ export default function Entreprise() {
                               }
                          </select>
                     </form>
+                    </Col>
 
                </Row>
 
