@@ -19,18 +19,23 @@ export default function NameForm() {
      const [currentPNOM, setCurrentPNOM] = useState();
      const [currentMAIL, setCurrentMAIL] = useState();
 
+     const [currentNomE, setCurrentNomE] = useState();
+     const [currentTVA, setCurrentTVA] = useState();
+     const [currentADRESSE, setCurrentADRESSE] = useState();
+     const [currentTEL, setCurrentTEL] = useState();
+     const [currentEMAILE, setCurrentEMAILE] = useState();
+     const [currentSITE, setCurrentSITE] = useState();
+     const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState();
+
      const displayEntreprise = false;
+
+     const currentIDE = (localStorage.getItem("currentIDE").replaceAll('"',''));
+  
+     const users = ['fabian','Benoit','Quentin'];
 
      useEffect(() => {
           let dataU = {currentIDUser: currentIDU};
-          
-          // fetch('/api/getInfosClient', { 
-          //           method: 'POST', 
-          //           body: JSON.stringify(dataU)
-          // })
-          // .then(res => res.json())
-          // .then(json => setGetInfos(json))
-          // .catch(err => console.info(err))
+          let dataE = {currentIDEntreprise: currentIDE};
 
           const onLoad = async () => {
            
@@ -41,18 +46,37 @@ export default function NameForm() {
                })
            
                const data = await response.json();
+                    if(response.status === 200){
+                         setCurrentNOM(data.Nom);
+                         setCurrentPNOM(data.Prenom);
+                         setCurrentMAIL(data.Email);
+                    } else {
+                         alert('Erreur du serveur, veuillez réessayer plus tard');
+                    }
+
+               const resp = await fetch('/api/getInfosEntreprise', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dataE)
+               })
+
+          const data_entr = await resp.json();
                if(response.status === 200){
-                 setCurrentNOM(data.Nom);
-                 setCurrentPNOM(data.Prenom);
-                 setCurrentMAIL(data.Email);
+                    setCurrentNomE(data_entr.Nom_societe); 
+                    setCurrentTVA(data_entr.TVA);
+                    setCurrentADRESSE(data_entr.Adresse);
+                    setCurrentTEL(data_entr.Telephone);
+                    setCurrentEMAILE(data_entr.Email);
+                    setCurrentSITE(data_entr.Site_web);
+                    setCurrentMAINTENANCE(data_entr.Maintenance);
                } else {
-                 alert('Erreur du serveur, veuillez réessayer plus tard');
+                    
                }
           }
 
           onLoad();
 
-     }, [currentIDU])
+     }, [currentIDU, currentIDE])
       
 
      const contact_agc = [
