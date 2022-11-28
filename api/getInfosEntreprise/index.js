@@ -15,13 +15,13 @@ module.exports = async function (context, req) {
         req = con.query(query, [IDE], function (err,rows){
             if (err) throw err;
 
-            informations = rows;
+            informations = rows[0];
             resolve(informations)
         })
     })
 
     context.res = {
         status : 200,
-        body : informations
+        body : JSON.stringify(informations)
     }   
 }
