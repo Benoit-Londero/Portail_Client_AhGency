@@ -15,7 +15,6 @@ import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
 import Faq from './Component/Faq/Faq.js'
 import Entreprise from './Component/Entreprise/Entreprise.js'
-import Projet from './Component/Projet/Projet.js'
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -29,6 +28,7 @@ function App() {
   
   /* eslint-disable no-unused-vars */
   const [currentIDU, setCurrentIDU] = useLocalStorage("currentIDU","");
+  const [currentIDE, setCurrentIDE] = useLocalStorage("currentIDE","");
   const [currentUSR, setCurrentUSR] = useLocalStorage("currentUSR","");
   const [currentNOM, setCurrentNOM] = useLocalStorage("currentNOM","");
   const [currentPNOM, setCurrentPNOM] = useLocalStorage("currentPNOM","");
@@ -67,6 +67,7 @@ function App() {
     const data = await response.json();
     if(response.status === 200){
       setCurrentIDU(data.ID);
+      setCurrentIDE(data.ID_entreprise);
       setCurrentUSR(data.Login); 
       setCurrentNOM(data.Nom);
       setCurrentPNOM(data.Prenom);
@@ -87,6 +88,7 @@ function App() {
   const resetLogin = () => {
     setLogin(false);
     setCurrentIDU('');
+    setCurrentIDE('');
     setCurrentUSR(''); 
     setCurrentNOM(''); 
     setCurrentPNOM('');

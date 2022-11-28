@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './Account.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
@@ -11,13 +11,47 @@ import { ImMail4 } from "react-icons/im";
 
 export default function NameForm() {
 
-     const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
-     const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
-     const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
      const currentIDU = localStorage.getItem("currentIDU");
 
      const [validation, setValidation] = useState(false);
      const [error, setError] = useState(false);
+     const [currentNOM, setCurrentNOM] = useState();
+     const [currentPNOM, setCurrentPNOM] = useState();
+     const [currentMAIL, setCurrentMAIL] = useState();
+
+     useEffect(() => {
+          let dataU = {currentIDUser: currentIDU};
+          
+          // fetch('/api/getInfosClient', { 
+          //           method: 'POST', 
+          //           body: JSON.stringify(dataU)
+          // })
+          // .then(res => res.json())
+          // .then(json => setGetInfos(json))
+          // .catch(err => console.info(err))
+
+          const onLoad = async () => {
+           
+               const response = await fetch('/api/getInfosClient', { 
+                 method: 'POST',
+                 headers: {'Content-Type': 'application/json'},
+                 body: JSON.stringify(dataU)
+               })
+           
+               const data = await response.json();
+               if(response.status === 200){
+                 setCurrentNOM(data.Nom);
+                 setCurrentPNOM(data.Prenom);
+                 setCurrentMAIL(data.Email);
+               } else {
+                 alert('Erreur du serveur, veuillez réessayer plus tard');
+               }
+          }
+
+          onLoad();
+
+     }, [currentIDU])
+      
 
      const contact_agc = [
           {

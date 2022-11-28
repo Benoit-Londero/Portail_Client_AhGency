@@ -5,12 +5,6 @@ import illu from '../../img/Brainstorming_session_Monochromatic.png';
 
 export default function Boutique() {
 
-     const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
-     //const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
-     const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
-
-     console.log(currentRole);
-     console.log(currentNOM);
 
      return (
           <div id="page_boutique">

@@ -18,34 +18,52 @@ export default function Home() {
      const [timesheet, setTimesheet] = useState([]);
      const [filteredTS, setFilteredTS] = useState([]);
      const [checkPercent, setCheckPercent] = useState();
-     //const [demande, setDemande] = useState([]);
+
+     const [currentHeureTOT, setCurrentHeureTOT] = useState();
+     const [currentHeureREST, setCurrentHeureREST] = useState();
+     const [moneySpend, setMoneySpend] = useState();
+
+     
 
      const currentIDU = (localStorage.getItem("currentIDU").replaceAll('"',''));
-     //const currentUSR= (localStorage.getItem("currentUSR").replaceAll('"',''));
-     //const currentNOM = (localStorage.getItem("currentNOM").replaceAll('"',''));
-     //const currentPNOM = (localStorage.getItem("currentPNOM").replaceAll('"',''));
-     //const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
-     const currentHeureTOT = (localStorage.getItem("currentHeureTOT").replaceAll('"',''));
-     const currentHeureREST = (localStorage.getItem("currentHeureREST").replaceAll('"',''));
-     //const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
-     //const currentToken = (localStorage.getItem("currentToken").replaceAll('"',''));
-     
 
      useEffect (() => {
 
-          /*  ---   CODE CHELOU & OBSOLETE QUENTIN   ---  */
-          /*
-          let formdataUserID = document.getElementById('monformdata');
-          console.log(formdataUserID); 
-
-          <form id="monformdata"><input type="text" name="currentIDUser" value={currentIDU} readOnly hidden></input></form>
-
-          */
-          /*  --- FIN CODE CHELOU & OBSOLETE QUENTIN ---  */
-
           let dataU = {currentIDUser: currentIDU};
-          
-          handleNaN();
+
+          const onLoad = async () => {
+           
+               const response = await fetch('/api/getInfosClient', { 
+                 method: 'POST',
+                 headers: {'Content-Type': 'application/json'},
+                 body: JSON.stringify(dataU)
+               })
+           
+               const data = await response.json();
+               if(response.status === 200){
+                    setCurrentHeureTOT(data.Minutes_Achetees);
+                    setCurrentHeureREST(data.Minutes_Restantes);
+
+                    //Calcul temps restants (On soustrait le temps dépensé au temps total)
+                    const timeSpend = data.Minutes_Achetees - data.Minutes_Restantes;
+
+                    //Calcul du montant dépensé (temps dépensé)
+                    setMoneySpend(Math.round(((timeSpend/60) * 75)));
+
+
+                    if (parseInt(data.Minutes_Achetees) === 0) {
+                         const percentage = 0;
+                         setCheckPercent(percentage);
+                    } else {
+                         const percentage = Math.round(((100*data.Minutes_Restantes) / data.Minutes_Achetees));
+                         setCheckPercent(percentage);
+                    }
+               } else {
+                    alert('Erreur du serveur, veuillez réessayer plus tard');
+               }
+          }
+
+          onLoad();
 
           fetch('/api/getTimesheet', { 
                method: 'POST', 
@@ -54,6 +72,7 @@ export default function Home() {
           .then(res => res.json())
           .then(json => setTimesheet(json))
           .catch(err => console.info(err))
+
      }, [currentIDU])
 
      const handleFilter = (e) => {
@@ -62,23 +81,6 @@ export default function Home() {
           setFilteredTS(filteredData);
      }
 
-     //Calcul temps restants (On soustrait le temps dépensé au temps total)
-     const timeSpend = currentHeureTOT - currentHeureREST;
-
-     //Calcul du montant dépensé (temps dépensé)
-     const money_spend = Math.round(((timeSpend/60) * 75));
-
-
-     const handleNaN = () => {
-          if (parseInt(currentHeureTOT) === 0) {
-               const percentage = 0;
-               setCheckPercent(percentage);
-          } else {
-               const percentage = Math.round(((100*currentHeureREST) / currentHeureTOT));
-               setCheckPercent(percentage);
-          }
-          
-     }
 
      return (
 
@@ -136,7 +138,7 @@ export default function Home() {
                     
                     <p>Heures achetées : {Math.round(currentHeureTOT /60)} h</p>
                     <p className="highlight">Heures restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
-                    <p><b>Total dépensé : {money_spend} €</b></p>
+                    <p><b>Total dépensé : {moneySpend} €</b></p>
                     {checkPercent > 10 ? null : <Link to ='/Credits'><Button>Recharger</Button></Link>}
                </Col>
 
