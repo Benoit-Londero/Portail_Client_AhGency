@@ -3,6 +3,7 @@ import * as FaIcons from "react-icons/fa";
 import * as RiIcons from "react-icons/ri";
 import * as GrIcons from "react-icons/gr";
 import * as MdIcons from "react-icons/md";
+import * as GiIcons from "react-icons/gi";
 import * as HiIcons from "react-icons/hi";
 
 //création Array pour les icones et chemin de navigation
@@ -62,6 +63,14 @@ export const SidebarData = [
         cName: 's-sidebar__nav-link',
         admin: false,
         category: 'app'
+    },
+    {
+        title:'Envoyer un ticket',
+        path: '/Projet',
+        icon: <GiIcons.GiTicket/>,
+        cName: 's-sidebar__nav-link',
+        admin: false,
+        category: 'account'
     },
     {
         title:'Entreprise',
