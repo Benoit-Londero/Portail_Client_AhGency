@@ -32,7 +32,7 @@ export default function Inscription() {
         }
         //console.log(jsonForm);
 
-        fetch('https://hook.eu1.make.com/lyhgb44gpc0k244hxwi2h5udqtkq533o',{
+        fetch('https://hook.eu1.make.com/2kri242ac2ssrozcnb44z0zc72j03nck',{
             method: 'POST',
             body: JSON.stringify(jsonForm)
         })
@@ -83,6 +83,7 @@ export default function Inscription() {
                                                 <input type="password" name="pass" placeholder="*********" required/>
                                             </label><br/>
                                             <input type="submit" name="inscription" value="M'inscrire" />
+                                            <input type="hidden" name="objet" id="objet" value="inscription"></input>
                                         </form>
 
                                         <Link to ='/'> Retourner à l'accueil</Link>

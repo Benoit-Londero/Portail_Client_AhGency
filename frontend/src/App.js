@@ -14,6 +14,8 @@ import AdminHeure from './Component/AdminHeures/AdminHeure.js'
 import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
 import Faq from './Component/Faq/Faq.js'
+import Entreprise from './Component/Entreprise/Entreprise.js'
+import Projet from './Component/Projet/Projet.js'
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -75,15 +77,11 @@ function App() {
       //setCurrentToken(json[1].token);
       setErreur(false);
       setLogin(true);
-      console.log(response);
 
     } else {
       setErreur(true);
       console.log('erreur');
     }
-    
-    console.log(response)
-    console.log(data)
   }
 
   const resetLogin = () => {
@@ -105,11 +103,13 @@ function App() {
         <Router>
             <Routes>
               <Route exact path="/" element={<Connexion handleSubmit={handleSubmit} erreur={erreur} login={login}/>}></Route>
+              <Route path="/Projet" element={< Projet />}></Route>
               <Route path="/Home" element={< Home />}></Route>
               <Route path="/AdminForm" element={< AdminForm />}></Route>
               <Route path="/AdminHeure" element={< AdminHeure />}></Route>
               <Route path="/ViewAll" element={< ViewAll />}></Route>
               <Route path='/Account' element={< NameForm />}></Route>
+              <Route path="/Entreprise" element={< Entreprise />}></Route>
               <Route path="/Faq" element={< Faq />}></Route>
               <Route path="/Recuperation" element={< Recuperation />}></Route>
               <Route path="/Projet" element={< Projet />}></Route>

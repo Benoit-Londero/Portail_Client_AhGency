@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './Account.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
@@ -16,6 +16,9 @@ export default function NameForm() {
      const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
      const currentIDU = localStorage.getItem("currentIDU");
 
+     const [validation, setValidation] = useState(false);
+     const [error, setError] = useState(false);
+
      const contact_agc = [
           {
                nom : 'Quentin de Jarnac',
@@ -31,10 +34,19 @@ export default function NameForm() {
           }
      ]
 
-     const handleClick = async () => {
-               let editForm = document.getElementById('editForm'); //on récupère l'élement <form> et ces différents <input>
-               let dataForm = new FormData(editForm); //que l'on intègre à un formData
+     const handleClick = async e => {
+          e.preventDefault();
+          let editForm = document.getElementById('editForm'); //on récupère l'élement <form> et ces différents <input>
+          let dataForm = new FormData(editForm); //que l'on intègre à un formData
 
+          const modifPass = dataForm.get("pass");
+          const confirmPass = dataForm.get("confpass");
+
+          console.log(modifPass);
+          console.log(confirmPass);
+
+          if (modifPass === confirmPass)
+          {
                const conJSON = buildJsonFormData(dataForm);
 
                //On crée une boucle pour transformer le FormData en JSON
@@ -55,6 +67,12 @@ export default function NameForm() {
 
                const data = await response.json();
                console.log(data);
+               setValidation(true);
+               setError(false);
+          } else {
+               setError(true);
+               setValidation(false);
+          }           
      }
 
      return (
@@ -76,17 +94,19 @@ export default function NameForm() {
                                              <td><label className="bold">Prénom : </label> <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td>
                                         </tr>
                                         <tr><td colspan="2"><label className="bold"> Adresse email : </label><input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/></td></tr>
-                                        <tr><td colspan="2"><label className="bold"> Mot de passe : </label><input type="password" id="pass" placeholder="********"></input></td></tr>
-                                        <tr><td colspan="2"><label className="bold"> Confirmation du mot de passe : </label><input type="password" id="confpass" placeholder="********"></input></td></tr>
+                                        <tr><td colspan="2"><label className="bold"> Mot de passe : </label><input type="password" id="pass" name="pass" placeholder="********"></input></td></tr>
+                                        {error === true ? <tr><td colspan="3"><span>Les mots de passes ne sont pas identiques !</span></td></tr> : null}
+                                        <tr><td colspan="2"><label className="bold"> Confirmation du mot de passe : </label><input type="password" id="confpass" name="confpass" placeholder="********"></input></td></tr>
                                         <tr><td><input type="hidden" name="idu" value ={currentIDU}/></td></tr>
                                         <tr><td colspan="3"><input type="submit" name="modifier" value="Enregistrer" /></td></tr>
                                    </tbody>
                               </table>
                               </form>
+                              {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
                          </Col>
 
                          <Col md={{span: 3, offset: 1}} className="my_contact">
-                         <h2>Contacter ahgency</h2>
+                         <h2>Envoyer un mail à</h2>
                               <ul>
                                    {contact_agc.map((item,index) => {
                                         return (

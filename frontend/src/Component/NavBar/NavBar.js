@@ -46,7 +46,7 @@ function NavBar(){
                             <NavLink to = { item.path } 
                                     className = { item.cName } 
                                     
-                                    ><p>{ item.icon }<span className="desktop"> {item.title}</span></p>
+                                    ><p>{ item.icon }<br></br><span className="desktop"> {item.title}</span></p>
                             </NavLink></li>
                           )})
                     }
@@ -58,7 +58,7 @@ function NavBar(){
                             <NavLink to = { item.path } 
                                     className = { item.cName } 
                                     
-                                    ><p>{ item.icon }<span className="desktop"> {item.title}</span></p>
+                                    ><p>{ item.icon }<br></br><span className="desktop"> {item.title}</span></p>
                             </NavLink></li>
                           )})
                     }
@@ -69,7 +69,7 @@ function NavBar(){
                             <NavLink to = { item.path } 
                                     className = { item.cName } 
                                     
-                                    ><p>{ item.icon }<span className="desktop"> {item.title}</span></p>
+                                    ><p>{ item.icon }<br></br><span className="desktop"> {item.title}</span></p>
                             </NavLink></li>
                           )})
                     }               

@@ -13,7 +13,7 @@ module.exports = async function (context, req) {
       let date_achat = req.body.date_Achat;
   
       let qSQL = "UPDATE users SET Minutes_Restantes = Minutes_Restantes + ?, Minutes_Achetees = Minutes_Achetees + ? WHERE ID = ?";
-      let qSQL2 = "INSERT INTO achat(ID_Client,Date) VALUES (?,?)";
+      let qSQL2 = "INSERT INTO achat(ID_Client,Nbre_Heures,Date) VALUES (?,?,?)";
   
       con.query(qSQL, [duree,duree,client], function (err,results){
         if (err) throw err;
@@ -21,7 +21,7 @@ module.exports = async function (context, req) {
         console.log('Heure ajoutée')
       })
   
-      con.query(qSQL2, [client,date_achat], function (err,ress){
+      con.query(qSQL2, [client,duree,date_achat], function (err,ress){
         if (err) throw err;
         
         console.log('Achat ajouté')

@@ -4,6 +4,7 @@ import * as RiIcons from "react-icons/ri";
 import * as GrIcons from "react-icons/gr";
 import * as MdIcons from "react-icons/md";
 import * as GiIcons from "react-icons/gi";
+import * as HiIcons from "react-icons/hi";
 
 //création Array pour les icones et chemin de navigation
 export const SidebarData = [
@@ -13,6 +14,14 @@ export const SidebarData = [
         icon: <FaIcons.FaHouseUser />,
         cName: 's-sidebar__nav-link',
         admin: false,
+        category: 'app'
+    },
+    {
+        title:'Projet',
+        path: '/Projet',
+        icon : <FaIcons.FaRegPlusSquare />,
+        cName: 's-project__nav-link',
+        admin: true,
         category: 'app'
     },
     {
@@ -57,10 +66,18 @@ export const SidebarData = [
     },
     {
         title:'Envoyer un ticket',
-        path: '/Demande',
+        path: '/Projet',
         icon: <GiIcons.GiTicket/>,
         cName: 's-sidebar__nav-link',
         admin: false,
+        category: 'account'
+    },
+    {
+        title:'Entreprise',
+        path: '/Entreprise',
+        icon: <HiIcons.HiOutlineOfficeBuilding />,
+        cName: 's-sidebar__nav-link',
+        admin: true,
         category: 'account'
     },
     // {
@@ -71,14 +88,14 @@ export const SidebarData = [
     //     admin: false,
     //     category: 'app'
     // },
-    {
-        title:'FAQ',
-        path:'/Faq',
-        icon: <RiIcons.RiQuestionnaireLine />,
-        cName: 's-sidebar__nav-link',
-        admin: true,
-        category: 'account'
-    },
+    // {
+    //     title:'FAQ',
+    //     path:'/Faq',
+    //     icon: <RiIcons.RiQuestionnaireLine />,
+    //     cName: 's-sidebar__nav-link',
+    //     admin: true,
+    //     category: 'account'
+    // },
     {
         title:'LogOut',
         path: '/Logout',

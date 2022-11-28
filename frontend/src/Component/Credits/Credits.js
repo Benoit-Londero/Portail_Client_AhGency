@@ -29,8 +29,7 @@ export default function Boutique() {
                     <h2>Pack 1 heures</h2>
                     <p class="price">75 €</p>
 
-                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
-                      Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
+                    <p class="descp">Un pack d'une heure utile pour vos petites modifications tel que des changements de couleur, de texte ou d'image.</p>
 
                     <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' rel="noopener noreferrer" target="_blank" class="button-credits">Acheter 1 heures</a>                    
                </div>
@@ -40,8 +39,7 @@ export default function Boutique() {
                     <h2>Pack 5 heures</h2>
                     <p class='price'>325 €</p>
 
-                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
-                       Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
+                    <p class="descp">Vous avez pensé à une nouvelle fonctionnalité pour votre site, ou un besoin d'ajout de contenu, ce pack est fait pour vous.</p>
 
                     <a href='https://buy.stripe.com/aEU7uCdZT1i35BC8wy' rel="noopener noreferrer" target="_blank" class="button-credits">Acheter 5 heures</a>
                </div>
@@ -51,8 +49,7 @@ export default function Boutique() {
                     <h2>Pack 10 heures</h2>
                     <p class="price">600 €</p>
 
-                    <p class="descp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam natus molestias esse? 
-                            Voluptatem sed soluta vel cumque, accusantium iusto excepturi praesentium esse? Qui ipsum saepe voluptatibus nobis illo obcaecati. Doloremque.</p>
+                    <p class="descp">Envie de faire peau neuve, de procéder à une refonte de votre site ou de tout simplement prévoir un "capital" temps pour vos futures demandes, ce pack répondra à vos attentes.</p>
 
                     <a href='https://buy.stripe.com/28og183lff8T9RS8wx' rel="noopener noreferrer" target="_blank" class="button-credits">Acheter 10 heures</a>
                </div>
