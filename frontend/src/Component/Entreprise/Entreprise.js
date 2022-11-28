@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import NavBar from "../NavBar/NavBar";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Container from "react-bootstrap/esm/Container";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import './Entreprise.css'
 
 export default function Entreprise() {
@@ -46,6 +50,25 @@ export default function Entreprise() {
 
   }, [currentIDE])
 
+  const handleClick = async e => {
+     e.preventDefault();
+     let editForm = document.getElementById('editForm'); //on récupère l'élement <form> et ces différents <input>
+     let dataForm = new FormData(editForm); //que l'on intègre à un formData
+
+     const conJSON = buildJsonFormData(dataForm);
+
+     //On crée une boucle pour transformer le FormData en JSON
+     function buildJsonFormData(dataForm){
+          const jsonFormData = {};
+          
+          for(const pair of dataForm){
+               jsonFormData[pair[0]] = pair[1];
+          }
+
+          return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+     }   
+  }      
+
   return (
     <div id="page_entreprise">
           <NavBar/>
@@ -55,7 +78,6 @@ export default function Entreprise() {
                     <form id="editForm" onSubmit={handleClick}>
                          <table className="Profil">
                               <tbody>
-                                   <tr><td><RiAccountCircleFill className="account_ppic"/></td></tr>
                                    <tr>
                                         <td><label className="bold">Nom : </label> <input type="text" name="nom" placeholder="Nom de l'entreprise" defaultValue ={currentNomE} required/></td>
                                         <td><label className="bold">Numéro de TVA: </label> <input type="text" name="tva" placeholder="BE123456789" defaultValue ={currentTVA} required/></td>
@@ -67,7 +89,6 @@ export default function Entreprise() {
                                    <tr><td colspab="2"><label className="bold"> Site : </label><input type="text" id="web" name="web"  defaultValue= {currentSITE}></input></td></tr>
                                    <tr><td colspab="2"><label className="bold"> Email : </label><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue= {currentEMAILE}></input></td></tr>
                                    
-                                   <tr><td><input type="hidden" name="idu" value ={currentIDU}/></td></tr>
                                    <tr><td colspan="3"><input type="submit" name="modifier" value="Enregistrer" /></td></tr>
                               </tbody>
                          </table>
