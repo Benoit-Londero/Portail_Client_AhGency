@@ -27,7 +27,7 @@ export default function NameForm() {
      const [currentSITE, setCurrentSITE] = useState();
      const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState();
 
-     const displayEntreprise = false;
+     const [displayEntreprise, seCurrentEntreprise] = useState();
 
      const currentIDE = (localStorage.getItem("currentIDE").replaceAll('"',''));
      const users = ['fabian','Benoit','Quentin'];
@@ -135,9 +135,7 @@ export default function NameForm() {
                setValidation(false);
           }           
           
-          let displayEntreprise = true;
-          
- 
+          setDisplayEntreprise(true); 
      }
 
      return (
