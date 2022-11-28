@@ -59,7 +59,7 @@ function NavBar(){
                 </div>
 
                <ul className="NavBar">
-                <h2>Application</h2>
+                <h2>Portail</h2>
                     {
                           menu.filter(menu => menu.category === 'app').map((item, index) => {
                           return ( <li key = { index }>
@@ -71,7 +71,7 @@ function NavBar(){
                           )})
                     }
                 
-                { role === 'administrator' ? <h2>Administration</h2> : null}
+                { role === 'administrator' ? <h2>Admin</h2> : null}
                     {
                       menu.filter(menu => menu.category === 'admin').map((item, index) => {
                           return ( <li key = { index }>
@@ -82,7 +82,7 @@ function NavBar(){
                             </NavLink></li>
                           )})
                     }
-                <h2>Mon compte</h2>
+                <h2>Settings</h2>
                     {
                       menu.filter(menu => menu.category === 'account').map((item, index) => {
                           return ( <li key = { index }>

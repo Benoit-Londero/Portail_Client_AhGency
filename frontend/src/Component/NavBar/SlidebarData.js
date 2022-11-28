@@ -20,9 +20,17 @@ export const SidebarData = [
         title:'Projet',
         path: '/Projet',
         icon : <FaIcons.FaRegPlusSquare />,
-        cName: 's-project__nav-link',
+        cName: 's-sidebar__nav-link',
         admin: true,
         category: 'app'
+    },
+    {
+        title:'Envoyer un ticket',
+        path: '/Projet',
+        icon: <GiIcons.GiTicket/>,
+        cName: 's-sidebar__nav-link',
+        admin: false,
+        category: 'account'
     },
     {
         title:'Ajout timesheet',
@@ -41,7 +49,7 @@ export const SidebarData = [
         category: 'admin'
     },
     {
-        title:'Supervision Client',
+        title:'Timesheet',
         path: '/ViewAll',
         icon: <GrIcons.GrAppsRounded />,
         cName: 's-sidebar__nav-link admin__viewall-link',
@@ -49,7 +57,7 @@ export const SidebarData = [
         category: 'admin'
     },
     {
-        title:'Mon compte',
+        title:'Profil',
         path: '/Account',
         icon: <FaIcons.FaUser/>,
         cName: 's-sidebar__nav-link',
@@ -64,14 +72,7 @@ export const SidebarData = [
         admin: false,
         category: 'app'
     },
-    {
-        title:'Envoyer un ticket',
-        path: '/Projet',
-        icon: <GiIcons.GiTicket/>,
-        cName: 's-sidebar__nav-link',
-        admin: false,
-        category: 'account'
-    },
+    
     {
         title:'Entreprise',
         path: '/Entreprise',
