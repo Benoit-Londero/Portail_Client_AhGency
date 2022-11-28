@@ -8,11 +8,13 @@ import NameForm from './Component/Account/Account.js'
 import Home from './Component/Home/Home.js'
 import Facture from './Component/Facture/Facture.js'
 import Inscription from './Component/Inscription/Inscription.js'
+import Projet from './Component/Projet/Projet.js'
 import AdminForm from './Component/AdminForm/AdminForm.js'
 import AdminHeure from './Component/AdminHeures/AdminHeure.js'
 import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
 import Faq from './Component/Faq/Faq.js'
+import Entreprise from './Component/Entreprise/Entreprise.js'
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -26,6 +28,7 @@ function App() {
   
   /* eslint-disable no-unused-vars */
   const [currentIDU, setCurrentIDU] = useLocalStorage("currentIDU","");
+  const [currentIDE, setCurrentIDE] = useLocalStorage("currentIDE","");
   const [currentUSR, setCurrentUSR] = useLocalStorage("currentUSR","");
   const [currentNOM, setCurrentNOM] = useLocalStorage("currentNOM","");
   const [currentPNOM, setCurrentPNOM] = useLocalStorage("currentPNOM","");
@@ -64,6 +67,7 @@ function App() {
     const data = await response.json();
     if(response.status === 200){
       setCurrentIDU(data.ID);
+      setCurrentIDE(data.ID_entreprise);
       setCurrentUSR(data.Login); 
       setCurrentNOM(data.Nom);
       setCurrentPNOM(data.Prenom);
@@ -84,6 +88,7 @@ function App() {
   const resetLogin = () => {
     setLogin(false);
     setCurrentIDU('');
+    setCurrentIDE('');
     setCurrentUSR(''); 
     setCurrentNOM(''); 
     setCurrentPNOM('');
@@ -100,13 +105,16 @@ function App() {
         <Router>
             <Routes>
               <Route exact path="/" element={<Connexion handleSubmit={handleSubmit} erreur={erreur} login={login}/>}></Route>
+              <Route path="/Projet" element={< Projet />}></Route>
               <Route path="/Home" element={< Home />}></Route>
               <Route path="/AdminForm" element={< AdminForm />}></Route>
               <Route path="/AdminHeure" element={< AdminHeure />}></Route>
               <Route path="/ViewAll" element={< ViewAll />}></Route>
               <Route path='/Account' element={< NameForm />}></Route>
+              <Route path="/Entreprise" element={< Entreprise />}></Route>
               <Route path="/Faq" element={< Faq />}></Route>
               <Route path="/Recuperation" element={< Recuperation />}></Route>
+              <Route path="/Projet" element={< Projet />}></Route>
               <Route path='/Credits' element={< Boutique />}></Route>
               <Route path='/Factures' element={< Facture />}></Route>
               <Route path='/Inscription' element={< Inscription />}></Route>

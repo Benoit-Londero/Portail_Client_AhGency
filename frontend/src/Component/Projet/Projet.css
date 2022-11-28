@@ -1,0 +1,73 @@
+#DemandeForm{
+    padding-top:9vh;
+    margin-bottom: 200px;
+}
+
+#timesheetForm{
+    background:#fff;
+    border-radius: 20px;
+    padding:20px;
+    width: 45vw;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.183);
+}
+
+#DemandeForm label{
+    font-size: 14px;
+    font-weight:500;
+    width:100%;
+    margin-top: 20px;
+    text-align: left!important;
+}
+
+input,
+textarea,
+select{
+    border:1px solid #e5e5e5;
+    border-radius: 5px;
+    width:100%;
+    font-size: 14px;
+    text-align: left;
+    color:#111;
+    padding: 10px 20px;
+}
+
+#DemandeForm input[type="submit"]{
+    width:45%;
+    color:#fff;
+    text-align: center;
+    background-color: #672bf2;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    vertical-align: middle;
+    font-size: 15px;
+}
+
+input[type="reset"]{
+    text-align:center;
+    width:45%;
+    margin-right:10%;
+}
+.required{
+    color:red;
+    font-size: 12px;
+}
+
+input[type="submit"]:hover{
+   color:#fff;
+    text-align: center;
+    background-color: #672bf2;
+}
+
+.row_submit{
+    margin-top:50px;
+}
+
+@media screen and (max-width:756px) and (orientation: portrait) {
+    #DemandeForm h1,
+    #timesheetForm{
+         margin-left:auto;
+         margin-right:auto;
+         width:90vw;
+    }
+}

@@ -3,6 +3,8 @@ import * as FaIcons from "react-icons/fa";
 import * as RiIcons from "react-icons/ri";
 import * as GrIcons from "react-icons/gr";
 import * as MdIcons from "react-icons/md";
+import * as GiIcons from "react-icons/gi";
+import * as HiIcons from "react-icons/hi";
 
 //création Array pour les icones et chemin de navigation
 export const SidebarData = [
@@ -13,6 +15,22 @@ export const SidebarData = [
         cName: 's-sidebar__nav-link',
         admin: false,
         category: 'app'
+    },
+    {
+        title:'Projet',
+        path: '/Projet',
+        icon : <FaIcons.FaRegPlusSquare />,
+        cName: 's-sidebar__nav-link',
+        admin: true,
+        category: 'app'
+    },
+    {
+        title:'Envoyer un ticket',
+        path: '/Projet',
+        icon: <GiIcons.GiTicket/>,
+        cName: 's-sidebar__nav-link',
+        admin: false,
+        category: 'account'
     },
     {
         title:'Ajout timesheet',
@@ -31,7 +49,7 @@ export const SidebarData = [
         category: 'admin'
     },
     {
-        title:'Supervision Client',
+        title:'Timesheet',
         path: '/ViewAll',
         icon: <GrIcons.GrAppsRounded />,
         cName: 's-sidebar__nav-link admin__viewall-link',
@@ -39,7 +57,7 @@ export const SidebarData = [
         category: 'admin'
     },
     {
-        title:'Mon compte',
+        title:'Profil',
         path: '/Account',
         icon: <FaIcons.FaUser/>,
         cName: 's-sidebar__nav-link',
@@ -53,6 +71,15 @@ export const SidebarData = [
         cName: 's-sidebar__nav-link',
         admin: false,
         category: 'app'
+    },
+    
+    {
+        title:'Entreprise',
+        path: '/Entreprise',
+        icon: <HiIcons.HiOutlineOfficeBuilding />,
+        cName: 's-sidebar__nav-link',
+        admin: true,
+        category: 'account'
     },
     // {
     //     title:'Factures',

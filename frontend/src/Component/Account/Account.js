@@ -36,6 +36,7 @@ export default function NameForm() {
           let dataU = {currentIDUser: currentIDU};
           let dataE = {currentIDEntreprise: currentIDE};
 
+
           const onLoad = async () => {
            
                const response = await fetch('/api/getInfosClient', { 
@@ -45,6 +46,7 @@ export default function NameForm() {
                })
            
                const data = await response.json();
+
                     if(response.status === 200){
                          setCurrentNOM(data.Nom);
                          setCurrentPNOM(data.Prenom);
