@@ -123,7 +123,6 @@ export default function NameForm() {
                setError(true);
                setValidation(false);
           }           
-          
      }
 
      return (
@@ -135,7 +134,6 @@ export default function NameForm() {
                          <li><button onClick={handleClick}>Entreprise</button></li>
                     </ul>
                     
-                   {displayEntreprise === false ? 
                          <Row>
                          <Col className="account_section">
                               <h2>Informations générales</h2>
@@ -180,8 +178,6 @@ export default function NameForm() {
                               </ul>
                          </Col>
                     </Row>
-
-                   : 
                          <Row>
                               <Col>
                               <form id="editForm" onSubmit={handleClick}>
@@ -220,9 +216,6 @@ export default function NameForm() {
                               </Col>
 
                          </Row>
-                   } 
-                    
-                    
                </Container>        
          </div>
      )
