@@ -13,6 +13,7 @@ export default function Inscription() {
 
     const [message, setMessage] = useState(false);
     const [error, setError] = useState(false);
+    const [errorTVA, setErrorTVA] = useState(false);
 
     const handleSubmit = async e => {
         e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
@@ -57,6 +58,9 @@ export default function Inscription() {
         if(ress === "Error"){
             console.log("error reçu");
             setError(true);
+        } else if(ress === "ErrorTVA") {
+            console.log("error TVA reçu");
+            setErrorTVA(true);
         } else {
             console.log('success recu');
             setMessage(true);
@@ -82,8 +86,37 @@ export default function Inscription() {
                                             <label>Mot de passe<br/>
                                                 <input type="password" name="pass" placeholder="*********" required/>
                                             </label><br/>
+
+                                            <label>Les informations de votre entreprise</label>
+                                            <label>Nom de votre société<br/>
+                                                <input type="text" name="nomEnt" placeholder="Entreprise SPRL, SA Entreprise ...." required/>
+                                            </label><br/>
+                                            <label>Numéro de TVA<br/>{errorTVA === true ? <span>Ce numéro de TVA existe déjà !</span> : null}
+                                                <input type="text" name="tvaNumber" placeholder="BE 0123.456.789" required/>
+                                            </label><br/>
+                                            <label>Email de l'entreprise<br/>
+                                                <input type="email" name="emailEnt" placeholder="johndoe@mail.be" />
+                                            </label><br/>
+                                            <label>Numéro de téléphone<br/>
+                                                <input type="text" name="telEnt" placeholder="0470565656" />
+                                            </label><br/>
+                                            <label>Adresse du siège<br/>
+                                                <input type="text" name="adresseEnt" placeholder="Rue de Saint Andrée 54C, 1000 Bruxelles" />
+                                            </label><br/>
+                                            <label>URL de votre site web<br/>
+                                                <input type="text" name="siteEnt" placeholder="www.ahgency.be" />
+                                            </label><br/>
+                                            <label>Possédez vous déjà un contrat de maintenance chez nous ? <br/>
+                                                <select name="maintenance">
+                                                    <option value = "0"> non </option>
+                                                    <option value = "1"> oui </option>
+                                                </select>
+                                            </label><br/>
+
+
                                             <input type="submit" name="inscription" value="M'inscrire" />
                                             <input type="hidden" name="objet" id="objet" value="inscription"></input>
+                                            <input id="dateCreationEnt" name="dateCreationEnt" value={new Date().toJSON().slice(0, 10)} hidden></input>
                                         </form>
 
                                         <Link to ='/'> Retourner à l'accueil</Link>
