@@ -32,14 +32,14 @@ export const SidebarData = [
         admin: false,
         category: 'account'
     },
-    {
+    /* {
         title:'Ajout timesheet',
         path: '/AdminForm',
         icon: <GrIcons.GrTableAdd />,
         cName: 's-sidebar__nav-link admin__nav-link',
         admin: true,
         category: 'admin'
-    },
+    }, */
     {
         title:'Ajout heures',
         path: '/AdminHeure',
@@ -48,14 +48,14 @@ export const SidebarData = [
         admin: true,
         category: 'admin'
     },
-    {
+    /* {
         title:'Timesheet',
         path: '/ViewAll',
         icon: <GrIcons.GrAppsRounded />,
         cName: 's-sidebar__nav-link admin__viewall-link',
         admin: true,
         category: 'admin'
-    },
+    }, */
     {
         title:'Profil',
         path: '/Account',
