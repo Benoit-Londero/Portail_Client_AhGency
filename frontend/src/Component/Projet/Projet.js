@@ -1,14 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import NavBar from "../NavBar/NavBar";
 import './Projet.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Projet() {
 
-    const currentMAIL = (localStorage.getItem("currentMAIL").replaceAll('"',''));
     const currentIDU = localStorage.getItem("currentIDU");
+    const currentIDE = localStorage.getItem("currentIDE");
+
+    const [currentMAIL, setCurrentMAIL] = useState();
 
     const [message, setMessage] = useState(false);
+
+    useEffect (() => {
+
+        let dataU = {currentIDUser: currentIDU};
+
+        const onLoad = async () => {
+
+            const response = await fetch('/api/getInfosClient', { 
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(dataU)
+            })
+        
+            const data = await response.json();
+            if(response.status === 200){
+                setCurrentMAIL(data.Email);
+            } else {
+                alert('Erreur du serveur, veuillez réessayer plus tard');
+            }
+        }
+
+        onLoad();
+    }, [currentIDU])
 
     const handleDemande = async e => {
         e.preventDefault();
@@ -59,23 +84,8 @@ export default function Projet() {
                 <tr><td><label for="title">Quel est le sujet de votre demande <span className="required">*</span></label><br></br><input type="text" placeholder="titre" id="title" name="title" required/></td></tr>
                 <tr><td><label for="tache">Détaillez votre demande <span className="required">*</span></label><br></br><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td></tr>
                 <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
-                <tr><td><input id="iduser" name="iduser" value={currentIDU} hidden></input></td></tr>
+                <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
                 <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>
-                <tr>
-                    <fieldset>
-                        <legend>Avez vous un contrat de maintenance chez AhGency ?</legend>
-
-                        <div>
-                        <input type="radio" id="contratOK" name="contrat" value="oui" />
-                        <label for="contratOK">Oui</label>
-                        </div>
-
-                        <div>
-                        <input type="radio" id="contratNOK" name="contrat" value="non" checked/>
-                        <label for="contratNOK">Non</label>
-                        </div>
-                    </fieldset>
-                </tr>
                 <tr><td><label for="siteURL">Veuillez enter l'URL de votre site web <span className="required">*</span></label><br></br><input type="text" placeholder="(exemple : www.google.be, https://www.ahgency.be, ....)" id="siteURL" name="siteURL"/></td></tr>
                 <tr className="row_submit">
                     <td>
@@ -84,7 +94,7 @@ export default function Projet() {
                 </tr>
             </tbody>
           </table>
-        </form> : <button onClick={handleRetour}>Revenir au formulaire</button>}
+        </form> : <table><thead>Votre demande a bien été enregistrée, notre équipe reviendra vers vous dans les plus brefs délais</thead><tbody><button onClick={handleRetour}>Revenir au formulaire</button></tbody></table>}
     </div>
   )
 }

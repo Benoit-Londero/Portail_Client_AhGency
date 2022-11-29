@@ -8,7 +8,7 @@ import './Entreprise.css'
 
 export default function Entreprise() {
 
-  const currentIDE = (localStorage.getItem("currentIDE").replaceAll('"',''));
+  const currentIDE = localStorage.getItem("currentIDE");
   
   const [currentNomE, setCurrentNomE] = useState();
   const [currentTVA, setCurrentTVA] = useState();
@@ -22,29 +22,29 @@ export default function Entreprise() {
   const users = ['fabian','Benoit','Quentin'];
 
   useEffect(() => {
-    let dataU = {currentIDEntreprise: currentIDE};
+     let dataU = {currentIDEntreprise: currentIDE};
           
-    const onLoad = async () => {
+     const onLoad = async () => {
                
-      const response = await fetch('/api/getInfosEntreprise', { 
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(dataU)
-      })
-  
-      const data = await response.json();
-      if(response.status === 200){
-        setCurrentNomE(data.Nom_societe); 
-        setCurrentTVA(data.TVA);
-        setCurrentADRESSE(data.Adresse);
-        setCurrentTEL(data.Telephone);
-        setCurrentEMAILE(data.Email);
-        setCurrentSITE(data.Site_web);
-        setCurrentMAINTENANCE(data.Maintenance);
-      } else {
-        alert('Erreur du serveur, veuillez réessayer plus tard');
-      }
-    }
+          const response = await fetch('/api/getInfosEntreprise', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(dataU)
+          })
+     
+          const data = await response.json();
+          if(response.status === 200){
+               setCurrentNomE(data.Nom_societe); 
+               setCurrentTVA(data.TVA);
+               setCurrentADRESSE(data.Adresse);
+               setCurrentTEL(data.Telephone);
+               setCurrentEMAILE(data.Email);
+               setCurrentSITE(data.Site_web);
+               setCurrentMAINTENANCE(data.Maintenance);
+          } else {
+               alert('Erreur du serveur, veuillez réessayer plus tard');
+          }
+     }
 
     onLoad();
 

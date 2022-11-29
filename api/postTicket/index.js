@@ -9,16 +9,15 @@ module.exports = async function (context, req) {
         
         let email = context.req.body.email;
         let date = context.req.body.dateEnvoi;
-        let userID = context.req.body.iduser;
+        let idEnt = context.req.body.idEnt;
         let title = context.req.body.title;
         let detail = context.req.body.tache;
         let url = context.req.body.siteURL;
-        let contrat = context.req.body.contrat;
         let Status = "Non démarré";
 
-        let sqlTicket = "INSERT INTO tickets(Tickets,ID_Client,Date,Statut,Email,Maintenance,Description,URL) VALUES (?,?,?,?,?,?,?,?)";
+        let sqlTicket = "INSERT INTO tickets(Tickets,ID_Client,Date,Statut,Email,Description,URL) VALUES (?,?,?,?,?,?,?)";
 
-        con.query(sqlTicket, [title, userID, date, Status, email, contrat, detail, url], function (err, resultat) {
+        con.query(sqlTicket, [title, idEnt, date, Status, email, detail, url], function (err, resultat) {
             if (err) throw err;
             result = JSON.stringify('Demande OK');
             resolve(result);

@@ -7,16 +7,15 @@ import Button from 'react-bootstrap/Button';
 import NavBar from "../NavBar/NavBar";
 import "./Home.css";
 import { CircularProgressbar } from 'react-circular-progressbar';
-//import { FaFileDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Moment from "moment";
-
-//import useLocalStorage from "../../useLocalStorage";
 
 export default function Home() {
 
      const [timesheet, setTimesheet] = useState([]);
+     const [projet, setProjet] = useState([]);
      const [filteredTS, setFilteredTS] = useState([]);
+     const [filteredTaches, setFilteredTaches] = useState([]);
      const [checkPercent, setCheckPercent] = useState();
 
      const [currentHeureTOT, setCurrentHeureTOT] = useState();
@@ -25,11 +24,13 @@ export default function Home() {
 
      
 
-     const currentIDU = (localStorage.getItem("currentIDU").replaceAll('"',''));
+     const currentIDU = localStorage.getItem("currentIDU");
+     const currentIDE = localStorage.getItem("currentIDE");
 
      useEffect (() => {
 
           let dataU = {currentIDUser: currentIDU};
+          let dataE = {currentIDEnt: currentIDE};
 
           const onLoad = async () => {
            
@@ -61,6 +62,8 @@ export default function Home() {
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
+
+
           }
 
           onLoad();
@@ -73,12 +76,30 @@ export default function Home() {
           .then(json => setTimesheet(json))
           .catch(err => console.info(err))
 
+          fetch('/api/getProjet', { 
+               method: 'POST', 
+               body: JSON.stringify(dataE)
+          })
+          .then(res => res.json())
+          .then(json => setProjet(json))
+          .catch(err => console.info(err))
+
      }, [currentIDU])
 
      const handleFilter = (e) => {
           let IDTS = e.target.value;
           let filteredData = timesheet.filter(data => data.ID_TS === parseInt(IDTS));
           setFilteredTS(filteredData);
+     }
+
+     const handleFilterProjet = (e) => {
+          let IDProjet = e.target.value;
+          let tacheAssociee = timesheet.filter(data => data.ID_TS === parseInt(IDProjet));
+          setFilteredTaches(tacheAssociee);
+     }
+
+     const handleNoFilter = (e) => {
+          setFilteredTaches(timesheet);
      }
 
 
@@ -143,6 +164,34 @@ export default function Home() {
                </Col>
 
                <Col className="tableauTS">
+                    <h2>Projet</h2>
+                    <table>
+                         <thead>
+                              <tr>
+                                   <th className="hide_mobile">Date</th>
+                                   <th>Titre</th>
+                                   <th></th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                         {
+                              projet.map((item,index) => {
+                                   let day = Moment(item.Date).format('DD');
+                                   let Month = Moment(item.Date).format('MMM');
+                                   return (
+                                        <tr key={index}>
+                                             <td><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></td>
+                                             <td><p className="ref">{item.Tickets}</p></td>
+                                             <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID} onClick={handleFilterProjet}> Tâches associées </button></td>
+                                        </tr>
+                                   )
+                              })
+                         }
+                         </tbody>
+                    </table>
+               </Col>
+
+               <Col className="tableauTS">
                     <h2>Dernières taches effectuées</h2>
                     <table>
                          <thead>
@@ -154,37 +203,22 @@ export default function Home() {
                          </thead>
                          <tbody>
                          {
-                              timesheet.map((item,index) => {
-                                   var day = Moment(item.Date_Tache_Effectuee).format('DD');
-                                   var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+                              filteredTaches.map((item,index) => {
+                                   let day = Moment(item.Date_Tache_Effectuee).format('DD');
+                                   let Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (
                                         <tr key={index}>
                                              <td><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></td>
                                              <td><p className="ref">{ item.Titre}</p></td>
-                                             <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
+                                             <td><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
                                         </tr>
                                    )
                               })
                          }
+                         <tr><td><button name = "NoFilter" className="btn_ts_bottom" onClick={handleNoFilter}>Voir toutes les tâches</button></td></tr>
                          </tbody>
                     </table>
                </Col>
-
-               {/* 
-               
-               AMELIORATIONS
-               <Col className="tableauTS">
-                    <h2>Demandes effectuées</h2>
-                    <table>
-                         <thead>
-                              <tr>
-                                   <th>EN COURS DE DEVELOPPEMENT</th>
-                              </tr>
-                         </thead>
-                         <tbody>
-                         </tbody>
-                    </table>
-               </Col> */}
           </Row>
 
           <Row className="timesheet">

@@ -9,11 +9,7 @@ function NavBar(){
 
   const [menu, setMenu] = useState([]);
   const [role, setRole] = useState([]);
-  const currentIDU = (localStorage.getItem("currentIDU").replaceAll('"',''));
-  //  const currentRole = (localStorage.getItem("currentRole").replaceAll('"',''));
-  //  const currentName = (localStorage.getItem("currentNOM").replaceAll('"',''));
-  //  const currentPname = (localStorage.getItem("currentPNOM").replaceAll('"',''));
-  //  const currentMail = (localStorage.getItem("currentMAIL").replaceAll('"',''));
+  const currentIDU = localStorage.getItem("currentIDU");
 
   useEffect(() => {
 
