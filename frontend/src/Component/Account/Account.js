@@ -27,8 +27,6 @@ export default function NameForm() {
      const [currentSITE, setCurrentSITE] = useState();
      const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState();
 
-     const [displayEntreprise, seCurrentEntreprise] = useState();
-
      const currentIDE = (localStorage.getItem("currentIDE").replaceAll('"',''));
 
      const [users, setAllUsers] = useState();
@@ -126,7 +124,6 @@ export default function NameForm() {
                setValidation(false);
           }           
           
-          setDisplayEntreprise(true); 
      }
 
      return (
