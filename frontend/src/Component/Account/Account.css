@@ -42,15 +42,6 @@
     font-weight: 600;
 }
 
-.Profil input[type="password"] {
-    border: none;
-    box-shadow: inset 5px 5px 10px #BDE5F4;
-    border-radius: 25px;
-    padding: 0px 20px;
-    line-height: 1.5em;
-    font-size: 18px;
-}
-
 
 .clear {
     clear: both;
