@@ -152,8 +152,8 @@
     }
 
     .active {
-        color: #6610f2!important;
-        background-color: #6710f24d;
+        color: #3FB58F!important;
+        background-color: #B3FEEA;
         border-radius: 5px;
     }
 }

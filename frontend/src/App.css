@@ -46,6 +46,45 @@
     }
 }
 
+
+
+/******* DEFAULT CSS *******/
+
+
+/* BOUTONS */
+.btn {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+
+    letter-spacing: 0.3em;
+    color: #F2F2F2;
+
+    height: 50px;
+}
+
+.primary_btn{
+    background: linear-gradient(86.86deg, #3500EF 7.97%, #807AEF 93.95%);
+    border-radius: 101.5px;
+}
+
+.primary_btn:hover{
+    background: #fff;
+    border: 1px solid #7467EF;
+    border-radius: 101.5px;
+
+    color: #7B72EF;
+}
+
+.alert_btn{
+    background: linear-gradient(88.47deg, #FF2E2E 0.92%, #D01C1C 99.06%);
+    border-radius: 101.5px;
+}
+
+/* TEXTE & TITRE */ 
+
 h1{
     font-family: 'Poppins';
     text-align: left;
@@ -58,4 +97,19 @@ h1{
 
 p {
     font-size: 14px;
+}
+
+
+/* Badge Users */
+
+.bdg_user{
+    width: 30px;
+    height: 30px;
+
+    background: #06F8B8;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+
+    color: #FFFFFF;
 }
