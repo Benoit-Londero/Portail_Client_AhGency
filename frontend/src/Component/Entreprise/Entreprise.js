@@ -17,7 +17,7 @@ export default function Entreprise() {
   const [currentEMAILE, setCurrentEMAILE] = useState();
   const [currentSITE, setCurrentSITE] = useState();
   const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState();
-  const [heureEntreprise, setHeureEntreprise] = useState();
+  const [minEntreprise, setMinEntreprise] = useState();
 
 
   const users = ['fabian','Benoit','Quentin'];
@@ -52,13 +52,15 @@ export default function Entreprise() {
                body: JSON.stringify(dataU)
           })
           .then(res => res.json())
-          .then(json => setHeureEntreprise(json))
+          .then(json => setMinEntreprise(json[0].minutesEntreprise))
           .catch(err => console.info(err))
      }
 
     onLoad();
 
   }, [currentIDE])
+
+  console.log(minEntreprise);
 
   const handleClick = async e => {
      e.preventDefault();
@@ -87,7 +89,7 @@ export default function Entreprise() {
           <Container>
                <h1>Entreprise</h1>
                <Row>
-                    <p className="highlight">Heures restantes : {Math.trunc(heureEntreprise /60)} h {heureEntreprise % 60 } min</p>
+                    <p className="highlight">Heures restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min</p>
                     <Col>
                     <form id="editForm" onSubmit={handleClick}>
                          <table className="Profil">

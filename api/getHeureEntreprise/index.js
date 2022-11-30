@@ -9,18 +9,18 @@ module.exports = async function (context, req) {
     allHeure = await new Promise((resolve,reject) => {
 
         let entreprise = req.body.currentIDEntreprise;
-        let query = "SELECT SUM(Minutes_Restantes) FROM users WHERE ID_entreprise = ?";
+        let query = "SELECT SUM(Minutes_Restantes) as minutesEntreprise FROM users WHERE ID_entreprise = ?";
 
-        req = con.query(query, function (err,rows){
+        req = con.query(query, [entreprise], function (err,rows){
             if (err) throw err;
 
-            allUsers = rows;
-            resolve(allUsers)
+            allHeure = rows;
+            resolve(allHeure)
         })
     })
 
     context.res = {
         status : 200,
-        body : allUsers
+        body : allHeure
     }   
 }
