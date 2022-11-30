@@ -8,7 +8,7 @@ export default function AdminHeure() {
 
     useEffect (() => {
 
-      fetch('/api/getUser')
+      fetch('/api/getAllClient')
         .then(res => res.json())
         .then(json => setUsersInfos(json))
         .catch(err => console.info(err))
@@ -57,7 +57,7 @@ export default function AdminHeure() {
               <tr>
                 <td><label for="for_who">Client<span className="required">*</span></label><br></br>
                   <select id='for_who' name="for_who" required>
-                    <option default disabled> Sélectionnez un client </option>
+                    <option id="disabled"> Sélectionnez un client </option>
                     {usersInfos.map((user, index) => 
                         <option key={index} value={user.ID}>{user.Login}</option>
                     )}

@@ -54,6 +54,10 @@ input[type="submit"]:hover{
      background-color: #5001cf;
 }
 
+.disabled {
+     color: grey;
+}
+
 @media screen and (max-width:756px) and (orientation: portrait) {
 
      #hourForm{

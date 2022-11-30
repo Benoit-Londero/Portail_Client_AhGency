@@ -63,6 +63,10 @@ input[type="submit"]:hover{
      margin-top:50px;
 }
 
+.disabled {
+     color: grey;
+}
+
 @media screen and (max-width:756px) and (orientation: portrait) {
      #adminForm h1,
      #timesheetForm{

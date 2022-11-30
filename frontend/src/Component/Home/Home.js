@@ -84,7 +84,7 @@ export default function Home() {
           .then(json => setProjet(json))
           .catch(err => console.info(err))
 
-     }, [currentIDU])
+     }, [currentIDU, currentIDE])
 
      const handleFilter = (e) => {
           let IDTS = e.target.value;
@@ -94,7 +94,7 @@ export default function Home() {
 
      const handleFilterProjet = (e) => {
           let IDProjet = e.target.value;
-          let tacheAssociee = timesheet.filter(data => data.ID_TS === parseInt(IDProjet));
+          let tacheAssociee = timesheet.filter(data => data.ID_Projet === parseInt(IDProjet));
           setFilteredTaches(tacheAssociee);
      }
 

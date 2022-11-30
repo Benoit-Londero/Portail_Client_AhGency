@@ -17,6 +17,7 @@ export default function Entreprise() {
   const [currentEMAILE, setCurrentEMAILE] = useState();
   const [currentSITE, setCurrentSITE] = useState();
   const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState();
+  const [heureEntreprise, setHeureEntreprise] = useState();
 
 
   const users = ['fabian','Benoit','Quentin'];
@@ -44,6 +45,15 @@ export default function Entreprise() {
           } else {
                alert('Erreur du serveur, veuillez réessayer plus tard');
           }
+
+          fetch('/api/getHeureEntreprise', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(dataU)
+          })
+          .then(res => res.json())
+          .then(json => setHeureEntreprise(json))
+          .catch(err => console.info(err))
      }
 
     onLoad();
@@ -77,6 +87,7 @@ export default function Entreprise() {
           <Container>
                <h1>Entreprise</h1>
                <Row>
+                    <p className="highlight">Heures restantes : {Math.trunc(heureEntreprise /60)} h {heureEntreprise % 60 } min</p>
                     <Col>
                     <form id="editForm" onSubmit={handleClick}>
                          <table className="Profil">

@@ -15,12 +15,13 @@ module.exports = async function (context, req) {
   let tache = req.body.tache;
   let client = req.body.for_who;
   let titre = req.body.title;
+  let projet = req.body.projet;
       
-  let querySQL = "INSERT INTO timesheet(ID_Client,Agent,Temps_Min_Tache,Titre,Informations,Date_Tache_Effectuee) VALUES (?,?,?,?,?,?)";
+  let querySQL = "INSERT INTO timesheet(ID_Client,ID_Projet,Agent,Temps_Min_Tache,Titre,Informations,Date_Tache_Effectuee) VALUES (?,?,?,?,?,?,?)";
       
   let querySQL2 = "UPDATE users SET Minutes_Restantes = Minutes_Restantes - ? WHERE ID = ?";
 
-  con.query(querySQL, [client,developpeur,time,titre,tache,date], function (err,result){
+  con.query(querySQL, [client,projet,developpeur,time,titre,tache,date], function (err,result){
     if (err) throw err;
 
     console.log('Tache ajoutée')

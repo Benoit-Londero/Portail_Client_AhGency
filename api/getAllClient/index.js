@@ -11,7 +11,7 @@ module.exports = async function (context, req) {
 
   clientviewall = await new Promise((resolve,reject) => {
     
-    let sql = "SELECT * FROM users WHERE Role = 'customer'";
+    let sql = "SELECT * FROM users WHERE Role = 'Client'";
 
     con.query(sql,function(err,result){
       if (err) throw err;

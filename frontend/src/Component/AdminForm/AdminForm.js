@@ -8,18 +8,27 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function AdminForm() {
 
     const [usersInfos, setUsersInfos] = useState([]);
+    const [projetInfos, setProjetInfos] = useState([]);
+    const [projetFiltered, setProjetFiltered] = useState([]);
 
     //const navigate = useNavigate();
 
     useEffect (() => {
 
-      fetch('/api/getUser')
+      fetch('/api/getAllClient')
         .then(res => res.json())
         .then(json => setUsersInfos(json))
         .catch(err => console.info(err))
+
+      fetch('/api/getAllProjet')
+      .then(res => res.json())
+      .then(json => setProjetInfos(json))
+      .catch(err => console.info(err))
     }, [])
             
     console.log(usersInfos);
+    console.log(projetFiltered);
+    console.log(projetInfos);
 
     const handleSubmitTS = evt =>  {
         evt.preventDefault();
@@ -46,6 +55,15 @@ export default function AdminForm() {
         .then(fetch('s978qlou8k7k7cuiqije21kc25hixa5q@hook.eu1.make.com', {method: 'GET', }))
     }
 
+    const handleSelect = (e) => {
+      let idU = parseInt(e.target.value);
+      let idUFiltered = usersInfos.filter(donnee => donnee.ID === idU);
+      let idE = idUFiltered[0].ID_entreprise;
+      let projetFiltered = projetInfos.filter(data => data.ID_entreprise === parseInt(idE));
+      setProjetFiltered(projetFiltered);
+      console.log(projetFiltered);
+    }
+
   return (      
 
     <div id='adminForm'>
@@ -66,7 +84,7 @@ export default function AdminForm() {
               <tr>
                 <td><label for="who_do_it">Intervenant<span className="required">*</span></label><br></br>
                   <select id='who_do_it' name="who_do_it" required>
-                    <option default disabled> Sélectionnez un consultant </option>
+                    <option id="disabled"> Sélectionnez un consultant </option>
                     <option value="Fabian Hernandez Barco">Fabian Hernandez Barco</option>
                     <option value="Quentin De Jarnac">Quentin De Jarnac</option>
                     <option value="Benoit Londero">Benoit Londero</option>
@@ -74,10 +92,20 @@ export default function AdminForm() {
                 </td></tr>
                 <tr>
                 <td><label for="for_who">Client<span className="required">*</span></label><br></br>
-                  <select id='for_who' name="for_who" required>
-                    <option default disabled> Sélectionnez un client </option>
+                  <select id='for_who' name="for_who" onChange={handleSelect} required>
+                    <option id="disabled"> Sélectionnez un client </option>
                     {usersInfos.map((user, index) => 
                         <option key={index} value={user.ID}>{user.Login}</option>
+                    )}
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="projet">Projet<span className="required">*</span></label><br></br>
+                  <select id='projet' name="projet" required>
+                    <option id="disabled"> Sélectionnez un projet </option>
+                    {projetFiltered.map((pro, index) => 
+                        <option key={index} value={pro.ID}>{pro.Tickets}</option>
                     )}
                   </select>
                 </td>
