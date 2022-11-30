@@ -132,7 +132,7 @@ export default function NameForm() {
                                         {error === true ? <tr><td colspan="3"><span>Les mots de passes ne sont pas identiques !</span></td></tr> : null}
                                         <tr><td colspan="2"><label className="bold"> Confirmation du mot de passe : </label><input type="password" id="confpass" name="confpass" placeholder="********"></input></td></tr>
                                         <tr><td><input type="hidden" name="idu" value ={currentIDU}/></td></tr>
-                                        <tr><td colspan="3"><input type="submit" name="modifier" value="Enregistrer" /></td></tr>
+                                        <tr><td colspan="3"><input className="btn primary-btn" type="submit" name="modifier" value="Enregistrer" /></td></tr>
                                    </tbody>
                               </table>
                               </form>

@@ -51,27 +51,9 @@
     font-size: 18px;
 }
 
-.Profil input[type="submit"],
-.delete_account input[type="submit"] {
-    background: #6610f2;
-    color: #fff;
-    border: 2px solid #6610f2;
-    min-width: 200px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 14px;
-    border-radius: 5px;
-    float: right;
-}
 
 .clear {
     clear: both;
-}
-
-.Profil input[type="submit"]:hover,
-.Profil input[type="submit"]:focus {
-    background: #fff;
-    color: #6610f2;
 }
 
 .delete_account {
@@ -89,19 +71,6 @@
 
 .delete_account td {
     text-align: left;
-}
-
-.delete_account input[type="submit"] {
-    background: red;
-    border-color: red;
-    font-size: 14px;
-    padding: 0px 25px;
-}
-
-.delete_account input[type="submit"]:hover,
-.delete_account input[type="submit"]:focus {
-    color: red;
-    background: #fff;
 }
 
 .my_contact{
