@@ -17,20 +17,12 @@ export const SidebarData = [
         category: 'app'
     },
     {
-        title:'Projet',
-        path: '/Projet',
-        icon : <FaIcons.FaRegPlusSquare />,
-        cName: 's-sidebar__nav-link',
-        admin: true,
-        category: 'app'
-    },
-    {
         title:'Envoyer un ticket',
         path: '/Projet',
         icon: <GiIcons.GiTicket/>,
         cName: 's-sidebar__nav-link',
         admin: false,
-        category: 'account'
+        category: 'app'
     },
     {
         title:'Ajout timesheet',

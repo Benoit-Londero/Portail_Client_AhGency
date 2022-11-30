@@ -66,13 +66,13 @@
 }
 
 .primary_btn{
-    background: linear-gradient(86.86deg, #3500EF 7.97%, #807AEF 93.95%);
+    background: linear-gradient(86.86deg, #31C596 15.53%, #00FFBC 93.95%);
     border-radius: 101.5px;
 }
 
 .primary_btn:hover{
     background: #fff;
-    border: 1px solid #7467EF;
+    border: 1px solid #3FB58F;
     border-radius: 101.5px;
 
     color: #7B72EF;
@@ -90,9 +90,10 @@ h1{
     text-align: left;
     font-size: 24px;
     font-weight: 500!important;
-    color: #190933!important;
+    color: #0D2A1D!important;
     border-radius: 10px;
     margin-bottom:50px;
+    text-transform:uppercase;
 }
 
 p {
