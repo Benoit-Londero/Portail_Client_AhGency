@@ -73,6 +73,16 @@ export default function Projet() {
     <div id='adminForm'>
         <NavBar />
 
+        <Row>
+               <div className="project_sidebar">
+                    <ul>
+                         <li>Tous les projets</li>
+                         <li>Archives</li>
+                         <li>Mes projets</li>
+                    </ul>
+               </div>
+          </Row>
+
         <h1>Demande de support</h1>
       
         {message === false ? <form id="DemandeForm" onSubmit={handleDemande}>
