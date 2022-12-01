@@ -117,8 +117,6 @@ export default function Home() {
                <ul>
                     {
                          projet.map((item,index) => {
-                              let day = Moment(item.Date).format('DD');
-                              let Month = Moment(item.Date).format('MMM');
                               return (
                                    <li key={index}>
                                         <button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
