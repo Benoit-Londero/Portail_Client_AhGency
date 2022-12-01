@@ -84,8 +84,14 @@
 }
 
 .links_btn {
-    color:#06F8B8;
-    border:none;
+    color: #06f8b8;
+    background: none;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: left;
+    margin-bottom: 6px;
+    width: 100%;
+    border-bottom: 3px solid;
 }
 
 /* TEXTE & TITRE */ 

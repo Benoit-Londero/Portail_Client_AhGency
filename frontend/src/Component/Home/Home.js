@@ -173,9 +173,9 @@ export default function Home() {
                     }}
                />}
                     
-                    <p>Heures achetées : {Math.round(currentHeureTOT /60)} h</p>
-                    <p className="highlight">Heures restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
-                    <p><b>Total dépensé : {moneySpend} €</b></p>
+                    <p>Hrs achetées : {Math.round(currentHeureTOT /60)} h</p>
+                    <p className="highlight">Hrs restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
+                    <p><b>Dépensé : {moneySpend} €</b></p>
                     {checkPercent > 10 ? null : <Link to ='/Credits'><Button>Recharger</Button></Link>}
                </div>
           </div>
