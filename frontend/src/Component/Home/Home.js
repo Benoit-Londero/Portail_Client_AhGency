@@ -10,6 +10,9 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import { Link } from "react-router-dom";
 import Moment from "moment";
 
+
+import * as FiIcons from "react-icons/fi";
+
 export default function Home() {
 
      const [timesheet, setTimesheet] = useState([]);
