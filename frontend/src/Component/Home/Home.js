@@ -109,6 +109,7 @@ export default function Home() {
      <NavBar />
      <Row>
           <div className="project_sidebar">
+               <h2>Projet</h2>
                <ul>
                     {
                          projet.map((item,index) => {
@@ -116,8 +117,10 @@ export default function Home() {
                               let Month = Moment(item.Date).format('MMM');
                               return (
                                    <tr key={index}>
-                                        <li><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></li>
-                                        <li><button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button></li>
+                                        <li>
+                                             <span className="date_badge hide_mobile">{day}<br></br>{Month}.</span>
+                                             <button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
+                                        </li>
                                    </tr>
                               )
                          })
