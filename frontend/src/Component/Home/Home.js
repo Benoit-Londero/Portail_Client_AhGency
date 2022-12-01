@@ -17,6 +17,7 @@ export default function Home() {
 
      const [timesheet, setTimesheet] = useState([]);
      const [projet, setProjet] = useState([]);
+     const [projetFiltrer, setProjetFiltrer] = useState([]);
      const [filteredTS, setFilteredTS] = useState([]);
      const [filteredTaches, setFilteredTaches] = useState([]);
      const [checkPercent, setCheckPercent] = useState();
@@ -97,7 +98,9 @@ export default function Home() {
 
      const handleFilterProjet = (e) => {
           let IDProjet = e.target.value;
+          let detailProjet = projet.filter(donnee => donnee.ID === parseInt(IDProjet));
           let tacheAssociee = timesheet.filter(data => data.ID_Projet === parseInt(IDProjet));
+          setProjetFiltrer(detailProjet);
           setFilteredTaches(tacheAssociee);
      }
 
@@ -196,22 +199,27 @@ export default function Home() {
                                    <th></th>
                               </tr>
                          </thead>
-                         <tbody>
                          {
-                              projet.map((item,index) => {
+                              projetFiltrer.map((item,index) => {
                                    let day = Moment(item.Date).format('DD');
                                    let Month = Moment(item.Date).format('MMM');
                                    return (
-                                        <tr key={index}>
-                                             <td><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></td>
-                                             <td><p className="ref">{item.Tickets}</p></td>
-                                             <td><p className="ref">{Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
-                                             <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID} onClick={handleFilterProjet}> Tâches associées </button></td>
-                                        </tr>
+                                        <tbody>
+                                             <tr key={index}>
+                                                  <td><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></td>
+                                                  <td><p className="ref">{item.Tickets}</p></td>
+                                                  <td><p className="ref">{Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <th colspan = "4">Détail du projet</th>
+                                             </tr>
+                                             <tr>
+                                                  <td colspan = "4" rowspan="3"><p>{item.Description}</p></td>
+                                             </tr>
+                                        </tbody>
                                    )
                               })
                          }
-                         </tbody>
                     </table>
                </Col>
 
