@@ -82,9 +82,9 @@ export default function Projet() {
         <Row>
                <div className="project_sidebar">
                     <ul>
-                         <li><button onClick={handleProject} value="all">Tous les projets</button></li>
-                         <li><button onClick={handleProject} value="archives">Archives</button></li>
-                         <li><button onClick={handleProject} value="mine">Assigné à moi</button></li>
+                         <li><button className="btn primary_btn" onClick={handleProject} value="all">Tous les projets</button></li>
+                         <li><button className="btn primary_btn" onClick={handleProject} value="archives">Archives</button></li>
+                         <li><button className="btn primary_btn" onClick={handleProject} value="mine">Assigné à moi</button></li>
                     </ul>
                </div>
           </Row>
