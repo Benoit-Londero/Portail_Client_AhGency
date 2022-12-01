@@ -78,7 +78,8 @@ function NavBar(){
                             </NavLink></li>
                           )})
                     }
-                <h2>Settings</h2>
+                <span className="settings_menu">
+                  <h2>Settings</h2>
                     {
                       menu.filter(menu => menu.category === 'account').map((item, index) => {
                           return ( <li key = { index }>
@@ -88,7 +89,8 @@ function NavBar(){
                                     ><p>{ item.icon }<br></br><span className="desktop"> {item.title}</span></p>
                             </NavLink></li>
                           )})
-                    }               
+                    }  
+                </span>             
                </ul>
 
 

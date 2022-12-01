@@ -109,32 +109,24 @@ export default function Home() {
      <NavBar />
      <Row>
           <div className="project_sidebar">
-               <h2>Projet</h2>
+               <h2><FiIcons.FiZap/> Tous les projets</h2>
+
                <ul>
                     {
                          projet.map((item,index) => {
                               let day = Moment(item.Date).format('DD');
                               let Month = Moment(item.Date).format('MMM');
                               return (
-                                   <tr key={index}>
-                                        <li>
-                                             <p className="date_badge hide_mobile">{day}<br></br>{Month}.</p>
-                                             <button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
-                                        </li>
-                                   </tr>
+                                   <li key={index}>
+                                        <p className="date_badge hide_mobile">{day}<br></br>{Month}.</p>
+                                        <button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
+                                   </li>
                               )
                          })
                     }
                </ul>
-          </div>
-     </Row>
 
-
-     <Container id="page_dashboard">
-
-          <Row>         
-               <Col className="stats" xl={4} md={4}>
-                    <h2>Statistiques</h2>
+               <h2>Statistiques</h2>
                                       
                     {checkPercent > 10 ? <CircularProgressbar
                          value={checkPercent}
@@ -184,7 +176,16 @@ export default function Home() {
                     <p className="highlight">Heures restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
                     <p><b>Total dépensé : {moneySpend} €</b></p>
                     {checkPercent > 10 ? null : <Link to ='/Credits'><Button>Recharger</Button></Link>}
-               </Col>
+          </div>
+     </Row>
+
+
+     <Container id="page_dashboard">
+
+          <Row>         
+{/*                <Col className="stats" xl={4} md={4}>
+                    
+               </Col> */}
 
                <Col className="tableauTS">
                     <h2>Projet</h2>
