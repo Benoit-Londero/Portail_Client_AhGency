@@ -139,7 +139,7 @@ export default function Home() {
                               path: {
                                    strokeLinecap: 'round',
                                    transition: 'stroke-dashoffset 0.5s ease 0s',
-                                   stroke: '#190933'
+                                   stroke: '#3FB58F'
                               },
                               // Customize the circle behind the path, i.e. the "total progress"
                               trail: {
@@ -179,7 +179,7 @@ export default function Home() {
                     <p>Achetées : {Math.round(currentHeureTOT /60)} h</p>
                     <p>Restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
                     <p><b>Dépensé : {moneySpend} €</b></p>
-                    {checkPercent > 10 ? null : <Link to ='/Credits'><Button>Recharger</Button></Link>}
+                    {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>}
                </div>
           </div>
      </Row>

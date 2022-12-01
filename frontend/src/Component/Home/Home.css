@@ -49,7 +49,7 @@ h2 {
 /***** Panel User ******/
 
 .btn {
-    background: #6610f2;
+    background: #3FB58F;
     color: #fff;
     border: none;
     width: 200px;
@@ -90,16 +90,6 @@ h2 {
 .CircularProgressbar {
     margin-top: 20px;
     margin-bottom: 40px;
-}
-
-.stats .highlight {
-    background-color: #fff;
-    color: #190933;
-    border-radius: 5px;
-    font-weight: 600;
-    width: 95%;
-    margin: auto;
-    padding: 10px;
 }
 
 /**********************************/
