@@ -121,7 +121,6 @@ export default function Home() {
                               let Month = Moment(item.Date).format('MMM');
                               return (
                                    <li key={index}>
-                                        <p className="date_badge hide_mobile">{day}<br></br>{Month}.</p>
                                         <button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
                                    </li>
                               )
