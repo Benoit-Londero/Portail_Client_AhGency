@@ -170,6 +170,7 @@ export default function Home() {
                               <tr>
                                    <th className="hide_mobile">Date</th>
                                    <th>Titre</th>
+                                   <th>Temps alloué</th>
                                    <th></th>
                               </tr>
                          </thead>
@@ -182,6 +183,7 @@ export default function Home() {
                                         <tr key={index}>
                                              <td><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></td>
                                              <td><p className="ref">{item.Tickets}</p></td>
+                                             <td><p className="ref">{Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
                                              <td><button name = "Voirplus" class="btn_ts_bottom" value={item.ID} onClick={handleFilterProjet}> Tâches associées </button></td>
                                         </tr>
                                    )

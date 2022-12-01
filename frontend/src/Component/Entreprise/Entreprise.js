@@ -18,6 +18,7 @@ export default function Entreprise() {
   const [currentSITE, setCurrentSITE] = useState();
   const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState();
   const [minEntreprise, setMinEntreprise] = useState();
+  const [tempsAlloue, setTempsAlloue] = useState();
 
 
   const users = ['fabian','Benoit','Quentin'];
@@ -54,6 +55,15 @@ export default function Entreprise() {
           .then(res => res.json())
           .then(json => setMinEntreprise(json[0].minutesEntreprise))
           .catch(err => console.info(err))
+
+          fetch('/api/getTempsAlloue', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(dataU)
+          })
+          .then(res => res.json())
+          .then(json => setTempsAlloue(json[0].minutesAllouees))
+          .catch(err => console.info(err))
      }
 
     onLoad();
@@ -89,7 +99,7 @@ export default function Entreprise() {
           <Container>
                <h1>Entreprise</h1>
                <Row>
-                    <p className="highlight">Heures restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min</p>
+                    <p className="highlight">Heures restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p>
                     <Col>
                     <form id="editForm" onSubmit={handleClick}>
                          <table className="Profil">
@@ -111,24 +121,8 @@ export default function Entreprise() {
                     </form>
 
                     <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p>
-
-                    <form>
-                         <label>Ajouter des membres à mon entreprise </label>
-                         <select>
-                              {
-                              users.map((item,index) => {
-                                   return(
-                                        <option key={index} value={item}>{item}</option>
-                                   )
-                              })
-                              }
-                         </select>
-                    </form>
                     </Col>
-
-               </Row>
-
-          
+               </Row>          
           </Container>
      </div>
   )

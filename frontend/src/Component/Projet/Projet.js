@@ -99,6 +99,7 @@ export default function Projet() {
             <tbody>
                 <tr><td><label for="title">Quel est le sujet de votre demande <span className="required">*</span></label><br></br><input type="text" placeholder="titre" id="title" name="title" required/></td></tr>
                 <tr><td><label for="tache">Détaillez votre demande <span className="required">*</span></label><br></br><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td></tr>
+                <tr><td><label for="title">Allouer votre temps au projet <span className="required">*</span></label><br></br><input type="number" placeholder="en min" id="allocation" name="allocation" required/></td></tr>
                 <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
                 <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
                 <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>

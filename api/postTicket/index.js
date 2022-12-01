@@ -13,11 +13,12 @@ module.exports = async function (context, req) {
         let title = context.req.body.title;
         let detail = context.req.body.tache;
         let url = context.req.body.siteURL;
+        let allocation = parseInt(context.req.body.allocation);
         let Status = "Non démarré";
 
-        let sqlTicket = "INSERT INTO tickets(Tickets,ID_Client,Date,Statut,Email,Description,URL) VALUES (?,?,?,?,?,?,?)";
+        let sqlTicket = "INSERT INTO tickets(Tickets,ID_entreprise,AllocationTemps,Date,Statut,Email,Description,URL) VALUES (?,?,?,?,?,?,?,?)";
 
-        con.query(sqlTicket, [title, idEnt, date, Status, email, detail, url], function (err, resultat) {
+        con.query(sqlTicket, [title, idEnt, allocation, date, Status, email, detail, url], function (err, resultat) {
             if (err) throw err;
             result = JSON.stringify('Demande OK');
             resolve(result);
