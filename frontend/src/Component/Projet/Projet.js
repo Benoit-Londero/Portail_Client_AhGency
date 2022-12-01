@@ -71,6 +71,10 @@ export default function Projet() {
         setMessage(false);
     }
 
+    const handleProject = () => {
+        console.log('i m alive');
+    }
+
   return (
     <div id='adminForm'>
         <NavBar />
