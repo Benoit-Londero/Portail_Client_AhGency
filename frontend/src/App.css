@@ -125,3 +125,24 @@ p {
 
     color: #FFFFFF;
 }
+
+/* Sidebar */
+.project_sidebar{
+    position: absolute;
+    left: 6vw;
+    top: 0;
+    width: 180px;
+    height: 100vh;
+    background: #fafafa;
+    font-size: 14px;
+    text-align: left;
+    text-decoration: none;
+    list-style: none;
+    padding-top: 100px;
+    background: #fafafa;
+}
+
+.project_sidebar ul{
+    list-style: none;
+    padding-left: 1em;
+}

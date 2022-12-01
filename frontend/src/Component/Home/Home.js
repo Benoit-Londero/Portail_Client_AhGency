@@ -110,9 +110,18 @@ export default function Home() {
      <Row>
           <div className="project_sidebar">
                <ul>
-                    <li><button className="links_btn" onClick={handleProject} value="all"><FiIcons.FiZap/> Tous les projets</button></li>
-                    <li><button className="links_btn" onClick={handleProject} value="archives"><FiIcons.FiArchive/> Archives</button></li>
-                    <li><button className="links_btn" onClick={handleProject} value="mine"><FiIcons.FiPlus/> Créer un projet</button></li>
+                    {
+                         projet.map((item,index) => {
+                              let day = Moment(item.Date).format('DD');
+                              let Month = Moment(item.Date).format('MMM');
+                              return (
+                                   <tr key={index}>
+                                        <li><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></li>
+                                        <li><button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button></li>
+                                   </tr>
+                              )
+                         })
+                    }
                </ul>
           </div>
      </Row>
