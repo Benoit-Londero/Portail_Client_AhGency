@@ -53,13 +53,13 @@
 
 /* BOUTONS */
 .btn {
-    font-family: 'Inter';
+    font-family: 'Lato';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 10px;
     line-height: 17px;
 
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     color: #F2F2F2;
 
     height: 50px;
@@ -67,7 +67,7 @@
 
 .primary_btn{
     background: linear-gradient(86.86deg, #31C596 15.53%, #00FFBC 93.95%);
-    border-radius: 101.5px;
+    border-radius: 50px;
 }
 
 .primary_btn:hover{
@@ -83,6 +83,11 @@
     border-radius: 101.5px;
 }
 
+.links_btn {
+    color:#06F8B8;
+    border:none;
+}
+
 /* TEXTE & TITRE */ 
 
 h1{
@@ -94,6 +99,12 @@ h1{
     border-radius: 10px;
     margin-bottom:50px;
     text-transform:uppercase;
+}
+
+h2{
+    font-size: 18px!important;
+    color: #06F8B8;
+
 }
 
 p {

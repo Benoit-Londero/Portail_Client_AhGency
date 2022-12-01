@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import NavBar from "../NavBar/NavBar";
 import './Projet.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import * as FiIcons from "react-icons/fi";
 
 import Row from 'react-bootstrap/Row';
 
@@ -82,9 +83,9 @@ export default function Projet() {
         <Row>
                <div className="project_sidebar">
                     <ul>
-                         <li><button className="btn primary_btn" onClick={handleProject} value="all">Tous les projets</button></li>
-                         <li><button className="btn primary_btn" onClick={handleProject} value="archives">Archives</button></li>
-                         <li><button className="btn primary_btn" onClick={handleProject} value="mine">Assigné à moi</button></li>
+                         <li><button className="btn links_btn" onClick={handleProject} value="all">{FiIcons.FiZap} Tous les projets</button></li>
+                         <li><button className="btn links_btn" onClick={handleProject} value="archives">{FiIcons.FiArchive} Archives</button></li>
+                         <li><button className="btn links_btn" onClick={handleProject} value="mine">{FiIcons.FiPlus} Créer un projet</button></li>
                     </ul>
                </div>
           </Row>
