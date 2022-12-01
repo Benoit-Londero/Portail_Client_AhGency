@@ -83,9 +83,9 @@ export default function Projet() {
         <Row>
                <div className="project_sidebar">
                     <ul>
-                         <li><button className="btn links_btn" onClick={handleProject} value="all">{FiIcons.FiZap} Tous les projets</button></li>
-                         <li><button className="btn links_btn" onClick={handleProject} value="archives">{FiIcons.FiArchive} Archives</button></li>
-                         <li><button className="btn links_btn" onClick={handleProject} value="mine">{FiIcons.FiPlus} Créer un projet</button></li>
+                         <li><button className="links_btn" onClick={handleProject} value="all"><FiIcons.FiZap/> Tous les projets</button></li>
+                         <li><button className="links_btn" onClick={handleProject} value="archives"><FiIcons.FiArchive/> Archives</button></li>
+                         <li><button className="links_btn" onClick={handleProject} value="mine"><FiIcons.FiPlus/> Créer un projet</button></li>
                     </ul>
                </div>
           </Row>
