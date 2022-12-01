@@ -17,7 +17,7 @@ export const SidebarData = [
         category: 'app'
     },
     {
-        title:'Envoyer un ticket',
+        title:'Projet',
         path: '/Projet',
         icon: <GiIcons.GiTicket/>,
         cName: 's-sidebar__nav-link',

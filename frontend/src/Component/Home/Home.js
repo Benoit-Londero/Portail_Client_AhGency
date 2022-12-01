@@ -107,6 +107,17 @@ export default function Home() {
 
      <div>
      <NavBar />
+     <Row>
+          <div className="project_sidebar">
+               <ul>
+                    <li><button className="links_btn" onClick={handleProject} value="all"><FiIcons.FiZap/> Tous les projets</button></li>
+                    <li><button className="links_btn" onClick={handleProject} value="archives"><FiIcons.FiArchive/> Archives</button></li>
+                    <li><button className="links_btn" onClick={handleProject} value="mine"><FiIcons.FiPlus/> Créer un projet</button></li>
+               </ul>
+          </div>
+     </Row>
+
+
      <Container id="page_dashboard">
 
           <Row>         
