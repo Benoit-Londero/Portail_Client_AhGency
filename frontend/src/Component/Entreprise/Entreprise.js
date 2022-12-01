@@ -21,8 +21,6 @@ export default function Entreprise() {
   const [tempsAlloue, setTempsAlloue] = useState();
 
 
-  const users = ['fabian','Benoit','Quentin'];
-
   useEffect(() => {
      let dataU = {currentIDEntreprise: currentIDE};
           
