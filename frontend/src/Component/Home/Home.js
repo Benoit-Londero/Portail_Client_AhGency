@@ -128,7 +128,8 @@ export default function Home() {
                          })
                     }
                </ul>
-
+               
+               <div className="stats">
                <h2>Statistiques</h2>
                                       
                     {checkPercent > 10 ? <CircularProgressbar
@@ -179,17 +180,14 @@ export default function Home() {
                     <p className="highlight">Heures restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
                     <p><b>Total dépensé : {moneySpend} €</b></p>
                     {checkPercent > 10 ? null : <Link to ='/Credits'><Button>Recharger</Button></Link>}
+               </div>
           </div>
      </Row>
 
 
      <Container id="page_dashboard">
 
-          <Row>         
-{/*                <Col className="stats" xl={4} md={4}>
-                    
-               </Col> */}
-
+          <Row>
                <Col className="tableauTS">
                     <h2>Projet</h2>
                     <table>

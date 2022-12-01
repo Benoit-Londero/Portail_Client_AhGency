@@ -142,6 +142,10 @@ p {
     background: #fafafa;
 }
 
+.project_sidebar h2{
+    color:#000;
+}
+
 .project_sidebar ul{
     list-style: none;
     padding-left: 1em;
