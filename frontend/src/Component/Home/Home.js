@@ -224,7 +224,7 @@ export default function Home() {
                </Col>
 
                <Col className="tableauTS">
-                    <h2>Dernières taches effectuées</h2>
+                    <h2>Taches effectuées</h2>
                     <table>
                          <thead>
                               <tr>

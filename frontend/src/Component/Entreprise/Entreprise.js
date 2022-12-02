@@ -19,6 +19,7 @@ export default function Entreprise() {
   const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState();
   const [minEntreprise, setMinEntreprise] = useState();
   const [tempsAlloue, setTempsAlloue] = useState();
+  const [validation, setValidation] = useState(false);
 
 
   useEffect(() => {
@@ -68,14 +69,12 @@ export default function Entreprise() {
 
   }, [currentIDE])
 
-  console.log(minEntreprise);
-
   const handleClick = async e => {
      e.preventDefault();
      let editForm = document.getElementById('editForm'); //on récupère l'élement <form> et ces différents <input>
      let dataForm = new FormData(editForm); //que l'on intègre à un formData
 
-     const conJSON = buildJsonFormData(dataForm);
+     const formJSON = buildJsonFormData(dataForm);
 
      //On crée une boucle pour transformer le FormData en JSON
      function buildJsonFormData(dataForm){
@@ -88,7 +87,18 @@ export default function Entreprise() {
           return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
      }
 
-     console.log(conJSON);  
+     const response = await fetch('/api/editEntInfo', { 
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(formJSON)
+     })
+
+     const ress = await response.json();
+     if(response.status === 200)
+     {
+          console.log(ress);
+          setValidation(true);
+     }
   }      
 
   return (
@@ -111,13 +121,13 @@ export default function Entreprise() {
 
                                    <tr><td colspab="2"><label className="bold"> Email : </label><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue= {currentEMAILE}></input></td></tr>
                                    <tr><td colspab="2"><label className="bold"> Site : </label><input type="text" id="web" name="web"  defaultValue= {currentSITE}></input></td></tr>
-                                   <tr><td colspab="2"><label className="bold"> Email : </label><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue= {currentEMAILE}></input></td></tr>
+                                   <tr><td><input type="hidden" id="idE" name="idE" defaultValue= {currentIDE}></input></td></tr>
                                    
                                    <tr><td colspan="3"><input type="submit" name="modifier" value="Enregistrer" /></td></tr>
                               </tbody>
                          </table>
                     </form>
-
+                    {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
                     <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p>
                     </Col>
                </Row>          
