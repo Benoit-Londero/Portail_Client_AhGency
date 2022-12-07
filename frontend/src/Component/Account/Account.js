@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 import { RiAccountCircleFill } from "react-icons/ri";
 import { ImMail4 } from "react-icons/im";
+import Entreprise from '../Entreprise/Entreprise.js';
 
 
 export default function NameForm() {
@@ -18,6 +19,8 @@ export default function NameForm() {
      const [currentNOM, setCurrentNOM] = useState();
      const [currentPNOM, setCurrentPNOM] = useState();
      const [currentMAIL, setCurrentMAIL] = useState();
+
+     const [profil, setProfil] = useState(false);
 
      useEffect(() => {
           let dataU = {currentIDUser: currentIDU};
@@ -109,10 +112,21 @@ export default function NameForm() {
           }           
      }
 
+     const handleOnglet = (e) => {
+          let onglet = e.target.value;
+          if(onglet === "entreprise") {
+               setProfil(true);
+          } else {
+               setProfil(false);
+          }
+     }
+
      return (
           <div id="page_account">
                <NavBar />
-               <Container>
+               <button value="profil" onClick={handleOnglet}>Mon profil</button>
+               <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
+               {profil === false ? <Container>
                     <h1>Mon compte</h1>
 
                     <Row>
@@ -160,7 +174,7 @@ export default function NameForm() {
                          </Col>
                     </Row>
                     
-               </Container>        
+               </Container> : <Entreprise></Entreprise>}
          </div>
      )
 }
