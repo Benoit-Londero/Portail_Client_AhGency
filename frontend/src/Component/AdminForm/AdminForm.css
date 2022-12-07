@@ -4,11 +4,7 @@
 }
 
 #timesheetForm{
-     background:#fff;
-     border-radius: 20px;
-     padding:20px;
      width: 45vw;
-     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.183);
 }
 
 .row_submit{

@@ -42,13 +42,15 @@ export default function ViewAll() {
      return (
      <div>
      <NavBar />
-     <Container id="page_viewall">
-          <Row>
-               <h1>Timesheet</h1>
-          </Row>
-          <Row>
-          <h2>Clients</h2>
+
+     <Row>
+          <div className="project_sidebar">
+               <h2>Timesheet</h2>
+
+               <h3>Clients</h3>
                <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
+
+               <h3>où</h3>
 
                <label>Sélectionner un client</label>
                <select onChange={handleTasks}>
@@ -59,12 +61,9 @@ export default function ViewAll() {
                          ) 
                     })}
                </select>
-               {/* {clients && clients.map((item,index) => {
-                    return(
-                         <button  key={index} value={item.ID} className="client_list" onClick={handleTasks} >{item.Nom} {item.Prenom}</button>
-                    ) 
-               })} */}
-          </Row>
+          </div>
+     </Row>
+     <Container id="page_viewall">
           <Row className="customer_card_all timesheet">
                <Col>
 

@@ -10,7 +10,6 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import { Link } from "react-router-dom";
 import Moment from "moment";
 
-
 import * as FiIcons from "react-icons/fi";
 
 export default function Home() {
@@ -25,8 +24,6 @@ export default function Home() {
      const [currentHeureTOT, setCurrentHeureTOT] = useState();
      const [currentHeureREST, setCurrentHeureREST] = useState();
      const [moneySpend, setMoneySpend] = useState();
-
-     
 
      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
@@ -104,7 +101,6 @@ export default function Home() {
      const handleNoFilter = (e) => {
           setFilteredTaches(timesheet);
      }
-
 
      return (
 

@@ -69,12 +69,11 @@ export default function AdminForm() {
     <div id='adminForm'>
         <NavBar />
 
-        <h1>Créer une nouvelle entrée</h1>
+        <h1>Encoder une tâche</h1>
       
         <form id="timesheetForm" onSubmit={handleSubmitTS}>
           <table>
             <thead>
-              <tr><td><h2>Encoder une tâche éffectuées</h2></td></tr>
             </thead>
             <tbody>
             <tr><td><label for="title">Titre de la tache <span className="required">*</span></label><br></br><input type="text" placeholder="titre" id="title" name="title" required/></td></tr>
