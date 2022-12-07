@@ -189,7 +189,7 @@ export default function Home() {
 
           <Row>
                <Col className="tableauTS">
-                    <h2>Projet</h2>
+                    <td colspan="3"><h2>Projet</h2></td>
                     <table>
                          <thead>
                               <tr>
@@ -223,8 +223,13 @@ export default function Home() {
                     </table>
                </Col>
 
+<<<<<<< HEAD
                <Col className="tableauTS">
                     <h2>Taches effectuées</h2>
+=======
+               {/* <Col className="tableauTS">
+                    <h2>Dernières taches effectuées</h2>
+>>>>>>> 7d0fcc1 (Modif css + home.js)
                     <table>
                          <thead>
                               <tr>
@@ -250,7 +255,7 @@ export default function Home() {
                          <tr><td><button name = "NoFilter" className="btn_ts_bottom" onClick={handleNoFilter}>Voir toutes les tâches</button></td></tr>
                          </tbody>
                     </table>
-               </Col>
+               </Col> */}
           </Row>
 
           <Row className="timesheet">
