@@ -223,13 +223,9 @@ export default function Home() {
                     </table>
                </Col>
 
-<<<<<<< HEAD
-               <Col className="tableauTS">
-                    <h2>Taches effectuées</h2>
-=======
+
                {/* <Col className="tableauTS">
                     <h2>Dernières taches effectuées</h2>
->>>>>>> 7d0fcc1 (Modif css + home.js)
                     <table>
                          <thead>
                               <tr>

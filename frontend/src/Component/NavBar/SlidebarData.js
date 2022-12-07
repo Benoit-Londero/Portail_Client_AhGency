@@ -17,7 +17,7 @@ export const SidebarData = [
         category: 'app'
     },
     {
-        title:'Ouvrir un ticket',
+        title:'Nouvelle demande',
         path: '/Projet',
         icon: <GiIcons.GiTicket/>,
         cName: 's-sidebar__nav-link',
@@ -65,14 +65,14 @@ export const SidebarData = [
         category: 'app'
     },
     
-    {
+    /* {
         title:'Entreprise',
         path: '/Entreprise',
         icon: <HiIcons.HiOutlineOfficeBuilding />,
         cName: 's-sidebar__nav-link',
         admin: true,
         category: 'account'
-    },
+    }, */
     // {
     //     title:'Factures',
     //     path: '/Factures',
