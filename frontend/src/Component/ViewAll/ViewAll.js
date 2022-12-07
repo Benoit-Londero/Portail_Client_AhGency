@@ -47,10 +47,9 @@ export default function ViewAll() {
           <div className="project_sidebar">
                <h2>Timesheet</h2>
 
-               <h3>Clients</h3>
+               <label>Voir tout </label>
                <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
 
-               <h3>où</h3>
 
                <label>Sélectionner un client</label>
                <select onChange={handleTasks}>
@@ -90,7 +89,7 @@ export default function ViewAll() {
                     <table id="desktop">
                          <thead>
                               <tr>
-                              <td><h2>Timesheet</h2></td>
+                              <td><h2>Liste des tâches réalisées :</h2></td>
                               </tr>
                          </thead>
                          <tbody>
@@ -114,7 +113,7 @@ export default function ViewAll() {
                     </table>
 
                     <div class="mobile">
-                         <h2>Timesheet</h2>
+                         <h2>Liste des tâches réalisées :</h2>
 
                          {filtredtasks && filtredtasks.map((item,index) => {
                               /* var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY'); */

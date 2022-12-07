@@ -81,7 +81,8 @@
     border-radius: 101.5px;
 }
 
-.links_btn {
+.links_btn,
+.client_list {
     color: #06f8b8;
     background: none;
     border: 1px solid;

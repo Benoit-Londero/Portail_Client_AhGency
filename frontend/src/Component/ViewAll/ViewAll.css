@@ -3,15 +3,6 @@
      margin-left: 20vw;
      width:80vw;
 }
-
-/* #page_viewall h1 {
-     font-family: 'Lato';
-     text-align: left;
-     font-size: 1.3em;
-     letter-spacing: 2px;
-     font-weight: 500!important;
-     color: #6610f2;
- } */
  
  #page_viewall h2{
      color:#333;
@@ -28,24 +19,6 @@
      line-height: 1.3em;
      padding: 5px 0px 5px 0px;
  }
-
-.client_list{
-     display: inline-block;
-     margin-left:15px;
-     width:15%;
-     font-size:14px;
-     border-radius: 5px;
-     background: rgb(240, 239, 239);
-     border: 1px solid #ccc;
-     padding: 8px 12px 8px 16px;
-     color:#999;
-}
-
-.client_list:focus{
-     color: #6610f2!important;
-     background-color: #6710f21d;
-     border: 1px solid #6610f2!important;
-}
 
 .customer_card_all{
      margin-top:100px;
