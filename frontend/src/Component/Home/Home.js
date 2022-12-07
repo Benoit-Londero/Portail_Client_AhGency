@@ -55,7 +55,6 @@ export default function Home() {
                     //Calcul du montant dépensé (temps dépensé)
                     setMoneySpend(Math.round(((timeSpend/60) * 75)));
 
-
                     if (parseInt(data.Minutes_Achetees) === 0) {
                          const percentage = 0;
                          setCheckPercent(percentage);
@@ -66,8 +65,6 @@ export default function Home() {
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
-
-
           }
 
           onLoad();
@@ -224,7 +221,7 @@ export default function Home() {
                </Col>
 
 
-               {/* <Col className="tableauTS">
+               <Col className="tableauTS">
                     <h2>Dernières taches effectuées</h2>
                     <table>
                          <thead>
@@ -251,7 +248,7 @@ export default function Home() {
                          <tr><td><button name = "NoFilter" className="btn_ts_bottom" onClick={handleNoFilter}>Voir toutes les tâches</button></td></tr>
                          </tbody>
                     </table>
-               </Col> */}
+               </Col>
           </Row>
 
           <Row className="timesheet">
