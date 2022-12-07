@@ -121,7 +121,6 @@ p {
 .bdg_user{
     width: 30px;
     height: 30px;
-
     background: #06F8B8;
     border: 2px solid #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -153,4 +152,69 @@ p {
 .project_sidebar ul{
     list-style: none;
     padding-left: 1em;
+}
+
+
+/* Default CSS - FORM */
+
+label{
+    font-size: 14px;
+    font-weight:500;
+    width:100%;
+    margin-top: 20px;
+    text-align: left!important;
+}
+
+input,
+textarea,
+select{
+    border:1px solid #e5e5e5;
+    border-radius: 5px;
+    width:100%;
+    font-size: 14px;
+    text-align: left;
+    color:#111;
+    padding: 10px 20px;
+}
+
+input[type="submit"]{
+    width:45%;
+    color:#06f8b8;
+    text-align: center;
+    text-align: left;
+    background-color: #0D2A1D;
+    font-weight: 600;
+    letter-spacing: 2px;
+    vertical-align: middle;
+    font-size: 12px;
+    border: 1px solid;
+    border-bottom: 3px solid;
+    border-radius: 5px;
+    
+    margin-bottom: 6px;
+    width: 100%;
+    
+}
+
+input[type="submit"]:hover{
+    color:#fff;
+    text-align: center;
+    background-color: #06f8b8;
+}
+
+input[type="reset"]{
+    text-align:center;
+    width:45%;
+    margin-right:10%;
+}
+
+/** Required + Disabled **/
+
+.required{
+    color:red;
+    font-size: 12px;
+}
+
+.disabled {
+    color: grey;
 }

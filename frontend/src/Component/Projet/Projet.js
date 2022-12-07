@@ -73,21 +73,21 @@ export default function Projet() {
     <div id='adminForm'>
         <NavBar />
 
-        <h1>Demande de support</h1>
+        <h1>Un nouveau projet</h1>
       
         {message === false ? <form id="DemandeForm" onSubmit={handleDemande}>
           <table>
             <thead>
-              <tr><td><h2>Enregistrez votre demande</h2></td></tr>
+              <tr><td><h2>Informations du projet</h2></td></tr>
             </thead>
             <tbody>
-                <tr><td><label for="title">Quel est le sujet de votre demande <span className="required">*</span></label><br></br><input type="text" placeholder="titre" id="title" name="title" required/></td></tr>
-                <tr><td><label for="tache">Détaillez votre demande <span className="required">*</span></label><br></br><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td></tr>
-                <tr><td><label for="title">Allouer votre temps au projet <span className="required">*</span></label><br></br><input type="number" placeholder="en min" id="allocation" name="allocation" required/></td></tr>
+                <tr><td><label for="title">Nom du projet <span className="required">*</span></label><br></br><input type="text" placeholder="titre" id="title" name="title" required/></td></tr>
+                <tr><td><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td></tr>
+                <tr><td><label for="title">Combien de temps désirez-vous allouer votre temps au projet ?<span className="required">*</span></label><br></br><input type="number" placeholder="en min" id="allocation" name="allocation" required/></td></tr>
                 <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
                 <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
                 <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>
-                <tr><td><label for="siteURL">Veuillez enter l'URL de votre site web <span className="required">*</span></label><br></br><input type="text" placeholder="(exemple : www.google.be, https://www.ahgency.be, ....)" id="siteURL" name="siteURL"/></td></tr>
+                <tr><td><label for="siteURL">Veuillez entrer l'URL de votre site web <span className="required">*</span></label><br></br><input type="text" placeholder="(exemple : www.google.be, https://www.ahgency.be, ....)" id="siteURL" name="siteURL"/></td></tr>
                 <tr className="row_submit">
                     <td>
                         <input type="submit" value="Enregistrer"/>

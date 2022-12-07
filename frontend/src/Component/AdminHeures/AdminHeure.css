@@ -12,52 +12,6 @@
      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.183);
 }
 
-#HeureForm label{
-     font-size: 16px;
-     width:100%;
-     margin-top: 50px;
-     text-align: left!important;
-}
-
-input,
-textarea,
-select{
-     border:1px solid #ddd;
-     border-radius: 5px;
-     width:100%;
-     font-size: 14px;
-     text-align: left;
-     color:#111;
-     padding: 10px 20px;
-}
-
-#HeureForm input[type="submit"]{
-     margin-top: 70px;
-     color:#fff;
-     text-align: center;
-     background-color: #6610f2;
-     text-transform: uppercase;
-     font-weight: 600;
-     letter-spacing: 2px;
-     vertical-align: middle;
-     font-size: 15px;
-}
-
-.required{
-     color:red;
-     font-size: 12px;
-}
-
-input[type="submit"]:hover{
-    color:#fff;
-     text-align: center;
-     background-color: #5001cf;
-}
-
-.disabled {
-     color: grey;
-}
-
 @media screen and (max-width:756px) and (orientation: portrait) {
 
      #hourForm{
