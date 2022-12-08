@@ -4,8 +4,7 @@
     margin-top:9vh;
 }
 
-.account_section {
-    box-shadow: 5px 5px 10px #BDE5F4;
+.account_section {  
     background:#fff;
     border-radius: 10px;
     padding: 20px;
@@ -37,12 +36,6 @@
     font-weight: 600;
 }
 
-.Profil label {
-    font-size: 14px;
-    font-weight: 600;
-}
-
-
 .clear {
     clear: both;
 }
@@ -53,11 +46,6 @@
 
 .delete_account table {
     width: 100%;
-}
-
-.delete_account label {
-    font-size: 14px;
-    font-weight: 600;
 }
 
 .delete_account td {
@@ -102,16 +90,7 @@
 
 .btn_mail:hover,
 .btn_mail:focus {
-    color: #6610f2;
-}
-
-.avertissement {
-    color:red;
-    background: #ff000030;
-    font-size: 15px;
-    padding: 10px 40px;
-    width: 100%;
-    border-radius: 5px;
+    color: #0D2A1D;
 }
 
 .title_accordeon, .accordion-button{

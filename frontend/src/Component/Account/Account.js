@@ -127,11 +127,10 @@ export default function NameForm() {
                <button value="profil" onClick={handleOnglet}>Mon profil</button>
                <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
                {profil === false ? <Container>
-                    <h1>Mon compte</h1>
 
                     <Row>
                          <Col className="account_section">
-                              <h2>Informations générales</h2>
+                              <h2>Mes informations</h2>
                               
                               <form id="editForm" onSubmit={handleClick}>
                               <table className="Profil">

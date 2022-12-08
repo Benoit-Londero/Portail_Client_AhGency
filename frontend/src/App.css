@@ -61,6 +61,9 @@
 
     letter-spacing: 0.2em;
     color: #F2F2F2;
+    background: #0D2B1D;
+    border: 1px solid #4DDAAD;
+    border-radius: 50px;
 }
 
 .primary_btn{
@@ -70,15 +73,18 @@
 
 .primary_btn:hover{
     background: #fff;
-    border: 1px solid #3FB58F;
-    border-radius: 101.5px;
-
-    color: #7B72EF;
+    color: #4DDAAD;
 }
 
 .alert_btn{
     background: linear-gradient(88.47deg, #FF2E2E 0.92%, #D01C1C 99.06%);
     border-radius: 101.5px;
+}
+
+.disabled{
+    color:#D1D1D1;
+    background: #F0F0F0;
+    border: 1px solid #D1D1D1;
 }
 
 .links_btn,
@@ -109,7 +115,6 @@ h1{
 h2{
     font-size: 18px!important;
     color: #06F8B8;
-
 }
 
 p {
@@ -182,7 +187,6 @@ input[type="submit"]{
     width:45%;
     color:#06f8b8;
     text-align: center;
-    text-align: left;
     background-color: #0D2A1D;
     font-weight: 600;
     letter-spacing: 2px;
@@ -214,8 +218,4 @@ input[type="reset"]{
 .required{
     color:red;
     font-size: 12px;
-}
-
-.disabled {
-    color: grey;
 }
