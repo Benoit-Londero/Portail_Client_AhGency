@@ -99,6 +99,20 @@
     border-bottom: 3px solid;
 }
 
+.developer{
+    background-color: #1e553b;
+    color: #ffffff;
+    padding: 5px;
+    line-height: 1.8em;
+    border-radius: 45px;
+    font-weight: 600;
+    text-transform: uppercase;
+    aspect-ratio: 1;
+    font-size: .8em;
+    border: 3px solid #fff;
+    box-shadow: 2px 4px 4px rgb(0 0 0 / 20%);
+}
+
 /* TEXTE & TITRE */ 
 
 h1{

@@ -105,7 +105,7 @@ export default function ViewAll() {
                                    <td><p>{ item.Titre}</p></td>
                                    <td className='fst_col'><p className="tasks">{ item.Informations}</p></td>
                                    <td><p>{item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                   <td><p className="developer"> {item.Agent}</p></td>
+                                   <td><p className="developer"> {item.Agent.subbstring(0,1)}</p></td>
                               </tr>
                               )
                          })}
