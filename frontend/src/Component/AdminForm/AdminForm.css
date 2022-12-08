@@ -3,6 +3,12 @@
      margin-bottom: 200px;
 }
 
+
+#adminForm #title{
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
 #timesheetForm{
      width: 45vw;
 }

@@ -128,8 +128,10 @@ export default function AdminForm() {
                   </td>
                 </tr>
                 <tr className="row_submit">
-                  <td colspan="2">
+                  <td colspan="">
                     <input type="reset" id="reset"/>
+                  </td>
+                  <td>
                     <input type="submit" value="Enregistrer"/>
                     </td>
                   </tr>
