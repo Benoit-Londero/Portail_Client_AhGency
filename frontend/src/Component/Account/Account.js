@@ -124,8 +124,11 @@ export default function NameForm() {
      return (
           <div id="page_account">
                <NavBar />
-               <button value="profil" onClick={handleOnglet}>Mon profil</button>
-               <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
+               <div>
+                    <button value="profil" onClick={handleOnglet}>Mon profil</button>
+                    <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
+               </div>
+               
                {profil === false ? <Container>
 
                     <Row>
