@@ -99,7 +99,7 @@ export default function AdminForm() {
                 </td>
               </tr>
               <tr>
-                  <td colspan="2"><label for="who_do_it">Intervenant<span className="required">*</span></label><br></br>
+                  <td colspan="2"><label for="who_do_it">Assignée à<span className="required">*</span></label><br></br>
                     <select id='who_do_it' name="who_do_it" required>
                       <option id="disabled"> Sélectionnez un consultant </option>
                       <option value="Fabian Hernandez Barco">Fabian Hernandez Barco</option>

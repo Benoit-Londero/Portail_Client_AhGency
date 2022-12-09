@@ -32,7 +32,6 @@
 }
 
 #inscForm label {
-    text-transform: capitalize;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 50px;
