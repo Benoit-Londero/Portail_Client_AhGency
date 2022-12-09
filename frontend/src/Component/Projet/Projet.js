@@ -83,7 +83,20 @@ export default function Projet() {
             <tbody>
                 <tr><td><label for="title">Nom du projet <span className="required">*</span></label><br></br><input type="text" placeholder="titre" id="title" name="title" required/></td></tr>
                 <tr><td><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td></tr>
-                <tr><td><label for="title">Combien de temps désirez-vous allouer à votre projet ?<span className="required">*</span></label><br></br><input type="number" placeholder="en min" id="allocation" name="allocation" required/></td></tr>
+                <tr>
+                    <td>
+                        <label for="title">Combien de temps désirez-vous allouer à votre projet ?<span className="required">*</span></label>
+                        <br></br>
+                        <input type="radio" name="allocation" value="60">1h</input>
+                        <input type="radio" name="allocation" value="120">2h</input>
+                        <input type="radio" name="allocation" value="180">3h</input>
+                        <input type="radio" name="allocation" value="240">4h</input>
+                        <input type="radio" name="allocation" value="300">5h</input>
+                        <input type="radio" name="allocation" value="600">10h</input>
+
+                        <input type="number" placeholder="en min" id="allocation" name="allocation" required/>
+                    </td>
+                </tr>
                 <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
                 <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
                 <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>

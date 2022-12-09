@@ -164,4 +164,10 @@
         background-color: #B3FEEA;
         border-radius: 5px;
     }
+
+    .settings_menu{
+        position: inherit;
+        bottom: inherit;
+        left:inherit;
+    }
 }

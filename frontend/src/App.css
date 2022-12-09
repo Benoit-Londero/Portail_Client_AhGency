@@ -179,6 +179,7 @@ p {
         bottom:8vh;
         width:100vw;
         height:11vh;
+        top:inherit;
     }
 }
 
