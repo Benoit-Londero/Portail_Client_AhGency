@@ -28,31 +28,9 @@
     padding-top:9vh;
 }
 
-h2 {
-    color: #fff;
-    font-size: 14px!important;
-    font-size:16px;
-    font-weight:500;
-}
-
-.tableauTS h2,
-.timesheet h2 {
-    color: black;
-}
 
 /***********************/
 /***** Panel User ******/
-
-.btn {
-    background: #3FB58F;
-    color: #fff;
-    border: none;
-    width: 200px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 14px;
-    margin-top: 30px;
-}
 
 .date_badge{
     background: #3CEFBE;
@@ -182,7 +160,7 @@ h2 {
 }
 
 .allowed_time{
-    text-align: right;
+    text-align: right!important;
 }
 
 .timesheet table {
