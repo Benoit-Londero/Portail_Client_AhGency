@@ -182,14 +182,12 @@ export default function Home() {
 
           <Row>
                <Col className="tableauTS">
-                    <td colspan="3"><h2>Projet</h2></td>
+                    <td colspan="3"><h2>{item.Tickets}</h2></td>
                     <table>
                          <thead>
                               <tr>
-                                   <th className="hide_mobile">Date</th>
-                                   <th>Titre</th>
-                                   <th>Temps alloué</th>
-                                   <th></th>
+                                   <th className="hide_mobile">Créé le</th>
+                                   <th className="allowed_time">Temps alloué</th>
                               </tr>
                          </thead>
                          {
@@ -200,14 +198,13 @@ export default function Home() {
                                         <tbody>
                                              <tr key={index}>
                                                   <td><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></td>
-                                                  <td><p className="ref">{item.Tickets}</p></td>
-                                                  <td><p className="ref">{Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
+                                                  <td><p className="ref allowed_time">{Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
                                              </tr>
                                              <tr>
-                                                  <th colspan = "4">Détail du projet</th>
+                                                  <th colspan="2">Description</th>
                                              </tr>
                                              <tr>
-                                                  <td colspan = "4" rowspan="3"><p>{item.Description}</p></td>
+                                                  <td colspan="2" rowspan="3"><p>{item.Description}</p></td>
                                              </tr>
                                         </tbody>
                                    )
@@ -252,7 +249,7 @@ export default function Home() {
                     <table id="desktop">               
                          <thead>
                               <tr>
-                              <td colSpan="3"><h2>Détails</h2></td>
+                              <td colSpan="3"><h2>Détails de la tâche</h2></td>
                               </tr>
                          </thead>
                          <tbody>
@@ -268,7 +265,7 @@ export default function Home() {
                                                             <td><p className="date_badge">{day}<br></br>{Month}</p></td>
                                                             <td><p className="title_of_task">{ item.Titre }</p></td>
                                                             <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                                            <td><p className="developer"> {item.Agent}</p></td>
+                                                            <td><p className="developer"> {item.Agent.substring(0,1)}</p></td>
                                                        </tr>
                                                        <tr><td colspan="4"><p className="tasks">{ item.Informations}</p></td></tr>
                                                        {/* AMELIORATION <tr><td><p>timeline</p></td></tr> */}

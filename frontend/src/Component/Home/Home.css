@@ -193,6 +193,10 @@ h2 {
 }
 
 
+.allowed_time{
+    text-align: right;
+}
+
 .timesheet table {
     width: 100%;
 }

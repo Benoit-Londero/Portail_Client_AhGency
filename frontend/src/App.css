@@ -101,16 +101,17 @@
 
 .developer{
     background-color: #1e553b;
-    color: #ffffff;
-    padding: 5px;
-    line-height: 1.8em;
+    color: #fff;
+    text-align: center;
+    padding: 3px;
+    line-height: 2em;
     border-radius: 45px;
     font-weight: 600;
     text-transform: uppercase;
     aspect-ratio: 1;
-    font-size: .8em;
+    font-size: 1rem;
     border: 3px solid #fff;
-    box-shadow: 2px 4px 4px rgb(0 0 0 / 20%);
+    box-shadow: 2px 4px 4px rgba(0,0,0,.2);
 }
 
 /* TEXTE & TITRE */ 
