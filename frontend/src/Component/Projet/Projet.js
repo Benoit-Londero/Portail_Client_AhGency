@@ -87,15 +87,19 @@ export default function Projet() {
                     <td>
                         <label for="title">Combien de temps désirez-vous allouer à votre projet ?<span className="required">*</span></label>
                         <br></br>
-                        <input type="radio" name="allocation" value="60">1h</input>
-                        <input type="radio" name="allocation" value="120">2h</input>
-                        <input type="radio" name="allocation" value="180">3h</input>
-                        <input type="radio" name="allocation" value="240">4h</input>
-                        <input type="radio" name="allocation" value="300">5h</input>
-                        <input type="radio" name="allocation" value="600">10h</input>
 
-                        <input type="number" placeholder="en min" id="allocation" name="allocation" required/>
-                    </td>
+                        <select id="allocation" name="allocation">
+                            <option value="0"> 0</option>
+                            <option value="60">1 heure</option>
+                            <option value="120">2 heures</option>
+                            <option value="180">3 heures</option>
+                            <option value="240">4 heures</option>
+                            <option value="300">5 heures</option>
+                            <option value="600">10 heures</option>
+                        </select>
+
+{/*                         <input type="number" placeholder="en min" id="allocation" name="allocation" required/>
+ */}                    </td>
                 </tr>
                 <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
                 <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
