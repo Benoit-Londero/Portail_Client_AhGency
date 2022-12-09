@@ -45,21 +45,24 @@ export default function ViewAll() {
 
      <Row>
           <div className="project_sidebar">
-               <h2>Timesheet</h2>
+               <div className="navbar_col_g">
+                    <h2>Timesheet</h2>
 
-               <label>Voir tout </label>
-               <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
+                    <label>Voir tout </label>
+                    <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
+               </div>
 
-
-               <label>Sélectionner un client</label>
-               <select onChange={handleTasks}>
-                    <option name="default" disabled> Default </option>
-                    {clients && clients.map((item,index) => {
-                         return(
-                              <option  key={index} value={item.ID} className="client_list" >{item.Nom} {item.Prenom}</option>
-                         ) 
-                    })}
-               </select>
+               <div className="navbar_col_d">
+                    <label>Sélectionner un client</label>
+                    <select onChange={handleTasks}>
+                         <option name="default" disabled> Default </option>
+                         {clients && clients.map((item,index) => {
+                              return(
+                                   <option  key={index} value={item.ID} className="client_list" >{item.Nom} {item.Prenom}</option>
+                              ) 
+                         })}
+                    </select>
+               </div>
           </div>
      </Row>
      <Container id="page_viewall">

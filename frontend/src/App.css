@@ -173,6 +173,15 @@ p {
     padding-left: 1em;
 }
 
+@media screen and (max-width:756px) and (orientation: portrait) {
+    .project_sidebar{
+        position:fixed;
+        bottom:8vh;
+        width:100vw;
+        height:11vh;
+    }
+}
+
 
 /* Default CSS - FORM */
 

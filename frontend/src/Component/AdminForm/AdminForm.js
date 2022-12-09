@@ -132,7 +132,7 @@ export default function AdminForm() {
                     <input type="reset" id="reset"/>
                   </td>
                   <td>
-                    <input type="submit" value="Enregistrer"/>
+                    <input type="submit" className="btn btn_primary" value="Enregistrer"/>
                     </td>
                   </tr>
             </tbody>
