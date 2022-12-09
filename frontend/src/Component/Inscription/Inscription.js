@@ -91,7 +91,7 @@ export default function Inscription() {
                                             <label>Nom de votre société<br/>
                                                 <input type="text" name="nomEnt" placeholder="Entreprise SPRL, SA Entreprise ...." required/>
                                             </label><br/>
-                                            <label>Numéro de TVA<br/>{errorTVA === true ? <span>Ce numéro de TVA existe déjà !</span> : null}
+                                            <label>Numéro de TVA<br/>{errorTVA === true ? <span>Ce numéro de TVA existe déjà ! Merci de nous contacter via l'adresse web@ahgency.be</span> : null}
                                                 <input type="text" name="tvaNumber" placeholder="BE 0123.456.789" required/>
                                             </label><br/>
                                             <label>Email de l'entreprise<br/>
