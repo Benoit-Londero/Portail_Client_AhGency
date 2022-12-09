@@ -182,7 +182,10 @@ export default function Home() {
 
           <Row>
                <Col className="tableauTS">
-                    <td colspan="3"><h2>{item.Tickets}</h2></td>
+                    {projetFiltrer.map((item,index) => {
+                         <td key={index} colspan="3"><h2>{item.Tickets}</h2></td>
+                    })
+                    }
                     <table>
                          <thead>
                               <tr>
