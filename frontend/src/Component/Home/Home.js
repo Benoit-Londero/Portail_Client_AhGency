@@ -179,11 +179,10 @@ export default function Home() {
 
 
      <Container id="page_dashboard">
-
           <Row>
                <Col className="tableauTS">
                     {projetFiltrer.map((item,index) => {
-                         <td key={index} colspan="3"><h2>{item.Tickets}</h2></td>
+                         return(<td key={index} colspan="3"><h2>{item.Tickets}</h2></td>)
                     })
                     }
                     <table>
