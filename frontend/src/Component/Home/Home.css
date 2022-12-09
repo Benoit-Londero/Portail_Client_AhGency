@@ -1,10 +1,5 @@
 /* Init CSS */
 
-p {
-    font-size: 12px;
-    margin: 0;
-}
-
 .resume,
 .stats,
 .tableauTS,
@@ -33,31 +28,9 @@ p {
     padding-top:9vh;
 }
 
-h2 {
-    color: #fff;
-    font-size: 14px!important;
-    font-size:16px;
-    font-weight:500;
-}
-
-.tableauTS h2,
-.timesheet h2 {
-    color: black;
-}
 
 /***********************/
 /***** Panel User ******/
-
-.btn {
-    background: #3FB58F;
-    color: #fff;
-    border: none;
-    width: 200px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 14px;
-    margin-top: 30px;
-}
 
 .date_badge{
     background: #3CEFBE;
@@ -74,8 +47,6 @@ h2 {
 
 /*************************/
 /***** Statistiques ******/
-
-/*Progress Bar*/
 
 .stats h2{
     color:#fff;
@@ -145,10 +116,6 @@ h2 {
     border: 2px solid #00c0cb;
 }
 
-.PDF_ddl {
-    padding: 5px 30px;
-}
-
 .btn_ts_bottom{
     background: #949494;
     border: none;
@@ -192,6 +159,9 @@ h2 {
     text-align: center;
 }
 
+.allowed_time{
+    text-align: right!important;
+}
 
 .timesheet table {
     width: 100%;
@@ -223,6 +193,12 @@ h2 {
 
 .mobile{
     display: none;
+}
+
+.descr__prjt{
+    text-align: justify;
+    font-size: 12px;
+    line-height: 1.5em;
 }
 
 /* Responsive tablet */
@@ -262,10 +238,6 @@ h2 {
 
     .resume h1{
         font-size: 2em!important;
-    }
-
-    .PPic{
-        display:none;
     }
 
     /*********************************/

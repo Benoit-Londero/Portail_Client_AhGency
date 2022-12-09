@@ -24,12 +24,24 @@
     margin-bottom: 20px;
 }
 
-.account_ppic {
-    color: rgb(200, 200, 200);
-    min-height: 100px;
-    min-width: 100px;
-    border-radius: 40px;
-    font-size: 12px;
+.tabs_account{
+    text-align: left;
+}
+
+.tabs_account button{
+    font-weight: 500;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    border-right: 1px solid #ddd;
+}
+
+.tabs_account button:last-child{
+    border:none;
+}
+
+.tabs_account button:active{
+    color: #06f8b8;
 }
 
 .Profil .bold {

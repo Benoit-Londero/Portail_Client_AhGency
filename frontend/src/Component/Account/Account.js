@@ -5,7 +5,6 @@ import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
-import { RiAccountCircleFill } from "react-icons/ri";
 import { ImMail4 } from "react-icons/im";
 import Entreprise from '../Entreprise/Entreprise.js';
 
@@ -124,7 +123,7 @@ export default function NameForm() {
      return (
           <div id="page_account">
                <NavBar />
-               <div>
+               <div className="tabs_account">
                     <button value="profil" onClick={handleOnglet}>Mon profil</button>
                     <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
                </div>
@@ -138,7 +137,6 @@ export default function NameForm() {
                               <form id="editForm" onSubmit={handleClick}>
                               <table className="Profil">
                                    <tbody>
-                                        <tr><td><RiAccountCircleFill className="account_ppic"/></td></tr>
                                         <tr>
                                              <td><label className="bold">Nom : </label> <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td>
                                              <td><label className="bold">Prénom : </label> <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td>
