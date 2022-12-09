@@ -106,76 +106,75 @@ export default function Home() {
 
      <div>
      <NavBar />
-     <Row>
-          <div className="project_sidebar">
-               <h2><FiIcons.FiZap/> Tous les projets</h2>
+     
+     <div className="project_sidebar">
+          <h2><FiIcons.FiZap/> Tous les projets</h2>
 
-               <ul>
-                    {
-                         projet.map((item,index) => {
-                              return (
-                                   <li key={index}>
-                                        <button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
-                                   </li>
-                              )
-                         })
-                    }
-               </ul>
+          <ul>
+               {projet.map((item,index) => {
+                    return (
+                         <li key={index}>
+                              <button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
+                         </li>
+                        )
+               })}
+          </ul>
                
-               <div className="stats">
+          <div className="stats">
                <h2>Statistiques</h2>
                                       
-                    {checkPercent > 10 ? <CircularProgressbar
-                         value={checkPercent}
-                         text={`${checkPercent}%`}
-                         styles={{
-                              path: {
-                                   strokeLinecap: 'round',
-                                   transition: 'stroke-dashoffset 0.5s ease 0s',
-                                   stroke: '#3FB58F'
-                              },
-                              // Customize the circle behind the path, i.e. the "total progress"
-                              trail: {
-                                   stroke: '#e7e7e7',
-                                   strokeLinecap: 'round',
-                              },
-                              
-                              text: {
-                                   transform: 'translate(-20px, 5px)',
-                                   fontSize: '15px',
-                                   fill: '#fff'
-                              }
-                         }}
-                    /> : <CircularProgressbar
+               {checkPercent > 10 ? <CircularProgressbar
                     value={checkPercent}
                     text={`${checkPercent}%`}
                     styles={{
                          path: {
                               strokeLinecap: 'round',
                               transition: 'stroke-dashoffset 0.5s ease 0s',
-                              stroke: '#FF0000'
+                              stroke: '#3FB58F'
                          },
                          // Customize the circle behind the path, i.e. the "total progress"
                          trail: {
                               stroke: '#e7e7e7',
                               strokeLinecap: 'round',
                          },
-                         
+                              
                          text: {
                               transform: 'translate(-20px, 5px)',
                               fontSize: '15px',
-                              fill: '#FF0000'
+                              fill: '#fff'
                          }
+               
                     }}
+               /> : <CircularProgressbar
+               value={checkPercent}
+               text={`${checkPercent}%`}
+               styles={{
+                    path: {
+                         strokeLinecap: 'round',
+                         transition: 'stroke-dashoffset 0.5s ease 0s',
+                         stroke: '#FF0000'
+                    },
+                    
+                    // Customize the circle behind the path, i.e. the "total progress"
+                    trail: {
+                         stroke: '#e7e7e7',
+                         strokeLinecap: 'round',
+                    },
+                         
+                    text: {
+                         transform: 'translate(-20px, 5px)',
+                         fontSize: '15px',
+                         fill: '#FF0000'
+                    }
+               }}
                />}
                     
-                    <p>Achetées : {Math.round(currentHeureTOT /60)} h</p>
-                    <p>Restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
-                    <p><b>Dépensé : {moneySpend} €</b></p>
-                    {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>}
-               </div>
+               <p>Achetées : {Math.round(currentHeureTOT /60)} h</p>
+               <p>Restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
+               <p><b>Dépensé : {moneySpend} €</b></p>
+               {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>}
           </div>
-     </Row>
+     </div>
 
 
      <Container id="page_dashboard">

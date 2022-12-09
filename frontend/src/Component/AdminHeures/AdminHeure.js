@@ -49,7 +49,7 @@ export default function AdminHeure() {
     <div id='hourForm'>
         <NavBar />
 
-        <h1>Créer une nouvelle entrée</h1>
+        <h1>Ajouter des heures à un client</h1>
       
         <form id="HeureForm" onSubmit={handleSubmitHeure}>
           <table>

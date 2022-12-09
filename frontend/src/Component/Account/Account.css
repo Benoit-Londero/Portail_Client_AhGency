@@ -30,10 +30,11 @@
 
 .tabs_account button{
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     background: none;
     border: none;
-    border-right: 1px solid #ddd;
+    padding: 5px 20px;
+    margin-bottom: 50px;
 }
 
 .tabs_account button:last-child{
