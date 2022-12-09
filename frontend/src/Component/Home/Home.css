@@ -1,10 +1,5 @@
 /* Init CSS */
 
-p {
-    font-size: 12px;
-    margin: 0;
-}
-
 .resume,
 .stats,
 .tableauTS,
@@ -75,8 +70,6 @@ h2 {
 /*************************/
 /***** Statistiques ******/
 
-/*Progress Bar*/
-
 .stats h2{
     color:#fff;
 }
@@ -145,10 +138,6 @@ h2 {
     border: 2px solid #00c0cb;
 }
 
-.PDF_ddl {
-    padding: 5px 30px;
-}
-
 .btn_ts_bottom{
     background: #949494;
     border: none;
@@ -192,7 +181,6 @@ h2 {
     text-align: center;
 }
 
-
 .allowed_time{
     text-align: right;
 }
@@ -227,6 +215,12 @@ h2 {
 
 .mobile{
     display: none;
+}
+
+.descr__prjt{
+    text-align: justify;
+    font-size: 12px;
+    line-height: 1.5em;
 }
 
 /* Responsive tablet */
@@ -266,10 +260,6 @@ h2 {
 
     .resume h1{
         font-size: 2em!important;
-    }
-
-    .PPic{
-        display:none;
     }
 
     /*********************************/

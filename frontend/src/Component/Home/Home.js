@@ -206,7 +206,7 @@ export default function Home() {
                                                   <th colspan="2">Description</th>
                                              </tr>
                                              <tr>
-                                                  <td colspan="2" rowspan="3"><p>{item.Description}</p></td>
+                                                  <td colspan="2" rowspan="3"><p className="descr__prjt">{item.Description}</p></td>
                                              </tr>
                                         </tbody>
                                    )
