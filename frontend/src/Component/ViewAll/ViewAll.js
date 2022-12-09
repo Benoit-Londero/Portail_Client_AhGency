@@ -66,7 +66,7 @@ export default function ViewAll() {
                </div>
 
 
-               <div>
+{/*                <div>
                     <label>Effectuée par</label>
                     {agent && agent.map((item,index) => {
                          return(
@@ -75,7 +75,7 @@ export default function ViewAll() {
                     })
 
                     }
-               </div>
+               </div> */}
           </div>
      </Row>
      <Container id="page_viewall">
