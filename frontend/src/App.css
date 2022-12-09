@@ -180,6 +180,8 @@ p {
         width:100vw;
         height:11vh;
         top:inherit;
+        padding:10px;
+        left:0;
     }
 }
 

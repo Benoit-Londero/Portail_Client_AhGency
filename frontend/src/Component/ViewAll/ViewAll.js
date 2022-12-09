@@ -39,6 +39,10 @@ export default function ViewAll() {
           theClient === "all" ? setIdClient('') : setIdClient(theClient);
      }
 
+/*      function agentFilterTask(val_agent){
+          let agentTasks =  alltasks.filter(item => item.Agent === val_agent)
+     } */
+
      return (
      <div>
      <NavBar />
@@ -62,6 +66,18 @@ export default function ViewAll() {
                               ) 
                          })}
                     </select>
+               </div>
+
+
+               <div>
+                    <label>Effectuée par</label>
+                    {agent && agent.map((item,index) => {
+                         return(
+                              <input key={index} type="radio" value={item.Agent}>{item.Agent}</input>
+                         )
+                    })
+
+                    }
                </div>
           </div>
      </Row>

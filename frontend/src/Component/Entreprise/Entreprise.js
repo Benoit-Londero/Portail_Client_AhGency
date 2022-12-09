@@ -105,7 +105,7 @@ export default function Entreprise() {
     <div id="page_entreprise">
           <NavBar/>
           <Container>
-               <h1>Entreprise</h1>
+               <h2>Informations entreprise</h2>
                <Row>
                     <p className="highlight">Heures restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p>
                     <Col>
