@@ -140,7 +140,7 @@ export default function NameForm() {
                               <table className="Profil">
                                    <tbody>
                                         <tr>
-                                             <td><label className="bold">  <BsIcons.BsPerson/> Nom : </label> </td>
+                                             <td><label className="bold"><BsIcons.BsPerson/> Nom : </label> </td>
                                              <td><input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td>
                                         </tr>
                                         <tr>
@@ -184,7 +184,7 @@ export default function NameForm() {
                                                        <tbody>
                                                             <tr>
                                                             <td>{item.nom}<br/><span  className="mail">{item.mail }</span></td>
-                                                            <td><a href={"mailto:" + item.mail }><BsIcons.ImMail4 className="btn_mail"/></a></td>
+                                                            <td><a href={"mailto:" + item.mail }><ImMail4 className="btn_mail"/></a></td>
                                                             </tr>
                                                        </tbody>
                                                   </table>
