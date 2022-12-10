@@ -55,17 +55,23 @@ export default function AdminHeure() {
           <table>
             <tbody>
               <tr>
-                <td><label for="for_who">Client<span className="required">*</span></label><br></br>
-                  <select id='for_who' name="for_who" required>
-                    <option id="disabled"> Sélectionnez un client </option>
-                    {usersInfos.map((user, index) => 
-                        <option key={index} value={user.ID}>{user.Login}</option>
-                    )}
-                  </select>
+                <td><label for="for_who">Client<span className="required">*</span></label></td>
+                <td><select id='for_who' name="for_who" required>
+                      <option id="disabled"> Sélectionnez un client </option>
+                        {usersInfos.map((user, index) => 
+                          <option key={index} value={user.ID}>{user.Login}</option>
+                        )}
+                    </select>
                 </td>
               </tr>
-              <tr><td><label for="heure_achete">Nombre d'heures achetées<span className="required">*</span></label><br></br><input type="number" placeholder="heure_achete" id='heure_achete' name="heure_achete" required/></td></tr>
-              <tr><td><label for="date_Achat">Date d'achat<span className="required">*</span></label><br></br><input type="date" placeholder="Date" id='date_Achat' name="date_Achat" required/></td></tr>
+              <tr>
+                <td><label for="heure_achete">Nombre d'heures achetées<span className="required">*</span></label></td>
+                <td><input type="number" placeholder="heure_achete" id='heure_achete' name="heure_achete" required/></td>
+              </tr>
+              <tr>
+                <td><label for="date_Achat">Date d'achat<span className="required">*</span></label></td>
+                <td><input type="date" placeholder="Date" id='date_Achat' name="date_Achat" required/></td>
+              </tr>
               <tr><td><input type="submit" value="Ajouter"/></td></tr>
             </tbody>
           </table>
