@@ -210,6 +210,11 @@ select{
     font-weight: 400;
 }
 
+input:hover{
+    background: #e0e0e0;
+    cursor:pointer;
+}
+
 input[type="submit"]{
     width:45%;
     color:#06f8b8;

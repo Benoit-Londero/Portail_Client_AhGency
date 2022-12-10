@@ -120,7 +120,7 @@ export default function Entreprise() {
                                         <td><input type="text" name="nom" placeholder="Nom de l'entreprise" defaultValue ={currentNomE} required/></td>
                                    </tr>
                                    <tr>
-                                        <td><label className="bold">Numéro de TVA: </label></td>
+                                        <td><label className="bold"> Numéro de TVA: </label></td>
                                         <td><input type="text" name="tva" placeholder="BE123456789" defaultValue ={currentTVA} required/></td>
                                    </tr>
                                    <tr>
@@ -128,7 +128,7 @@ export default function Entreprise() {
                                         <td><input type="text" name="adresse" placeholder="Votre adresse" defaultValue ={currentADRESSE} required/></td>
                                    </tr>
                                    <tr>
-                                        <td><label className="bold"> Téléphone : </label></td>
+                                        <td><label className="bold"><BsIcons.BsFillTelephoneFill/> Téléphone : </label></td>
                                         <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue ={currentTEL}></input></td>
                                    </tr>
                                    <tr>
