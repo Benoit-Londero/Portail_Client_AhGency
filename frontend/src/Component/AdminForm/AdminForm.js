@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import { useNavigate } from "react-router-dom";
 
 import * as MdIcons from "react-icons/md";
+import * as BsIcons from "react-icons/bs";
 
 
 export default function AdminForm() {
@@ -162,7 +163,7 @@ export default function AdminForm() {
               </tr>
               <tr>
                 <td>
-                  <label for="date_tache">Date d'éxecution<span className="required">*</span></label>
+                  <label for="date_tache"><BsIcons.BsCalendarCheck/> Date d'éxecution<span className="required">*</span></label>
                 </td>
                 <td>
                   <input type="date" placeholder="Date" id='date_tache' name="date_tache" required/>
@@ -170,7 +171,7 @@ export default function AdminForm() {
               </tr>
               <tr>
                 <td>
-                  <label for="who_do_it">Assignée à<span className="required">*</span></label>
+                  <label for="who_do_it"><BsIcons.BsPerson/> Assignée à<span className="required">*</span></label>
                 </td>
                 <td>
                   <select id='who_do_it' name="who_do_it" required>
@@ -184,7 +185,7 @@ export default function AdminForm() {
               </tr>
               <tr>
                 <td>
-                  <label for="for_who">Client<span className="required">*</span></label>
+                  <label for="for_who"> <BsIcons.BsClipboardCheck/> Client<span className="required">*</span></label>
                 </td>
                 <td>
                   <select id='for_who' name="for_who" onChange={handleSelect} required>
@@ -197,7 +198,7 @@ export default function AdminForm() {
               </tr>
               <tr>
                 <td>
-                  <label for="projet">Projet<span className="required">*</span></label>
+                  <label for="projet"> <BsIcons.BsFlag/> Projet<span className="required">*</span></label>
                 </td>
                 <td>
                     <select id='projet' name="projet" required>
@@ -210,7 +211,7 @@ export default function AdminForm() {
               </tr>
               <tr>
                 <td colspan="2">
-                  <label for="tache">Ajouter une description <span className="required">*</span></label>
+                  <label for="tache" id="Descr__label"><BsIcons.BsTextParagraph/>Ajouter une description <span className="required">*</span></label>
                   <textarea id="tache" name="tache" placeholder="tâche" required></textarea>
                 </td>
               </tr>
