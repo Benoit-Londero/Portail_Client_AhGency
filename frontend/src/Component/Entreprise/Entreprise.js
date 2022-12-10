@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import './Entreprise.css';
 
 import * as BsIcons from "react-icons/bs";
+import * as MdIcons from "react-icons/md";
 
 export default function Entreprise() {
 
@@ -131,7 +132,7 @@ export default function Entreprise() {
                                         <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue ={currentTEL}></input></td>
                                    </tr>
                                    <tr>
-                                        <td><label className="bold"> Email : </label></td>
+                                        <td><label className="bold"><MdIcons.MdAlternateEmail/> Email : </label></td>
                                         <td><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue= {currentEMAILE}></input></td>
                                    </tr>
                                    <tr>

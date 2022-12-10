@@ -8,6 +8,8 @@ import NavBar from "../NavBar/NavBar";
 import { ImMail4 } from "react-icons/im";
 import Entreprise from '../Entreprise/Entreprise.js';
 
+import * as BsIcons from "react-icons/bs";
+
 
 export default function NameForm() {
 
@@ -138,13 +140,32 @@ export default function NameForm() {
                               <table className="Profil">
                                    <tbody>
                                         <tr>
-                                             <td><label className="bold">Nom : </label> <input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td>
-                                             <td><label className="bold">Prénom : </label> <input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td>
+                                             <td><label className="bold">  <BsIcons.BsPerson/> Nom : </label> </td>
+                                             <td><input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td>
                                         </tr>
-                                        <tr><td colspan="2"><label className="bold"> Adresse email : </label><input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/></td></tr>
-                                        <tr><td colspan="2"><label className="bold"> Mot de passe : </label><input type="password" id="pass" name="pass" placeholder="********"></input></td></tr>
+                                        <tr>
+                                             <td><label className="bold"> <BsIcons.BsFillPersonFill/> Prénom : </label></td>
+                                             <td><input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td>
+                                        </tr>
+                                        <tr>
+                                             <td><label className="bold"><BsIcons.BsBriefcase/> Fonction : </label></td>
+                                             <td><input type="text" name="fonction" placeholder="Directeur, Graphiste,..."></input></td>
+                                        </tr>
+                                        <tr>
+                                             <td><label className="bold"><BsIcons.BsAt/> Adresse email : </label></td>
+                                             <td><input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/></td>
+                                        </tr>
+                                        <tr>
+                                             <td><label className="bold"> Mot de passe : </label></td>
+                                             <td><input type="password" id="pass" name="pass" placeholder="********"></input></td>
+                                        </tr>
+                                        
                                         {error === true ? <tr><td colspan="3"><span>Les mots de passes ne sont pas identiques !</span></td></tr> : null}
-                                        <tr><td colspan="2"><label className="bold"> Confirmation du mot de passe : </label><input type="password" id="confpass" name="confpass" placeholder="********"></input></td></tr>
+
+                                        <tr>
+                                             <td><label className="bold"> Confirmation du mot de passe : </label></td>
+                                             <td><input type="password" id="confpass" name="confpass" placeholder="********"></input></td>
+                                        </tr>
                                         <tr><td><input type="hidden" name="idu" value ={currentIDU}/></td></tr>
                                         <tr><td colspan="3"><input className="btn primary-btn" type="submit" name="modifier" value="Enregistrer" /></td></tr>
                                    </tbody>
@@ -163,7 +184,7 @@ export default function NameForm() {
                                                        <tbody>
                                                             <tr>
                                                             <td>{item.nom}<br/><span  className="mail">{item.mail }</span></td>
-                                                            <td><a href={"mailto:" + item.mail }><ImMail4 className="btn_mail"/></a></td>
+                                                            <td><a href={"mailto:" + item.mail }><BsIcons.ImMail4 className="btn_mail"/></a></td>
                                                             </tr>
                                                        </tbody>
                                                   </table>
