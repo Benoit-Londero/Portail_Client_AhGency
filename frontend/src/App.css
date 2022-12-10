@@ -119,7 +119,7 @@
 h1{
     font-family: 'Poppins';
     text-align: left;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500!important;
     color: #0D2A1D!important;
     border-radius: 10px;
@@ -199,7 +199,8 @@ label{
 input,
 textarea,
 select{
-    border:1px solid #e5e5e5;
+    /*border:1px solid #e5e5e5;*/
+    border:none;
     border-radius: 5px;
     width:100%;
     font-size: 12px;

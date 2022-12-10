@@ -4,7 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './Entreprise.css'
+import './Entreprise.css';
+
+import * as BsIcons from "react-icons/bs";
 
 export default function Entreprise() {
 
@@ -105,7 +107,7 @@ export default function Entreprise() {
     <div id="page_entreprise">
           <NavBar/>
           <Container>
-               <h2>Informations entreprise</h2>
+               <h2><BsIcons.BsBuilding/> Informations entreprise</h2>
                <Row>
                     <p className="highlight">Heures restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p>
                     <Col>
@@ -113,17 +115,33 @@ export default function Entreprise() {
                          <table className="Profil">
                               <tbody>
                                    <tr>
-                                        <td><label className="bold">Nom : </label> <input type="text" name="nom" placeholder="Nom de l'entreprise" defaultValue ={currentNomE} required/></td>
-                                        <td><label className="bold">Numéro de TVA: </label> <input type="text" name="tva" placeholder="BE123456789" defaultValue ={currentTVA} required/></td>
+                                        <td><label className="bold">Nom : </label></td>
+                                        <td><input type="text" name="nom" placeholder="Nom de l'entreprise" defaultValue ={currentNomE} required/></td>
                                    </tr>
-                                   <tr><td colspan="2"><label className="bold"> Adresse : </label><input type="text" name="adresse" placeholder="Votre adresse" defaultValue ={currentADRESSE} required/></td></tr>
-                                   <tr><td colspan="2"><label className="bold"> Téléphone : </label><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue ={currentTEL}></input></td></tr>
-
-                                   <tr><td colspab="2"><label className="bold"> Email : </label><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue= {currentEMAILE}></input></td></tr>
-                                   <tr><td colspab="2"><label className="bold"> Site : </label><input type="text" id="web" name="web"  defaultValue= {currentSITE}></input></td></tr>
-                                   <tr><td><input type="hidden" id="idE" name="idE" defaultValue= {currentIDE}></input></td></tr>
-                                   
-                                   <tr><td colspan="3"><input type="submit" name="modifier" value="Enregistrer" /></td></tr>
+                                   <tr>
+                                        <td><label className="bold">Numéro de TVA: </label></td>
+                                        <td><input type="text" name="tva" placeholder="BE123456789" defaultValue ={currentTVA} required/></td>
+                                   </tr>
+                                   <tr>
+                                        <td><label className="bold"> Adresse : </label></td>
+                                        <td><input type="text" name="adresse" placeholder="Votre adresse" defaultValue ={currentADRESSE} required/></td>
+                                   </tr>
+                                   <tr>
+                                        <td><label className="bold"> Téléphone : </label></td>
+                                        <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue ={currentTEL}></input></td>
+                                   </tr>
+                                   <tr>
+                                        <td><label className="bold"> Email : </label></td>
+                                        <td><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue= {currentEMAILE}></input></td>
+                                   </tr>
+                                   <tr>
+                                        <td><label className="bold"> Site : </label></td>
+                                        <td><input type="text" id="web" name="web"  defaultValue= {currentSITE}></input></td>
+                                   </tr>
+                                   <tr>
+                                        <td><input type="hidden" id="idE" name="idE" defaultValue= {currentIDE}></input>
+                                        <input type="submit" name="modifier" value="Enregistrer" /></td>
+                                   </tr>
                               </tbody>
                          </table>
                     </form>

@@ -185,7 +185,7 @@ export default function AdminForm() {
               </tr>
               <tr>
                 <td>
-                  <label for="for_who"> <BsIcons.BsClipboardCheck/> Client<span className="required">*</span></label>
+                  <label for="for_who"> <BsIcons.BsFlag/> Client<span className="required">*</span></label>
                 </td>
                 <td>
                   <select id='for_who' name="for_who" onChange={handleSelect} required>
@@ -198,7 +198,7 @@ export default function AdminForm() {
               </tr>
               <tr>
                 <td>
-                  <label for="projet"> <BsIcons.BsFlag/> Projet<span className="required">*</span></label>
+                  <label for="projet"> <BsIcons.BsClipboardCheck/> Projet<span className="required">*</span></label>
                 </td>
                 <td>
                     <select id='projet' name="projet" required>
