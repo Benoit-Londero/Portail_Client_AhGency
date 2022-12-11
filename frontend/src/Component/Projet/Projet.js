@@ -81,13 +81,17 @@ export default function Projet() {
               <tr><td><h2>Informations du projet</h2></td></tr>
             </thead>
             <tbody>
-                <tr><td><label for="title">Nom du projet <span className="required">*</span></label><br></br><input type="text" placeholder="titre" id="title" name="title" required/></td></tr>
-                <tr><td><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td></tr>
                 <tr>
+                    <td><label for="title">Nom du projet <span className="required">*</span></label></td>
+                    <td><input type="text" placeholder="titre" id="title" name="title" required/></td>
+                </tr>
+                <tr>
+                    <td><label for="tache">Expliquez votre demande <span className="required">*</span></label></td>
+                    <td><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="title">Combien de temps désirez-vous allouer à votre projet ?<span className="required">*</span></label></td>
                     <td>
-                        <label for="title">Combien de temps désirez-vous allouer à votre projet ?<span className="required">*</span></label>
-                        <br></br>
-
                         <select id="allocation" name="allocation">
                             <option value="0"> 0</option>
                             <option value="60">1 heure</option>
@@ -97,14 +101,15 @@ export default function Projet() {
                             <option value="300">5 heures</option>
                             <option value="600">10 heures</option>
                         </select>
-
-{/*                         <input type="number" placeholder="en min" id="allocation" name="allocation" required/>
- */}                    </td>
+                    </td>
                 </tr>
                 <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
                 <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
                 <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>
-                <tr><td><label for="siteURL">Veuillez entrer l'URL de votre site web <span className="required">*</span></label><br></br><input type="text" placeholder="(exemple : www.google.be, https://www.ahgency.be, ....)" id="siteURL" name="siteURL"/></td></tr>
+                <tr>
+                    <td><label for="siteURL">Veuillez entrer l'URL de votre site web <span className="required">*</span></label></td>
+                    <td><input type="text" placeholder="(exemple : www.google.be, https://www.ahgency.be, ....)" id="siteURL" name="siteURL"/></td>
+                </tr>
                 <tr className="row_submit">
                     <td>
                         <input type="submit" value="Enregistrer"/>
