@@ -258,3 +258,10 @@ form #title{
     color:red;
     font-size: 12px;
 }
+
+svg {
+    vertical-align: middle;
+    fill: #686868;
+    font-size: 20px;
+}
+

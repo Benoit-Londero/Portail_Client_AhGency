@@ -5,7 +5,7 @@
     top: 0;
     left: 0;
     transition: all .3s ease-in;
-    width: 6vw;
+    width: 64px;
     z-index: 9999;
     color: rgba(255, 255, 255, 0.7);
     height:100vh;
@@ -26,9 +26,8 @@
 }
 
 .NavBar {
-    padding: 30px 0px;
+    padding: 0px;
     margin: 0;
-    margin-top: -28px;
 }
 
 .NavBar h2{
@@ -37,8 +36,11 @@
     text-transform: uppercase;
     font-size: 12px!important;
     font-weight:600;
-    margin-top:25px;
-    padding-left: 5%;
+}
+
+.NavBar p{
+    margin:0;
+    padding:0;
 }
 
 
@@ -59,7 +61,7 @@
     position: relative;
     display: inline-block;
     color: #bbb;
-    padding: 5px 15px;
+    padding: 5px;
     font-size: 10px;
     line-height: 1.5em;
     text-align: center!important;

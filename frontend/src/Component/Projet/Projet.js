@@ -82,12 +82,12 @@ export default function Projet() {
             </thead>
             <tbody>
                 <tr>
-                    <td><label for="title">Nom du projet <span className="required">*</span></label></td>
-                    <td><input type="text" placeholder="titre" id="title" name="title" required/></td>
+                    <td><label for="title">Nom du projet <span className="required">*</span></label>
+                    <input type="text" placeholder="titre" id="title" name="title" required/></td>
                 </tr>
                 <tr>
-                    <td><label for="tache">Expliquez votre demande <span className="required">*</span></label></td>
-                    <td><textarea id="tache" name="tache" placeholder="tâche" required></textarea></td>
+                    <td><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br>
+                    <textarea id="tache" name="tache" placeholder="tâche" required></textarea></td>
                 </tr>
                 <tr>
                     <td><label for="title">Combien de temps désirez-vous allouer à votre projet ?<span className="required">*</span></label></td>
