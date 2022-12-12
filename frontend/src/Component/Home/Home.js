@@ -187,7 +187,7 @@ export default function Home() {
                                    return(
                                    <tr>
                                         <td key={index} rowspan="3"><p className="date_badge">{item.Tickets.substring(0,1)}</p></td>
-                                        <td><h2>{item.Tickets}</h2></td>
+                                        <td><h2>{item.Tickets}</h2><p>{Moment(item.Date).format('DD-MM-YYYY')}</p></td>
                                         <td><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
                                    </tr>)
                               })
@@ -199,7 +199,7 @@ export default function Home() {
                                    <td>Progression</td>
                               </tr>
                               <tr>
-                                   <td>Assigné à : </td>
+                                   <td><p>{item.Email}</p></td>
                               </tr>
                          </tbody>
                     </table>
@@ -239,7 +239,7 @@ export default function Home() {
           <Col className="tableauTS">
                     <h2>Tâches</h2>
                     <table>
-{/*                          <thead>
+                         {/*<thead>
                               <tr>
                                    <th className="hide_mobile">Date</th>
                                    <th>Titre</th>
