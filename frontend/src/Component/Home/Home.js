@@ -10,6 +10,8 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import { Link } from "react-router-dom";
 import Moment from "moment";
 
+import AdminForm from "../AdminForm/AdminForm.js";
+
 import * as FiIcons from "react-icons/fi";
 
 export default function Home() {
@@ -199,7 +201,8 @@ export default function Home() {
                                    <td>Progression</td>
                               </tr>
                               <tr>
-                                   <td><p>{item.Email}</p></td>
+                                   <td>{projetFiltrer.map((item,index)=>{
+                                        return(<p key={index}>{item.Email}</p>)})}</td>
                               </tr>
                          </tbody>
                     </table>
@@ -333,6 +336,8 @@ export default function Home() {
                </Col>
           </Row>
      </Container>
+
+     <div className="modal"><AdminForm/></div>
      </div>
       )
  }

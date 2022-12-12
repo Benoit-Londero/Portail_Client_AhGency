@@ -25,7 +25,7 @@ export const SidebarData = [
         category: 'app'
     },
     {
-        title:'Ajout timesheet',
+        title:'Ajout tâche',
         path: '/AdminForm',
         icon: <GrIcons.GrTableAdd />,
         cName: 's-sidebar__nav-link admin__nav-link',
@@ -41,7 +41,7 @@ export const SidebarData = [
         category: 'admin'
     },
     {
-        title:'Timesheet',
+        title:'Toutes les tâches',
         path: '/ViewAll',
         icon: <GrIcons.GrAppsRounded />,
         cName: 's-sidebar__nav-link admin__viewall-link',
