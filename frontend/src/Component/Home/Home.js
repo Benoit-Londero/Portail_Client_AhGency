@@ -23,6 +23,7 @@ export default function Home() {
      const [filteredTaches, setFilteredTaches] = useState([]);
      const [checkPercent, setCheckPercent] = useState();
      const [newTask, setnewTask] = useState(false);
+     const [detailTask, setdetailTask] = useState(false);
 
      const [currentHeureTOT, setCurrentHeureTOT] = useState();
      const [currentHeureREST, setCurrentHeureREST] = useState();
@@ -91,6 +92,7 @@ export default function Home() {
           let IDTS = e.target.value;
           let filteredData = timesheet.filter(data => data.ID_TS === parseInt(IDTS));
           setFilteredTS(filteredData);
+          setdetailTask(true);
      }
 
      const handleFilterProjet = (e) => {
@@ -284,7 +286,7 @@ export default function Home() {
 
           </Row>
 
-          <Row className="timesheet modal__newTask">
+          {detailTask === true ? <Row className="timesheet modal__newTask">
                <Col>     
                     <table id="desktop">               
                          <thead>
@@ -344,9 +346,9 @@ export default function Home() {
                               </table>)
                          })
                          }                    
-                    </div>
-               </Col>
-          </Row>
+                    </div> 
+               </Col> 
+          </Row> : ''}
      </Container>
 
      {newTask === true ? <div className="modal__newTask"><button onClick={closeTasks}>X</button><AdminForm/></div> : ''}
