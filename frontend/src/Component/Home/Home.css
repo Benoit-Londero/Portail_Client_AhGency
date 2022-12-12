@@ -78,11 +78,6 @@
     min-width: 340px;
 }
 
-.tableauTS table th {
-    font-size: .5em;
-    text-align: left;
-}
-
 .tableauTS .last-child {
     text-align: right;
     width: 200px;
@@ -91,7 +86,8 @@
 .tableauTS table td {
     font-size: .8em;
     font-weight: 300;
-    vertical-align: middle;
+    vertical-align: top;
+    text-align: justify;
     margin: 0;
     padding: 0;
     line-height: 1.5em;
@@ -168,6 +164,15 @@
 
 .allowed_time{
     text-align: right!important;
+    background: #6610f2;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.date_creation{
+    font-size:10px;
 }
 
 .timesheet table {
@@ -313,4 +318,16 @@
     width: 100vw;
     z-index: 999999;
     height: 100vh;
+}
+
+.modal__newTask .timesheetForm{
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgb(0 0 0 / 70%);
+}
+
+.modal__newTask .s-sidebar__nav{
+    display:none;
 }
