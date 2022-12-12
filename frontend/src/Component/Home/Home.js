@@ -284,7 +284,7 @@ export default function Home() {
 
           </Row>
 
-          <Row className="timesheet modal">
+          <Row className="timesheet modal__newTask">
                <Col>     
                     <table id="desktop">               
                          <thead>
