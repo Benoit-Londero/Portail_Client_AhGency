@@ -180,6 +180,23 @@ export default function Home() {
      <Container id="page_dashboard">
           <Row>
                <Col className="tableauTS">
+
+                    <table style="border:1px solid red;">
+                         <tbody>
+                              <tr>
+                                   <td rowspan="3">T Titre projet</td>
+                                   <td>Titre projet</td>
+                                   <td>Temps alloué :</td>
+                              </tr>
+                              <tr> 
+                                   <td>Description</td>
+                                   <td>Progression</td>
+                              </tr>
+                              <tr>
+                                   <td>Assigné à : </td>
+                              </tr>
+                         </tbody>
+                    </table>
                     {projetFiltrer.map((item,index) => {
                          return(<td key={index} colspan="3"><p className="date_badge">{item.Tickets.substring(0,1)}</p><h2>{item.Tickets}</h2></td>)
                     })
