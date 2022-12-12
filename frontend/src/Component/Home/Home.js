@@ -115,6 +115,7 @@ export default function Home() {
 
      const closeTasks = (e) => {
           setnewTask(false);
+          setdetailTask(false);
      }
 
      return (
