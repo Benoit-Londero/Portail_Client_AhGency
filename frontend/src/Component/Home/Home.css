@@ -301,3 +301,16 @@
         line-height: 3em;
     }
 }
+
+.modal__newTask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* margin-left: -250px; */
+    background: #fff;
+    padding: 10px;
+    background: #000000b3;
+    width: 100vw;
+    z-index: 999999;
+    height: 100vh;
+}

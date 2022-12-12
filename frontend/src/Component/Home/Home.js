@@ -22,6 +22,7 @@ export default function Home() {
      const [filteredTS, setFilteredTS] = useState([]);
      const [filteredTaches, setFilteredTaches] = useState([]);
      const [checkPercent, setCheckPercent] = useState();
+     const [newTask, setnewTask] = useState(false);
 
      const [currentHeureTOT, setCurrentHeureTOT] = useState();
      const [currentHeureREST, setCurrentHeureREST] = useState();
@@ -102,6 +103,10 @@ export default function Home() {
 
      const handleNoFilter = (e) => {
           setFilteredTaches(timesheet);
+     }
+
+     const handleAddTask = (e) =>{
+          setnewTask(true);
      }
 
      return (
@@ -266,6 +271,7 @@ export default function Home() {
                               })
                          }
                          <tr><td><button name = "NoFilter" className="btn_ts_bottom" onClick={handleNoFilter}>Voir toutes les tâches</button></td></tr>
+                         <tr><td><button name="addTask" className="add_new_task" onClick={handleAddTask}>créer une nouvelle tâche</button></td></tr>
                          </tbody>
                     </table>
                </Col>
@@ -337,7 +343,7 @@ export default function Home() {
           </Row>
      </Container>
 
-     <div className="modal"><AdminForm/></div>
+     {newTask === true ? <div className="modal__newTask"><AdminForm/></div> : ''}
      </div>
       )
  }
