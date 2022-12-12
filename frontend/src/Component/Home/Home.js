@@ -183,17 +183,15 @@ export default function Home() {
                
                     <table>
                          <tbody>
-                              <tr>
-                                   <td rowspan="3"></td>
-                                   {projetFiltrer.map((item,index) => {
-                                        return(<tr><td key={index} colspan="3"><p className="date_badge">{item.Tickets.substring(0,1)}</p></td>
-                                               <td><h2>{item.Tickets}</h2></td>
-                                               <td><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
-                                               </tr>)
-                                   })
-                                   }
-                                   
-                              </tr>
+                              {projetFiltrer.map((item,index) => {
+                                   return(
+                                   <tr>
+                                        <td key={index} rowspan="3"><p className="date_badge">{item.Tickets.substring(0,1)}</p></td>
+                                        <td><h2>{item.Tickets}</h2></td>
+                                        <td><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
+                                   </tr>)
+                              })
+                              }
                               <tr> 
                                    <td><h2>Description</h2>{projetFiltrer.map((item,index)=>{
                                         return(<p key={index}>{item.Description}</p>)
@@ -206,7 +204,7 @@ export default function Home() {
                          </tbody>
                     </table>
                     
-                    <table>
+                    {/* <table>
                          <thead>
                               <tr>
                                    <th className="hide_mobile">Créé le</th>
@@ -233,20 +231,21 @@ export default function Home() {
                                    )
                               })
                          }
-                    </table>
+                    </table> */}
                </Col>
+          </Row>
 
-
-               <Col className="tableauTS">
-                    <h2>Dernières taches effectuées</h2>
+          <Row>
+          <Col className="tableauTS">
+                    <h2>Tâches</h2>
                     <table>
-                         <thead>
+{/*                          <thead>
                               <tr>
                                    <th className="hide_mobile">Date</th>
                                    <th>Titre</th>
                                    <th className="last-child">Action</th>
                               </tr>
-                         </thead>
+                         </thead> */}
                          <tbody>
                          {
                               filteredTaches.map((item,index) => {
@@ -254,8 +253,10 @@ export default function Home() {
                                    let Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (
                                         <tr key={index}>
-                                             <td><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></td>
+                                             {/* <td><p className="hide_mobile">{day}<br></br>{Month}.</p></td> */}
                                              <td><p className="ref">{ item.Titre}</p></td>
+                                             <td><p>{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
+                                             <td><p> Statut</p></td>
                                              <td><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
                                         </tr>
                                    )
@@ -265,9 +266,10 @@ export default function Home() {
                          </tbody>
                     </table>
                </Col>
+
           </Row>
 
-          <Row className="timesheet">
+          <Row className="timesheet modal">
                <Col>     
                     <table id="desktop">               
                          <thead>
