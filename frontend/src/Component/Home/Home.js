@@ -271,9 +271,9 @@ export default function Home() {
                                    return (
                                         <tr key={index}>
                                              {/* <td><p className="hide_mobile">{day}<br></br>{Month}.</p></td> */}
-                                             <td><p className="ref">{ item.Titre}</p></td>
-                                             <td><p>{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
-                                             <td><p> Statut</p></td>
+                                             <td><p className="task_table">{ item.Titre}</p></td>
+                                             <td><p className="task_table">{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
+                                             <td><p className="statut_task">{item.Statut}</p></td>
                                              <td className="last-child"><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
                                         </tr>
                                    )
