@@ -249,8 +249,8 @@ export default function Home() {
                          <tbody>
                          {
                               filteredTaches.map((item,index) => {
-                                   let day = Moment(item.Date_Tache_Effectuee).format('DD');
-                                   let Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+                                   /* let day = Moment(item.Date_Tache_Effectuee).format('DD');
+                                   let Month = Moment(item.Date_Tache_Effectuee).format('MMM'); */
                                    return (
                                         <tr key={index}>
                                              {/* <td><p className="hide_mobile">{day}<br></br>{Month}.</p></td> */}
