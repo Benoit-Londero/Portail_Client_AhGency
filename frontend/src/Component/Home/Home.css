@@ -6,7 +6,7 @@
 .timesheet {
     height: auto;
     border-radius: 15px;
-    box-shadow: 5px 5px 10px #00000016;
+    /* box-shadow: 5px 5px 10px #00000016; */
     margin: 10px;
     padding: 20px 30px;
     background:#fff;

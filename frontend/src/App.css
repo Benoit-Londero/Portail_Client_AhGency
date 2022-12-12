@@ -151,9 +151,9 @@ p {
 /* Sidebar */
 .project_sidebar{
     position: absolute;
-    left: 6vw;
+    left: 64px;
     top: 0;
-    width: 180px;
+    width: 220px;
     height: 100vh;
     background: #fafafa;
     font-size: 14px;

@@ -181,7 +181,7 @@ export default function Home() {
           <Row>
                <Col className="tableauTS">
                     {projetFiltrer.map((item,index) => {
-                         return(<td key={index} colspan="3"><h2>{item.Tickets}</h2></td>)
+                         return(<td key={index} colspan="3"><p className="date_badge">{item.Tickets.substring(0,1)}</p><h2>{item.Tickets}</h2></td>)
                     })
                     }
                     <table>
