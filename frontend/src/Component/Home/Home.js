@@ -180,16 +180,24 @@ export default function Home() {
      <Container id="page_dashboard">
           <Row>
                <Col className="tableauTS">
-
+               
                     <table>
                          <tbody>
                               <tr>
-                                   <td rowspan="3">T Titre projet</td>
-                                   <td>Titre projet</td>
-                                   <td>Temps alloué :</td>
+                                   <td rowspan="3"></td>
+                                   {projetFiltrer.map((item,index) => {
+                                        return(<tr><td key={index} colspan="3"><p className="date_badge">{item.Tickets.substring(0,1)}</p></td>
+                                               <td><h2>{item.Tickets}</h2></td>
+                                               <td><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
+                                               </tr>)
+                                   })
+                                   }
+                                   
                               </tr>
                               <tr> 
-                                   <td>Description</td>
+                                   <td><h2>Description</h2>{projetFiltrer.map((item,index)=>{
+                                        return(<p key={index}>{item.Description}</p>)
+                                   })}</td>
                                    <td>Progression</td>
                               </tr>
                               <tr>
@@ -197,10 +205,7 @@ export default function Home() {
                               </tr>
                          </tbody>
                     </table>
-                    {projetFiltrer.map((item,index) => {
-                         return(<td key={index} colspan="3"><p className="date_badge">{item.Tickets.substring(0,1)}</p><h2>{item.Tickets}</h2></td>)
-                    })
-                    }
+                    
                     <table>
                          <thead>
                               <tr>
