@@ -162,6 +162,10 @@
     text-align: center;
 }
 
+.col__timeToUse{
+    width:200px;
+}
+
 .allowed_time{
     text-align: center!important;
     background: #6610f2;
