@@ -32,7 +32,7 @@
 /***** Panel User ******/
 
 .date_badge{
-    background: #3CEFBE;
+    background: #6610f2;
     border-radius: 10px;
     color: #ffffff;
     font-family: 'Poppins';
@@ -163,7 +163,7 @@
 }
 
 .allowed_time{
-    text-align: right!important;
+    text-align: center!important;
     background: #6610f2;
     color: #fff;
     font-weight: 500;
@@ -172,7 +172,7 @@
 }
 
 .date_creation{
-    font-size:10px;
+    font-size:12px;
 }
 
 .timesheet table {
@@ -320,7 +320,7 @@
     height: 100vh;
 }
 
-.modal__newTask .timesheetForm{
+.modal__newTask #timesheetForm{
     margin: auto;
     background: #fff;
     padding: 20px;
