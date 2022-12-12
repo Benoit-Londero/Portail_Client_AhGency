@@ -287,6 +287,7 @@ export default function Home() {
           </Row>
 
           {detailTask === true ? <Row className="timesheet modal__newTask">
+               <button onClick={closeTasks}>X</button>
                <Col>     
                     <table id="desktop">               
                          <thead>
