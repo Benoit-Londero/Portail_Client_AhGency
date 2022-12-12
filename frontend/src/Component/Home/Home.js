@@ -181,7 +181,7 @@ export default function Home() {
           <Row>
                <Col className="tableauTS">
 
-                    <table style="border:1px solid red;">
+                    <table>
                          <tbody>
                               <tr>
                                    <td rowspan="3">T Titre projet</td>
