@@ -105,6 +105,8 @@ export default function Home() {
           setFilteredTaches(timesheet);
      }
 
+     /* AJOUT BENOIT - DECEMBRE 2022 */
+
      const handleAddTask = (e) =>{
           setnewTask(true);
      }
@@ -248,7 +250,7 @@ export default function Home() {
           </Row>
 
           <Row>
-          <Col className="tableauTS">
+          <Col className="tableauTask">
                     <h2>Tâches</h2>
                     <table>
                          {/*<thead>
@@ -269,7 +271,7 @@ export default function Home() {
                                              <td><p className="ref">{ item.Titre}</p></td>
                                              <td><p>{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
                                              <td><p> Statut</p></td>
-                                             <td><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
+                                             <td className="last-child"><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
                                         </tr>
                                    )
                               })

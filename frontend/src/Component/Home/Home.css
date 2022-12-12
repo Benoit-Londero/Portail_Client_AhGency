@@ -32,12 +32,16 @@
 /***** Panel User ******/
 
 .date_badge{
+    font-size: 20px;
+    text-align: center!important;
+    width: 40px;
+    vertical-align: middle;
+    line-height: 1.4em;
     background: #6610f2;
     border-radius: 10px;
     color: #ffffff;
     font-family: 'Poppins';
     font-weight: 500;
-    line-height: 15px;
     padding: 5px;
     aspect-ratio: 1;
     max-height: 40px;
@@ -71,14 +75,19 @@
 .tableauTS h2{
     text-align: left;
     vertical-align: top;
-    font-size: 34px!important;
+    font-size: 16px!important;
+    color: #333;
 }
 
 .tableauTS table {
     min-width: 340px;
 }
 
-.tableauTS .last-child {
+.tableauTask{
+    background:#fff;
+}
+
+.tableauTask .last-child {
     text-align: right;
     width: 200px;
 }
@@ -157,10 +166,6 @@
     list-style-type: none;
 }
 
-.tasks,
-.ref {
-    text-align: center;
-}
 
 .col__timeToUse{
     width:200px;
