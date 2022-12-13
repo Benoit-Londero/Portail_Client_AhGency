@@ -357,19 +357,3 @@ export default function Home() {
      </div>
       )
  }
-
-
- /* OLD */ 
- {/* <tr className="detail_TS" key={index}>
-                                             <td>
-                                                  <table>
-                                                       <tr>
-                                                            <td><p className="date_badge">{day}<br></br>{Month}</p></td>
-                                                            <td><p className="title_of_task">{ item.Titre }</p></td>
-                                                            <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                                            <td><p className="developer"> {item.Agent.substring(0,1)}</p></td>
-                                                       </tr>
-                                                       <tr><td colspan="4"><p className="tasks">{ item.Informations}</p></td></tr>
-                                                  </table>
-                                             </td>
-                                        </tr> */}
