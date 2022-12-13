@@ -222,10 +222,20 @@
 
 .detail_TS .date_badge{
     font-size: 12px;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 .detail_TS .tasks{
     text-align:justify;
+}
+
+.close_modale{
+    border-radius: 5px;
+    border: none;
+    width: 25px;
+    margin-bottom: 10px;
+    font-size: 14px;
 }
 
 .detail_TS .developer{
@@ -334,19 +344,6 @@
         text-align: left;
         line-height: 3em;
     }
-}
-
-.modal__newTask{
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* margin-left: -250px; */
-    background: #fff;
-    padding: 10px;
-    background: #000000b3;
-    width: 100vw;
-    z-index: 999999;
-    height: 100vh;
 }
 
 .modal__newTask #timesheetForm{

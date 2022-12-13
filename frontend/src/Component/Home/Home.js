@@ -291,7 +291,7 @@ export default function Home() {
           {detailTask === true ? <Row className="timesheet modal__newTask">
                
                <Col>     
-                    <button onClick={closeTasks}>X</button>
+                    <button className="close_modale" onClick={closeTasks}>X</button>
                                  
                          {
                               filteredTS.map((item,index) => {
@@ -304,7 +304,7 @@ export default function Home() {
                                                        <tr>
                                                             <th><p className="title_of_task">{ item.Titre }</p></th>
                                                             <th> <p className="date_badge">{day}<br></br>{Month}</p>
-                                                                 <p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
+                                                                 <p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
                                                             </th>
                                                        </tr>
                                                   </thead>
