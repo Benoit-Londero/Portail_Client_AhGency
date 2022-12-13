@@ -110,7 +110,7 @@
     text-transform: uppercase;
     aspect-ratio: 1;
     font-size: 1rem;
-    border: 3px solid #fff;
+    border: 3px solid #fff; 
     box-shadow: 2px 4px 4px rgba(0,0,0,.2);
 }
 

@@ -290,39 +290,37 @@ export default function Home() {
           </Row>
 
           {detailTask === true ? <Row className="timesheet modal__newTask">
-               <button onClick={closeTasks}>X</button>
+               
                <Col>     
-                    <table id="desktop">               
-                         <thead>
-                              <tr>
-                              <td colSpan="3"><h2>Détails de la tâche</h2></td>
-                              </tr>
-                         </thead>
-                         <tbody>
+                    <button onClick={closeTasks}>X</button>
+                                 
                          {
                               filteredTS.map((item,index) => {
                                    var day = Moment(item.Date_Tache_Effectuee).format('DD');
                                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (                                   
-                                        <tr className="detail_TS" key={index}>
-                                             <td>
-                                                  <table>
-                                                       <tr>
-                                                            <td><p className="date_badge">{day}<br></br>{Month}</p></td>
-                                                            <td><p className="title_of_task">{ item.Titre }</p></td>
-                                                            <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                                            <td><p className="developer"> {item.Agent.substring(0,1)}</p></td>
-                                                       </tr>
-                                                       <tr><td colspan="4"><p className="tasks">{ item.Informations}</p></td></tr>
-                                                       {/* AMELIORATION <tr><td><p>timeline</p></td></tr> */}
-                                                  </table>
-                                             </td>
-                                        </tr>
+                                        <table id="desktop">  
+                                             <thead className="detai_TS" key={index}>
+                                                  <tr>
+                                                       <th><p className="title_of_task">{ item.Titre }</p></th>
+                                                       <th> <p className="date_badge">{day}<br></br>{Month}</p>
+                                                            <p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
+                                                       </th>
+                                                  </tr>
+                                             </thead>
+                                             <tbody>
+                                                  <tr>
+                                                       <td><p className="tasks">{ item.Informations}</p></td>
+                                                  </tr>
+                                                  <tr>
+                                                       <td><p className="developer">Assigné à : {item.Agent.substring(0,1)}</p></td>
+                                                  </tr>
+                                             </tbody>
+                                        </table>
                                    )
                               })
                          }
-                         </tbody>
-                    </table>
+                    
                     
                     <div class="mobile">
                          <h2>Détails</h2>
@@ -359,3 +357,19 @@ export default function Home() {
      </div>
       )
  }
+
+
+ /* OLD */ 
+ {/* <tr className="detail_TS" key={index}>
+                                             <td>
+                                                  <table>
+                                                       <tr>
+                                                            <td><p className="date_badge">{day}<br></br>{Month}</p></td>
+                                                            <td><p className="title_of_task">{ item.Titre }</p></td>
+                                                            <td><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                                            <td><p className="developer"> {item.Agent.substring(0,1)}</p></td>
+                                                       </tr>
+                                                       <tr><td colspan="4"><p className="tasks">{ item.Informations}</p></td></tr>
+                                                  </table>
+                                             </td>
+                                        </tr> */}
