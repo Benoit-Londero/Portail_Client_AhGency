@@ -288,7 +288,7 @@ export default function Home() {
 
           </Row>
 
-          {detailTask === true ? <Row className="timesheet modal__newTask">
+          {detailTask === true ? <Row className="modal__newTask">
                
                <Col>     
                     <button className="close_modale" onClick={closeTasks}>X</button>
@@ -316,7 +316,7 @@ export default function Home() {
                                                             </td>
                                                        </tr>
                                                        <tr>
-                                                            <td><p>Assigné à :<span className="developer">{item.Agent.substring(0,1)}</span></p></td>
+                                                            <td><p className="agent__">Assigné à :<span className="developer">{item.Agent.substring(0,1)}</span></p></td>
                                                        </tr>
                                                   </tbody>
                                              </table>
@@ -357,7 +357,7 @@ export default function Home() {
           </Row> : ''}
      </Container>
 
-     {newTask === true ? <div className="modal__newTask"><button onClick={closeTasks}>X</button><AdminForm/></div> : ''}
+     {newTask === true ? <div className="modal__newTask"><button className="close_modale" onClick={closeTasks}>X</button><AdminForm/></div> : ''}
      </div>
       )
  }

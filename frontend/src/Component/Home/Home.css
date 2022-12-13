@@ -215,9 +215,19 @@
 }
 
 #desktop{
-    width:50vw;
-    margin-top:15vh;
-    padding:20px;
+    width: 50vw;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    background: #fff;
+    margin-top: 5vh;
+}
+
+.agent__{
+    text-align:left;
+}
+.time_spend{
+    text-align:right;
 }
 
 .detail_TS .date_badge{
