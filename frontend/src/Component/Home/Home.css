@@ -79,8 +79,17 @@
     color: #333;
 }
 
+.descr__thead{
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
 .tableauTS table {
     min-width: 340px;
+}
+
+.task_table{
+    text-align: left;
 }
 
 .tableauTask{
@@ -117,7 +126,7 @@
 
 .tableauTS a:hover {
     background: #fff;
-    color: #3CEFBE;
+    color: #6610f2;
     border: 2px solid #6610f2;
 }
 

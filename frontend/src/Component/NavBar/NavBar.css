@@ -79,10 +79,9 @@
 }
 
 .active {
-    color: #3FB58F!important;
-    background-color: #B3FEEA;
+    color: #6610f2!important;
+    background-color: #6710f232;
     border-radius: 5px;
-    padding: 5px 15px;
 }
 
 .name{

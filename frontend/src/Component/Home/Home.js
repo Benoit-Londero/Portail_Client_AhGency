@@ -210,7 +210,7 @@ export default function Home() {
                               }
                               <tr> 
                                    <td><h2>Description</h2>{projetFiltrer.map((item,index)=>{
-                                        return(<p key={index}>{item.Description}</p>)
+                                        return(<p key={index} className="descr__thead">{item.Description}</p>)
                                    })}</td>
                                    <td>Progression</td>
                               </tr>

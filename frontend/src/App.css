@@ -61,13 +61,13 @@
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: #F2F2F2;
-    background: #0D2B1D;
-    border: 1px solid #4DDAAD;
+    background: #12032c;
+    border: 1px solid #6610f2;
     border-radius: 50px;
 }
 
 .primary_btn{
-    background: linear-gradient(86.86deg, #31C596 15.53%, #00FFBC 93.95%);
+    background: linear-gradient(86.86deg, #6610f2 15.53%, #6610f2 93.95%);
     border-radius: 50px;
 }
 
@@ -131,7 +131,7 @@ h2{
 }
 
 p {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 
@@ -140,11 +140,10 @@ p {
 .bdg_user{
     width: 30px;
     height: 30px;
-    background: #6610f2;;
+    background: #6610f2;
     border: 2px solid #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-transform: uppercase;
-
     color: #FFFFFF;
 }
 
@@ -217,9 +216,9 @@ input:hover{
 
 input[type="submit"]{
     width:45%;
-    color:#06f8b8;
+    color:#6610f2;
     text-align: center;
-    background-color: #0D2A1D;
+    background-color: #160531;
     font-weight: 600;
     letter-spacing: 2px;
     vertical-align: middle;
@@ -227,7 +226,6 @@ input[type="submit"]{
     border: 1px solid;
     border-bottom: 3px solid;
     border-radius: 5px;
-    
     margin-bottom: 6px;
     width: 100%;
     
@@ -236,7 +234,7 @@ input[type="submit"]{
 input[type="submit"]:hover{
     color:#fff;
     text-align: center;
-    background-color: #06f8b8;
+    background-color: #6610f2;
 }
 
 input[type="reset"]{
@@ -248,7 +246,7 @@ input[type="reset"]{
 form #title{
     font-size: 24px;
     font-weight: 600;
-    padding: 5px 0px;
+    padding: 5px;
     border: none;
 }
 
@@ -261,7 +259,6 @@ form #title{
 
 svg {
     vertical-align: middle;
-    fill: #686868;
     font-size: 20px;
 }
 
