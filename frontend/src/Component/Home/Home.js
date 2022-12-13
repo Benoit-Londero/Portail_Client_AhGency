@@ -214,7 +214,6 @@ export default function Home() {
                                    <td><h2>Description</h2>{projetFiltrer.map((item,index)=>{
                                         return(<p key={index} className="descr__thead">{item.Description}</p>)
                                    })}</td>
-                                   <td>Progression</td>
                               </tr>
                               <tr>
                                    <td>{projetFiltrer.map((item,index)=>{
