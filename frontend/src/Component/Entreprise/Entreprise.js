@@ -140,7 +140,7 @@ export default function Entreprise() {
                                         <td><input type="text" id="web" name="web"  defaultValue= {currentSITE}></input></td>
                                    </tr>
                                    <tr>
-                                        <td><input type="hidden" id="idE" name="idE" defaultValue= {currentIDE}></input>
+                                        <td colspan="2"><input type="hidden" id="idE" name="idE" defaultValue= {currentIDE}></input>
                                         <input type="submit" name="modifier" value="Enregistrer" /></td>
                                    </tr>
                               </tbody>

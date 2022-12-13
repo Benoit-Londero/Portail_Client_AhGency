@@ -12,7 +12,7 @@
 }
 
 .stats{
-    background-color: #0D2A1D;
+    background-color: #12032c;
     padding: 10px;
     font-size: 10px;
     position: absolute;
@@ -57,6 +57,7 @@
 
 .stats p {
     font-size:11px;
+    margin-bottom: 0;
 }
 
 .CircularProgressbar {

@@ -4,18 +4,14 @@ import './Projet.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Projet() {
-
     const currentIDU = localStorage.getItem("currentIDU");
     const currentIDE = localStorage.getItem("currentIDE");
 
     const [currentMAIL, setCurrentMAIL] = useState();
-
     const [message, setMessage] = useState(false);
 
     useEffect (() => {
-
         let dataU = {currentIDUser: currentIDU};
-
         const onLoad = async () => {
 
             const response = await fetch('/api/getInfosClient', { 
@@ -73,17 +69,15 @@ export default function Projet() {
     <div id='adminForm'>
         <NavBar />
 
-        <h1>Un nouveau projet</h1>
-      
         {message === false ? <form id="DemandeForm" onSubmit={handleDemande}>
           <table>
             <thead>
-              <tr><td><h2>Informations du projet</h2></td></tr>
+              <tr><td><h2>Informations sur la demande</h2></td></tr>
             </thead>
             <tbody>
                 <tr>
                     <td><label for="title">Nom du projet <span className="required">*</span></label>
-                    <input type="text" placeholder="titre" id="title" name="title" required/></td>
+                    <input type="text" placeholder="Créer un projet..." id="title" name="title" required/></td>
                 </tr>
                 <tr>
                     <td><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br>
@@ -107,11 +101,16 @@ export default function Projet() {
                 <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
                 <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>
                 <tr>
-                    <td><label for="siteURL">Veuillez entrer l'URL de votre site web <span className="required">*</span></label></td>
+                    <td><label for="siteURL">Veuillez entrer l'URL de votre site web</label></td>
                     <td><input type="text" placeholder="(exemple : www.google.be, https://www.ahgency.be, ....)" id="siteURL" name="siteURL"/></td>
                 </tr>
+
+                <tr>
+                    <td><label for="deadline">Pour quand doit-il être fini?</label></td>
+                    <td><input type="date" name="deadline" id="deadline" required></input></td>
+                </tr>
                 <tr className="row_submit">
-                    <td>
+                    <td colspan="2">
                         <input type="submit" value="Enregistrer"/>
                     </td>
                 </tr>

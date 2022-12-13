@@ -103,9 +103,9 @@ export default function Home() {
           setFilteredTaches(tacheAssociee);
      }
 
-     const handleNoFilter = (e) => {
+     /* const handleNoFilter = (e) => {
           setFilteredTaches(timesheet);
-     }
+     } */
 
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
@@ -118,6 +118,8 @@ export default function Home() {
           setdetailTask(false);
      }
 
+     /********************************/
+     
      return (
 
      <div>
@@ -279,7 +281,7 @@ export default function Home() {
                                    )
                               })
                          }
-                         <tr><td><button name = "NoFilter" className="btn_ts_bottom" onClick={handleNoFilter}>Voir toutes les tâches</button></td></tr>
+                         {/* <tr><td><button name = "NoFilter" className="btn_ts_bottom" onClick={handleNoFilter}>Voir toutes les tâches</button></td></tr> */}
                          <tr><td><button name="addTask" className="add_new_task btn btn_primary" onClick={handleAddTask}>créer une nouvelle tâche</button></td></tr>
                          </tbody>
                     </table>
