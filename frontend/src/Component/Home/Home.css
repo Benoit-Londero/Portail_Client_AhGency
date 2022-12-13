@@ -214,12 +214,22 @@
     color: #444;
 }
 
-.details_TS:first-child{
-    width:28vw;
+#desktop{
+    width:50vw;
+    margin-top:15vh;
+    padding:20px;
 }
 
-.details_TS:last-child{
-    max-width: 3vw;
+.detail_TS .date_badge{
+    font-size: 12px;
+}
+
+.detail_TS .tasks{
+    text-align:justify;
+}
+
+.detail_TS .developer{
+    width:45px;
 }
 
 .mobile{

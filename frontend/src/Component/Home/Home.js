@@ -297,25 +297,30 @@ export default function Home() {
                               filteredTS.map((item,index) => {
                                    var day = Moment(item.Date_Tache_Effectuee).format('DD');
                                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
-                                   return (                                   
-                                        <table id="desktop">  
-                                             <thead className="detai_TS" key={index}>
-                                                  <tr>
-                                                       <th><p className="title_of_task">{ item.Titre }</p></th>
-                                                       <th> <p className="date_badge">{day}<br></br>{Month}</p>
-                                                            <p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
-                                                       </th>
-                                                  </tr>
-                                             </thead>
-                                             <tbody>
-                                                  <tr>
-                                                       <td><p className="tasks">{ item.Informations}</p></td>
-                                                  </tr>
-                                                  <tr>
-                                                       <td><p className="developer">Assigné à : {item.Agent.substring(0,1)}</p></td>
-                                                  </tr>
-                                             </tbody>
-                                        </table>
+                                   return (  
+                                        <div id="desktop">                                
+                                             <table className="detail_TS" key={index}>  
+                                                  <thead>
+                                                       <tr>
+                                                            <th><p className="title_of_task">{ item.Titre }</p></th>
+                                                            <th> <p className="date_badge">{day}<br></br>{Month}</p>
+                                                                 <p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
+                                                            </th>
+                                                       </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                       <tr>
+                                                            <td>
+                                                                 <h2>Description</h2>
+                                                                 <p className="tasks">{ item.Informations}</p>
+                                                            </td>
+                                                       </tr>
+                                                       <tr>
+                                                            <td><p>Assigné à :<span className="developer">{item.Agent.substring(0,1)}</span></p></td>
+                                                       </tr>
+                                                  </tbody>
+                                             </table>
+                                        </div> 
                                    )
                               })
                          }
