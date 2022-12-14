@@ -302,7 +302,7 @@ export default function Home() {
                                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (  
                                         <div id="desktop">                                
-                                             <table className="detail_TS" key={index}>  
+                                             {/* <table className="detail_TS" key={index}>  
                                                   <thead>
                                                        <tr>
                                                             <th><p className="title_of_task">{ item.Titre }</p></th>
@@ -322,7 +322,7 @@ export default function Home() {
                                                             <td><p className="agent__">Assigné à :<span className="developer">{item.Agent.substring(0,1)}</span></p></td>
                                                        </tr>
                                                   </tbody>
-                                             </table>
+                                             </table> */}
 
                                              <table className="detail_TS" key={index}>
                                                   <thead>
