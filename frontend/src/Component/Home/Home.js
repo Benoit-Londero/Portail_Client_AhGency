@@ -331,14 +331,14 @@ export default function Home() {
                                                   </thead>
                                                   <tbody>
                                                        <tr>
-                                                            <td><BsIcons.BsPerson/><p className="bold">Assigné</p></td>
-                                                            <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span></p></td>
+                                                            <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
+                                                            <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
                                                        </tr>
                                                        <tr>
-                                                            <td><MdIcons.MdOutlineMoreTime /> <p className="bold">Suivi de temps</p></td>
+                                                            <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
                                                             <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                                        </tr>
-                                                       <tr><td><BsIcons.BsTextParagraph/><p className="bold">Description</p></td></tr>
+                                                       <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
                                                        <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
                                                   </tbody>
 

@@ -231,6 +231,11 @@
     text-align:right;
 }
 
+.detail_TS p{
+    text-align:left;
+    font-size: 12px;
+}
+
 .detail_TS .date_badge{
     font-size: 12px;
     margin-left: auto;
