@@ -3,8 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "engines": {
-        "node": ">=6.11.2",
-        "npm": ">=6"
+        "node": "^16.10.0",
+        "npm": "^8.5.0"
     },
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.5",
@@ -27,7 +27,7 @@
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "set PORT=3001 && react-scripts --openssl-legacy-provider start",
+        "start": "react-scripts --openssl-legacy-provider start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
