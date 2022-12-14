@@ -373,3 +373,7 @@
 .modal__newTask .s-sidebar__nav{
     display:none;
 }
+
+.first_col_pjt{
+    width:60px;
+}
