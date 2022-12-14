@@ -221,6 +221,7 @@
     padding: 20px;
     background: #fff;
     margin-top: 5vh;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
 }
 
 .agent__{

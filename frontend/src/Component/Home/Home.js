@@ -13,6 +13,9 @@ import Moment from "moment";
 import AdminForm from "../AdminForm/AdminForm.js";
 
 import * as FiIcons from "react-icons/fi";
+import * as MdIcons from "react-icons/md";
+import * as BsIcons from "react-icons/bs";
+
 
 export default function Home() {
 
@@ -320,10 +323,32 @@ export default function Home() {
                                                        </tr>
                                                   </tbody>
                                              </table>
+
+                                             <table className="detail_TS" key={index}>
+                                                  <thead>
+                                                       <tr><th colspan="2"><p className="title_of_task">{ item.Titre }</p></th></tr>
+                                                       <tr><th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p></th></tr>
+                                                  </thead>
+                                                  <tbody>
+                                                       <tr>
+                                                            <td><BsIcons.BsPerson/><p className="bold">Assigné</p></td>
+                                                            <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span></p></td>
+                                                       </tr>
+                                                       <tr>
+                                                            <td><MdIcons.MdOutlineMoreTime /> <p className="bold">Suivi de temps</p></td>
+                                                            <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                                       </tr>
+                                                       <tr><td><BsIcons.BsTextParagraph/><p className="bold">Description</p></td></tr>
+                                                       <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
+                                                  </tbody>
+
+                                             </table>
                                         </div> 
                                    )
                               })
                          }
+
+                         
                     
                     
                     <div class="mobile">
