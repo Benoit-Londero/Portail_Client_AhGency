@@ -6,6 +6,7 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
+  
   "dependencies": {
     "azure-function-express": "^2.0.0",
     "bcrypt": "^5.0.1",
