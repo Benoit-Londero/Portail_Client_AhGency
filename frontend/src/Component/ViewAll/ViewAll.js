@@ -47,14 +47,14 @@ export default function ViewAll() {
      <Row>
           <div className="project_sidebar">
                <div className="navbar_col_g">
-                    <h2>Timesheet</h2>
+                    <h2>Suivi de projet</h2>
 
-                    <label>Voir tout </label>
+                    <label>Voir toute les tâches </label>
                     <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
                </div>
 
                <div className="navbar_col_d">
-                    <label>Sélectionner un client</label>
+                    <label>Filtrer par client</label>
                     <select onChange={handleTasks}>
                          <option name="default" disabled> Default </option>
                          {clients && clients.map((item,index) => {
@@ -66,7 +66,7 @@ export default function ViewAll() {
                </div>
 
 
-{/*                <div>
+               {/*<div>
                     <label>Effectuée par</label>
                     {agent && agent.map((item,index) => {
                          return(
@@ -75,7 +75,7 @@ export default function ViewAll() {
                     })
 
                     }
-               </div> */}
+               </div>*/}
           </div>
      </Row>
      <Container id="page_viewall">
@@ -86,9 +86,7 @@ export default function ViewAll() {
 
                     <table>
                          <thead>
-                              <tr>
-                              <td><h2>Données horaires</h2></td>
-                              </tr>
+                              <tr><th><h2>Données horaires</h2></th></tr>
                          </thead>
                          <tbody>
                               <tr>

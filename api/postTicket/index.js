@@ -17,7 +17,7 @@ module.exports = async function (context, req) {
         let Status = "Non démarré";
         let deadline = context.req.body.deadline;
 
-        let sqlTicket = "INSERT INTO tickets(Tickets,ID_entreprise,AllocationTemps,Date,Statut,Email,Description,URL,Deadline) VALUES (?,?,?,?,?,?,?,?)";
+        let sqlTicket = "INSERT INTO tickets(Tickets,ID_entreprise,AllocationTemps,Date,Statut,Email,Description,URL,Deadline) VALUES (?,?,?,?,?,?,?,?,?)";
 
         con.query(sqlTicket, [title, idEnt, allocation, date, Status, email, detail, url, deadline], function (err, resultat) {
             if (err) throw err;

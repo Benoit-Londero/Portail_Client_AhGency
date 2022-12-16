@@ -129,7 +129,7 @@ export default function Home() {
      <NavBar />
      
      <div className="project_sidebar">
-          <h2><FiIcons.FiZap/> Tous les projets</h2>
+          <h2><FiIcons.FiZap/> Mes projets</h2>
 
           <ul>
                {projet.map((item,index) => {
