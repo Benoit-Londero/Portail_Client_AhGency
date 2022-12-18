@@ -123,18 +123,30 @@ export default function Home() {
 
      /* Toggl */
      /* Time entries */
-     fetch("https://api.track.toggl.com/api/v9/me/time_entries", {
-          method: "GET",
-          headers: {
-               "Content-Type": "application/json",
-               "Authorization": `Basic 9e1872dd9b3ea1351c9ed97a6fff13f9`
-          },
-     })
-     .then((resp) => resp.json())
-     .then((json) => {
-     console.log(json);
-     })
-     .catch(err => console.error(err));
+     const handleChrono = (e) => {
+          fetch("https://api.track.toggl.com/api/v9/workspaces/6916769/time_entries", {
+               method: "POST",
+               body: {
+                    "billable":"true",
+                    "created_with":"Portail client",
+                    "description":"my api entrie",
+                    "duration":"-1",
+                    "pid":"188082635",
+                    "start":"2006-01-02T15:04:05Z",
+                    "start_date":"2006-11-07",
+                    "workspace_id":"6916769"
+               },
+               headers: {
+                    "Content-Type": "application/json",     
+                    "Authorization": `Basic 9e1872dd9b3ea1351c9ed97a6fff13f9`
+               },
+               })
+          .then((resp) => resp.json())
+          .then((json) => {
+               console.log(json);
+          })
+          .catch(err => console.error(err));
+     }
 
      /********************************/
      
@@ -293,7 +305,8 @@ export default function Home() {
                                              <td><p className="task_table">{ item.Titre}</p></td>
                                              <td><p className="task_table">{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
                                              <td><p className="statut_task">{item.Statut}</p></td>
-                                             <td className="last-child"><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
+                                             <td className="last-child"><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button>
+                                             <button onClick={handleChrono}>Start Chrono</button></td>
                                         </tr>
                                    )
                               })
