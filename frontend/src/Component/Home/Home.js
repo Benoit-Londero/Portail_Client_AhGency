@@ -122,17 +122,17 @@ export default function Home() {
      }
 
      /* Toggl */
-     /* Authentification */
-     fetch("https://api.track.toggl.com/api/v9/me/sessions", {
-          method: "POST",
+     /* Time entries */
+     fetch("https://api.track.toggl.com/api/v9/me/time_entries", {
+          method: "GET",
           headers: {
                "Content-Type": "application/json",
-               "api_token" : "9e1872dd9b3ea1351c9ed97a6fff13f9"
+               "Authorization": `Basic 9e1872dd9b3ea1351c9ed97a6fff13f9`
           },
      })
      .then((resp) => resp.json())
      .then((json) => {
-          console.log(json);
+     console.log(json);
      })
      .catch(err => console.error(err));
 
