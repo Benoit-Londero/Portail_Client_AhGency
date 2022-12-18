@@ -121,6 +121,21 @@ export default function Home() {
           setdetailTask(false);
      }
 
+     /* Toggl */
+     /* Authentification */
+     fetch("https://api.track.toggl.com/api/v9/me/sessions", {
+          method: "POST",
+          headers: {
+               "Content-Type": "application/json",
+               "api_token" : "9e1872dd9b3ea1351c9ed97a6fff13f9"
+          },
+     })
+     .then((resp) => resp.json())
+     .then((json) => {
+          console.log(json);
+     })
+     .catch(err => console.error(err));
+
      /********************************/
      
      return (
