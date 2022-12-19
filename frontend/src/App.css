@@ -94,7 +94,11 @@
     text-align: left;
     margin-bottom: 6px;
     width: 100%;
-    border-bottom: 3px solid;
+    font-size:12px;
+}
+
+.links_btn::before{
+    content:'\25A0';
 }
 
 .developer{
