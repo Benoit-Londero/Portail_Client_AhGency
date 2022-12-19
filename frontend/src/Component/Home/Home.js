@@ -133,7 +133,6 @@ export default function Home() {
                     "duration":"-1",
                     "pid":"188082635",
                     "start":"2006-01-02T15:04:05Z",
-                    "start_date":"2006-11-07",
                     "workspace_id":"6916769"
                },
                headers: {
@@ -147,6 +146,69 @@ export default function Home() {
           })
           .catch(err => console.error(err));
      }
+
+     /* TMetrics */
+     /* TimeEntry{
+          -- description:     A span of working time with the name of the task, which a user performed.
+          
+          -- id	integer($int64)     A time entry identifier.
+          
+          -- startTime	string($date-time)  The start time of a time entry, null, when tracking, means the current time.
+          example: 2000-01-31T15:00:00
+          
+          
+          -- endTime	string($date-time)  The end time of a time entry, null means that the timer is running, i.e., the current moment of time and the moment in the future, until a timer is not stopped.
+          example: 2000-01-31T16:00:00
+          
+          -- task	
+          ------ TaskBasic{...}
+                    	TaskBasic{
+                         description:	A task linked to a time entry, optionally.
+
+                         id	integer   A task identifier. It can be omitted for external tasks, as well as for an internal task being created on the fly. In the latter case, it is mandatory to specify the name.
+
+                         name	string    A task name. It is mandatory if an id is not specified.
+                         maxLength: 400
+
+                         externalLink	ExternalLink{
+                                        description:	A link to an external task.
+
+                                        caption*	string
+                                        example: PROJ-1234
+                                        Human readable string, which can contain a task identifier or if it is not displayed in the external application, a string like "Open in YourExternalApp".
+
+                                        iconUrl*	string($uri)
+                                        example: https://betaservices.tmetric.com/storage/Content/Integrations/jira.svg
+
+                                        link*	string($uri)
+                                        example: http://jira.myserver.local/browse/PROJ-1234
+
+                                        issueId*	string    A task identifier in an external system.
+
+                                        minLength: 1
+                                        example: PROJ-1234
+
+                                        }
+                                        integration	IntegrationBasic{
+                                        description:	
+                                        An integration, which a created task will be linked to. When read, is not returned, it is used only in case when an external task is created.
+
+                                        url	string
+                                        type	string
+                                        }
+          project	ProjectBasic{...}
+          note	string
+          maxLength: 400
+          A note can be added to a time entry, even if the task property is not set.
+          
+          -- tags	[...]
+          isBillable	boolean
+          Specifies whether a time span should be considered as billable, works only if a project is set up and it is billable.
+          
+          -- isInvoiced	boolean
+          It is an indication of whether a time span is included into the invoice, which actually means that the invoice is blocked for futher changes.
+          
+          } */
 
      /********************************/
      
@@ -247,7 +309,7 @@ export default function Home() {
                               </tr>
                               <tr>
                                    <td>{projetFiltrer.map((item,index)=>{
-                                        return(<p key={index}>{item.Email}</p>)})}</td>
+                                        return(<p key={index}><span className="developer">{item.Email.substring(0,1)}</span>{item.Email}</p>)})}</td>
                               </tr>
                          </tbody>
                     </table>
@@ -305,8 +367,7 @@ export default function Home() {
                                              <td><p className="task_table">{ item.Titre}</p></td>
                                              <td><p className="task_table">{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
                                              <td><p className="statut_task">{item.Statut}</p></td>
-                                             <td className="last-child"><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button>
-                                             <button onClick={handleChrono}>Start Chrono</button></td>
+                                             <td className="last-child"><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
                                         </tr>
                                    )
                               })
