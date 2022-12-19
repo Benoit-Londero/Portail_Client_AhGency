@@ -34,7 +34,7 @@
 }
 
 .App-link {
-    color: #61dafb;
+    color: #6610f2;
 }
 
 @keyframes App-logo-spin {
@@ -278,5 +278,7 @@ form #title{
 svg {
     vertical-align: middle;
     font-size: 20px;
+    color:currentColor;
+    stroke:currentColor;
 }
 
