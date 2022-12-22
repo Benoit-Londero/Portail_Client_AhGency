@@ -1,7 +1,6 @@
 import React from 'react'
 import * as FaIcons from "react-icons/fa";
 import * as RiIcons from "react-icons/ri";
-import * as GrIcons from "react-icons/gr";
 import * as MdIcons from "react-icons/md";
 import * as FiIcons from "react-icons/fi";
 
@@ -30,7 +29,7 @@ export const SidebarData = [
     {
         title:'Ajout tâche',
         path: '/AdminForm',
-        icon: <GrIcons.GrTableAdd />,
+        icon: <RiIcons.RiLayout3Line />,
         cName: 's-sidebar__nav-link admin__nav-link',
         admin: true,
         category: 'admin'
@@ -46,7 +45,7 @@ export const SidebarData = [
     {
         title:'Toutes les tâches',
         path: '/ViewAll',
-        icon: <GrIcons.GrAppsRounded />,
+        icon: <FiIcons.FiGrid />,
         cName: 's-sidebar__nav-link admin__viewall-link',
         admin: true,
         responsive: true
@@ -101,5 +100,13 @@ export const SidebarData = [
         cName: 's-sidebar__nav-link',
         admin: false,
         category: 'account'
+    },
+    {
+        title:'Client',
+        path: '/Client',
+        icon: <FiIcons.FiUsers />,
+        cName: 's-sidebar__nav-link',
+        admin: true,
+        category: 'admin' 
     }
 ]
