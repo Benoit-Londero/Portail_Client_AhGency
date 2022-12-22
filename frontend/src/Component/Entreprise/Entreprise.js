@@ -186,6 +186,8 @@ export default function Entreprise() {
 
   return (
     <div id="page_entreprise">
+             <div className="project_sidebar">
+        </div>
           <NavBar/>
           <Container>
                <h2><BsIcons.BsBuilding/>Entreprise</h2>
