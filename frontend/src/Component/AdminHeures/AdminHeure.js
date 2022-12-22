@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function AdminHeure() {
     const [usersInfos, setUsersInfos] = useState([]);
+    const currentIDUser = useLocalStorage("currentIDU","");
 
     useEffect (() => {
 
@@ -13,6 +14,8 @@ export default function AdminHeure() {
         .then(json => setUsersInfos(json))
         .catch(err => console.info(err))
     }, [])
+
+    
 
     const handleSubmitHeure = evt => {
         evt.preventDefault();
@@ -70,7 +73,11 @@ export default function AdminHeure() {
               </tr>
               <tr>
                 <td><label for="date_Achat">Date d'achat<span className="required">*</span></label></td>
-                <td><input type="date" placeholder="Date" id='date_Achat' name="date_Achat" required/></td>
+                <td>
+                  <input type="date" placeholder="Date" id='date_Achat' name="date_Achat" required/>
+                  <input type="hidden" name="id_agent" value={currentIDUser} />
+                  <input type="hidden" name="date_modif" value={getCurrentDateTime()} />
+                </td>
               </tr>
               <tr><td><input type="submit" value="Ajouter"/></td></tr>
             </tbody>

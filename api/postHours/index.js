@@ -12,7 +12,7 @@ module.exports = async function (context, req) {
       let client = req.body.for_who;
       let date_achat = req.body.date_Achat;
   
-      let qSQL = "UPDATE users SET Minutes_Restantes = Minutes_Restantes + ?, Minutes_Achetees = Minutes_Achetees + ? WHERE ID = ?";
+      let qSQL = "UPDATE users SET Minutes_Restantes = Minutes_Restantes + ?, Minutes_Achetees = Minutes_Achetees + ?,  WHERE ID = ?";
       let qSQL2 = "INSERT INTO achat(ID_Client,Nbre_Heures,Date) VALUES (?,?,?)";
   
       con.query(qSQL, [duree,duree,client], function (err,results){
