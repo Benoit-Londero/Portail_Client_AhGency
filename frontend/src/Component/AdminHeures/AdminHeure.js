@@ -3,7 +3,7 @@ import NavBar from "../NavBar/NavBar";
 import './AdminHeure.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import useLocalStorage from "./../useLocalStorage";
+import useLocalStorage from "../../useLocalStorage";
 
 export default function AdminHeure() {
     const [usersInfos, setUsersInfos] = useState([]);
