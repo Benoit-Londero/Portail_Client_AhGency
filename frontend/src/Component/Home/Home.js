@@ -3,7 +3,7 @@ import Container from "react-bootstrap/esm/Container";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {Stats} from '../Stats/Stats';
+import Stats from '../Stats/Stats';
 import NavBar from "../NavBar/NavBar";
 import "./Home.css";
 import { Link } from "react-router-dom";
