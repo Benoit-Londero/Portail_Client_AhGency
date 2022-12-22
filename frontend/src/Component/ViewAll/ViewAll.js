@@ -42,9 +42,9 @@ export default function ViewAll() {
 
      return (
      <div>
-     <NavBar />
+          <NavBar />
 
-     <Row>
+          <Row>
           <div className="project_sidebar">
                <div className="navbar_col_g">
                     <h2>Suivi de projet</h2>
@@ -71,7 +71,7 @@ export default function ViewAll() {
                <Col>
 
                     <div class="tableauTS">
-                         <h2><p className="date_badge">{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom).substring(0,1)}</p>{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom)}</h2>
+                         <h2>{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom)}</h2>
                     </div>
 
                     <table>
