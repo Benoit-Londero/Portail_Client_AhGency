@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Stats from '../Stats/Stats';
 import NavBar from "../NavBar/NavBar";
 import "./Home.css";
-import { Link } from "react-router-dom";
+
 import Moment from "moment";
 
 import AdminForm from "../AdminForm/AdminForm.js";
@@ -23,7 +23,7 @@ export default function Home() {
      const [projetFiltrer, setProjetFiltrer] = useState([]);
      const [filteredTS, setFilteredTS] = useState([]);
      const [filteredTaches, setFilteredTaches] = useState([]);
-     const [checkPercent, setCheckPercent] = useState();
+
      const [newTask, setnewTask] = useState(false);
      const [detailTask, setdetailTask] = useState(false);
 

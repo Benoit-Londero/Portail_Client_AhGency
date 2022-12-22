@@ -1,47 +1,52 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 export default function Stats(){
 
      const [currentHeureTOT, setCurrentHeureTOT] = useState();
      const [currentHeureREST, setCurrentHeureREST] = useState();
      const [moneySpend, setMoneySpend] = useState();
+     const [checkPercent, setCheckPercent] = useState();
+
+     const currentIDU = localStorage.getItem("currentIDU");
 
      let dataU = {currentIDUser: currentIDU};
 
-          const onLoad = async () => {
+     const onLoad = async () => {
            
-               const response = await fetch('/api/getInfosClient', { 
-                 method: 'POST',
-                 headers: {'Content-Type': 'application/json'},
-                 body: JSON.stringify(dataU)
-               })
+          const response = await fetch('/api/getInfosClient', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(dataU)
+          })
            
-               const data = await response.json();
-               if(response.status === 200){
-                    setCurrentHeureTOT(data.Minutes_Achetees);
-                    setCurrentHeureREST(data.Minutes_Restantes);
+          const data = await response.json();
+     
+          if(response.status === 200){
+               setCurrentHeureTOT(data.Minutes_Achetees);
+               setCurrentHeureREST(data.Minutes_Restantes);
 
-                    //Calcul temps restants (On soustrait le temps dépensé au temps total)
-                    const timeSpend = data.Minutes_Achetees - data.Minutes_Restantes;
+               //Calcul temps restants (On soustrait le temps dépensé au temps total)
+               const timeSpend = data.Minutes_Achetees - data.Minutes_Restantes;
 
-                    //Calcul du montant dépensé (temps dépensé)
-                    setMoneySpend(Math.round(((timeSpend/60) * 75)));
+               //Calcul du montant dépensé (temps dépensé)
+               setMoneySpend(Math.round(((timeSpend/60) * 75)));
 
-                    if (parseInt(data.Minutes_Achetees) === 0) {
-                         const percentage = 0;
-                         setCheckPercent(percentage);
-                    } else {
-                         const percentage = Math.round(((100*data.Minutes_Restantes) / data.Minutes_Achetees));
-                         setCheckPercent(percentage);
-                    }
+               if (parseInt(data.Minutes_Achetees) === 0) {
+                    const percentage = 0;
+                    setCheckPercent(percentage);
                } else {
-                    alert('Erreur du serveur, veuillez réessayer plus tard');
+                    const percentage = Math.round(((100*data.Minutes_Restantes) / data.Minutes_Achetees));
+                    setCheckPercent(percentage);
                }
+          } else {
+               alert('Erreur du serveur, veuillez réessayer plus tard');
           }
+     }
 
-          onload();
+     onload();
 
      return (
           <div className="stats">
