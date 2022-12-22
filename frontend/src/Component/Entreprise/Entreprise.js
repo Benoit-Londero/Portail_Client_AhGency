@@ -157,7 +157,10 @@ export default function Entreprise() {
                                    </tr>
                                    <tr>
                                         <td><label className="bold"> Membres: </label></td>
-                                        <td><input type="text" id="members" name="members"  defaultValue= {dataU}></input></td>
+                                        <td><select id="members" name="members"  defaultValue="">
+                                             {}
+                                            </select>
+                                        </td>
                                    </tr>
                                    <tr>
                                         <td colspan="2"><input type="hidden" id="idE" name="idE" defaultValue= {currentIDE}></input>
