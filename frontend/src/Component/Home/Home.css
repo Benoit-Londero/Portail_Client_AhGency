@@ -211,6 +211,7 @@
     width: 25px;
     margin-bottom: 10px;
     font-size: 14px;
+    float:right;
 }
 
 .detail_TS .developer{
@@ -225,6 +226,10 @@
     text-align: justify;
     font-size: 12px;
     line-height: 1.5em;
+}
+
+.right_tabs--close_modale{
+    vertical-align: top;
 }
 
 /* Responsive tablet */

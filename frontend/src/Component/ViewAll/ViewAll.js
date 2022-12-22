@@ -64,30 +64,17 @@ export default function ViewAll() {
                          })}
                     </select>
                </div>
-
-
-               {/*<div>
-                    <label>Effectuée par</label>
-                    {agent && agent.map((item,index) => {
-                         return(
-                              <input key={index} type="radio" value={item.Agent}>{item.Agent}</input>
-                         )
-                    })
-
-                    }
-               </div>*/}
           </div>
      </Row>
      <Container id="page_viewall">
           <Row className="customer_card_all timesheet">
                <Col>
 
-                    <h2>{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom)}</h2>
+                    <div class="tableauTS">
+                         <h2><p className="date_badge">{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom).substring(0,1)}</p>{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom)}</h2>
+                    </div>
 
                     <table>
-                         <thead>
-                              <tr><th><h2>Données horaires</h2></th></tr>
-                         </thead>
                          <tbody>
                               <tr>
                                    <td><p>Minutes Totales : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Achetees)}</p></td>
@@ -95,21 +82,17 @@ export default function ViewAll() {
                               </tr>
                          </tbody>
                     </table>
-          {/* </Col>
-          </Row>
-          <Row className="customer_card_all timesheet">
-               <Col> */}
                
                     <table id="desktop">
                          <thead>
                               <tr>
-                              <td><h2>Liste des tâches réalisées :</h2></td>
+                              <td><h2>Tâches :</h2></td>
                               </tr>
                          </thead>
                          <tbody>
 
                          {filtredtasks && filtredtasks.map((item,index) => {
-                         /* var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY'); */
+
                          var day = Moment(item.Date_Tache_Effectuee).format('DD');
                          var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
 
@@ -130,7 +113,7 @@ export default function ViewAll() {
                          <h2>Liste des tâches réalisées :</h2>
 
                          {filtredtasks && filtredtasks.map((item,index) => {
-                              /* var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY'); */
+
                               var day = Moment(item.Date_Tache_Effectuee).format('DD');
                               var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
 

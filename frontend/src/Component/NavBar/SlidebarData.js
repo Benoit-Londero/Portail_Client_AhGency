@@ -63,7 +63,7 @@ export const SidebarData = [
         responsive: true
     },
     {
-        title:'Achat crédit',
+        title:'Achat',
         path: '/Credits',
         icon: <FiIcons.FiShoppingBag/>,
         cName: 's-sidebar__nav-link',

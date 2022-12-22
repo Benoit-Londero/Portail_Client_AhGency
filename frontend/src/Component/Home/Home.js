@@ -164,8 +164,10 @@ export default function Home() {
                                         <div id="desktop">                                
                                              <table className="detail_TS" key={index}>
                                                   <thead>
-                                                       <tr><th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th></tr>
-                                                       <tr><th colspan="2"><button className="close_modale" onClick={closeTasks}>X</button></th></tr>
+                                                       <tr>
+                                                            <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
+                                                            <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
+                                                       </tr>
                                                   </thead>
                                                   <tbody>
                                                        <tr>
