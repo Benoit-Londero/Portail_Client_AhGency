@@ -46,7 +46,7 @@ export default function Stats(){
           }
      }
 
-     onload();
+     onLoad();
 
      return (
           <div className="stats">
