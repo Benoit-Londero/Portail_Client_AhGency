@@ -3,7 +3,7 @@
 }
 
 *{
-    font-family: 'Poppins','Manjari', arial;
+    font-family: 'Lato','Manjari', arial;
 }
 
 .App-logo {
@@ -49,7 +49,6 @@
 /* TEXTE & TITRE */ 
 
 h1{
-    font-family: 'Inter';
     text-align: left;
     font-size: 24px;
     font-weight: 400!important;
@@ -62,7 +61,6 @@ h1{
 }
 
 h2{
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
@@ -75,12 +73,10 @@ h2{
 }
 
 h3{
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
     line-height: 15px;
-    /* identical to box height */
 
     letter-spacing: 0.3em;
 
@@ -95,14 +91,11 @@ label{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 15px;
     margin-top: 20px;
-    /* identical to box height */
 
     text-align: left;
-    text-transform: capitalize;
-
     color: #000000;
 }
 
@@ -311,7 +304,7 @@ form #title{
 
 svg {
     vertical-align: middle;
-    font-size: 20px;
-    color:currentColor;
-    stroke:currentColor;
+    font-size: 15px;
+    color:currentColor!important;
+    stroke: currentColor!important;;
 }
