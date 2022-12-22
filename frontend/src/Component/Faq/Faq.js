@@ -1,5 +1,5 @@
 import React from "react";
-import './Faq.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';

@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import NavBar from "../NavBar/NavBar";
-import './Projet.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Projet() {

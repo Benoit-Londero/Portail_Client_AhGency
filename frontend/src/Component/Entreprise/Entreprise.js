@@ -4,10 +4,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './Entreprise.css';
 
 import * as BsIcons from "react-icons/bs";
 import * as MdIcons from "react-icons/md";
+
+/* import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom"; */
 
 export default function Entreprise() {
 
@@ -118,7 +120,7 @@ export default function Entreprise() {
                <p>Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min</p><br/>
                <p><b>Dépensé : {/* {moneySpend} */} €</b></p>
                
-               {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>}
+               {/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}
           </div>
                </Row>
                <Row>
@@ -159,7 +161,7 @@ export default function Entreprise() {
                          </table>
                     </form>
                     {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
-                    {/* <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p> */}
+                    <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p>
                     </Col>
                </Row>          
           </Container>

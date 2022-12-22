@@ -1,6 +1,5 @@
 import * as React from 'react'
 import NavBar from "../NavBar/NavBar.js";
-import './Facture.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";

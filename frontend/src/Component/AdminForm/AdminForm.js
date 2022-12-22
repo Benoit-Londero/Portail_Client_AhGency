@@ -151,8 +151,6 @@ export default function AdminForm() {
                   <input type="text" placeholder="Entrez le titre de la tâche" id="title" name="title" required/></label>
                 </td>
               </tr>
-              
-              
               <tr>
                 <td>
                   <label for="durée_tache"><MdIcons.MdOutlineMoreTime /> Durée (en min.)<span className="required">*</span></label>
