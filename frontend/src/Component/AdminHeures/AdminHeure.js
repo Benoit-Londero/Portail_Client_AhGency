@@ -53,42 +53,39 @@ export default function AdminHeure() {
   return (      
     <div>
         <NavBar />
-        <div className="project_sidebar">
-
-        </div>
-
+        <div className="project_sidebar"></div>
         <h1>Ajouter des heures à un client</h1>
 
-        <div  id='hourForm'>
+        <div  id='hourForm' className="main__content">
       
-        <form id="HeureForm" onSubmit={handleSubmitHeure}>
-          <table>
-            <tbody>
-              <tr>
-                <td><label for="for_who">Client<span className="required">*</span></label></td>
-                <td><select id='for_who' name="for_who" required>
-                      <option id="disabled"> Sélectionnez un client </option>
-                        {usersInfos.map((user, index) => 
-                          <option key={index} value={user.ID}>{user.Login}</option>
-                        )}
-                    </select>
-                </td>
-              </tr>
-              <tr>
-                <td><label for="heure_achete">Nombre d'heures achetées<span className="required">*</span></label></td>
-                <td><input type="number" placeholder="heure_achete" id='heure_achete' name="heure_achete" required/></td>
-              </tr>
-              <tr>
-                <td><label for="date_Achat">Date d'achat<span className="required">*</span></label></td>
-                <td>
-                  <input type="date" placeholder="Date" id='date_Achat' name="date_Achat" required/>
-                  <input type="hidden" name="id_agent" value={currentIDUser} />
-                </td>
-              </tr>
-              <tr><td colspan="2"><input type="submit" value="Ajouter"/></td></tr>
-            </tbody>
-          </table>
-        </form>
+          <form id="HeureForm" onSubmit={handleSubmitHeure}>
+            <table>
+              <tbody>
+                <tr>
+                  <td><label for="for_who">Client<span className="required">*</span></label></td>
+                  <td><select id='for_who' name="for_who" required>
+                        <option id="disabled"> Sélectionnez un client </option>
+                          {usersInfos.map((user, index) => 
+                            <option key={index} value={user.ID}>{user.Login}</option>
+                          )}
+                      </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="heure_achete">Nombre d'heures achetées<span className="required">*</span></label></td>
+                  <td><input type="number" placeholder="heure_achete" id='heure_achete' name="heure_achete" required/></td>
+                </tr>
+                <tr>
+                  <td><label for="date_Achat">Date d'achat<span className="required">*</span></label></td>
+                  <td>
+                    <input type="date" placeholder="Date" id='date_Achat' name="date_Achat" required/>
+                    <input type="hidden" name="id_agent" value={currentIDUser} />
+                  </td>
+                </tr>
+                <tr><td colspan="2"><input type="submit" value="Ajouter"/></td></tr>
+              </tbody>
+            </table>
+          </form>
         </div>
     </div>
 )}

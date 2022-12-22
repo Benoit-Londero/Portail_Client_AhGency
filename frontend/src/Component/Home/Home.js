@@ -101,7 +101,7 @@ export default function Home() {
           <Link to ='/Projet'><Button className="sidebar_btn">+</Button></Link>
      </div>
 
-     <Container id="page_dashboard">
+     <Container id="page_dashboard"  className="main__content">
           <Row>
                <Col className="tableauTS">
                     <table>
@@ -156,43 +156,37 @@ export default function Home() {
           {detailTask === true ? <Row className="modal__newTask">
                
                <Col>                                      
-                         {
-                              filteredTS.map((item,index) => {
-                                   var day = Moment(item.Date_Tache_Effectuee).format('DD');
-                                   var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
-                                   return (  
-                                        <div id="desktop">                                
-                                             <table className="detail_TS" key={index}>
-                                                  <thead>
-                                                       <tr>
-                                                            <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
-                                                            <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
-                                                       </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                       <tr>
-                                                            <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
-                                                            <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
-                                                       </tr>
-                                                       <tr>
-                                                            <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
-                                                            <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                                       </tr>
-                                                       <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
-                                                       <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
-                                                  </tbody>
-
-                                             </table>
-                                        </div> 
-                                   )
-                              })
-                         }
+                    {filteredTS.map((item,index) => {
+                         var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                         var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+                         return (  
+                              <div id="desktop">                                
+                                   <table className="detail_TS" key={index}>
+                                        <thead>
+                                             <tr>
+                                                  <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
+                                                  <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
+                                             </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr>
+                                                  <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
+                                                  <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
+                                                  <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                             </tr>
+                                             <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
+                                             <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
+                                        </tbody>
+                                   </table>
+                              </div> 
+                         )
+                    })}
                     
                     <div class="mobile">
-                         <h2>Détails</h2>
-
                          {filteredTS.map((item,index) => {
-
                               var day = Moment(item.Date_Tache_Effectuee).format('DD');
                               var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                               
@@ -211,8 +205,7 @@ export default function Home() {
                                         </tr>
                                    </tbody>
                               </table>)
-                         })
-                         }                    
+                         })}                    
                     </div> 
                </Col> 
           </Row> : ''}

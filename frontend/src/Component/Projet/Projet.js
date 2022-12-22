@@ -66,8 +66,7 @@ export default function Projet() {
 
   return (
     <div>
-        <div className="project_sidebar">
-        </div>
+        <div className="project_sidebar"></div>
 
         <div id='adminForm'>
             <NavBar />
@@ -75,7 +74,7 @@ export default function Projet() {
             {message === false ? <form id="DemandeForm" onSubmit={handleDemande}>
             <table>
                 <thead>
-                <tr><td><h2>Informations sur la demande</h2></td></tr>
+                    <tr><th><h2>Informations sur la demande</h2></th></tr>
                 </thead>
                 <tbody>
                     <tr>
@@ -103,10 +102,6 @@ export default function Projet() {
                     <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
                     <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
                     <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>
-                    {/* <tr>
-                        <td><label for="siteURL">Veuillez entrer l'URL de votre site web</label></td>
-                        <td><input type="text" placeholder="(exemple : www.google.be, https://www.ahgency.be, ....)" id="siteURL" name="siteURL"/></td>
-                    </tr> */}
 
                     <tr>
                         <td><label for="deadline">Pour quand doit-il être fini?</label></td>
@@ -122,6 +117,5 @@ export default function Projet() {
             </form> : <table><thead>Votre demande a bien été enregistrée, notre équipe reviendra vers vous dans les plus brefs délais</thead><tbody><button onClick={handleRetour}>Revenir au formulaire</button></tbody></table>}
         </div>
     </div>
-    
   )
 }

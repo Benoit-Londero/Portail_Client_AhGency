@@ -71,78 +71,73 @@ export default function AdminForm() {
 
     <div>
         <NavBar />
+        <div className="project_sidebar"></div>
 
-        <div className="project_sidebar">
-                    
-        </div>
-
+      <div id='adminForm' className="main__content">
         <h1>Encoder une tâche</h1>
-      
-      <div id='adminForm'>
-
-        <form id="timesheetForm" onSubmit={handleSubmitTS}>
-          <table>
-            <tbody>
-              <tr>
-                <td colspan="2">
-                  <label for="title">Titre de la tache <span className="required">*</span>
-                  <input type="text" placeholder="Entrez le titre de la tâche" id="title" name="title" required/></label></td>
-              </tr>
-              <tr>
-                <td><label for="durée_tache"><MdIcons.MdOutlineMoreTime /> Durée (en min.)<span className="required">*</span></label></td>
-                <td><input type="number" placeholder="25" id="duree_tache" name="duree_tache" required/></td>
-              </tr>
-              <tr>
-                <td><label for="date_tache"><BsIcons.BsCalendarCheck/> Date d'éxecution<span className="required">*</span></label></td>
-                <td><input type="date" placeholder="Date" id='date_tache' name="date_tache" required/></td>
-              </tr>
-              <tr>
-                <td><label for="who_do_it"><BsIcons.BsPerson/> Assignée à<span className="required">*</span></label></td>
-                <td>
-                  <select id='who_do_it' name="who_do_it" required>
-                    <option id="disabled"> Sélectionnez un consultant </option>
-                    <option value="Fabian Hernandez Barco">Fabian Hernandez Barco</option>
-                    <option value="Quentin De Jarnac">Quentin De Jarnac</option>
-                    <option value="Benoit Londero">Benoit Londero</option>
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td><label for="for_who"> <BsIcons.BsFlag/> Client<span className="required">*</span></label></td>
-                <td>
-                  <select id='for_who' name="for_who" onChange={handleSelect} required>
-                    <option id="disabled"> Sélectionnez un client </option>
-                    {usersInfos.map((user, index) => 
-                      <option key={index} value={user.ID}>{user.Login}</option>
-                    )}
-                  </select>
-                </td>
-              </tr>
-              <tr>
-                <td><label for="projet"> <BsIcons.BsClipboardCheck/> Projet<span className="required">*</span></label></td>
-                <td>
-                    <select id='projet' name="projet" required>
-                        <option id="disabled"> Sélectionnez un projet </option>
-                        {projetFiltered.map((pro, index) => 
-                            <option key={index} value={pro.ID}>{pro.Tickets}</option>
-                        )}
+          <form id="timesheetForm" onSubmit={handleSubmitTS}>
+            <table>
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <label for="title">Titre de la tache <span className="required">*</span>
+                    <input type="text" placeholder="Entrez le titre de la tâche" id="title" name="title" required/></label>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="durée_tache"><MdIcons.MdOutlineMoreTime /> Durée (en min.)<span className="required">*</span></label></td>
+                  <td><input type="number" placeholder="25" id="duree_tache" name="duree_tache" required/></td>
+                </tr>
+                <tr>
+                  <td><label for="date_tache"><BsIcons.BsCalendarCheck/> Date d'éxecution<span className="required">*</span></label></td>
+                  <td><input type="date" placeholder="Date" id='date_tache' name="date_tache" required/></td>
+                </tr>
+                <tr>
+                  <td><label for="who_do_it"><BsIcons.BsPerson/> Assignée à<span className="required">*</span></label></td>
+                  <td>
+                    <select id='who_do_it' name="who_do_it" required>
+                      <option id="disabled"> Sélectionnez un consultant </option>
+                      <option value="Fabian Hernandez Barco">Fabian Hernandez Barco</option>
+                      <option value="Quentin De Jarnac">Quentin De Jarnac</option>
+                      <option value="Benoit Londero">Benoit Londero</option>
                     </select>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <label for="tache" id="Descr__label"><BsIcons.BsTextParagraph/>Ajouter une description <span className="required">*</span></label>
-                  <textarea id="tache" name="tache" placeholder="tâche" required></textarea>
-                </td>
-              </tr>
-              <tr className="row_submit">
-                <td><input type="reset" id="reset"/></td>
-                <td><input type="submit" className="btn btn_primary" value="Enregistrer"/></td>
-              </tr>
-            </tbody>
-          </table>
-        </form>
-    </div>
-  </div>
-    
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="for_who"> <BsIcons.BsFlag/> Client<span className="required">*</span></label></td>
+                  <td>
+                    <select id='for_who' name="for_who" onChange={handleSelect} required>
+                      <option id="disabled"> Sélectionnez un client </option>
+                      {usersInfos.map((user, index) => 
+                        <option key={index} value={user.ID}>{user.Login}</option>
+                      )}
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="projet"> <BsIcons.BsClipboardCheck/> Projet<span className="required">*</span></label></td>
+                  <td>
+                      <select id='projet' name="projet" required>
+                          <option id="disabled"> Sélectionnez un projet </option>
+                          {projetFiltered.map((pro, index) => 
+                              <option key={index} value={pro.ID}>{pro.Tickets}</option>
+                          )}
+                      </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <label for="tache" id="Descr__label"><BsIcons.BsTextParagraph/>Ajouter une description <span className="required">*</span></label>
+                    <textarea id="tache" name="tache" placeholder="tâche" required></textarea>
+                  </td>
+                </tr>
+                <tr className="row_submit">
+                  <td><input type="reset" id="reset"/></td>
+                  <td><input type="submit" className="btn btn_primary" value="Enregistrer"/></td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+      </div>
+    </div>  
 )}

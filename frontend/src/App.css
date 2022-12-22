@@ -197,7 +197,7 @@
 
 /* Sidebar */
 .project_sidebar{
-    position: absolute;
+    position: fixed;
     left: 64px;
     top: 0;
     width: 220px;

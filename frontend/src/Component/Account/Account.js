@@ -9,7 +9,6 @@ import Entreprise from '../Entreprise/Entreprise.js';
 
 import * as BsIcons from "react-icons/bs";
 
-
 export default function NameForm() {
 
      const currentIDU = localStorage.getItem("currentIDU");
@@ -108,7 +107,7 @@ export default function NameForm() {
                     </div>
                </div>
           
-               <Container id="page_account">
+               <Container id="page_account" className="main__content">
 
                     <div className="tabs_account">
                          <button value="profil" onClick={handleOnglet}>Mon profil</button>

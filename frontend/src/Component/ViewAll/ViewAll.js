@@ -66,7 +66,7 @@ export default function ViewAll() {
                </div>
           </div>
      </Row>
-     <Container id="page_viewall">
+     <Container id="page_viewall" className="main__content">
           <Row className="customer_card_all timesheet">
                <Col>
 

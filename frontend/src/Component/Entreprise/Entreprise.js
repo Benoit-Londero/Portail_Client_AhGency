@@ -86,7 +86,6 @@ export default function Entreprise() {
           for(const pair of dataForm){
                jsonFormData[pair[0]] = pair[1];
           }
-
           return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
      }
 
@@ -105,11 +104,11 @@ export default function Entreprise() {
   }      
 
   return (
-    <div id="page_entreprise">
+    <div id="page_entreprise" className="main__content">
           <Container>
                <h2><BsIcons.BsBuilding/>Entreprise</h2>
                <Row>
-                    <div className="stats">
+                    <div className="stats_account">
                          <h2>Statistiques</h2>
 
                          <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */} h</p>
@@ -126,7 +125,7 @@ export default function Entreprise() {
                          <table className="Profil">
                               <tbody>
                                    <tr>
-                                        <td><label className="bold">Nom : </label></td>
+                                        <td><label className="bold">Nom: </label></td>
                                         <td><input type="text" name="nom" placeholder="Nom de l'entreprise" defaultValue ={currentNomE} required/></td>
                                    </tr>
                                    <tr>
@@ -134,20 +133,24 @@ export default function Entreprise() {
                                         <td><input type="text" name="tva" placeholder="BE123456789" defaultValue ={currentTVA} required/></td>
                                    </tr>
                                    <tr>
-                                        <td><label className="bold"> Adresse : </label></td>
+                                        <td><label className="bold"> Adresse: </label></td>
                                         <td><input type="text" name="adresse" placeholder="Votre adresse" defaultValue ={currentADRESSE} required/></td>
                                    </tr>
                                    <tr>
-                                        <td><label className="bold"><BsIcons.BsFillTelephoneFill/> Téléphone : </label></td>
+                                        <td><label className="bold"><BsIcons.BsFillTelephoneFill/> Téléphone: </label></td>
                                         <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue ={currentTEL}></input></td>
                                    </tr>
                                    <tr>
-                                        <td><label className="bold"><MdIcons.MdAlternateEmail/> Email : </label></td>
+                                        <td><label className="bold"><MdIcons.MdAlternateEmail/> Email: </label></td>
                                         <td><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue= {currentEMAILE}></input></td>
                                    </tr>
                                    <tr>
-                                        <td><label className="bold"> Site : </label></td>
+                                        <td><label className="bold"> Site: </label></td>
                                         <td><input type="text" id="web" name="web"  defaultValue= {currentSITE}></input></td>
+                                   </tr>
+                                   <tr>
+                                        <td><label className="bold"> Membres: </label></td>
+                                        <td><input type="text" id="members" name="members"  defaultValue= {dataU}></input></td>
                                    </tr>
                                    <tr>
                                         <td colspan="2"><input type="hidden" id="idE" name="idE" defaultValue= {currentIDE}></input>
