@@ -43,7 +43,6 @@
     padding:0;
 }
 
-
 .s-sidebar__nav:hover,
 .s-sidebar__nav:focus,
 .s-sidebar__trigger:focus+.s-sidebar__nav,
@@ -98,7 +97,6 @@
     bottom: 20px;
     left:0px;
 }
-
 
 /* Responsive Mobile */
 

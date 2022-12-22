@@ -1,0 +1,379 @@
+/* Init CSS */
+
+.resume,
+.stats,
+.tableauTS,
+.timesheet {
+    height: auto;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 20px 30px;
+    background:#fff;
+}
+
+.stats{
+    background-color: #12032c;
+    padding: 10px;
+    font-size: 10px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+}
+
+#page_dashboard{
+    width: 80vw!important;
+    margin-left: 15vw;
+    padding-top:9vh;
+}
+
+
+/***********************/
+/***** Panel User ******/
+
+.date_badge{
+    font-size: 20px;
+    text-align: center!important;
+    width: 40px;
+    vertical-align: middle;
+    line-height: 1.4em;
+    background: #6610f2;
+    border-radius: 10px;
+    color: #ffffff;
+    font-family: 'Poppins';
+    font-weight: 500;
+    padding: 5px;
+    aspect-ratio: 1;
+    max-height: 40px;
+}
+
+
+/*************************/
+/***** Statistiques ******/
+
+.stats h2{
+    color:#fff;
+}
+
+.stats p {
+    font-size:11px;
+    margin-bottom: 0;
+}
+
+.CircularProgressbar {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/**********************************/
+/*** Tableau tableauTS récentes ***/
+
+.tableauTS{
+    margin-bottom:50px;
+    background: #fafafa;
+}
+
+.tableauTS h2{
+    text-align: left;
+    vertical-align: top;
+    font-size: 16px!important;
+    color: #333;
+}
+
+.descr__thead{
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.tableauTS table {
+    min-width: 340px;
+}
+
+.task_table{
+    text-align: left;
+}
+
+.tableauTask{
+    background:#fff;
+}
+
+.tableauTask .last-child {
+    text-align: right;
+    width: 200px;
+}
+
+.tableauTS table td {
+    font-size: .8em;
+    font-weight: 300;
+    vertical-align: top;
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5em;
+}
+
+.stats p{
+    color:#fff;
+}
+
+.tableauTS a {
+    font-size: .7em;
+    border: none;
+    background: rgba(43,43,43,0.5);
+    color: #fff;
+    border-radius: 10px;
+    border: 2px solid #fff;
+}
+
+.tableauTS a:hover {
+    background: #fff;
+    color: #6610f2;
+    border: 2px solid #6610f2;
+}
+
+.tableauTS button:hover,
+.tableauTS button:focus {
+    background: #fff;
+    color: #00c0cb;
+    border: 2px solid #00c0cb;
+}
+
+.btn_ts_bottom{
+    background: #949494;
+    border: none;
+    border-bottom: 4px solid #5f5f5f!important;
+    border-radius: 10px;
+    color: #fff!important;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 2px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    height: 35px;
+}
+
+.btn_ts_bottom:hover,
+.btn_ts_bottom:focus{
+    border: 2px solid #00c0cb!important;
+    color: #00c0cb!important;
+}
+
+/*********************************/
+/***** Timesheet ******/
+
+.timesheet {
+    width: 100%;
+    height: auto;
+    margin-left:0px;
+}
+
+.timesheet h2 {
+    text-align: left;
+}
+
+.timesheet li {
+    list-style-type: none;
+}
+
+
+.col__timeToUse{
+    width:200px;
+}
+
+.allowed_time{
+    text-align: center!important;
+    background: #6610f2;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px;
+    border-radius: 7px;
+}
+
+.date_creation{
+    font-size:12px;
+}
+
+.timesheet table {
+    width: 100%;
+}
+
+.timesheet thead {
+    border-bottom: 1px solid #eee;
+    line-height: 1em;
+}
+
+.timesheet tr {
+    line-height: 1em;
+}
+
+.timesheet .time_hrs_right {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+}
+
+#desktop{
+    width: 50vw;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px;
+    background: #fff;
+    margin-top: 5vh;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.agent__{
+    text-align:left;
+}
+.time_spend{
+    text-align:right;
+}
+
+.detail_TS p{
+    text-align:left;
+    font-size: 12px;
+}
+
+.detail_TS .date_badge{
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.detail_TS .tasks{
+    text-align:justify;
+}
+
+.close_modale{
+    border-radius: 5px;
+    border: none;
+    width: 25px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.detail_TS .developer{
+    width:45px;
+}
+
+.mobile{
+    display: none;
+}
+
+.descr__prjt{
+    text-align: justify;
+    font-size: 12px;
+    line-height: 1.5em;
+}
+
+/* Responsive tablet */
+
+@media (min-width:756px) and (max-width:1480px) {
+    #page_dashboard {
+        margin-left: 200px;
+    }
+}
+
+
+/* Responsive Mobile */
+/*********************/
+
+@media screen and (max-width:756px) and (orientation: portrait) {
+
+    #page_dashboard{
+        width: 90vw!important;
+        margin: auto!important;
+    }
+    
+    .resume,
+    .stats,
+    .tableauTS,
+    .timesheet {
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 5px 5px 10px rgba(189, 229, 244, 0.4);
+        margin-bottom: 30px;
+        padding: 30px 10px;
+        min-width: 80vw;
+    }
+
+    .resume{
+        box-shadow: none;
+    }
+
+    .resume h1{
+        font-size: 2em!important;
+    }
+
+    /*********************************/
+    /*** Tableau tableauTS récentes ***/
+    .tableauTS table {
+        min-width: 90%;
+    }
+    /*********************************/
+    /***** Timesheet ******/
+    .timesheet {
+        width: 100%;
+        height: auto;
+        margin-bottom: 200px;
+    }
+
+    #desktop{
+        display:none;
+    }
+
+
+    .mobile{
+        display:block;
+    }
+
+    .hide_mobile{
+        display:none;
+    }
+
+    .col_mobile_badge{
+        vertical-align:top;
+        min-width:60px;
+        margin-right:10px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.34919905462184875) 48%,
+                                           rgba(231,231,231,1) 50%,
+                                           rgba(255,255,255,0) 52%);
+    }
+
+    .title_of_task{
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .tasks{
+        font-size:12px;
+        font-weight: 300;
+        font-style: italic;
+        margin-top: 20px;
+        width: auto;
+        text-align: justify;
+    }
+
+    .dateoftask{
+        text-align: left;
+        line-height: 3em;
+    }
+}
+
+.modal__newTask #timesheetForm{
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px rgb(0 0 0 / 70%);
+}
+
+.modal__newTask .s-sidebar__nav{
+    display:none;
+}
+
+.first_col_pjt{
+    width:60px;
+}

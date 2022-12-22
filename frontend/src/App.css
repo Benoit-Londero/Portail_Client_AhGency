@@ -6,7 +6,6 @@
     font-family: 'Poppins','Manjari', arial;
 }
 
-
 .App-logo {
     height: 40vmin;
     pointer-events: none;
@@ -139,7 +138,6 @@ p {
     font-size: 12px;
 }
 
-
 /* Badge Users */
 
 .bdg_user{
@@ -201,7 +199,6 @@ p {
         left:0;
     }
 }
-
 
 /* Default CSS - FORM */
 
@@ -281,4 +278,3 @@ svg {
     color:currentColor;
     stroke:currentColor;
 }
-
