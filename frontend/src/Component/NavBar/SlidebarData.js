@@ -32,7 +32,8 @@ export const SidebarData = [
         icon: <RiIcons.RiLayout3Line />,
         cName: 's-sidebar__nav-link admin__nav-link',
         admin: true,
-        category: 'admin'
+        category: 'admin',
+        responsive: false
     },
     {
         title:'Ajout heures',
@@ -40,7 +41,8 @@ export const SidebarData = [
         icon: <MdIcons.MdOutlineMoreTime />,
         cName: 's-sidebar__nav-link admin__viewall-link',
         admin: true,
-        category: 'admin'
+        category: 'admin',
+        responsive: false
     },
     {
         title:'Toutes les tâches',
@@ -99,7 +101,8 @@ export const SidebarData = [
         icon: <RiIcons.RiLogoutBoxLine />,
         cName: 's-sidebar__nav-link',
         admin: false,
-        category: 'account'
+        category: 'account',
+        responsive: false
     },
     {
         title:'Client',
@@ -107,6 +110,7 @@ export const SidebarData = [
         icon: <FiIcons.FiUsers />,
         cName: 's-sidebar__nav-link',
         admin: true,
-        category: 'admin' 
+        category: 'admin',
+        responsive: false
     }
 ]

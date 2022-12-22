@@ -9,6 +9,9 @@ import './Entreprise.css';
 import * as BsIcons from "react-icons/bs";
 import * as MdIcons from "react-icons/md";
 
+import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
+
 export default function Entreprise() {
 
   const currentIDE = localStorage.getItem("currentIDE");
@@ -69,89 +72,6 @@ export default function Entreprise() {
           onLoad();
      },[currentIDU]);
 
-  const ProgressBar = (props) =>{
-     const { bgcolor, completed } = props;
-  }
-
-  const containerStyles = {
-     height: 20,
-     width: '100%',
-     backgroundColor: "6610f2",
-     borderRadius: 50,
-     margin: 50
-   }
-
-   const fillerStyles = {
-     height: '100%',
-     width: `${completed}%`,
-     backgroundColor: bgcolor,
-     borderRadius: 'inherit',
-     textAlign: 'right',
-     transition: 'width 1s ease-in-out',
-   }
- 
-   const labelStyles = {
-     padding: 5,
-     color: 'white',
-     fontWeight: 'bold'
-   }
-
-   return(
-     <div style={containerStyles}>
-      <div style={fillerStyles}>
-        <span style={labelStyles}>{`${completed}%`}</span>
-      </div>
-    </div>
-   )
-
-
-  useEffect(() => {
-     let dataU = {currentIDEntreprise: currentIDE};
-          
-     const onLoad = async () => {
-               
-          const response = await fetch('/api/getInfosEntreprise', { 
-               method: 'POST',
-               headers: {'Content-Type': 'application/json'},
-               body: JSON.stringify(dataU)
-          })
-     
-          const data = await response.json();
-          if(response.status === 200){
-               setCurrentNomE(data.Nom_societe); 
-               setCurrentTVA(data.TVA);
-               setCurrentADRESSE(data.Adresse);
-               setCurrentTEL(data.Telephone);
-               setCurrentEMAILE(data.Email);
-               setCurrentSITE(data.Site_web);
-               setCurrentMAINTENANCE(data.Maintenance);
-          } else {
-               alert('Erreur du serveur, veuillez réessayer plus tard');
-          }
-
-          fetch('/api/getHeureEntreprise', { 
-               method: 'POST',
-               headers: {'Content-Type': 'application/json'},
-               body: JSON.stringify(dataU)
-          })
-          .then(res => res.json())
-          .then(json => setMinEntreprise(json[0].minutesEntreprise))
-          .catch(err => console.info(err))
-
-          fetch('/api/getTempsAlloue', { 
-               method: 'POST',
-               headers: {'Content-Type': 'application/json'},
-               body: JSON.stringify(dataU)
-          })
-          .then(res => res.json())
-          .then(json => setTempsAlloue(json[0].minutesAllouees))
-          .catch(err => console.info(err))
-     }
-
-    onLoad();
-
-  }, [currentIDE])
-
   const handleClick = async e => {
      e.preventDefault();
      let editForm = document.getElementById('editForm'); //on récupère l'élement <form> et ces différents <input>
@@ -200,7 +120,6 @@ export default function Entreprise() {
                <p><b>Dépensé : {moneySpend} €</b></p>
                                       
                
-               {<ProgressBar bgColor="#6610f2" completed={checkPercent}/>}
                
                {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>}
           </div>
