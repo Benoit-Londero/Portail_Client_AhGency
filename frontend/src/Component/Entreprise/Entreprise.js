@@ -24,6 +24,86 @@ export default function Entreprise() {
   const [tempsAlloue, setTempsAlloue] = useState();
   const [validation, setValidation] = useState(false);
 
+  const [currentHeureTOT, setCurrentHeureTOT] = useState();
+     const [currentHeureREST, setCurrentHeureREST] = useState();
+     const [moneySpend, setMoneySpend] = useState();
+     const [checkPercent, setCheckPercent] = useState();
+
+     const currentIDU = localStorage.getItem("currentIDU");
+
+     let dataU = {currentIDUser: currentIDU};
+
+     useEffect(() => {
+          const onLoad = async () => {
+               
+               const response = await fetch('/api/getInfosClient', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dataU)
+               })
+               
+               const data = await response.json();
+          
+               if(response.status === 200){
+                    setCurrentHeureTOT(data.Minutes_Achetees);
+                    setCurrentHeureREST(data.Minutes_Restantes);
+
+                    //Calcul temps restants (On soustrait le temps dépensé au temps total)
+                    const timeSpend = data.Minutes_Achetees - data.Minutes_Restantes;
+
+                    //Calcul du montant dépensé (temps dépensé)
+                    setMoneySpend(Math.round(((timeSpend/60) * 75)));
+
+                    if (parseInt(data.Minutes_Achetees) === 0) {
+                         const percentage = 0;
+                         setCheckPercent(percentage);
+                    } else {
+                         const percentage = Math.round(((100*data.Minutes_Restantes) / data.Minutes_Achetees));
+                         setCheckPercent(percentage);
+                    }
+               } else {
+                    alert('Erreur du serveur, veuillez réessayer plus tard');
+               }
+          }
+
+          onLoad();
+     },[currentIDU]);
+
+  const ProgressBar = (props) =>{
+     const { bgcolor, completed } = props;
+  }
+
+  const containerStyles = {
+     height: 20,
+     width: '100%',
+     backgroundColor: "6610f2",
+     borderRadius: 50,
+     margin: 50
+   }
+
+   const fillerStyles = {
+     height: '100%',
+     width: `${completed}%`,
+     backgroundColor: bgcolor,
+     borderRadius: 'inherit',
+     textAlign: 'right',
+     transition: 'width 1s ease-in-out',
+   }
+ 
+   const labelStyles = {
+     padding: 5,
+     color: 'white',
+     fontWeight: 'bold'
+   }
+
+   return(
+     <div style={containerStyles}>
+      <div style={fillerStyles}>
+        <span style={labelStyles}>{`${completed}%`}</span>
+      </div>
+    </div>
+   )
+
 
   useEffect(() => {
      let dataU = {currentIDEntreprise: currentIDE};
@@ -108,7 +188,21 @@ export default function Entreprise() {
     <div id="page_entreprise">
           <NavBar/>
           <Container>
-               <h2><BsIcons.BsBuilding/> Informations entreprise</h2>
+               <h2><BsIcons.BsBuilding/>Entreprise</h2>
+               <Row>
+               <div className="stats">
+               <h2>Statistiques</h2>
+
+               <p>Achetées : {Math.round(currentHeureTOT /60)} h</p>
+               <p>Restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
+               <p><b>Dépensé : {moneySpend} €</b></p>
+                                      
+               
+               {<ProgressBar bgColor="#6610f2" completed={checkPercent}/>}
+               
+               {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>}
+          </div>
+               </Row>
                <Row>
                     <p className="highlight">Heures restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p>
                     <Col>
