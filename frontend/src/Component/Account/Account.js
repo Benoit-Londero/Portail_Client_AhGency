@@ -24,14 +24,6 @@ export default function NameForm() {
 
      useEffect(() => {
           let dataU = {currentIDUser: currentIDU};
-          
-          // fetch('/api/getInfosClient', { 
-          //           method: 'POST', 
-          //           body: JSON.stringify(dataU)
-          // })
-          // .then(res => res.json())
-          // .then(json => setGetInfos(json))
-          // .catch(err => console.info(err))
 
           const onLoad = async () => {
            
@@ -54,22 +46,6 @@ export default function NameForm() {
           onLoad();
 
      }, [currentIDU])
-      
-
-     /* const contact_agc = [
-          {
-               nom : 'Quentin de Jarnac',
-               mail : 'quentin@ahgency.be'
-          },
-          {
-               nom : 'Fabian Hernandez',
-               mail : 'fabian@ahgency.be'
-          },
-          {
-               nom : 'Benoit Londero',
-               mail : 'benoit@ahgency.be'
-          }
-     ] */
 
      const handleClick = async e => {
           e.preventDefault();
@@ -122,79 +98,70 @@ export default function NameForm() {
      }
 
      return (
-          <div id="page_account">
+          <div>
                <NavBar />
-               <div className="tabs_account">
-                    <button value="profil" onClick={handleOnglet}>Mon profil</button>
-                    <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
+
+               <div className="project_sidebar">
+                    <div className="tabs_account">
+                         <button value="profil" onClick={handleOnglet}>Mon profil</button>
+                         <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
+                    </div>
                </div>
-               
-               {profil === false ? <Container>
+          
+               <Container id="page_account">
 
-                    <Row>
-                         <Col className="account_section">
-                              <h2>Mes informations</h2>
-                              
-                              <form id="editForm" onSubmit={handleClick}>
-                              <table className="Profil">
-                                   <tbody>
-                                        <tr>
-                                             <td><label className="bold"><BsIcons.BsPerson/> Nom : </label> </td>
-                                             <td><input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td>
-                                        </tr>
-                                        <tr>
-                                             <td><label className="bold"> <BsIcons.BsFillPersonFill/> Prénom : </label></td>
-                                             <td><input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td>
-                                        </tr>
-                                        <tr>
-                                             <td><label className="bold"><BsIcons.BsBriefcase/> Fonction : </label></td>
-                                             <td><input type="text" name="fonction" placeholder="Directeur, Graphiste,..."></input></td>
-                                        </tr>
-                                        <tr>
-                                             <td><label className="bold"><BsIcons.BsAt/> Adresse email : </label></td>
-                                             <td><input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/></td>
-                                        </tr>
-                                        <tr>
-                                             <td><label className="bold"> Mot de passe : </label></td>
-                                             <td><input type="password" id="pass" name="pass" placeholder="********"></input></td>
-                                        </tr>
-                                        
-                                        {error === true ? <tr><td colspan="3"><span>Les mots de passes ne sont pas identiques !</span></td></tr> : null}
-
-                                        <tr>
-                                             <td><label className="bold"> Confirmation du mot de passe : </label></td>
-                                             <td><input type="password" id="confpass" name="confpass" placeholder="********"></input></td>
-                                        </tr>
-                                        <tr><td><input type="hidden" name="idu" value ={currentIDU}/></td></tr>
-                                        <tr><td colspan="3"><input className="btn primary-btn" type="submit" name="modifier" value="Enregistrer" /></td></tr>
-                                   </tbody>
-                              </table>
-                              </form>
-                              {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
-                         </Col>
-
-                         {/* <Col md={{span: 3, offset: 1}} className="my_contact">
-                         <h2>Envoyer un mail à</h2>
-                              <ul>
-                                   {contact_agc.map((item,index) => {
-                                        return (
-                                             <li key={index}>
-                                                  <table>
-                                                       <tbody>
-                                                            <tr>
-                                                            <td>{item.nom}<br/><span  className="mail">{item.mail }</span></td>
-                                                            <td><a href={"mailto:" + item.mail }><ImMail4 className="btn_mail"/></a></td>
-                                                            </tr>
-                                                       </tbody>
-                                                  </table>
-                                             </li>
-                                        )
-                                   })}
-                              </ul>
-                         </Col> */}
-                    </Row>
+                    <div className="tabs_account">
+                         <button value="profil" onClick={handleOnglet}>Mon profil</button>
+                         <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
+                    </div>
                     
-               </Container> : <Entreprise></Entreprise>}
+                    {profil === false ? <div>
+
+                         <Row>
+                              <Col className="account_section">
+                                   <h2>Mes informations</h2>
+                                   
+                                   <form id="editForm" onSubmit={handleClick}>
+                                   <table className="Profil">
+                                        <tbody>
+                                             <tr>
+                                                  <td><label className="bold"><BsIcons.BsPerson/> Nom : </label> </td>
+                                                  <td><input type="text" name="nom" placeholder="Votre nom" defaultValue ={currentNOM} required/></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><label className="bold"> <BsIcons.BsFillPersonFill/> Prénom : </label></td>
+                                                  <td><input type="text" name="prenom" placeholder="Votre prénom" defaultValue ={currentPNOM} required/></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><label className="bold"><BsIcons.BsBriefcase/> Fonction : </label></td>
+                                                  <td><input type="text" name="fonction" placeholder="Directeur, Graphiste,..."></input></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><label className="bold"><BsIcons.BsAt/> Adresse email : </label></td>
+                                                  <td><input type="text" name="email" placeholder="Votre email" defaultValue ={currentMAIL} required/></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><label className="bold"> Mot de passe : </label></td>
+                                                  <td><input type="password" id="pass" name="pass" placeholder="********"></input></td>
+                                             </tr>
+                                             
+                                             {error === true ? <tr><td colspan="3"><span>Les mots de passes ne sont pas identiques !</span></td></tr> : null}
+
+                                             <tr>
+                                                  <td><label className="bold"> Confirmation du mot de passe : </label></td>
+                                                  <td><input type="password" id="confpass" name="confpass" placeholder="********"></input></td>
+                                             </tr>
+                                             <tr><td><input type="hidden" name="idu" value ={currentIDU}/></td></tr>
+                                             <tr><td colspan="3"><input className="btn primary-btn" type="submit" name="modifier" value="Enregistrer" /></td></tr>
+                                        </tbody>
+                                   </table>
+                                   </form>
+                                   {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
+                              </Col>
+                         </Row>
+                              
+                    </div> : <Entreprise></Entreprise>}
+               </Container>
          </div>
      )
 }

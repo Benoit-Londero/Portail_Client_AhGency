@@ -13,8 +13,8 @@ module.exports = async function (context, req) {
       let date_achat = req.body.date_Achat;
       let log = req.body.id_agent;
   
-      let qSQL = "UPDATE users SET Minutes_Restantes = Minutes_Restantes + ?, Minutes_Achetees = Minutes_Achetees + ?,Logs  WHERE ID = ?";
-      let qSQL2 = "INSERT INTO achat(ID_Client,Nbre_Heures,Logs,Date) VALUES (?,?,?)";
+      let qSQL = "UPDATE users SET Minutes_Restantes = Minutes_Restantes + ?, Minutes_Achetees = Minutes_Achetees + ?,Logs = ?  WHERE ID = ?";
+      let qSQL2 = "INSERT INTO achat(ID_Client,Nbre_Heures,Logs,Date) VALUES (?,?,?,?)";
   
       con.query(qSQL, [duree,duree,log,client], function (err,results){
         if (err) throw err;

@@ -107,21 +107,18 @@ export default function Entreprise() {
 
   return (
     <div id="page_entreprise">
-             <div className="project_sidebar">
-        </div>
-          <NavBar/>
           <Container>
                <h2><BsIcons.BsBuilding/>Entreprise</h2>
                <Row>
-               <div className="stats">
-               <h2>Statistiques</h2>
+                    <div className="stats">
+                         <h2>Statistiques</h2>
 
-               <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */} h</p>
-               <p>Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min</p><br/>
-               <p><b>Dépensé : {/* {moneySpend} */} €</b></p>
-               
-               {/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}
-          </div>
+                         <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */} h</p>
+                         <p>Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min</p><br/>
+                         <p><b>Dépensé : {/* {moneySpend} */} €</b></p>
+                    
+                         {/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}
+                    </div>
                </Row>
                <Row>
                     <p className="highlight">Heures restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p>

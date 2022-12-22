@@ -148,29 +148,18 @@ export default function AdminForm() {
               <tr>
                 <td colspan="2">
                   <label for="title">Titre de la tache <span className="required">*</span>
-                  <input type="text" placeholder="Entrez le titre de la tâche" id="title" name="title" required/></label>
-                </td>
+                  <input type="text" placeholder="Entrez le titre de la tâche" id="title" name="title" required/></label></td>
               </tr>
               <tr>
-                <td>
-                  <label for="durée_tache"><MdIcons.MdOutlineMoreTime /> Durée (en min.)<span className="required">*</span></label>
-                </td>
-                <td>
-                  <input type="number" placeholder="25" id="duree_tache" name="duree_tache" required/>
-                </td>
+                <td><label for="durée_tache"><MdIcons.MdOutlineMoreTime /> Durée (en min.)<span className="required">*</span></label></td>
+                <td><input type="number" placeholder="25" id="duree_tache" name="duree_tache" required/></td>
               </tr>
               <tr>
-                <td>
-                  <label for="date_tache"><BsIcons.BsCalendarCheck/> Date d'éxecution<span className="required">*</span></label>
-                </td>
-                <td>
-                  <input type="date" placeholder="Date" id='date_tache' name="date_tache" required/>
-                </td>
+                <td><label for="date_tache"><BsIcons.BsCalendarCheck/> Date d'éxecution<span className="required">*</span></label></td>
+                <td><input type="date" placeholder="Date" id='date_tache' name="date_tache" required/></td>
               </tr>
               <tr>
-                <td>
-                  <label for="who_do_it"><BsIcons.BsPerson/> Assignée à<span className="required">*</span></label>
-                </td>
+                <td><label for="who_do_it"><BsIcons.BsPerson/> Assignée à<span className="required">*</span></label></td>
                 <td>
                   <select id='who_do_it' name="who_do_it" required>
                     <option id="disabled"> Sélectionnez un consultant </option>
@@ -179,12 +168,9 @@ export default function AdminForm() {
                     <option value="Benoit Londero">Benoit Londero</option>
                   </select>
                 </td>
-                  
               </tr>
               <tr>
-                <td>
-                  <label for="for_who"> <BsIcons.BsFlag/> Client<span className="required">*</span></label>
-                </td>
+                <td><label for="for_who"> <BsIcons.BsFlag/> Client<span className="required">*</span></label></td>
                 <td>
                   <select id='for_who' name="for_who" onChange={handleSelect} required>
                     <option id="disabled"> Sélectionnez un client </option>
@@ -195,9 +181,7 @@ export default function AdminForm() {
                 </td>
               </tr>
               <tr>
-                <td>
-                  <label for="projet"> <BsIcons.BsClipboardCheck/> Projet<span className="required">*</span></label>
-                </td>
+                <td><label for="projet"> <BsIcons.BsClipboardCheck/> Projet<span className="required">*</span></label></td>
                 <td>
                     <select id='projet' name="projet" required>
                         <option id="disabled"> Sélectionnez un projet </option>
@@ -213,14 +197,10 @@ export default function AdminForm() {
                   <textarea id="tache" name="tache" placeholder="tâche" required></textarea>
                 </td>
               </tr>
-                <tr className="row_submit">
-                  <td colspan="">
-                    <input type="reset" id="reset"/>
-                  </td>
-                  <td>
-                    <input type="submit" className="btn btn_primary" value="Enregistrer"/>
-                    </td>
-                  </tr>
+              <tr className="row_submit">
+                <td><input type="reset" id="reset"/></td>
+                <td><input type="submit" className="btn btn_primary" value="Enregistrer"/></td>
+              </tr>
             </tbody>
           </table>
         </form>
