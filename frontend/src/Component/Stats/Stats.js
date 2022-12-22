@@ -14,39 +14,43 @@ export default function Stats(){
 
      let dataU = {currentIDUser: currentIDU};
 
-     const onLoad = async () => {
-           
-          const response = await fetch('/api/getInfosClient', { 
-               method: 'POST',
-               headers: {'Content-Type': 'application/json'},
-               body: JSON.stringify(dataU)
-          })
-           
-          const data = await response.json();
-     
-          if(response.status === 200){
-               setCurrentHeureTOT(data.Minutes_Achetees);
-               setCurrentHeureREST(data.Minutes_Restantes);
+     useEffect(() => {
+          const onLoad = async () => {
+               
+               const response = await fetch('/api/getInfosClient', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dataU)
+               })
+               
+               const data = await response.json();
+          
+               if(response.status === 200){
+                    setCurrentHeureTOT(data.Minutes_Achetees);
+                    setCurrentHeureREST(data.Minutes_Restantes);
 
-               //Calcul temps restants (On soustrait le temps dépensé au temps total)
-               const timeSpend = data.Minutes_Achetees - data.Minutes_Restantes;
+                    //Calcul temps restants (On soustrait le temps dépensé au temps total)
+                    const timeSpend = data.Minutes_Achetees - data.Minutes_Restantes;
 
-               //Calcul du montant dépensé (temps dépensé)
-               setMoneySpend(Math.round(((timeSpend/60) * 75)));
+                    //Calcul du montant dépensé (temps dépensé)
+                    setMoneySpend(Math.round(((timeSpend/60) * 75)));
 
-               if (parseInt(data.Minutes_Achetees) === 0) {
-                    const percentage = 0;
-                    setCheckPercent(percentage);
+                    if (parseInt(data.Minutes_Achetees) === 0) {
+                         const percentage = 0;
+                         setCheckPercent(percentage);
+                    } else {
+                         const percentage = Math.round(((100*data.Minutes_Restantes) / data.Minutes_Achetees));
+                         setCheckPercent(percentage);
+                    }
                } else {
-                    const percentage = Math.round(((100*data.Minutes_Restantes) / data.Minutes_Achetees));
-                    setCheckPercent(percentage);
+                    alert('Erreur du serveur, veuillez réessayer plus tard');
                }
-          } else {
-               alert('Erreur du serveur, veuillez réessayer plus tard');
           }
-     }
 
-     onLoad();
+          onLoad();
+     },[currentIDU]);
+
+
 
      return (
           <div className="stats">

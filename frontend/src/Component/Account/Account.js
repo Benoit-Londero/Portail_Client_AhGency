@@ -57,7 +57,7 @@ export default function NameForm() {
      }, [currentIDU])
       
 
-     const contact_agc = [
+     /* const contact_agc = [
           {
                nom : 'Quentin de Jarnac',
                mail : 'quentin@ahgency.be'
@@ -70,7 +70,7 @@ export default function NameForm() {
                nom : 'Benoit Londero',
                mail : 'benoit@ahgency.be'
           }
-     ]
+     ] */
 
      const handleClick = async e => {
           e.preventDefault();
@@ -174,7 +174,7 @@ export default function NameForm() {
                               {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
                          </Col>
 
-                         <Col md={{span: 3, offset: 1}} className="my_contact">
+                         {/* <Col md={{span: 3, offset: 1}} className="my_contact">
                          <h2>Envoyer un mail à</h2>
                               <ul>
                                    {contact_agc.map((item,index) => {
@@ -192,7 +192,7 @@ export default function NameForm() {
                                         )
                                    })}
                               </ul>
-                         </Col>
+                         </Col> */}
                     </Row>
                     
                </Container> : <Entreprise></Entreprise>}
