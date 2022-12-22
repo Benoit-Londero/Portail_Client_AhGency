@@ -50,10 +50,11 @@ export const SidebarData = [
         icon: <FiIcons.FiGrid />,
         cName: 's-sidebar__nav-link admin__viewall-link',
         admin: true,
+        category:'admin',
         responsive: true
     }, 
     {
-        title:'Mon profil',
+        title:'Profil',
         path: '/Account',
         icon: <FaIcons.FaUser/>,
         cName: 's-sidebar__nav-link',

@@ -81,7 +81,7 @@ export default function AdminHeure() {
                   <input type="hidden" name="date_modif" value={moment()}/>
                 </td>
               </tr>
-              <tr><td><input type="submit" value="Ajouter"/></td></tr>
+              <tr><td colspan="2"><input type="submit" value="Ajouter"/></td></tr>
             </tbody>
           </table>
         </form>
