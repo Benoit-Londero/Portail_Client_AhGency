@@ -78,7 +78,7 @@ export default function AdminHeure() {
                 <td>
                   <input type="date" placeholder="Date" id='date_Achat' name="date_Achat" required/>
                   <input type="hidden" name="id_agent" value={currentIDUser} />
-                  <input type="hidden" name="date_modif" value="0"/>
+                  <input type="hidden" name="date_modif" value={moment()}/>
                 </td>
               </tr>
               <tr><td><input type="submit" value="Ajouter"/></td></tr>
