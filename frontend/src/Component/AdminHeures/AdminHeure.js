@@ -3,6 +3,8 @@ import NavBar from "../NavBar/NavBar";
 import './AdminHeure.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import useLocalStorage from "./useLocalStorage";
+
 export default function AdminHeure() {
     const [usersInfos, setUsersInfos] = useState([]);
     const currentIDUser = useLocalStorage("currentIDU","");
@@ -14,8 +16,6 @@ export default function AdminHeure() {
         .then(json => setUsersInfos(json))
         .catch(err => console.info(err))
     }, [])
-
-    
 
     const handleSubmitHeure = evt => {
         evt.preventDefault();
@@ -76,7 +76,7 @@ export default function AdminHeure() {
                 <td>
                   <input type="date" placeholder="Date" id='date_Achat' name="date_Achat" required/>
                   <input type="hidden" name="id_agent" value={currentIDUser} />
-                  <input type="hidden" name="date_modif" value={getCurrentDateTime()} />
+                  <input type="hidden" name="date_modif" value="0"/>
                 </td>
               </tr>
               <tr><td><input type="submit" value="Ajouter"/></td></tr>
