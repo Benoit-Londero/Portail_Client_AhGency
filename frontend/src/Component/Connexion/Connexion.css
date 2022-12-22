@@ -42,7 +42,7 @@
 #logForm input[type="text"],
 #logForm input[type="password"] {
     border: none;
-    box-shadow: inset 5px 5px 10px #00000026;
+    box-shadow: inset 5px 5px 10px #00000026!important;
     border-radius: 5px;
     padding: 5px 20px;
     line-height: 1.5em;
@@ -50,6 +50,7 @@
     min-width: 90%;
     margin-top: 10px;
     text-align: center!important;
+    min-height:3em;
 }
 
 #logForm input[type="submit"] {

@@ -12,14 +12,14 @@ module.exports = async function (context, req) {
         let idEnt = context.req.body.idEnt;
         let title = context.req.body.title;
         let detail = context.req.body.tache;
-        let url = context.req.body.siteURL;
+        //let url = context.req.body.siteURL;
         let allocation = parseInt(context.req.body.allocation);
         let Status = "Non démarré";
         let deadline = context.req.body.deadline;
 
-        let sqlTicket = "INSERT INTO tickets(Tickets,ID_entreprise,AllocationTemps,Date,Statut,Email,Description,URL,Deadline) VALUES (?,?,?,?,?,?,?,?,?)";
+        let sqlTicket = "INSERT INTO tickets(Tickets,ID_entreprise,AllocationTemps,Date,Statut,Email,Description,Deadline) VALUES (?,?,?,?,?,?,?,?)";
 
-        con.query(sqlTicket, [title, idEnt, allocation, date, Status, email, detail, url, deadline], function (err, resultat) {
+        con.query(sqlTicket, [title, idEnt, allocation, date, Status, email, detail, deadline], function (err, resultat) {
             if (err) throw err;
             result = JSON.stringify('Demande OK');
             resolve(result);

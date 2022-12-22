@@ -79,11 +79,11 @@ export default function Projet() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td><label for="title">Nom du projet <span className="required">*</span></label>
+                        <td colspan="2"><label for="title">Nom du projet <span className="required">*</span></label>
                         <input type="text" placeholder="Créer un projet..." id="title" name="title" required/></td>
                     </tr>
                     <tr>
-                        <td><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br>
+                        <td colspan="2"><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br>
                         <textarea id="tache" name="tache" placeholder="tâche" required></textarea></td>
                     </tr>
                     <tr>
@@ -103,10 +103,10 @@ export default function Projet() {
                     <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
                     <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
                     <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>
-                    <tr>
+                    {/* <tr>
                         <td><label for="siteURL">Veuillez entrer l'URL de votre site web</label></td>
                         <td><input type="text" placeholder="(exemple : www.google.be, https://www.ahgency.be, ....)" id="siteURL" name="siteURL"/></td>
-                    </tr>
+                    </tr> */}
 
                     <tr>
                         <td><label for="deadline">Pour quand doit-il être fini?</label></td>
