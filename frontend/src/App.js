@@ -2,18 +2,15 @@ import React, {useState} from "react";
 import './App.css';
 import Connexion from './Component/Connexion/Connexion.js'
 import Deconnexion from './Component/Deconnexion/Deconnexion.js'
-
 import Boutique from './Component/Credits/Credits.js'
 import NameForm from './Component/Account/Account.js'
 import Home from './Component/Home/Home.js'
-import Facture from './Component/Facture/Facture.js'
 import Inscription from './Component/Inscription/Inscription.js'
 import Projet from './Component/Projet/Projet.js'
 import AdminForm from './Component/AdminForm/AdminForm.js'
 import AdminHeure from './Component/AdminHeures/AdminHeure.js'
 import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
-import Faq from './Component/Faq/Faq.js'
 import Entreprise from './Component/Entreprise/Entreprise.js'
 
 import useLocalStorage from "./useLocalStorage";
@@ -112,11 +109,9 @@ function App() {
               <Route path="/ViewAll" element={< ViewAll />}></Route>
               <Route path='/Account' element={< NameForm />}></Route>
               <Route path="/Entreprise" element={< Entreprise />}></Route>
-              <Route path="/Faq" element={< Faq />}></Route>
               <Route path="/Recuperation" element={< Recuperation />}></Route>
               <Route path="/Projet" element={< Projet />}></Route>
               <Route path='/Credits' element={< Boutique />}></Route>
-              <Route path='/Factures' element={< Facture />}></Route>
               <Route path='/Inscription' element={< Inscription />}></Route>
               <Route path='/Logout' element={< Deconnexion resetLogin={resetLogin}/>}></Route>
             </Routes>
