@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import NavBar from "../NavBar/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
