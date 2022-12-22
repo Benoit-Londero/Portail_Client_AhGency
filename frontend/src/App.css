@@ -315,3 +315,10 @@ svg {
     }
 }
 
+
+.stats_account{
+    background:#160531;
+    width: 100%;
+    color:#fff;
+    border-radius: 15px;
+}
