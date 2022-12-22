@@ -105,32 +105,37 @@ label{
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
-    line-height: 17px;
+    width: 180px;
+    height: 25px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: #F2F2F2;
-    background: #12032c;
-    border: 1px solid #6610f2;
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 .primary_btn{
-    background: linear-gradient(86.86deg, #6610f2 15.53%, #6610f2 93.95%);
-    border-radius: 50px;
+    color: #6610f2;
+    background: none;
+    border: 1px solid #6610f2;
 }
 
-.primary_btn:hover{
-    background: #fff;
-    color: #4DDAAD;
-}
-
-.sidebar_btn{
-    width: 180px;
-    height: 25px;
+.primary_btn:active{
     background: #6610f2;
+    border:1px solid #6610f2;
     border: 1px solid #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 3px;
+}
+
+.details_btn{
+    text-transform: lowercase;
+    text-transform: capitalize;
+    background:#D1D1D1;
+    color:#acacac;
+    border: 1px solid #D1D1D1;
+}
+
+.details_btn:active{
+    background-color: #6610f2;
+    border: 1px solid #6610f2;
 }
 
 .alert_btn{

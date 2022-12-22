@@ -9,9 +9,6 @@ import './Entreprise.css';
 import * as BsIcons from "react-icons/bs";
 import * as MdIcons from "react-icons/md";
 
-import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
-
 export default function Entreprise() {
 
   const currentIDE = localStorage.getItem("currentIDE");
@@ -27,50 +24,52 @@ export default function Entreprise() {
   const [tempsAlloue, setTempsAlloue] = useState();
   const [validation, setValidation] = useState(false);
 
-  const [currentHeureTOT, setCurrentHeureTOT] = useState();
-     const [currentHeureREST, setCurrentHeureREST] = useState();
-     const [moneySpend, setMoneySpend] = useState();
-     const [checkPercent, setCheckPercent] = useState();
-
-     const currentIDU = localStorage.getItem("currentIDU");
-
-     let dataU = {currentIDUser: currentIDU};
-
-     useEffect(() => {
-          const onLoad = async () => {
-               
-               const response = await fetch('/api/getInfosClient', { 
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(dataU)
-               })
-               
-               const data = await response.json();
+  useEffect(() => {
+     let dataU = {currentIDEntreprise: currentIDE};
           
-               if(response.status === 200){
-                    setCurrentHeureTOT(data.Minutes_Achetees);
-                    setCurrentHeureREST(data.Minutes_Restantes);
-
-                    //Calcul temps restants (On soustrait le temps dépensé au temps total)
-                    const timeSpend = data.Minutes_Achetees - data.Minutes_Restantes;
-
-                    //Calcul du montant dépensé (temps dépensé)
-                    setMoneySpend(Math.round(((timeSpend/60) * 75)));
-
-                    if (parseInt(data.Minutes_Achetees) === 0) {
-                         const percentage = 0;
-                         setCheckPercent(percentage);
-                    } else {
-                         const percentage = Math.round(((100*data.Minutes_Restantes) / data.Minutes_Achetees));
-                         setCheckPercent(percentage);
-                    }
-               } else {
-                    alert('Erreur du serveur, veuillez réessayer plus tard');
-               }
+     const onLoad = async () => {
+               
+          const response = await fetch('/api/getInfosEntreprise', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(dataU)
+          })
+     
+          const data = await response.json();
+          if(response.status === 200){
+               setCurrentNomE(data.Nom_societe); 
+               setCurrentTVA(data.TVA);
+               setCurrentADRESSE(data.Adresse);
+               setCurrentTEL(data.Telephone);
+               setCurrentEMAILE(data.Email);
+               setCurrentSITE(data.Site_web);
+               setCurrentMAINTENANCE(data.Maintenance);
+          } else {
+               alert('Erreur du serveur, veuillez réessayer plus tard');
           }
 
-          onLoad();
-     },[currentIDU]);
+          fetch('/api/getHeureEntreprise', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(dataU)
+          })
+          .then(res => res.json())
+          .then(json => setMinEntreprise(json[0].minutesEntreprise))
+          .catch(err => console.info(err))
+
+          fetch('/api/getTempsAlloue', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(dataU)
+          })
+          .then(res => res.json())
+          .then(json => setTempsAlloue(json[0].minutesAllouees))
+          .catch(err => console.info(err))
+     }
+
+    onLoad();
+
+  }, [currentIDE])
 
   const handleClick = async e => {
      e.preventDefault();
@@ -115,11 +114,9 @@ export default function Entreprise() {
                <div className="stats">
                <h2>Statistiques</h2>
 
-               <p>Achetées : {Math.round(currentHeureTOT /60)} h</p>
-               <p>Restantes : {Math.trunc(currentHeureREST /60)} h {currentHeureREST % 60 } min</p><br/>
-               <p><b>Dépensé : {moneySpend} €</b></p>
-                                      
-               
+               <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */} h</p>
+               <p>Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min</p><br/>
+               <p><b>Dépensé : {/* {moneySpend} */} €</b></p>
                
                {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>}
           </div>
@@ -162,7 +159,7 @@ export default function Entreprise() {
                          </table>
                     </form>
                     {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
-                    <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p>
+                    {/* <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p> */}
                     </Col>
                </Row>          
           </Container>
