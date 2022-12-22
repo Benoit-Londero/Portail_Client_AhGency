@@ -41,13 +41,13 @@ function NavBar(){
   }, [currentIDU]);
         
       return (
-          <div className="s-sidebar__nav desktop">
+          <div className="s-sidebar__nav">
 
                 <div id="gen_settings">
                     <img src={logo} alt="Logo_AhGency"></img>
                 </div>
 
-               <ul className="NavBar">
+               <ul className="NavBar desktop">
                 <h2>Portail</h2>
                     {
                           menu.filter(menu => menu.category === 'app').map((item, index) => {

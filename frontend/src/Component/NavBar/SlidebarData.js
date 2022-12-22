@@ -24,6 +24,15 @@ export const SidebarData = [
         cName: 's-sidebar__nav-link',
         admin: false,
         category: 'app',
+        responsive: false
+    },
+    {
+        title:'Achat',
+        path: '/Credits',
+        icon: <FiIcons.FiShoppingBag/>,
+        cName: 's-sidebar__nav-link',
+        admin: false,
+        category: 'app',
         responsive: true
     },
     {
@@ -45,6 +54,15 @@ export const SidebarData = [
         responsive: false
     },
     {
+        title:'Ajout',
+        path: '/Projet',
+        icon: <FiIcons.FiPlusSquare/>,
+        cName: 's-sidebar__nav-link central__btn',
+        admin: false,
+        category: 'app',
+        responsive: true
+    },
+    {
         title:'Toutes les tâches',
         path: '/ViewAll',
         icon: <FiIcons.FiGrid />,
@@ -62,40 +80,6 @@ export const SidebarData = [
         category: 'account',
         responsive: true
     },
-    {
-        title:'Achat',
-        path: '/Credits',
-        icon: <FiIcons.FiShoppingBag/>,
-        cName: 's-sidebar__nav-link',
-        admin: false,
-        category: 'app',
-        responsive: true
-    },
-    
-    /* {
-        title:'Entreprise',
-        path: '/Entreprise',
-        icon: <HiIcons.HiOutlineOfficeBuilding />,
-        cName: 's-sidebar__nav-link',
-        admin: true,
-        category: 'account'
-    }, */
-    // {
-    //     title:'Factures',
-    //     path: '/Factures',
-    //     icon: <FaIcons.FaRegFileAlt/>,
-    //     cName: 's-sidebar__nav-link',
-    //     admin: false,
-    //     category: 'app'
-    // },
-    // {
-    //     title:'FAQ',
-    //     path:'/Faq',
-    //     icon: <RiIcons.RiQuestionnaireLine />,
-    //     cName: 's-sidebar__nav-link',
-    //     admin: true,
-    //     category: 'account'
-    // },
     {
         title:'LogOut',
         path: '/Logout',
