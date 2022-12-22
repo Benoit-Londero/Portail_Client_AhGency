@@ -126,35 +126,6 @@ export default function Home() {
                               </tr>
                          </tbody>
                     </table>
-                    
-                    {/* <table>
-                         <thead>
-                              <tr>
-                                   <th className="hide_mobile">Créé le</th>
-                                   <th className="allowed_time">Temps alloué</th>
-                              </tr>
-                         </thead>
-                         {
-                              projetFiltrer.map((item,index) => {
-                                   let day = Moment(item.Date).format('DD');
-                                   let Month = Moment(item.Date).format('MMM');
-                                   return (
-                                        <tbody>
-                                             <tr key={index}>
-                                                  <td><p className="date_badge hide_mobile">{day}<br></br>{Month}.</p></td>
-                                                  <td><p className="ref allowed_time">{Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
-                                             </tr>
-                                             <tr>
-                                                  <th colspan="2">Description</th>
-                                             </tr>
-                                             <tr>
-                                                  <td colspan="2" rowspan="3"><p className="descr__prjt">{item.Description}</p></td>
-                                             </tr>
-                                        </tbody>
-                                   )
-                              })
-                         }
-                    </table> */}
                </Col>
           </Row>
 
@@ -162,21 +133,11 @@ export default function Home() {
           <Col className="tableauTask">
                     <h2>Tâches</h2>
                     <table>
-                         {/*<thead>
-                              <tr>
-                                   <th className="hide_mobile">Date</th>
-                                   <th>Titre</th>
-                                   <th className="last-child">Action</th>
-                              </tr>
-                         </thead> */}
                          <tbody>
                          {
                               filteredTaches.map((item,index) => {
-                                   /* let day = Moment(item.Date_Tache_Effectuee).format('DD');
-                                   let Month = Moment(item.Date_Tache_Effectuee).format('MMM'); */
                                    return (
                                         <tr key={index}>
-                                             {/* <td><p className="hide_mobile">{day}<br></br>{Month}.</p></td> */}
                                              <td><p className="task_table">{ item.Titre}</p></td>
                                              <td><p className="task_table">{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
                                              <td><p className="statut_task">{item.Statut}</p></td>
@@ -185,7 +146,6 @@ export default function Home() {
                                    )
                               })
                          }
-                         {/* <tr><td><button name = "NoFilter" className="btn_ts_bottom" onClick={handleNoFilter}>Voir toutes les tâches</button></td></tr> */}
                          <tr><td><button name="addTask" className="add_new_task btn btn_primary" onClick={handleAddTask}>créer une nouvelle tâche</button></td></tr>
                          </tbody>
                     </table>
@@ -195,41 +155,17 @@ export default function Home() {
 
           {detailTask === true ? <Row className="modal__newTask">
                
-               <Col>     
-                    <button className="close_modale" onClick={closeTasks}>X</button>
-                                 
+               <Col>                                      
                          {
                               filteredTS.map((item,index) => {
                                    var day = Moment(item.Date_Tache_Effectuee).format('DD');
                                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                                    return (  
                                         <div id="desktop">                                
-                                             {/* <table className="detail_TS" key={index}>  
-                                                  <thead>
-                                                       <tr>
-                                                            <th><p className="title_of_task">{ item.Titre }</p></th>
-                                                            <th> <p className="date_badge">{day}<br></br>{Month}</p>
-                                                                 <p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
-                                                            </th>
-                                                       </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                       <tr>
-                                                            <td>
-                                                                 <h2>Description</h2>
-                                                                 <p className="tasks">{ item.Informations}</p>
-                                                            </td>
-                                                       </tr>
-                                                       <tr>
-                                                            <td><p className="agent__">Assigné à :<span className="developer">{item.Agent.substring(0,1)}</span></p></td>
-                                                       </tr>
-                                                  </tbody>
-                                             </table> */}
-
                                              <table className="detail_TS" key={index}>
                                                   <thead>
-                                                       <tr><th colspan="2"><p className="title_of_task">{ item.Titre }</p></th></tr>
-                                                       <tr><th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p></th></tr>
+                                                       <tr><th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th></tr>
+                                                       <tr><th colspan="2"><button className="close_modale" onClick={closeTasks}>X</button></th></tr>
                                                   </thead>
                                                   <tbody>
                                                        <tr>
@@ -249,15 +185,11 @@ export default function Home() {
                                    )
                               })
                          }
-
-                         
-                    
                     
                     <div class="mobile">
                          <h2>Détails</h2>
 
                          {filteredTS.map((item,index) => {
-                              /* var date = Moment(item.Date_Tache_Effectuee).format('DD-MM-YYYY'); */
 
                               var day = Moment(item.Date_Tache_Effectuee).format('DD');
                               var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
