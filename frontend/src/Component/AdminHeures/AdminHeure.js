@@ -51,10 +51,15 @@ export default function AdminHeure() {
     }
 
   return (      
-    <div id='hourForm'>
+    <div>
         <NavBar />
+        <div className="project_sidebar">
+
+        </div>
 
         <h1>Ajouter des heures à un client</h1>
+
+        <div  id='hourForm'>
       
         <form id="HeureForm" onSubmit={handleSubmitHeure}>
           <table>
@@ -84,5 +89,6 @@ export default function AdminHeure() {
             </tbody>
           </table>
         </form>
+        </div>
     </div>
 )}

@@ -69,81 +69,19 @@ export default function AdminForm() {
 
   return (      
 
-    <div id='adminForm'>
+    <div>
         <NavBar />
+
+        <div className="project_sidebar">
+                    
+        </div>
 
         <h1>Encoder une tâche</h1>
       
-{/*         <form id="timesheetForm" onSubmit={handleSubmitTS}>
-          <table>
-            <thead>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="2">
-                  <label for="title">Titre de la tache <span className="required">*</span></label><br>
-                  </br><input type="text" placeholder="Entrez le titre de la tâche" id="title" name="title" required/>
-                </td>
-              </tr>
-              
-              <tr>
-                <td colspan="2">
-                  <label for="tache">Ajouter une description <span className="required">*</span></label><br>
-                  </br><textarea id="tache" name="tache" placeholder="tâche" required></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td><label for="durée_tache"><MdIcons.MdOutlineMoreTime /> Durée (en min.)<span className="required">*</span></label><br>
-                </br><input type="number" placeholder="25" id="duree_tache" name="duree_tache" required/></td>
-                <td><label for="date_tache">Date d'éxecution<span className="required">*</span></label><br>
-                </br><input type="date" placeholder="Date" id='date_tache' name="date_tache" required/>
-                </td>
-              </tr>
-              <tr>
-                  <td colspan="2"><label for="who_do_it">Assignée à<span className="required">*</span></label><br></br>
-                    <select id='who_do_it' name="who_do_it" required>
-                      <option id="disabled"> Sélectionnez un consultant </option>
-                      <option value="Fabian Hernandez Barco">Fabian Hernandez Barco</option>
-                      <option value="Quentin De Jarnac">Quentin De Jarnac</option>
-                      <option value="Benoit Londero">Benoit Londero</option>
-                    </select>
-                  </td></tr>
-                  <tr>
-                  <td colspan="2"><label for="for_who">Client<span className="required">*</span></label><br></br>
-                    <select id='for_who' name="for_who" onChange={handleSelect} required>
-                      <option id="disabled"> Sélectionnez un client </option>
-                      {usersInfos.map((user, index) => 
-                          <option key={index} value={user.ID}>{user.Login}</option>
-                      )}
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="2"><label for="projet">Projet<span className="required">*</span></label><br></br>
-                    <select id='projet' name="projet" required>
-                      <option id="disabled"> Sélectionnez un projet </option>
-                      {projetFiltered.map((pro, index) => 
-                          <option key={index} value={pro.ID}>{pro.Tickets}</option>
-                      )}
-                    </select>
-                  </td>
-                </tr>
-                <tr className="row_submit">
-                  <td colspan="">
-                    <input type="reset" id="reset"/>
-                  </td>
-                  <td>
-                    <input type="submit" className="btn btn_primary" value="Enregistrer"/>
-                    </td>
-                  </tr>
-            </tbody>
-          </table>
-        </form> */}
+      <div id='adminForm'>
 
         <form id="timesheetForm" onSubmit={handleSubmitTS}>
           <table>
-            <thead>
-            </thead>
             <tbody>
               <tr>
                 <td colspan="2">
@@ -205,5 +143,6 @@ export default function AdminForm() {
           </table>
         </form>
     </div>
+  </div>
     
 )}

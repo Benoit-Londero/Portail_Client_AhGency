@@ -7,8 +7,14 @@ export default function Boutique() {
 
 
      return (
-          <div id="page_boutique">
+          <div>
                <NavBar />
+               <div className="project_sidebar">
+                    
+               </div>
+
+          <div id="page_boutique">
+               
                <h1>Commander des heures</h1>
 
                
@@ -59,6 +65,6 @@ export default function Boutique() {
                     <img src={illu} alt='illustration'></img>
                </div>
          </div>
-
+         </div>
      )
 }
