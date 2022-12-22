@@ -43,6 +43,10 @@
     padding:0;
 }
 
+.mobile{
+    display:none;
+}
+
 .s-sidebar__nav:hover,
 .s-sidebar__nav:focus,
 .s-sidebar__trigger:focus+.s-sidebar__nav,
@@ -158,15 +162,13 @@
         text-align: center!important;
     }
 
-    .active {
-        color: #3FB58F!important;
-        background-color: #B3FEEA;
-        border-radius: 5px;
-    }
-
     .settings_menu{
         position: inherit;
         bottom: inherit;
         left:inherit;
+    }
+
+    .mobile{
+        display:block;
     }
 }

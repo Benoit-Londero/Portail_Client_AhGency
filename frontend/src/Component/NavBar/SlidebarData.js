@@ -15,7 +15,8 @@ export const SidebarData = [
         icon: <FaIcons.FaHouseUser />,
         cName: 's-sidebar__nav-link',
         admin: false,
-        category: 'app'
+        category: 'app',
+        responsive: true
     },
     {
         title:'Nouvelle demande',
@@ -23,7 +24,8 @@ export const SidebarData = [
         icon: <FiIcons.FiPlusSquare/>,
         cName: 's-sidebar__nav-link',
         admin: false,
-        category: 'app'
+        category: 'app',
+        responsive: true
     },
     {
         title:'Ajout tâche',
@@ -47,7 +49,7 @@ export const SidebarData = [
         icon: <GrIcons.GrAppsRounded />,
         cName: 's-sidebar__nav-link admin__viewall-link',
         admin: true,
-        category: 'admin'
+        responsive: true
     }, 
     {
         title:'Mon profil',
@@ -55,7 +57,8 @@ export const SidebarData = [
         icon: <FaIcons.FaUser/>,
         cName: 's-sidebar__nav-link',
         admin: false,
-        category: 'account'
+        category: 'account',
+        responsive: true
     },
     {
         title:'Achat crédit',
@@ -63,7 +66,8 @@ export const SidebarData = [
         icon: <FiIcons.FiShoppingBag/>,
         cName: 's-sidebar__nav-link',
         admin: false,
-        category: 'app'
+        category: 'app',
+        responsive: true
     },
     
     /* {

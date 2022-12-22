@@ -87,9 +87,8 @@ function NavBar(){
                </ul>
 
                <ul className="NavBar mobile">
-                <h2>Portail</h2>
                     {
-                          menu.filter(menu => menu.category === 'app').map((item, index) => {
+                          menu.filter(menu => menu.responsive === true).map((item, index) => {
                           return ( <li key = { index }>
                             <NavLink to = { item.path } 
                                     className = { item.cName } 
@@ -97,35 +96,8 @@ function NavBar(){
                                     ><p>{ item.icon }<br></br><span className="desktop"> {item.title}</span></p>
                             </NavLink></li>
                           )})
-                    }
-                
-                { role === 'administrator' ? <h2>Admin</h2> : null}
-                    {
-                      menu.filter(menu => menu.category === 'admin').map((item, index) => {
-                          return ( <li key = { index }>
-                            <NavLink to = { item.path } 
-                                    className = { item.cName } 
-                                    
-                                    ><p>{ item.icon }<br></br><span className="desktop"> {item.title}</span></p>
-                            </NavLink></li>
-                          )})
-                    }
-                <span className="settings_menu">
-                  <h2>Settings</h2>
-                    {
-                      menu.filter(menu => menu.category === 'account').map((item, index) => {
-                          return ( <li key = { index }>
-                            <NavLink to = { item.path } 
-                                    className = { item.cName } 
-                                    
-                                    ><p>{ item.icon }<br></br><span className="desktop"> {item.title}</span></p>
-                            </NavLink></li>
-                          )})
-                    }  
-                </span>             
+                    }       
                </ul>
-
-
           </div>
 
           
