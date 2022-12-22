@@ -135,16 +135,11 @@ export default function Home() {
                         )
                })}
           </ul>
-
-          <Stats />
-               
      </div>
-
 
      <Container id="page_dashboard">
           <Row>
                <Col className="tableauTS">
-               
                     <table>
                          <tbody>
                               {projetFiltrer.map((item,index) => {
