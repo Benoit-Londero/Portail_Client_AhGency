@@ -3,7 +3,6 @@ import Container from "react-bootstrap/esm/Container";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Stats from '../Stats/Stats';
 import NavBar from "../NavBar/NavBar";
 import "./Home.css";
 
@@ -15,6 +14,8 @@ import * as FiIcons from "react-icons/fi";
 import * as MdIcons from "react-icons/md";
 import * as BsIcons from "react-icons/bs";
 
+import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 export default function Home() {
 
@@ -27,8 +28,6 @@ export default function Home() {
      const [newTask, setnewTask] = useState(false);
      const [detailTask, setdetailTask] = useState(false);
 
-
-
      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
 
@@ -36,39 +35,6 @@ export default function Home() {
 
           let dataU = {currentIDUser: currentIDU};
           let dataE = {currentIDEnt: currentIDE};
-
-/*           const onLoad = async () => {
-           
-               const response = await fetch('/api/getInfosClient', { 
-                 method: 'POST',
-                 headers: {'Content-Type': 'application/json'},
-                 body: JSON.stringify(dataU)
-               })
-           
-               const data = await response.json();
-               if(response.status === 200){
-                    setCurrentHeureTOT(data.Minutes_Achetees);
-                    setCurrentHeureREST(data.Minutes_Restantes);
-
-                    //Calcul temps restants (On soustrait le temps dépensé au temps total)
-                    const timeSpend = data.Minutes_Achetees - data.Minutes_Restantes;
-
-                    //Calcul du montant dépensé (temps dépensé)
-                    setMoneySpend(Math.round(((timeSpend/60) * 75)));
-
-                    if (parseInt(data.Minutes_Achetees) === 0) {
-                         const percentage = 0;
-                         setCheckPercent(percentage);
-                    } else {
-                         const percentage = Math.round(((100*data.Minutes_Restantes) / data.Minutes_Achetees));
-                         setCheckPercent(percentage);
-                    }
-               } else {
-                    alert('Erreur du serveur, veuillez réessayer plus tard');
-               }
-          }
-
-          onLoad(); */
 
           fetch('/api/getTimesheet', { 
                method: 'POST', 
@@ -103,10 +69,6 @@ export default function Home() {
           setFilteredTaches(tacheAssociee);
      }
 
-     /* const handleNoFilter = (e) => {
-          setFilteredTaches(timesheet);
-     } */
-
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
      const handleAddTask = (e) =>{
@@ -132,9 +94,11 @@ export default function Home() {
                          <li key={index}>
                               <button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
                          </li>
-                        )
+                    )
                })}
           </ul>
+
+          <Link to ='/Projet'><Button className="sidebar_btn">+</Button></Link>
      </div>
 
      <Container id="page_dashboard">

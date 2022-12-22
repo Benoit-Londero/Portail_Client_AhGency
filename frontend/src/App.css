@@ -46,9 +46,67 @@
 }
 
 
+/* TEXTE & TITRE */ 
 
-/******* DEFAULT CSS *******/
-/* BOUTONS */
+h1{
+    font-family: 'Inter';
+    text-align: left;
+    font-size: 24px;
+    font-weight: 400!important;
+    line-height: 29px;
+    color: #6610f2;
+    border-radius: 10px;
+    font-style: normal;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;  
+}
+
+h2{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+
+    color: #363636;
+}
+
+h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+
+    letter-spacing: 0.3em;
+
+    color: #D7D7D7;
+}
+
+p {
+    font-size: 12px;
+}
+
+label{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 15px;
+    margin-top: 20px;
+    /* identical to box height */
+
+    text-align: left;
+    text-transform: capitalize;
+
+    color: #000000;
+}
+
+/********* BOUTONS *********/
 .btn {
     font-family: 'Lato';
     font-style: normal;
@@ -127,25 +185,7 @@
     font-weight: 600;
 }
 
-/* TEXTE & TITRE */ 
 
-h1{
-    font-family: 'Poppins';
-    text-align: left;
-    font-size: 18px;
-    font-weight: 500!important;
-    color: #0D2A1D!important;
-    border-radius: 10px;
-}
-
-h2{
-    font-size: 18px!important;
-    color: #06F8B8;
-}
-
-p {
-    font-size: 12px;
-}
 
 /* Badge Users */
 
@@ -173,10 +213,6 @@ p {
     list-style: none;
     padding-top: 100px;
     background: #fafafa;
-}
-
-.project_sidebar h2{
-    color:#000;
 }
 
 .project_sidebar ul{
@@ -210,14 +246,6 @@ p {
 }
 
 /* Default CSS - FORM */
-
-label{
-    font-size: 14px;
-    font-weight:500;
-    width:100%;
-    margin-top: 20px;
-    text-align: left!important;
-}
 
 input,
 textarea,

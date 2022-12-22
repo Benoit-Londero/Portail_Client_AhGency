@@ -1,7 +1,6 @@
 /* Init CSS */
 
 .resume,
-.stats,
 .tableauTS,
 .timesheet {
     height: auto;
@@ -11,22 +10,11 @@
     background:#fff;
 }
 
-.stats{
-    background-color: #12032c;
-    padding: 10px;
-    font-size: 10px;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
-}
-
 #page_dashboard{
     width: 80vw!important;
     margin-left: 15vw;
     padding-top:9vh;
 }
-
 
 /***********************/
 /***** Panel User ******/
@@ -47,37 +35,12 @@
     max-height: 40px;
 }
 
-
 /*************************/
-/***** Statistiques ******/
-
-.stats h2{
-    color:#fff;
-}
-
-.stats p {
-    font-size:11px;
-    margin-bottom: 0;
-}
-
-.CircularProgressbar {
-    margin-top: 20px;
-    margin-bottom: 40px;
-}
-
-/**********************************/
 /*** Tableau tableauTS récentes ***/
 
 .tableauTS{
     margin-bottom:50px;
     background: #fafafa;
-}
-
-.tableauTS h2{
-    text-align: left;
-    vertical-align: top;
-    font-size: 16px!important;
-    color: #333;
 }
 
 .descr__thead{
@@ -166,10 +129,6 @@
     width: 100%;
     height: auto;
     margin-left:0px;
-}
-
-.timesheet h2 {
-    text-align: left;
 }
 
 .timesheet li {

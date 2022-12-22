@@ -3,6 +3,8 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 
+import './Stats.css';
+
 export default function Stats(){
 
      const [currentHeureTOT, setCurrentHeureTOT] = useState();

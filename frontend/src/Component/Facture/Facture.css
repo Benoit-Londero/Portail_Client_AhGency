@@ -1,16 +1,3 @@
-
-
-.facture_section h2 {
-    color: #190933;
-    font-size: 14px!important;
-    min-width: 100%;
-    text-align: left;
-}
-
-p {
-    font-size: 14px;
-}
-
 #page_facture{
     padding-top:9vh;
     min-width: 80vw;

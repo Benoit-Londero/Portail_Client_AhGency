@@ -5,7 +5,6 @@ import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
-import { ImMail4 } from "react-icons/im";
 import Entreprise from '../Entreprise/Entreprise.js';
 
 import * as BsIcons from "react-icons/bs";

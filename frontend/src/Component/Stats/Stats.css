@@ -1,0 +1,32 @@
+/***** Statistiques ******/
+
+.stats h2{
+     color:#fff;
+ }
+ 
+ .stats p {
+     font-size:11px;
+     margin-bottom: 0;
+ }
+ 
+ .CircularProgressbar {
+     margin-top: 20px;
+     margin-bottom: 40px;
+ }
+
+ .stats{
+     height: auto;
+     border-radius: 15px;
+     margin: 10px;
+     padding: 20px 30px;
+     background:#fff;
+     background-color: #12032c;
+     padding: 10px;
+     font-size: 10px;
+     position: absolute;
+     bottom: 5px;
+     left: 5px;
+     right: 5px;
+ }
+ 
+ /**********************************/
