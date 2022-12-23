@@ -151,21 +151,6 @@
         border: 1px solid #D1D1D1!important;
     }
 
-/* .links_btn,
-.client_list {
-    color: #6610f2;
-    background: none;
-    border: none;
-    text-align: left;
-    margin-bottom: 6px;
-    width: 100%;
-    font-size:12px;
-}
-
-.links_btn::before{
-    content:'\25A0 ';
-} */
-
 .bold{
     font-weight: 600;
 }
@@ -327,7 +312,8 @@ svg {
 }
 
 
-.stats_account{
+.stats_account,
+.stats{
     background:#160531;
     width: 100%;
     color:#fff;
