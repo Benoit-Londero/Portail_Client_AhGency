@@ -22,7 +22,7 @@ export default function AjoutClient(){
 
           const response = await fetch('api/postClientAdmin', {
                method: 'POST',
-               body: JSON.stringify(newClient)
+               body: JSON.stringify(jsonForm)
           })
           
           const ress = await response.json();
@@ -31,7 +31,7 @@ export default function AjoutClient(){
      }
 
      return(
-          <form onSubmit={handleSubmit}>
+          <form name="newClientForm" onSubmit={handleSubmit}>
                <label>Nom<br/>
                     <input type="text" name="nom" placeholder="Doe" required/>
                </label><br/>
@@ -40,7 +40,7 @@ export default function AjoutClient(){
                     <input type="text" name="prenom" placeholder="John" required/>
                </label><br/>
                
-               <label>Email<br/>{error === true ? <span>Un compte existe déjà avec cette adresse email !</span> : null}
+               <label>Email<br/>
                     <input type="email" name="email" placeholder="johndoe@mail.be" required/>
                </label><br/>
                                           
@@ -55,7 +55,7 @@ export default function AjoutClient(){
                     <input type="text" name="nomEnt" placeholder="Entreprise SPRL, SA Entreprise ...." required/>
                </label><br/>
                                           
-               <label>Numéro de TVA<br/>{errorTVA === true ? <span>Ce numéro de TVA existe déjà ! Merci de nous contacter via l'adresse web@ahgency.be</span> : null}
+               <label>Numéro de TVA<br/>
                     <input type="text" name="tvaNumber" placeholder="BE 0123.456.789" required/>
                </label><br/>
                                           
