@@ -167,7 +167,7 @@
     color: #444;
 }
 
-#desktop{
+#modal_desktop{
     width: 50vw;
     margin: auto;
     border-radius: 10px;
@@ -212,7 +212,7 @@
     width:45px;
 }
 
-.mobile{
+#modal_mobile{
     display: none;
 }
 
@@ -278,12 +278,12 @@
         margin-bottom: 200px;
     }
 
-    #desktop{
+    #modal_desktop{
         display:none;
     }
 
 
-    .mobile{
+    #modal_mobile{
         display:block;
     }
 

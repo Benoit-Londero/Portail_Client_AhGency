@@ -103,53 +103,53 @@
     }
 /****** FIN TEXTE - TITRE - LABEL ******/
 /*************** BOUTONS ***************/
-.btn {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    width: 180px;
-    height: 25px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    border-radius: 5px;
-}
+    .btn {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        width: 180px;
+        height: 25px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        border-radius: 5px;
+    }
 
-.primary_btn{
-    color: #6610f2;
-    background: none;
-    border: 1px solid #6610f2;
-}
+    .primary_btn{
+        color: #6610f2;
+        background: none;
+        border: 1px solid #6610f2;
+    }
 
-.primary_btn:active{
-    background: #6610f2;
-    border:1px solid #6610f2;
-    border: 1px solid #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+    .primary_btn:active{
+        background: #6610f2;
+        border:1px solid #6610f2;
+        border: 1px solid #FFFFFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
 
-.details_btn{
-    text-transform: lowercase;
-    text-transform: capitalize;
-    background:#D1D1D1;
-    color:#acacac;
-    border: 1px solid #D1D1D1;
-}
+    .details_btn{
+        text-transform: lowercase;
+        text-transform: capitalize;
+        background:#D1D1D1;
+        color:#acacac;
+        border: 1px solid #D1D1D1;
+    }
 
-.details_btn:active{
-    background-color: #6610f2;
-    border: 1px solid #6610f2;
-}
+    .details_btn:active{
+        background-color: #6610f2;
+        border: 1px solid #6610f2;
+    }
 
-.alert_btn{
-    background: linear-gradient(88.47deg, #FF2E2E 0.92%, #D01C1C 99.06%);
-    border-radius: 101.5px;
-}
+    .alert_btn{
+        background: linear-gradient(88.47deg, #FF2E2E 0.92%, #D01C1C 99.06%);
+        border-radius: 101.5px;
+    }
 
-.disabled{
-    color:#D1D1D1!important;
-    background: #F0F0F0!important;
-    border: 1px solid #D1D1D1!important;
-}
+    .disabled{
+        color:#D1D1D1!important;
+        background: #F0F0F0!important;
+        border: 1px solid #D1D1D1!important;
+    }
 
 /* .links_btn,
 .client_list {

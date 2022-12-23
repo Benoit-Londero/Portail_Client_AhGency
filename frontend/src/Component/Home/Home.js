@@ -161,7 +161,7 @@ export default function Home() {
                          var day = Moment(item.Date_Tache_Effectuee).format('DD');
                          var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                          return (  
-                              <div id="desktop">                                
+                              <div id="modal_desktop">                                
                                    <table className="detail_TS" key={index}>
                                         <thead>
                                              <tr>
@@ -186,23 +186,30 @@ export default function Home() {
                          )
                     })}
                     
-                    <div class="mobile">
+                    <div id="modal_mobile">
                          {filteredTS.map((item,index) => {
                               var day = Moment(item.Date_Tache_Effectuee).format('DD');
                               var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                               
                               return(
-                              <table key={index} class="mobile">
-                                   <thead></thead>
+                              <table key={index}>
+                                   <thead>
+                                        <th className="col_mobile_badge"><p className="date_badge">{day}<br></br>{Month}</p></th>
+                                        <th colspan="2"><p className="title_of_task">{ item.Titre }</p></th>
+                                   </thead>
                                    <tbody>
                                         <tr>
-                                             <td className="col_mobile_badge"><p className="date_badge">{day}<br></br>{Month}</p></td>
-                                             <td>
-                                                  <p className="title_of_task">{ item.Titre }</p>
-                                                  <p className="dateoftask">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
-                                                  <p className="developer"> {item.Agent}</p>
-                                                  <p className="tasks">{ item.Informations}</p>
-                                             </td>
+                                             <td><label>Assigné à</label></td>
+                                             <td><p className="developer"> {item.Agent.substring(0,1)}</p></td>
+                                        </tr>
+                                        <tr>
+                                             <td><label>Suivi de temps</label></td>
+                                             <td><p className="timeoftask">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                        </tr>
+
+                                        <tr>
+                                             <td colspan="2"><label>Description</label></td>                                           
+                                             <td colspan="2"><p className="tasks">{ item.Informations}</p></td>
                                         </tr>
                                    </tbody>
                               </table>)
