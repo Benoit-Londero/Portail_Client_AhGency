@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 
+import AjoutClient from '../AjoutClient/AjoutClient.js';
 import AdminForm from "../AdminForm/AdminForm.js";
 
 import Button from 'react-bootstrap/Button';
@@ -114,7 +115,7 @@ export default function Home() {
           {detailClient === true ? <Row className="modal__newTask">
                
                <Col>                                      
-                    <p>Detail client</p>
+                   <AjoutClient/>
                </Col> 
           </Row> : ''}
      </Container>
