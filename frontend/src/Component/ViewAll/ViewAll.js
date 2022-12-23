@@ -52,6 +52,10 @@ export default function ViewAll() {
           setdetailTask(false);
      }
 
+     const handleAddTask = (e) =>{
+          setdetailTask(true);
+     }
+
      return (
      <div>
           <NavBar />
@@ -115,7 +119,7 @@ export default function ViewAll() {
                                    <td className='fst_col'><p className="tasks">{ item.Informations}</p></td>
                                    <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
                                    <td><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                   <td><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}>Details</Button></td>
+                                   <td><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
                               </tr>
                               )
                          })}
