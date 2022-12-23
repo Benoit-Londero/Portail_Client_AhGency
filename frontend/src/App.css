@@ -151,7 +151,7 @@
     border: 1px solid #D1D1D1;
 }
 
-.links_btn,
+/* .links_btn,
 .client_list {
     color: #6610f2;
     background: none;
@@ -164,7 +164,7 @@
 
 .links_btn::before{
     content:'\25A0 ';
-}
+} */
 
 .developer{
     background-color: #6610f2;

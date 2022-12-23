@@ -92,13 +92,14 @@ export default function Home() {
                {projet.map((item,index) => {
                     return (
                          <li key={index}>
-                              <button name = "Voirplus" class="links_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
+                              <button name = "Voirplus" class="btn primary_btn" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</button>
                          </li>
                     )
                })}
+               <li><Link to ='/Projet'><Button className="btn disabled">+</Button></Link></li>
           </ul>
 
-          <Link to ='/Projet'><Button className="sidebar_btn">+</Button></Link>
+          
      </div>
 
      <Container id="page_dashboard"  className="main__content">

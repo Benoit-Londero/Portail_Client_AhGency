@@ -29,7 +29,6 @@ export default function Home() {
                body: JSON.stringify(dataU)
           })
           .then(res => res.json())
-          .then(json => setTimesheet(json))
           .catch(err => console.info(err))
 
           fetch('/api/getProjet', { 
@@ -37,7 +36,6 @@ export default function Home() {
                body: JSON.stringify(dataE)
           })
           .then(res => res.json())
-          .then(json => setProjet(json))
           .catch(err => console.info(err))
 
      }, [currentIDU, currentIDE])
