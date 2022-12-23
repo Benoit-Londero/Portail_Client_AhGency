@@ -145,7 +145,7 @@ export default function ViewAll() {
                                                   <p className="time">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
                                                   <p className="developer"> {item.Agent.substring(0,1)}</p>
                                                   <p className="tasks">{ item.Informations}</p>
-                                                  <td><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}>Details</Button></td>
+                                                  <td><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
                                              </td>
                                         </tr>
                                    </tbody>
@@ -164,6 +164,7 @@ export default function ViewAll() {
                     var day = Moment(item.Date_Tache_Effectuee).format('DD');
                     var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
 
+                    return(
                     <table className="detail_TS" key={index}>
                          <thead>
                               <tr>
@@ -183,7 +184,7 @@ export default function ViewAll() {
                               <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
                               <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
                          </tbody>
-                    </table>
+                    </table>)
                     })}
                </div> 
                
