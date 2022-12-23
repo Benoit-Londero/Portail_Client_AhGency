@@ -108,22 +108,23 @@ export default function Entreprise() {
           <Container>
                <h2><BsIcons.BsBuilding/>Entreprise</h2>
                <Row>
-                    <table className="stats_account">
-                         <tr><td colspan="4"><h2>Statistiques</h2></td></tr>
-                         
-                         <tr>
-                              <td>
-                                   <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */}50 h</p>
-                                   <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
-                              </td>
-                              <td>
-                                   <p><b>Dépensé : {/* {moneySpend} */}300 €</b></p>
-                              </td>
-
-                              <tr><td><span id="progress_bar"></span>100%</td></tr>
-                              {/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}
-                         </tr>
-                    </table>
+                    <div className="stats_account">
+                         <table>
+                              <tr><td colspan="4"><h2>Statistiques</h2></td></tr>
+                              
+                              <tr>
+                                   <td>
+                                        <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */}50 h</p>
+                                        <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
+                                   </td>
+                                   <td><p><b>Dépensé : {/* {moneySpend} */}300 €</b></p></td>
+                                   {/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}
+                              </tr>
+                              <tr>
+                                   <td><span id="progress_bar"></span>100%</td>
+                              </tr>
+                         </table>
+                    </div>
                </Row>
                <Row>    
                     <Col>

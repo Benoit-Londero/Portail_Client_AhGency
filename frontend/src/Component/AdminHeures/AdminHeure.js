@@ -54,10 +54,10 @@ export default function AdminHeure() {
     <div>
         <NavBar />
         <div className="project_sidebar"></div>
-        <h1>Ajouter des heures à un client</h1>
-
+        
         <div  id='hourForm' className="main__content">
-      
+          <h1>Ajouter des heures à un client</h1>
+
           <form id="HeureForm" onSubmit={handleSubmitHeure}>
             <table>
               <tbody>
