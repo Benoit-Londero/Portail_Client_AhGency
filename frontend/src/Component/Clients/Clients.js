@@ -11,7 +11,7 @@ import AdminForm from "../AdminForm/AdminForm.js";
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
 
-export default function Home() {
+export default function Clients() {
 
      const [newTask, setnewTask] = useState(false);
      const [detailClient, setdetailTask] = useState(false);
