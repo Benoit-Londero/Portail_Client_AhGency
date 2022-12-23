@@ -1,5 +1,4 @@
 /* Init CSS */
-
 .resume,
 .tableauTS,
 .timesheet {
@@ -11,25 +10,6 @@
 }
 
 /***********************/
-/***** Panel User ******/
-
-.date_badge{
-    font-size: 20px;
-    text-align: center!important;
-    width: 40px;
-    vertical-align: middle;
-    line-height: 1.4em;
-    background: #6610f2;
-    border-radius: 10px;
-    color: #ffffff;
-    font-family: 'Poppins';
-    font-weight: 500;
-    padding: 5px;
-    aspect-ratio: 1;
-    max-height: 40px;
-}
-
-/*************************/
 /*** Tableau tableauTS récentes ***/
 
 .tableauTS{
@@ -54,6 +34,10 @@
     background:#fff;
 }
 
+.tableauTask table{
+    width:100%;
+}
+
 .tableauTask .last-child {
     text-align: right;
     width: 200px;
@@ -61,12 +45,23 @@
 
 .tableauTS table td {
     font-size: .8em;
-    font-weight: 300;
     vertical-align: top;
     text-align: justify;
     margin: 0;
     padding: 0;
     line-height: 1.5em;
+}
+
+.line_task{
+    border-bottom:1px solid #ddd;
+}
+
+
+.add_new_task{
+    border: 1px solid;
+    width: 50%;
+    color: #bbb;
+    float: left;
 }
 
 .stats p{
@@ -82,25 +77,12 @@
     border: 2px solid #fff;
 }
 
-.tableauTS a:hover {
-    background: #fff;
-    color: #6610f2;
-    border: 2px solid #6610f2;
-}
-
-.tableauTS button:hover,
-.tableauTS button:focus {
-    background: #fff;
-    color: #00c0cb;
-    border: 2px solid #00c0cb;
-}
-
 .btn_ts_bottom{
     background: #949494;
-    border: none;
-    border-bottom: 4px solid #5f5f5f!important;
+    border: 2px solid;
     border-radius: 10px;
     color: #fff!important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 11px;
     letter-spacing: 2px;
     padding: 2px 20px;
@@ -112,8 +94,9 @@
 
 .btn_ts_bottom:hover,
 .btn_ts_bottom:focus{
-    border: 2px solid #00c0cb!important;
-    color: #00c0cb!important;
+    border: 2px solid #fff!important;
+    color: #fff!important;
+    background: #6610f2;
 }
 
 /*********************************/
@@ -128,7 +111,6 @@
 .timesheet li {
     list-style-type: none;
 }
-
 
 .col__timeToUse{
     width:200px;

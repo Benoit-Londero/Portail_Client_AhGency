@@ -123,7 +123,7 @@ export default function Home() {
                               </tr>
                               <tr>
                                    <td>{projetFiltrer.map((item,index)=>{
-                                        return(<p key={index}><span className="developer">{item.Email.substring(0,1)}</span>{item.Email}</p>)})}</td>
+                                        return(<p key={index}>Assigné à <span className="bdg_user">{item.Email.substring(0,1)}</span></p>)})}</td>
                               </tr>
                          </tbody>
                     </table>
@@ -138,7 +138,7 @@ export default function Home() {
                          {
                               filteredTaches.map((item,index) => {
                                    return (
-                                        <tr key={index}>
+                                        <tr key={index} className="line_task">
                                              <td><p className="task_table">{ item.Titre}</p></td>
                                              <td><p className="task_table">{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
                                              <td><p className="statut_task">{item.Statut}</p></td>

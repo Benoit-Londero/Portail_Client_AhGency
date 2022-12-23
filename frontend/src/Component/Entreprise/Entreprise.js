@@ -123,7 +123,7 @@ export default function Entreprise() {
                                    {/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}
                               </tr>
                               <tr>
-                                   <td><span id="progress_bar"></span>100%</td>
+                                   <td><span id="progress_bar">100%</span></td>
                               </tr>
                          </table>
                     </div>
@@ -160,9 +160,9 @@ export default function Entreprise() {
                                    <tr>
                                         <td><label className="bold"> Membres: </label></td>
                                         <td>
-                                             <p className="date_badge">F</p>
-                                             <p className="date_badge">Q</p>
-                                             <p className="date_badge">B</p>
+                                             <p className="bdg_user">F</p>
+                                             <p className="bdg_user">Q</p>
+                                             <p className="bdg_user">B</p>
                                         </td>
                                    </tr>
                                    <tr>
