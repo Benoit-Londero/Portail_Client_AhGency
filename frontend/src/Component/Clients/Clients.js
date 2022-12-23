@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 export default function Clients() {
 
-     const [newTask, setnewTask] = useState(false);
+     const [modalInfos, setModal] = useState(false);
      const [detailClient, setdetailTask] = useState(false);
 
      const [showEntreprise, setShowEntreprise] = useState(false);
@@ -45,12 +45,11 @@ export default function Clients() {
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
      const handleShowClient = (e) =>{
-          setnewTask(true);
+          setModal(true);
      }
 
      const closeTasks = (e) => {
-          setnewTask(false);
-          setdetailTask(false);
+          setModal(false);
      }
 
      const handleEntreprise = (e) => {
@@ -135,9 +134,9 @@ export default function Clients() {
                                    <tr onClick={handleShowClient}>
                                         <td><p>Greenkids</p></td>
                                         <td>
-                                             <p className="date_badge">V</p>
-                                             <p className="date_badge">S</p>
-                                             <p className="date_badge">J</p>
+                                             <p className="bdg_user">V</p>
+                                             <p className="bdg_user">S</p>
+                                             <p className="bdg_user">J</p>
                                         </td>
                                         <td><p>20</p></td>
                                         <td><p>20.12.2022</p></td>
@@ -145,7 +144,7 @@ export default function Clients() {
                                    <tr onClick={handleShowClient}>
                                         <td><p>Et si on créait</p></td>
                                         <td>
-                                             <p className="date_badge">A</p>
+                                             <p className="bdg_user">A</p>
                                         </td>
                                         <td><p>2</p></td>
                                         <td><p>20.12.2022</p></td>
@@ -153,9 +152,9 @@ export default function Clients() {
                                    <tr onClick={handleShowClient}>
                                         <td><p>CFE Tax Adviser Europe</p></td>
                                         <td>
-                                             <p className="date_badge">K</p>
-                                             <p className="date_badge">A</p>
-                                             <p className="date_badge">B</p>
+                                             <p className="bdg_user">K</p>
+                                             <p className="bdg_user">A</p>
+                                             <p className="bdg_user">B</p>
                                         </td>
                                         <td><p>1</p></td>
                                         <td><p>20.12.2022</p></td>

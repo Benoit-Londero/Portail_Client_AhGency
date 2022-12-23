@@ -88,6 +88,9 @@ export default function Projet() {
                 break;
             case 'heures':
                 setFormDisplay('heures');
+
+            default :
+                setFormDisplay('projet');
         }
     }
 
