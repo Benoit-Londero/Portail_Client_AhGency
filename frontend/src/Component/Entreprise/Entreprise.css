@@ -6,6 +6,10 @@
      padding:10px;
 }
 
+.stats_account table{
+     width:100%;
+}
+
 .stats_account h2{
      color:#fff;
 }
@@ -17,4 +21,16 @@
 
 .tabs_account:active{
      color:#6610f2;
+}
+
+#progress_bar{
+     width: 100%!important;
+     background: #6610f2;
+     border-radius: 10px;
+     text-align: right;
+     padding: 5px;
+}
+
+#progress_bar p{
+     margin-top:0px;
 }

@@ -72,10 +72,10 @@ export default function Projet() {
             <NavBar />
 
             {message === false ? <form id="DemandeForm" onSubmit={handleDemande}>
+
+            <h1>Informations sur la demande</h1>
             <table>
-                <thead>
-                    <tr><th><h2>Informations sur la demande</h2></th></tr>
-                </thead>
+                <thead></thead>
                 <tbody>
                     <tr>
                         <td colspan="2"><label for="title">Nom du projet <span className="required">*</span></label>

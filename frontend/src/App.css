@@ -256,6 +256,11 @@ select{
     font-weight: 400;
 }
 
+textarea{
+    background:#f8f8f8;
+    min-height: 150px;
+}
+
 input:hover{
     background: #e0e0e0;
     cursor:pointer;
@@ -316,13 +321,7 @@ svg {
 
 @media screen and (max-width:756px) and (orientation: portrait) {
     .project_sidebar{
-        position:fixed;
-        bottom:8vh;
-        width:100vw;
-        height:11vh;
-        top:inherit;
-        padding:10px;
-        left:0;
+        display:none;
     }
 }
 

@@ -111,13 +111,13 @@ export default function Home() {
                                    return(
                                    <tr>
                                         <td key={index} rowspan="3" className="first_col_pjt"><p className="date_badge">{item.Tickets.substring(0,1)}</p></td>
-                                        <td><h1>{item.Tickets}</h1><p className="date_creation">{Moment(item.Date).format('DD-MM-YYYY')}</p></td>
+                                        <td><h1>{item.Tickets}</h1><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>
                                         <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
                                    </tr>)
                               })
                               }
                               <tr> 
-                                   <td><h2>Description</h2>{projetFiltrer.map((item,index)=>{
+                                   <td colspan="2"><h2>Description</h2>{projetFiltrer.map((item,index)=>{
                                         return(<p key={index} className="descr__thead">{item.Description}</p>)
                                    })}</td>
                               </tr>

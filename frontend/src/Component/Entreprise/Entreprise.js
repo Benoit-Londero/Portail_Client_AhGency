@@ -123,7 +123,7 @@ export default function Entreprise() {
                                    {/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}
                               </tr>
                               <tr>
-                                   <td><span id="progress_bar">100%</span></td>
+                                   <td colspan="2"><div id="progress_bar"><p>100%</p></div></td>
                               </tr>
                          </table>
                     </div>
@@ -173,7 +173,7 @@ export default function Entreprise() {
                          </table>
                     </form>
                     {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
-                    <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p>
+                    {/* <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p> */}
                     </Col>
                </Row>          
           </Container>

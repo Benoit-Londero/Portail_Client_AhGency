@@ -30,8 +30,8 @@
     text-align: left;
 }
 
-.tableauTask{
-    background:#fff;
+.tableauTask h2{
+    text-align: left;
 }
 
 .tableauTask table{
@@ -55,7 +55,6 @@
 .line_task{
     border-bottom:1px solid #ddd;
 }
-
 
 .add_new_task{
     border: 1px solid;
@@ -169,12 +168,6 @@
 .detail_TS p{
     text-align:left;
     font-size: 12px;
-}
-
-.detail_TS .date_badge{
-    font-size: 12px;
-    margin-left: auto;
-    margin-right: 0;
 }
 
 .detail_TS .tasks{

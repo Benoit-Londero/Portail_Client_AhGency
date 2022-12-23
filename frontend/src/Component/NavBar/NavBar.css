@@ -167,6 +167,10 @@
         left:inherit;
     }
 
+    .desktop{
+        display:none;
+    }
+
     .mobile{
         display:block;
     }
