@@ -7,12 +7,20 @@ import NavBar from "../NavBar/NavBar";
 import "./ViewAll.css";
 import Moment from "moment";
 
+import Button from 'react-bootstrap/Button';
+
+import * as FiIcons from "react-icons/fi";
+import * as MdIcons from "react-icons/md";
+import * as BsIcons from "react-icons/bs";
+
 export default function ViewAll() {
 
      const [alltasks, setAllTasks] = useState([]);
      const [clients, setClients] = useState([]);
      const [idClient, setIdClient] = useState();
      const [filtredtasks, setFiltredtasks] = useState(null);
+
+     const [detailTask, setdetailTask] = useState(false);
      
      useEffect (() => {
 
@@ -38,6 +46,10 @@ export default function ViewAll() {
 
           theClient !== "all" ? setFiltredtasks(filtertask(theClient)) : setFiltredtasks(alltasks);
           theClient === "all" ? setIdClient('') : setIdClient(theClient);
+     }
+
+     const closeTasks = (e) => {
+          setdetailTask(false);
      }
 
      return (
@@ -98,11 +110,12 @@ export default function ViewAll() {
 
                          return (
                               <tr key={index}>
-                                   <td><p className="date_badge">{day}<br></br>{Month}.</p></td>
                                    <td><p>{ item.Titre}</p></td>
+                                   <td><p className="date_badge">{day}<br></br>{Month}.</p></td>
                                    <td className='fst_col'><p className="tasks">{ item.Informations}</p></td>
-                                   <td><p>{item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                   <td><p className="developer"> {item.Agent.substring(0,1)}</p></td>
+                                   <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
+                                   <td><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                   <td><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}>Details</Button></td>
                               </tr>
                               )
                          })}
@@ -128,6 +141,7 @@ export default function ViewAll() {
                                                   <p className="time">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p>
                                                   <p className="developer"> {item.Agent.substring(0,1)}</p>
                                                   <p className="tasks">{ item.Informations}</p>
+                                                  <td><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}>Details</Button></td>
                                              </td>
                                         </tr>
                                    </tbody>
@@ -136,6 +150,40 @@ export default function ViewAll() {
                          }
                     </div>
                </Col>
+          </Row>
+
+          <Row>
+               {detailTask === true ? 
+                    <div id="modal_desktop">
+                    {filtredtasks && filtredtasks.map((item,index) => {
+
+                    var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+
+                    <table className="detail_TS" key={index}>
+                         <thead>
+                              <tr>
+                                   <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
+                                   <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <tr>
+                                   <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
+                                   <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                              </tr>
+                              <tr>
+                                   <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
+                                   <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                              </tr>
+                              <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
+                              <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
+                         </tbody>
+                    </table>
+                    })}
+               </div> 
+               
+               : ''}
           </Row>
      </Container>
      </div>

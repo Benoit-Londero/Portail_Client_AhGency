@@ -91,9 +91,7 @@ export default function Home() {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
           }
-
           onLoad();
-
      }, [currentIDU, currentIDE])
 
      const handleFilter = (e) => {
@@ -146,7 +144,7 @@ export default function Home() {
 
      <Container id="page_dashboard"  className="main__content">
           <Row>
-               <div className="stats">
+               <div className="stats mobile">
                     <table>
                          <thead>
                               <th><h2>Statistiques</h2></th>
