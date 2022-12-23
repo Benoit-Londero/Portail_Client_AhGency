@@ -188,6 +188,7 @@
     font-weight: 500;
     padding: 5px;
     aspect-ratio: 1;
+    line-height: 1em;
 }
 
 .date_badge{
