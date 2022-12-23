@@ -104,7 +104,7 @@ export default function Entreprise() {
   }      
 
   return (
-    <div id="page_entreprise" className="main__content">
+    <div id="page_entreprise">
           <Container>
                <h2><BsIcons.BsBuilding/>Entreprise</h2>
                <Row>

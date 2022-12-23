@@ -1,6 +1,12 @@
 #page_entreprise h2{
      text-align: left;
 }
+.stats_account{
+     text-align: left!important;
+}
+.stats_account h2{
+     color:#fff;
+}
 
 .tabs_account button{
      text-transform: uppercase;
@@ -9,4 +15,12 @@
 
 .tabs_account:active{
      color:#6610f2;
+}
+
+.date_badge{
+     display: inline-block;
+     box-shadow: 3px 3px 7px rgb(0 0 0 / 30%);
+     border: 2px solid #fff;
+     border-radius: 20px;
+     margin-left: -3px;
 }
