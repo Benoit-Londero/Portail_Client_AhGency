@@ -5,8 +5,10 @@
 
 @media screen and (max-width:756px) and (orientation: portrait) {
 
-     #hourForm{
+     .main__content{
+          width:80vw;
           margin:auto;
+          margin-left:auto;
      }
 
      #hourForm h1,

@@ -2,12 +2,19 @@ import React, {useState, useEffect} from 'react';
 import NavBar from "../NavBar/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import AdminHeure from "../AdminHeures/AdminHeure";
+import AdminForm from "../AdminForm/AdminForm";
+
+import './Projet.css';
+
 export default function Projet() {
     const currentIDU = localStorage.getItem("currentIDU");
     const currentIDE = localStorage.getItem("currentIDE");
 
     const [currentMAIL, setCurrentMAIL] = useState();
     const [message, setMessage] = useState(false);
+
+    const [formDisplay, setFormDisplay] = useState('projet');
 
     useEffect (() => {
         let dataU = {currentIDUser: currentIDU};
@@ -64,6 +71,24 @@ export default function Projet() {
         setMessage(false);
     }
 
+
+    /** Ajout Benoit */
+
+    const changeForm = (e) =>{
+        let value = e.target.value;
+
+        switch(value){
+            case 'projet': 
+                setFormDisplay('projet');
+                break;
+            case 'taches':
+                setFormDisplay('taches');
+                break;
+            case 'heures':
+                setFormDisplay('heures');
+        }
+    }
+
   return (
     <div>
         <div className="project_sidebar"></div>
@@ -74,7 +99,17 @@ export default function Projet() {
             {message === false ? <form id="DemandeForm" onSubmit={handleDemande}>
 
             <h1>Informations sur la demande</h1>
-            <table>
+
+            <div className="mobile">
+                <ul>
+                    <li><Button value="projet" onclick={changeForm}>Projet</Button></li>
+                    <li><Button value="taches" onclick={changeForm}>Tâches</Button></li>
+                    <li><Button value="heures" onclick={changeForm}>Credit</Button></li>
+                </ul>
+            </div>
+                
+
+            {formDisplay === 'projet' ? <table>
                 <thead></thead>
                 <tbody>
                     <tr>
@@ -113,7 +148,9 @@ export default function Projet() {
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </table> : ''}
+            {formDisplay === 'taches' ? <AdminForm /> : ''}
+            {formDisplay === 'heures' ? <AdminHeure /> : ''}
             </form> : <table><thead>Votre demande a bien été enregistrée, notre équipe reviendra vers vous dans les plus brefs délais</thead><tbody><button onClick={handleRetour}>Revenir au formulaire</button></tbody></table>}
         </div>
     </div>

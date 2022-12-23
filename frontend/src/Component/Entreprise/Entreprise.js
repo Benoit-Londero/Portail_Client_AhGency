@@ -22,7 +22,7 @@ export default function Entreprise() {
   const [currentTEL, setCurrentTEL] = useState();
   const [currentEMAILE, setCurrentEMAILE] = useState();
   const [currentSITE, setCurrentSITE] = useState();
-  const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState();
+  /* const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState(); */
   const [minEntreprise, setMinEntreprise] = useState();
   const [tempsAlloue, setTempsAlloue] = useState();
   const [validation, setValidation] = useState(false);
@@ -46,7 +46,7 @@ export default function Entreprise() {
                setCurrentTEL(data.Telephone);
                setCurrentEMAILE(data.Email);
                setCurrentSITE(data.Site_web);
-               setCurrentMAINTENANCE(data.Maintenance);
+               /* setCurrentMAINTENANCE(data.Maintenance); */
           } else {
                alert('Erreur du serveur, veuillez réessayer plus tard');
           }

@@ -1,0 +1,13 @@
+#adminForm .mobile{
+     display:none;
+}
+
+@media screen and (max-width:756px) and (orientation: portrait) {
+     #adminForm .mobile{
+          display:block;
+     }
+
+     #adminForm .mobile li{
+          display:inline-block;
+     }
+ }
