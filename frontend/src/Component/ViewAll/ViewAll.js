@@ -9,7 +9,6 @@ import Moment from "moment";
 
 import Button from 'react-bootstrap/Button';
 
-import * as FiIcons from "react-icons/fi";
 import * as MdIcons from "react-icons/md";
 import * as BsIcons from "react-icons/bs";
 
