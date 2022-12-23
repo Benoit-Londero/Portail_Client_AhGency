@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 
 export default function Clients() {
 
-     const [modalInfos, setModal] = useState(false);
      const [detailClient, setdetailTask] = useState(false);
 
      const [showEntreprise, setShowEntreprise] = useState(false);
@@ -45,11 +44,11 @@ export default function Clients() {
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
      const handleShowClient = (e) =>{
-          setModal(true);
+          setdetailTask(true);
      }
 
      const closeTasks = (e) => {
-          setModal(false);
+          setdetailTask(false);
      }
 
      const handleEntreprise = (e) => {
@@ -61,6 +60,8 @@ export default function Clients() {
           }
           
      }
+
+     console.log(modalInfos);
 
      return (
 
@@ -174,7 +175,7 @@ export default function Clients() {
           </Row> : ''}
      </Container>
 
-     {newTask === true ? <div className="modal__newTask"><button className="close_modale" onClick={closeTasks}>X</button><AdminForm/></div> : ''}
+     {detailClient === true ? <div className="modal__newTask"><button className="close_modale" onClick={closeTasks}>X</button><AdminForm/></div> : ''}
      </div>
       )
  }
