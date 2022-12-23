@@ -73,7 +73,7 @@ export default function AdminForm() {
         <NavBar />
         <div className="project_sidebar"></div>
 
-      <div id='adminForm' className="main__content">
+      <div className="main__content">
         <h1>Encoder une tâche</h1>
           <form id="timesheetForm" onSubmit={handleSubmitTS}>
             <table>
