@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 export default function Clients() {
 
-     const [detailClient, setdetailTask] = useState(false);
+     const [detailClient, setdetailClient] = useState(false);
 
      const [showEntreprise, setShowEntreprise] = useState(false);
 
@@ -44,11 +44,11 @@ export default function Clients() {
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
      const handleShowClient = (e) =>{
-          setdetailTask(true);
+          setdetailClient(true);
      }
 
      const closeTasks = (e) => {
-          setdetailTask(false);
+          setdetailClient(false);
      }
 
      const handleEntreprise = (e) => {
