@@ -4,6 +4,8 @@ import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import './Entreprise.css';
+
 import * as BsIcons from "react-icons/bs";
 import * as MdIcons from "react-icons/md";
 

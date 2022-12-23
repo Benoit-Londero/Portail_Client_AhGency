@@ -91,7 +91,7 @@ export const SidebarData = [
     },
     {
         title:'Client',
-        path: '/Client',
+        path: '/Clients',
         icon: <FiIcons.FiUsers />,
         cName: 's-sidebar__nav-link',
         admin: true,
