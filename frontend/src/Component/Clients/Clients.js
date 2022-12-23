@@ -6,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 
 import AjoutClient from '../AjoutClient/AjoutClient.js';
-import AdminForm from "../AdminForm/AdminForm.js";
 
 import Button from 'react-bootstrap/Button';
 import { Link } from "react-router-dom";
@@ -173,7 +172,7 @@ export default function Clients() {
           </Row> : ''}
      </Container>
 
-     {detailClient === true ? <div className="modal__newTask"><button className="close_modale" onClick={closeTasks}>X</button><AdminForm/></div> : ''}
+     {detailClient === true ? <div className="modal__newTask"><button className="close_modale" onClick={closeTasks}>X</button></div> : ''}
      </div>
       )
  }
