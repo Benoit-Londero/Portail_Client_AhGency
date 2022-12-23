@@ -4,6 +4,7 @@ import Connexion from './Component/Connexion/Connexion.js'
 import Deconnexion from './Component/Deconnexion/Deconnexion.js'
 import Boutique from './Component/Credits/Credits.js'
 import NameForm from './Component/Account/Account.js'
+import Clients from './Component/Clients/Clients.js';
 import Home from './Component/Home/Home.js'
 import Inscription from './Component/Inscription/Inscription.js'
 import Projet from './Component/Projet/Projet.js'
@@ -108,6 +109,7 @@ function App() {
               <Route path="/AdminHeure" element={< AdminHeure />}></Route>
               <Route path="/ViewAll" element={< ViewAll />}></Route>
               <Route path='/Account' element={< NameForm />}></Route>
+              <Route path="/Clients" element={< Clients/>}></Route>
               <Route path="/Entreprise" element={< Entreprise />}></Route>
               <Route path="/Recuperation" element={< Recuperation />}></Route>
               <Route path="/Projet" element={< Projet />}></Route>

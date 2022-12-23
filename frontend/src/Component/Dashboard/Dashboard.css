@@ -21,12 +21,6 @@
     right: 5px;
 }
 
-#page_dashboard{
-    width: 80vw!important;
-    margin-left: 15vw;
-    padding-top:9vh;
-}
-
 
 /***********************/
 /***** Panel User ******/
@@ -46,7 +40,6 @@
     aspect-ratio: 1;
     max-height: 40px;
 }
-
 
 /*************************/
 /***** Statistiques ******/
@@ -71,13 +64,6 @@
 .tableauTS{
     margin-bottom:50px;
     background: #fafafa;
-}
-
-.tableauTS h2{
-    text-align: left;
-    vertical-align: top;
-    font-size: 16px!important;
-    color: #333;
 }
 
 .descr__thead{
@@ -134,8 +120,8 @@
 .tableauTS button:hover,
 .tableauTS button:focus {
     background: #fff;
-    color: #00c0cb;
-    border: 2px solid #00c0cb;
+    color: #6610f2;
+    border: 2px solid #6610f2;
 }
 
 .btn_ts_bottom{
@@ -155,8 +141,8 @@
 
 .btn_ts_bottom:hover,
 .btn_ts_bottom:focus{
-    border: 2px solid #00c0cb!important;
-    color: #00c0cb!important;
+    border: 2px solid #6610f2!important;
+    color: #6610f2!important;
 }
 
 /*********************************/
