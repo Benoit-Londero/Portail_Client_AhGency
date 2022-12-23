@@ -1,18 +1,11 @@
 #page_recup .container {
     min-height: 100vh;
     min-width: 100vw!important;
-    background: #6610f2!important;
 }
 
 .recup_form {
     padding-top: 20vh;
 }
-
-.recup_form h1 {
-    text-align: center;
-    color: #fff;
-}
-
 
 #mdpForm {
     background: #fff;
@@ -20,7 +13,6 @@
     min-height: 30vh;
     width: 60vw;
     margin: auto;
-    box-shadow: 5px 5px 15px #ffffff9b;
     padding: 40px;
 }
 
@@ -38,6 +30,7 @@
     font-weight: 600;
     margin-bottom: 50px;
     min-width: 90%;
+    width: 100%;
 }
 
 #mdpForm input[type="email"] {
@@ -52,7 +45,7 @@
     width: 80%!important;
 }
 
-#mdpForm input[type="submit"] {
+/* #mdpForm input[type="submit"] {
     background: #6610f2;
     color: #fff;
     border: 2px solid #6610f2;
@@ -68,7 +61,7 @@
     background: #fff;
     color: #6610f2;
     border: 2px solid #6610f2;
-}
+} */
 
 .thx_message{
     background: white;

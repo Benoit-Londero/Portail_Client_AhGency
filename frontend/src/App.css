@@ -28,8 +28,10 @@
     color: #282c34;
 }
 
-.container{
-    width:80vw;
+.main__content{
+    width: 60vw;
+    margin-left: 15vw;
+    margin-top: 9vh;
 }
 
 .App-link {

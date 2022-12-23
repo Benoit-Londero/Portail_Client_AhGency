@@ -113,15 +113,14 @@ export default function Entreprise() {
                          
                          <tr>
                               <td>
-                                   <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */} h</p>
-                                   <p>Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min</p><br/> 
+                                   <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */}50 h</p>
+                                   <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
                               </td>
                               <td>
-                                   <p><b>Dépensé : {/* {moneySpend} */} €</b></p>
-                                   <p className="highlight">Heures restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p>
+                                   <p><b>Dépensé : {/* {moneySpend} */}300 €</b></p>
                               </td>
 
-                              <tr><td id="progress_bar">ProgressBar</td></tr>
+                              <tr><td><span id="progress_bar"></span>100%</td></tr>
                               {/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}
                          </tr>
                     </table>
@@ -157,9 +156,10 @@ export default function Entreprise() {
                                    </tr>
                                    <tr>
                                         <td><label className="bold"> Membres: </label></td>
-                                        <td><select id="members" name="members"  defaultValue="">
-                                             {}
-                                            </select>
+                                        <td>
+                                             <p className="date_badge">F</p>
+                                             <p className="date_badge">Q</p>
+                                             <p className="date_badge">B</p>
                                         </td>
                                    </tr>
                                    <tr>

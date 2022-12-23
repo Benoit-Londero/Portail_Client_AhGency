@@ -1,0 +1,12 @@
+#page_entreprise h2{
+     text-align: left;
+}
+
+.tabs_account button{
+     text-transform: uppercase;
+     padding:0;
+}
+
+.tabs_account:active{
+     color:#6610f2;
+}
