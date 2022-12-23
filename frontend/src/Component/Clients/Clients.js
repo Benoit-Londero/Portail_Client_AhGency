@@ -167,12 +167,12 @@ export default function Clients() {
           {detailClient === true ? <Row className="modal__newTask">
                
                <Col>                                      
-                   <AjoutClient/>
+                    <div id="modal_desktop">
+                         <AjoutClient/>
+                    </div>
                </Col> 
           </Row> : ''}
      </Container>
-
-     {detailClient === true ? <div className="modal__newTask"><button className="close_modale" onClick={closeTasks}>X</button></div> : ''}
      </div>
       )
  }
