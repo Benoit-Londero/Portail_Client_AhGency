@@ -61,6 +61,14 @@
     margin-left: 180px;
 }
 
+.tbl table{
+    width:100%;
+}
+
+.tbl p{
+    text-align: left;
+}
+
 @media screen and (max-width:756px) and (orientation: portrait){
 
     #page_boutique{

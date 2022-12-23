@@ -16,6 +16,8 @@ export default function Clients() {
      const [newTask, setnewTask] = useState(false);
      const [detailClient, setdetailTask] = useState(false);
 
+     const [showEntreprise, setShowEntreprise] = useState(false);
+
      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
 
@@ -50,6 +52,10 @@ export default function Clients() {
           setnewTask(false);
           setdetailTask(false);
      }
+
+     const handleEntreprise = (e) => {
+          setShowEntreprise(true)
+     }
      
      return (
 
@@ -60,8 +66,8 @@ export default function Clients() {
           <h2>CRM</h2>
 
           <ul>
-               <li><h3>Clients</h3></li>
-               <li><h3>Entreprise</h3></li>
+               <li><Button>Clients</Button></li>
+               <li><Button onClick={handleEntreprise}>Entreprise</Button></li>
           </ul>
 
           <Link to ='/Projet'><Button className="sidebar_btn">+</Button></Link>
@@ -70,43 +76,88 @@ export default function Clients() {
      <Container id="page_dashboard"  className="main__content">
 
           <Row>
-               <Col className="tbl" id="TblClients">
-                    <h2>Clients</h2>
-                    <table>
-                         <thead>
-                              <th>Nom</th>
-                              <th>Entreprise</th>
-                              <th>Projets</th>
-                              <th>Créé</th>
-                         </thead>
-                         <tbody>
-                              <tr onClick={handleShowClient}>
-                                   <td>Vicky Allard</td>
-                                   <td>Greenkids</td>
-                                   <td>4</td>
-                                   <td>20.12.2022</td>
-                              </tr>
-                              <tr>
-                                   <td>Vicky Allard</td>
-                                   <td>Greenkids</td>
-                                   <td>4</td>
-                                   <td>20.12.2022</td>
-                              </tr>
-                              <tr>
-                                   <td>Vicky Allard</td>
-                                   <td>Greenkids</td>
-                                   <td>4</td>
-                                   <td>20.12.2022</td>
-                              </tr>
-                              <tr>
-                                   <td>Vicky Allard</td>
-                                   <td>Greenkids</td>
-                                   <td>4</td>
-                                   <td>20.12.2022</td>
-                              </tr>
-                         </tbody>
-                    </table>
-               </Col>
+               {showEntreprise = false ?
+                    <Col className="tbl" id="TblClients">
+                         <h2>Clients</h2>
+                         <table>
+                              <thead>
+                                   <th><p>Nom</p></th>
+                                   <th><p>Entreprise</p></th>
+                                   <th><p>Projets</p></th>
+                                   <th><p>Créé</p></th>
+                              </thead>
+                              <tbody>
+                                   <tr onClick={handleShowClient}>
+                                        <td><p>Vicky Allard</p></td>
+                                        <td><p>Greenkids</p></td>
+                                        <td><p>4</p></td>
+                                        <td><p>20.12.2022</p></td>
+                                   </tr>
+                                   <tr onClick={handleShowClient}>
+                                        <td><p>Vicky Allard</p></td>
+                                        <td><p>Greenkids</p></td>
+                                        <td><p>4</p></td>
+                                        <td><p>20.12.2022</p></td>
+                                   </tr>
+                                   <tr onClick={handleShowClient}>
+                                        <td><p>Vicky Allard</p></td>
+                                        <td><p>Greenkids</p></td>
+                                        <td><p>4</p></td>
+                                        <td><p>20.12.2022</p></td>
+                                   </tr>
+                                   <tr onClick={handleShowClient}>
+                                        <td><p>Vicky Allard</p></td>
+                                        <td><p>Greenkids</p></td>
+                                        <td><p>4</p></td>
+                                        <td><p>20.12.2022</p></td>
+                                   </tr>
+                              </tbody>
+                         </table>
+                    </Col> 
+
+               :    
+                    <Col className="tbl" id="TblClients">
+                         <h2>Entreprise</h2>
+                         <table>
+                              <thead>
+                                   <th><p>Nom de l'entreprise</p></th>
+                                   <th><p>Membres</p></th>
+                                   <th><p>Projets</p></th>
+                                   <th><p>Créé</p></th>
+                              </thead>
+                              <tbody>
+                                   <tr onClick={handleShowClient}>
+                                        <td><p>Greenkids</p></td>
+                                        <td>
+                                             <p className="date_badge">V</p>
+                                             <p className="date_badge">S</p>
+                                             <p className="date_badge">J</p>
+                                        </td>
+                                        <td><p>20</p></td>
+                                        <td><p>20.12.2022</p></td>
+                                   </tr>
+                                   <tr onClick={handleShowClient}>
+                                        <td><p>Et si on créait</p></td>
+                                        <td>
+                                             <p className="date_badge">A</p>
+                                        </td>
+                                        <td><p>2</p></td>
+                                        <td><p>20.12.2022</p></td>
+                                   </tr>
+                                   <tr onClick={handleShowClient}>
+                                        <td><p>CFE Tax Adviser Europe</p></td>
+                                        <td>
+                                             <p className="date_badge">K</p>
+                                             <p className="date_badge">A</p>
+                                             <p className="date_badge">B</p>
+                                        </td>
+                                        <td><p>1</p></td>
+                                        <td><p>20.12.2022</p></td>
+                                   </tr>
+                              </tbody>
+                         </table>
+                    </Col> 
+          }
 
           </Row>
 
