@@ -54,9 +54,15 @@ export default function Clients() {
      }
 
      const handleEntreprise = (e) => {
-          setShowEntreprise(true)
+          let onglet = e.target.value;
+          if(onglet === "entreprise"){
+               setShowEntreprise(true)
+          } else {
+               setShowEntreprise(false);
+          }
+          
      }
-     
+
      return (
 
      <div>
@@ -66,8 +72,8 @@ export default function Clients() {
           <h2>CRM</h2>
 
           <ul>
-               <li><Button>Clients</Button></li>
-               <li><Button onClick={handleEntreprise}>Entreprise</Button></li>
+               <li><Button value="clients" onClick={handleEntreprise}>Clients</Button></li>
+               <li><Button value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
           </ul>
 
           <Link to ='/Projet'><Button className="sidebar_btn">+</Button></Link>
@@ -76,7 +82,7 @@ export default function Clients() {
      <Container id="page_dashboard"  className="main__content">
 
           <Row>
-               {showEntreprise = false ?
+               {showEntreprise === false ?
                     <Col className="tbl" id="TblClients">
                          <h2>Clients</h2>
                          <table>

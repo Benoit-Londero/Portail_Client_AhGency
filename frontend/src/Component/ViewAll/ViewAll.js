@@ -50,7 +50,7 @@ export default function ViewAll() {
                     <h2>Suivi de projet</h2>
 
                     <label>Voir toute les tâches </label>
-                    <button  value='all' className="client_list" onClick={handleTasks}>Tous</button>
+                    <button  value='all' className="btn primary_btn" onClick={handleTasks}>Tous</button>
                </div>
 
                <div className="navbar_col_d">
