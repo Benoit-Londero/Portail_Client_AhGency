@@ -174,5 +174,10 @@
     .mobile{
         display:block;
     }
+
+    .s-sidebar__nav .mobile li{
+        width:20%;
+        display: inline-block;
+    }
 }
 
