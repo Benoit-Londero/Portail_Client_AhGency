@@ -15,6 +15,7 @@ export default function Clients() {
 
      const [showDetails, setShowDetails] = useState(false);
      const [idDetailClient, setIdDetailClient] = useState('');
+
      const [showEntreprise, setShowEntreprise] = useState(false);
 
      const currentIDU = localStorage.getItem("currentIDU");
@@ -40,6 +41,25 @@ export default function Clients() {
           })
           .then(res => res.json())
           .catch(err => console.info(err))
+
+
+          if(setIdDetailClient === ''){
+               console.log('Choissisez un client')
+          } else {
+               const onLoad = async () => {
+               
+                    const response = await fetch('/api/getInfosClient', { 
+                         method: 'POST',
+                         headers: {'Content-Type': 'application/json'},
+                         body: JSON.stringify(id_client)
+                    })
+                    
+                    const data = await response.json();
+               }
+               onLoad();
+          }
+
+          
 
           
      }, [currentIDU, currentIDE])
@@ -67,20 +87,7 @@ export default function Clients() {
      const handleShowClient = async (e) => {
           setShowDetails(true);
           let id_client = e.target.value;
-
-          setIdDetailClient = id_client;
-
-          const onLoad = async () => {
-               
-               const response = await fetch('/api/getInfosClient', { 
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(id_client)
-               })
-               
-               const idDetailClient = await response.json();
-          }
-          onLoad();
+          setIdDetailClient(id_client);
      }
 
      return (
@@ -199,6 +206,8 @@ export default function Clients() {
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          <h2>Détails Client</h2>
+
+                         {console.log(data)}
                     </div>  
                </Row>
           : ''}
