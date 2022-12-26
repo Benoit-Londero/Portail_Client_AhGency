@@ -10,7 +10,6 @@ module.exports = async function (context, req) {
 
         let IDU = req.body.currentIDUser;
 
-
         let query = "SELECT * FROM users WHERE ID = ?";
         req = con.query(query, [IDU], function (err,rows){
             if (err) throw err;

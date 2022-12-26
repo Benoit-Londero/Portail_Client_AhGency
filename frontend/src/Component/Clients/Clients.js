@@ -64,7 +64,7 @@ export default function Clients() {
 
      const handleShowClient = async (e) => {
           setShowDetails(true);
-          let id_client = e.target.value;
+          let id_client = {currentIDUser: e.target.value};
           setIdDetailClient(id_client);
 
           const response = await fetch('/api/getInfosClient', { 
