@@ -310,3 +310,8 @@
 .first_col_pjt{
     width:60px;
 }
+
+.modal__newTask .s-sidebar__nav,
+.modal__newTask h1{
+    display:none;
+}
