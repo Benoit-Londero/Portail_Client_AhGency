@@ -159,6 +159,8 @@ export default function Projet() {
             {formDisplay === 'heures' ? <AdminHeure /> : ''}
             </form> : <table><thead>Votre demande a bien été enregistrée, notre équipe reviendra vers vous dans les plus brefs délais</thead><tbody><button onClick={handleRetour}>Revenir au formulaire</button></tbody></table>}
         </div>
+
+        <img src={illu} alt='illustration'></img>
     </div>
   )
 }

@@ -2,7 +2,6 @@ import * as React from 'react';
 import NavBar from '../NavBar/NavBar.js';
 import './Credits.css';
 import illu from '../../img/Brainstorming_session_Monochromatic.png';
-import { FaLightbulb } from 'react-icons/fa';
 
 export default function Boutique() {
 
