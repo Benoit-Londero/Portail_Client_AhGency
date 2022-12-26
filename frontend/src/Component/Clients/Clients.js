@@ -16,6 +16,8 @@ export default function Clients() {
      const [showDetails, setShowDetails] = useState(false);
      const [showEntreprise, setShowEntreprise] = useState(false);
 
+     const [data,setDateClient] = useState('');
+
      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
 
@@ -73,7 +75,7 @@ export default function Clients() {
                body: JSON.stringify(jsonID)
           })
           
-          const data = await response.json();
+          setDateClient(await response.json());
           console.log(data)
 
           setShowDetails(true);
