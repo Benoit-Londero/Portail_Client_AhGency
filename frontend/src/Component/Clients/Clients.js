@@ -106,31 +106,39 @@ export default function Clients() {
                                    <th><p>Entreprise</p></th>
                                    <th><p>Projets</p></th>
                                    <th><p>Créé</p></th>
+                                   <th><p>Action</p></th>
                               </thead>
                               <tbody>
-                                   <tr onClick={handleShowClient} value="55">
+                                   <tr >
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
+                                        <td><Button onClick={handleShowClient} value="55">...</Button> </td>
                                    </tr>
-                                   <tr onClick={handleShowClient} value="56">
+                                   <tr>
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
+                                        <td><Button onClick={handleShowClient} value="56">...</Button> </td>
+
                                    </tr>
-                                   <tr onClick={handleShowClient} value="54">
+                                   <tr>
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
+                                        <td><Button onClick={handleShowClient} value="54">...</Button> </td>
+
                                    </tr>
-                                   <tr onClick={handleShowClient} value="53">
+                                   <tr>
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
+                                        <td><Button onClick={handleShowClient} value="4">...</Button> </td>
+
                                    </tr>
                               </tbody>
                          </table>
