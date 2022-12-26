@@ -21,8 +21,6 @@ export default function Clients() {
      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
 
-
-
      useEffect (() => {
 
           let dataU = {currentIDUser: currentIDU};
@@ -41,26 +39,6 @@ export default function Clients() {
           })
           .then(res => res.json())
           .catch(err => console.info(err))
-
-
-          if(setIdDetailClient === ''){
-               console.log('Choissisez un client')
-          } else {
-               const onLoad = async () => {
-               
-                    const response = await fetch('/api/getInfosClient', { 
-                         method: 'POST',
-                         headers: {'Content-Type': 'application/json'},
-                         body: JSON.stringify(id_client)
-                    })
-                    
-                    const data = await response.json();
-               }
-               onLoad();
-          }
-
-          
-
           
      }, [currentIDU, currentIDE])
 
@@ -88,6 +66,17 @@ export default function Clients() {
           setShowDetails(true);
           let id_client = e.target.value;
           setIdDetailClient(id_client);
+
+          const response = await fetch('/api/getInfosClient', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(id_client)
+          })
+          
+          const data = await response.json();
+          console.log(data)
+
+          console.log(idDetailClient)
      }
 
      return (
@@ -206,8 +195,6 @@ export default function Clients() {
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          <h2>Détails Client</h2>
-
-                         {console.log(data)}
                     </div>  
                </Row>
           : ''}
