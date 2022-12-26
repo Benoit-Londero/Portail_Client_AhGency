@@ -67,7 +67,7 @@ export default function Clients() {
           let jsonID = {currentIDUser: id_client};
           console.log(jsonID);
 
-          const response = await fetch('/api/getAllUsers', { 
+          const response = await fetch('/api/getInfosClient', { 
                method: 'POST',
                headers: {'Content-Type': 'application/json'},
                body: JSON.stringify(jsonID)
@@ -203,6 +203,20 @@ export default function Clients() {
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          <h2>Détails Client</h2>
+
+                         {data.map((item,index) => {
+                              return (
+                                   <div key={index}>
+                                        <p>{item.ID}</p>
+                                        <p>{item.Nom}</p>
+                                        <p>{item.Prenom}</p>
+                                        <p>{item.Email}</p>
+                                        <p>{item.ID_entreprise}</p>
+                                        <p>{item.Role}</p>
+                                        <p>{item.Minutes_Achetees}</p>
+                                   </div>
+                              )
+                         })}
                     </div>  
                </Row>
           : ''}
