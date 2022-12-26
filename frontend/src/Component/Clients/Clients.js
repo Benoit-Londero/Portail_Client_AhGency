@@ -14,8 +14,6 @@ export default function Clients() {
      const [addClient, setAddClient] = useState(false);
 
      const [showDetails, setShowDetails] = useState(false);
-     const [idDetailClient, setIdDetailClient] = useState('');
-
      const [showEntreprise, setShowEntreprise] = useState(false);
 
      const currentIDU = localStorage.getItem("currentIDU");
@@ -65,7 +63,7 @@ export default function Clients() {
      const handleShowClient = async (e) => {
           setShowDetails(true);
           let id_client = {currentIDUser: e.target.value};
-          setIdDetailClient(id_client);
+          console.log(id_client);
 
           const response = await fetch('/api/getInfosClient', { 
                method: 'POST',
@@ -76,7 +74,7 @@ export default function Clients() {
           const data = await response.json();
           console.log(data)
 
-          console.log(idDetailClient)
+          console.log(data)
      }
 
      return (
