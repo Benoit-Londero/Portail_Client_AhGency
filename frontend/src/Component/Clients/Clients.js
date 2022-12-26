@@ -13,7 +13,6 @@ export default function Clients() {
 
      const [addClient, setAddClient] = useState(false);
 
-
      const [showDetails, setShowDetails] = useState(false);
      const [idDetailClient, setIdDetailClient] = useState('');
      const [showEntreprise, setShowEntreprise] = useState(false);
@@ -48,7 +47,7 @@ export default function Clients() {
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
      const handleAddClient = (e) =>{
-          setdAddClient(true);
+          setAddClient(true);
      }
 
      const closeTasks = (e) => {
@@ -200,8 +199,6 @@ export default function Clients() {
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          <h2>Détails Client</h2>
-
-                         {}
                     </div>  
                </Row>
           : ''}
