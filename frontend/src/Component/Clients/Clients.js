@@ -48,6 +48,7 @@ export default function Clients() {
 
      const closeTasks = (e) => {
           setAddClient(false);
+          setShowDetails(false);
      }
 
      const handleEntreprise = (e) => {
@@ -61,20 +62,21 @@ export default function Clients() {
      }
 
      const handleShowClient = async (e) => {
-          setShowDetails(true);
-          let id_client = {currentIDUser: e.target.value};
-          console.log(id_client);
+          let id_client = e.target.value;
+          
+          let jsonID = {currentIDUser: id_client};
+          console.log(jsonID);
 
           const response = await fetch('/api/getInfosClient', { 
                method: 'POST',
                headers: {'Content-Type': 'application/json'},
-               body: JSON.stringify(id_client)
+               body: JSON.stringify(jsonID)
           })
           
           const data = await response.json();
           console.log(data)
 
-          console.log(data)
+          setShowDetails(true);
      }
 
      return (
