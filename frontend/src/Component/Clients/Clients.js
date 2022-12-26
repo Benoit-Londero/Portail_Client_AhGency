@@ -67,7 +67,7 @@ export default function Clients() {
           let jsonID = {currentIDUser: id_client};
           console.log(jsonID);
 
-          const response = await fetch('/api/getInfosClient', { 
+          const response = await fetch('/api/getAllUsers', { 
                method: 'POST',
                headers: {'Content-Type': 'application/json'},
                body: JSON.stringify(jsonID)
