@@ -8,16 +8,20 @@ import NavBar from "../NavBar/NavBar";
 import AjoutClient from '../AjoutClient/AjoutClient.js';
 
 import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
 
 export default function Clients() {
 
-     const [detailClient, setdetailClient] = useState(false);
+     const [addClient, setAddClient] = useState(false);
 
+
+     const [showDetails, setShowDetails] = useState(false);
+     const [idDetailClient, setIdDetailClient] = useState('');
      const [showEntreprise, setShowEntreprise] = useState(false);
 
      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
+
+
 
      useEffect (() => {
 
@@ -38,16 +42,17 @@ export default function Clients() {
           .then(res => res.json())
           .catch(err => console.info(err))
 
+          
      }, [currentIDU, currentIDE])
 
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
-     const handleShowClient = (e) =>{
-          setdetailClient(true);
+     const handleAddClient = (e) =>{
+          setdAddClient(true);
      }
 
      const closeTasks = (e) => {
-          setdetailClient(false);
+          setAddClient(false);
      }
 
      const handleEntreprise = (e) => {
@@ -58,6 +63,25 @@ export default function Clients() {
                setShowEntreprise(false);
           }
           
+     }
+
+     const handleShowClient = async (e) => {
+          setShowDetails(true);
+          let id_client = e.target.value;
+
+          setIdDetailClient = id_client;
+
+          const onLoad = async () => {
+               
+               const response = await fetch('/api/getInfosClient', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(id_client)
+               })
+               
+               const idDetailClient = await response.json();
+          }
+          onLoad();
      }
 
      return (
@@ -71,9 +95,8 @@ export default function Clients() {
           <ul>
                <li><Button value="clients" onClick={handleEntreprise}>Clients</Button></li>
                <li><Button value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
+               <li><Button className="sidebar_btn" onClick={handleAddClient}>+</Button></li>
           </ul>
-
-          <Link to ='/Projet'><Button className="sidebar_btn">+</Button></Link>
      </div>
 
      <Container id="page_dashboard"  className="main__content">
@@ -90,25 +113,25 @@ export default function Clients() {
                                    <th><p>Créé</p></th>
                               </thead>
                               <tbody>
-                                   <tr onClick={handleShowClient}>
+                                   <tr onClick={handleShowClient} value="55">
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
                                    </tr>
-                                   <tr onClick={handleShowClient}>
+                                   <tr onClick={handleShowClient} value="56">
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
                                    </tr>
-                                   <tr onClick={handleShowClient}>
+                                   <tr onClick={handleShowClient} value="54">
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
                                    </tr>
-                                   <tr onClick={handleShowClient}>
+                                   <tr onClick={handleShowClient} value="53">
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
@@ -129,7 +152,7 @@ export default function Clients() {
                                    <th><p>Créé</p></th>
                               </thead>
                               <tbody>
-                                   <tr onClick={handleShowClient}>
+                                   <tr onClick={handleShowClient} value="3">
                                         <td><p>Greenkids</p></td>
                                         <td>
                                              <p className="bdg_user">V</p>
@@ -139,7 +162,7 @@ export default function Clients() {
                                         <td><p>20</p></td>
                                         <td><p>20.12.2022</p></td>
                                    </tr>
-                                   <tr onClick={handleShowClient}>
+                                   <tr onClick={handleShowClient} value="4">
                                         <td><p>Et si on créait</p></td>
                                         <td>
                                              <p className="bdg_user">A</p>
@@ -147,7 +170,7 @@ export default function Clients() {
                                         <td><p>2</p></td>
                                         <td><p>20.12.2022</p></td>
                                    </tr>
-                                   <tr onClick={handleShowClient}>
+                                   <tr onClick={handleShowClient} value="5">
                                         <td><p>CFE Tax Adviser Europe</p></td>
                                         <td>
                                              <p className="bdg_user">K</p>
@@ -164,13 +187,24 @@ export default function Clients() {
 
           </Row>
 
-          {detailClient === true ? <Row className="modal__newTask">
+          {addClient === true ? <Row className="modal__newTask">
                
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          <AjoutClient/>
                     </div>  
           </Row> : ''}
+
+          {showDetails === true ? 
+               <Row className="modal__newTask">
+                    <div id="modal_desktop">
+                         <button className="close_modale" onClick={closeTasks}>X</button>                                   
+                         <h2>Détails Client</h2>
+
+                         {}
+                    </div>  
+               </Row>
+          : ''}
      </Container>
      </div>
       )
