@@ -34,7 +34,6 @@ export default function Clients() {
      useEffect (() => {
 
           let dataU = {currentIDUser: currentIDU};
-          let dataE = {currentIDEnt: currentIDE};
 
           fetch('/api/getUsers', { 
                method: 'POST', 
