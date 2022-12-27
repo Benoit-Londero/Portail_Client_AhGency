@@ -74,10 +74,12 @@ export default function Clients() {
                headers: {'Content-Type': 'application/json'},
                body: JSON.stringify(jsonID)
           })
-          
-          setDataClient(await response.json())
+          .then(res => res.json())
+          .then(json => setDataClient(json))
           .then(console.log(data))
-          .then(setShowDetails(true));
+          .then(setShowDetails(true))
+          .catch(err => console.info(err))
+          
      }
 
      return (
