@@ -26,6 +26,8 @@ export default function Clients() {
      const [currentMina, setCurrentMina] = useState();
      const [currentTitre, setCurrentTitre] = useState();
 
+     const [allUsers, setAllUsers] = useState([]);
+
      const [data,setDataClient] = useState();
 
      const currentIDU = localStorage.getItem("currentIDU");
@@ -33,18 +35,15 @@ export default function Clients() {
 
      useEffect (() => {
 
-          let dataU = {currentIDUser: currentIDU};
-
-          fetch('/api/getUsers', { 
-               method: 'POST', 
-               body: JSON.stringify(dataU)
+          fetch('/api/getAllUsers', { 
+               method: 'POST'
           })
           .then(res => res.json())
           .then(console.log(json))
+          .then(setAllUsers(json))
           .catch(err => console.info(err))
 
-          
-     }, [currentIDU, currentIDE])
+     }, [])
 
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
@@ -156,6 +155,21 @@ export default function Clients() {
                                         <td><Button onClick={handleShowClient} value="4">...</Button> </td>
 
                                    </tr>
+
+                                   {allUsers.map((index,item) => {
+                                        return(
+                                             <tr key={index}>
+                                                  <td><p>{item.Nom}</p></td>
+                                                  <td><p>{item.Prenom}</p></td>
+                                                  <td><p>{item.Titre}</p></td>
+                                                  <td><p>{item.Date_creation}</p></td>
+                                                  <td><Button onClick={handleShowClient} value={item.ID}>...</Button> </td>
+                                             </tr>
+                                        )
+                                   })
+                                        
+
+                                   }
                               </tbody>
                          </table>
                     </Col> 
