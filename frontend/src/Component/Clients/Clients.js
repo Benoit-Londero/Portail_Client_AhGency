@@ -25,6 +25,9 @@ export default function Clients() {
      const [currentMina, setCurrentMina] = useState();
      const [currentTitre, setCurrentTitre] = useState();
 
+     /*** Ajout classe active sur un bouton ***/
+     const [isActive, setIsActive] = useState(false);
+
      const [allUsers, setAllUsers] = useState([]);
 
      const [data,setDataClient] = useState();
@@ -60,7 +63,8 @@ export default function Clients() {
           } else {
                setShowEntreprise(false);
           }
-          
+
+          setIsActive(current => !current);
      }
 
      const handleShowClient = (e) => {
@@ -100,9 +104,9 @@ export default function Clients() {
           <h2>CRM</h2>
 
           <ul>
-               <li><Button className="btn noborder" value="clients" onClick={handleEntreprise}>Clients</Button></li>
-               <li><Button className="btn noborder" value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
-               <li><Button className="sidebar_btn" onClick={handleAddClient}>+</Button></li>
+               <li><Button className={isActive ? 'btn noborder active' : 'btn noborder'} value="clients" onClick={handleEntreprise}>Clients</Button></li>
+               <li><Button className={isActive ? 'btn noborder active' : 'btn noborder'} value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
+               <li><Button className="btn sidebar_btn" onClick={handleAddClient}>+</Button></li>
           </ul>
      </div>
 

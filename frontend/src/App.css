@@ -157,13 +157,14 @@
         color:#acacac
     }
 
-    .noborder:active{
-        color: #6610f2;
+    .active{
+        background: #6610f2;
+        color:#fff;
     }
 
-.bold{
-    font-weight: 600;
-}
+    .bold{
+        font-weight: 600;
+    }
 
 /***********************/
 /***** Badge User + Badge Date ******/
