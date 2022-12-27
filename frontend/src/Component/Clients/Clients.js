@@ -8,7 +8,6 @@ import NavBar from "../NavBar/NavBar";
 import AjoutClient from '../AjoutClient/AjoutClient.js';
 
 import Button from 'react-bootstrap/Button';
-import { json } from "react-router-dom";
 
 export default function Clients() {
 
