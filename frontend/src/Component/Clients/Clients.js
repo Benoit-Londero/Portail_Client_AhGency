@@ -30,8 +30,8 @@ export default function Clients() {
 
      const [data,setDataClient] = useState();
 
-     const currentIDU = localStorage.getItem("currentIDU");
-     const currentIDE = localStorage.getItem("currentIDE");
+/*      const currentIDU = localStorage.getItem("currentIDU");
+     const currentIDE = localStorage.getItem("currentIDE"); */
 
      useEffect (() => {
 
