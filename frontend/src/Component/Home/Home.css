@@ -322,6 +322,10 @@
         border-bottom: 1px solid #ddd; 
     }
 
+    .prjt_lst:first-child{
+        text-align: left;
+    }
+
     .prjt_lst .bdg_user{
         font-size: 14px;
         height: 30px;
@@ -334,8 +338,8 @@
         font-size: 12px;
     }
 
-    .prjt_lst{
-        width: 100px;
+    .prjt_lst button{
+        width: 100px!important;
         background: #ddd;
         color: #999;
         border: 1px solid;
