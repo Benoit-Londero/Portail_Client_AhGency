@@ -153,7 +153,7 @@ export default function Clients() {
 
                                    </tr>
 
-                                   {allUsers.map((index,item) => {
+                                   {allUsers && allUsers.map((index,item) => {
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom} {item.Prenom}</p></td>
