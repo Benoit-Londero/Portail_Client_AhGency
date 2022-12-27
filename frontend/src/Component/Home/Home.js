@@ -206,13 +206,16 @@ export default function Home() {
                </div>
           </Row>
           <Row>
-               <select>
+               <table>
                     {projet.map((item,index) => {
                          return(
-                              <option key={index} value={item.ID} onChange={handleFilterProjet}>{item.Tickets}</option>
+                              <tr className="prjt_lst" key={index}>
+                                   <td></td>
+                                   <td><Button className="btn btn_primary" value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</Button></td>
+                              </tr>
                          )
                     })}
-               </select>
+               </table>
           </Row>
           <Row>
                <Col className="tableauTS">
