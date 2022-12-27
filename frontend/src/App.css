@@ -166,6 +166,15 @@
         font-weight: 600;
     }
 
+    .dts_client{
+        width: 35px;
+        aspect-ratio: 1;
+        background: #eee;
+        color: #aaaa;
+        border-radius: 20px;
+        border: 1px solid;
+    }
+
 /***********************/
 /***** Badge User + Badge Date ******/
 

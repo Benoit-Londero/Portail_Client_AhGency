@@ -35,16 +35,15 @@ export default function Clients() {
 /*      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE"); */
 
-     useEffect (() => {
+     useEffect (async () => {
 
-          fetch('/api/getAllUsers', {
-               method: 'POST'
-          })
-               .then(res => res.json())
-               .then(json => setAllUsers(json))
-               .then(console.log(allUsers))
-               .catch(err => console.info(err))
+          let response = await fetch("/api/getAllUsers", { 
+               method: "GET",
+               headers: "*/*"
+          });
 
+          let allUsers = await response.text();
+          console.log(allUsers);
      }, [])
 
      /* AJOUT BENOIT - DECEMBRE 2022 */
@@ -132,14 +131,14 @@ export default function Clients() {
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
-                                        <td><Button onClick={handleShowClient} value="55">...</Button> </td>
+                                        <td><Button className="dts_client" onClick={handleShowClient} value="55">...</Button> </td>
                                    </tr>
                                    <tr>
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
-                                        <td><Button onClick={handleShowClient} value="56">...</Button> </td>
+                                        <td><Button className="dts_client" onClick={handleShowClient} value="54">...</Button> </td>
 
                                    </tr>
                                    <tr>
@@ -147,15 +146,7 @@ export default function Clients() {
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
-                                        <td><Button onClick={handleShowClient} value="54">...</Button> </td>
-
-                                   </tr>
-                                   <tr>
-                                        <td><p>Vicky Allard</p></td>
-                                        <td><p>Greenkids</p></td>
-                                        <td><p>4</p></td>
-                                        <td><p>20.12.2022</p></td>
-                                        <td><Button onClick={handleShowClient} value="4">...</Button> </td>
+                                        <td><Button className="dts_client" onClick={handleShowClient} value="4">...</Button> </td>
 
                                    </tr>
 
@@ -166,7 +157,7 @@ export default function Clients() {
                                                   <td><p>{item.ID_entreprise}</p></td>
                                                   <td><p>{item.Titre}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
-                                                  <td><Button onClick={handleShowClient} value={item.ID}>...</Button> </td>
+                                                  <td><Button className="dts_client" onClick={handleShowClient} value={item.ID}>...</Button> </td>
                                              </tr>
                                         )
                                    })

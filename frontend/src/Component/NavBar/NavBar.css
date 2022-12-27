@@ -82,7 +82,7 @@
 
 .active {
     color: #6610f2!important;
-    background-color: #6710f232;
+    background-color: #6710f232!important;
     border-radius: 5px;
 }
 
