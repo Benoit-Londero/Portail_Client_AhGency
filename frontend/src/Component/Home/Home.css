@@ -9,7 +9,7 @@
     background:#fff;
 }
 
-/***********************/
+/**********************************/
 /*** Tableau tableauTS récentes ***/
 
 .tableauTS{
@@ -24,10 +24,12 @@
 
 .tableauTS table {
     min-width: 340px;
+    width: 100%;
 }
 
 .task_table{
     text-align: left;
+    margin-bottom: 0px;
 }
 
 .tableauTask h2{
@@ -41,6 +43,7 @@
 .tableauTask .last-child {
     text-align: right;
     width: 200px;
+    padding: 20px 0px;
 }
 
 .tableauTS table td {

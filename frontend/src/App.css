@@ -176,7 +176,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     text-transform: uppercase;
     color: #FFFFFF;
-    font-size:12px;
+    font-size:24px;
     width: 40px;
     vertical-align: middle;
     max-height: 40px;
@@ -185,6 +185,7 @@
     padding: 5px;
     aspect-ratio: 1;
     line-height: 1em;
+    
 }
 
 .date_badge{
@@ -194,6 +195,7 @@
 
 .bdg_user{
     display: inline-block;
+    text-align: center!important;
     margin-left: -3px;
     border-radius: 20px;
 }
@@ -225,7 +227,7 @@
 }
 
 .modal__newTask{
-    position: absolute;
+    position: fixed;
     top: 0;
     margin: 0;
     border-radius: 0;
@@ -235,6 +237,10 @@
     z-index: 999999;
     height: 100vh;
     left: 0;
+}
+
+.modal__newTask .project_sidebar{
+    display: none!important;;
 }
 
 /* Default CSS - FORM */
