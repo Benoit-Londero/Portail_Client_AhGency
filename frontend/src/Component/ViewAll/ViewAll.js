@@ -98,7 +98,7 @@ export default function ViewAll() {
                          </tbody>
                     </table>
                
-                    <table id="desktop">
+                    <table id="desktop list_all_tasks">
                          <thead>
                               <tr>
                               <td><h2>Tâches :</h2></td>
@@ -112,13 +112,13 @@ export default function ViewAll() {
                          var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
 
                          return (
-                              <tr key={index}>
-                                   <td><p>{ item.Titre}</p></td>
-                                   <td><p className="date_badge">{day}<br></br>{Month}.</p></td>
-                                   <td className='fst_col'><p className="tasks">{ item.Informations}</p></td>
+                              <tr key={index} className="line_task">
+                                   <td><p className="title_of_task">{ item.Titre}</p></td>
+                                   <td><p className="date_badge_timesheet">{day}<br></br>{Month}.</p></td>
+                                   <td><p className="tasks__descr">{ item.Informations}</p></td>
                                    <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
-                                   <td><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                   <td><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
+                                   <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                   <td className="last-child"><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
                               </tr>
                               )
                          })}

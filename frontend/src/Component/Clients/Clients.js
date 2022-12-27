@@ -67,13 +67,13 @@ export default function Clients() {
           e.currentTarget.classList.toggle('active');
      }
 
-     const handleShowClient = (e) => {
+     const handleShowClient = async (e) => {
           let id_client = e.target.value;
           
           let jsonID = {currentIDUser: id_client};
           console.log(jsonID);
 
-          fetch('/api/getInfosClient', { 
+          const response = await fetch('/api/getInfosClient', { 
                method: 'POST',
                headers: {'Content-Type': 'application/json'},
                body: JSON.stringify(jsonID)
@@ -93,6 +93,8 @@ export default function Clients() {
 
           .then(setShowDetails(true))
           .catch(err => console.info(err))
+
+          setDataClient(response);
      }
 
      return (
