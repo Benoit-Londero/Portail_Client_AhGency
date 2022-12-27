@@ -39,6 +39,7 @@ export default function Clients() {
           })
           .then(res => res.json())
           .then(json => setAllUsers(json))
+          .then(console.log(allUsers))
           .catch(err => console.info(err))
 
      }, [])
@@ -157,16 +158,14 @@ export default function Clients() {
                                    {allUsers.map((index,item) => {
                                         return(
                                              <tr key={index}>
-                                                  <td><p>{item.Nom}</p></td>
-                                                  <td><p>{item.Prenom}</p></td>
+                                                  <td><p>{item.Nom} {item.Prenom}</p></td>
+                                                  <td><p>{item.ID_entreprise}</p></td>
                                                   <td><p>{item.Titre}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
                                                   <td><Button onClick={handleShowClient} value={item.ID}>...</Button> </td>
                                              </tr>
                                         )
                                    })
-                                        
-
                                    }
                               </tbody>
                          </table>
