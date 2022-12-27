@@ -34,13 +34,11 @@ export default function Clients() {
 
      useEffect (() => {
 
-          fetch('/api/getAllUsers', { 
-               method: 'POST'
-          })
-          .then(res => res.json())
-          .then(json => setAllUsers(json))
-          .then(console.log(allUsers))
-          .catch(err => console.info(err))
+          fetch('/api/getAllUsers')
+               .then(res => res.json())
+               .then(json => setAllUsers(json))
+               .then(console.log(allUsers))
+               .catch(err => console.info(err))
 
      }, [])
 
