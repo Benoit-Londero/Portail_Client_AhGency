@@ -16,7 +16,15 @@ export default function Clients() {
      const [showDetails, setShowDetails] = useState(false);
      const [showEntreprise, setShowEntreprise] = useState(false);
 
-     const [data,setDataClient] = useState('');
+     const [currentNOM, setCurrentNOM] = useState();
+     const [currentPNOM, setCurrentPNOM] = useState();
+     const [currentMAIL, setCurrentMAIL] = useState();
+     const [currentID, setCurrentID] = useState();
+     const [currentIDentr, setCurrentIDentr] = useState();
+     const [currentRole, setCurrentRole] = useState();
+     const [currentMina, setCurrentMina] = useState();
+
+     const [data,setDataClient] = useState();
 
      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
@@ -77,9 +85,17 @@ export default function Clients() {
           .then(res => res.json())
           .then(json => setDataClient(json))
           .then(console.log(data))
+
+          .then(setCurrentID(data.ID))
+          .then(setCurrentNOM(data.Nom))
+          .then(setCurrentPNOM(data.Prenom))
+          .then(setCurrentMAIL(data.Email))
+          .then(setCurrentIDentr(data.ID_entreprise))
+          .then(setCurrentRole(data.Role))
+          .then(setCurrentMina(data.Minutes_Achetees))
+
           .then(setShowDetails(true))
           .catch(err => console.info(err))
-          
      }
 
      return (
@@ -207,19 +223,15 @@ export default function Clients() {
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          <h2>Détails Client</h2>
 
-                         {data.map((item,index) => {
-                              return (
-                                   <div key={index}>
-                                        <p>{item.ID}</p>
-                                        <p>{item.Nom}</p>
-                                        <p>{item.Prenom}</p>
-                                        <p>{item.Email}</p>
-                                        <p>{item.ID_entreprise}</p>
-                                        <p>{item.Role}</p>
-                                        <p>{item.Minutes_Achetees}</p>
-                                   </div>
-                              )
-                         })}
+                         <div>
+                              <p>{currentID}</p>
+                              <p>{currentNOM}</p>
+                              <p>{currentPNOM}</p>
+                              <p>{currentMAIL}</p>
+                              <p>{currentIDentr}</p>
+                              <p>{currentRole}</p>
+                              <p>{currentMina}</p>
+                         </div>
                     </div>  
                </Row>
           : ''}
