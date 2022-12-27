@@ -69,7 +69,7 @@ export default function Clients() {
           let jsonID = {currentIDUser: id_client};
           console.log(jsonID);
 
-          const response = fetch('/api/getInfosClient', { 
+          fetch('/api/getInfosClient', { 
                method: 'POST',
                headers: {'Content-Type': 'application/json'},
                body: JSON.stringify(jsonID)
