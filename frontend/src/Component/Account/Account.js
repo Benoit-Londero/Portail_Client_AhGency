@@ -10,6 +10,9 @@ import Entreprise from '../Entreprise/Entreprise.js';
 import * as BsIcons from "react-icons/bs";
 import * as RiIcons from "react-icons/ri";
 
+
+import { Link } from "react-router-dom";
+
 export default function NameForm() {
 
      const currentIDU = localStorage.getItem("currentIDU");
