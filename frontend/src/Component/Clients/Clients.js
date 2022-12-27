@@ -24,7 +24,7 @@ export default function Clients() {
      const [currentIDentr, setCurrentIDentr] = useState();
      const [currentRole, setCurrentRole] = useState();
      const [currentMina, setCurrentMina] = useState();
-     const [currentTitre, setCurrentTitre] = usestate();
+     const [currentTitre, setCurrentTitre] = useState();
 
      const [data,setDataClient] = useState();
 
