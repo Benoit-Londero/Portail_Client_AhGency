@@ -9,17 +9,7 @@
     background:#fff;
 }
 
-.stats{
-    margin-top:50px;
-}
 
-.circular_stats{
-    width:130px;
-}
-
-.circular_stats svg{
-    stroke:none;
-}
 /**********************************/
 /*** Tableau tableauTS récentes ***/
 
@@ -228,6 +218,26 @@
 /*********************/
 
 @media screen and (max-width:756px) and (orientation: portrait) {
+
+    .stats{
+        margin-top:50px;
+    }
+    
+    .circular_stats{
+        width:130px;
+    }
+
+    .circular_stats table{
+        width:100%;
+    }
+
+    .circular_stats table p{
+        text-align: right;
+    }
+    
+    .circular_stats svg{
+        stroke:none!important;
+    }
 
     #page_dashboard{
         width: 90vw!important;
