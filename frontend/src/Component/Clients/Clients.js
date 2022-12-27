@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 
+import { Link } from "react-router-dom";
+
 import AjoutClient from '../AjoutClient/AjoutClient.js';
 
 import Button from 'react-bootstrap/Button';
