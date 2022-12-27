@@ -53,7 +53,7 @@ export default function ViewAll() {
      }
 
      const handleAddTask = (e) =>{
-          setValueDetails = e.target.value;
+          setValueDetails(e.target.value);
           setdetailTask(true);
      }
 
