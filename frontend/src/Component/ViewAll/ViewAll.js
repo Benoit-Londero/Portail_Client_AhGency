@@ -18,6 +18,7 @@ export default function ViewAll() {
      const [clients, setClients] = useState([]);
      const [idClient, setIdClient] = useState();
      const [filtredtasks, setFiltredtasks] = useState(null);
+     const [value_dtls, setValueDetails] = useState(); 
 
      const [detailTask, setdetailTask] = useState(false);
      
@@ -52,7 +53,7 @@ export default function ViewAll() {
      }
 
      const handleAddTask = (e) =>{
-          const value = e.target.value;
+          setValueDetails = e.target.value;
           setdetailTask(true);
      }
 
@@ -129,7 +130,7 @@ export default function ViewAll() {
                     <div class="mobile">
                          <h2>Liste des tâches réalisées :</h2>
 
-                         {alltasks.filter(item => item.ID_TS === parseInt(value)).map((item,index) => {
+                         {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
 
                               var day = Moment(item.Date_Tache_Effectuee).format('DD');
                               var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
@@ -159,7 +160,7 @@ export default function ViewAll() {
           <Row>
                {detailTask === true ? 
                     <div id="modal_desktop">
-                    {alltasks.filter(item => item.ID_TS === parseInt(value)).map((item,index) => {
+                    {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
 
                     var day = Moment(item.Date_Tache_Effectuee).format('DD');
                     var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
