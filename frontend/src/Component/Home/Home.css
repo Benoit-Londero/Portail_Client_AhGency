@@ -307,6 +307,32 @@
         text-align: left;
         line-height: 3em;
     }
+
+    .prjt_lst{
+        border-bottom: 1px solid #ddd; 
+    }
+
+    .prjt_lst .bdg_user{
+        font-size: 14px;
+        height: 30px;
+        aspect-ratio: 1;
+        padding: 5px;
+        width:inherit;
+    }
+
+    .prjt_lst td{
+        font-size: 12px;
+    }
+
+    .prjt_lst{
+        width: 100px;
+        background: #ddd;
+        color: #999;
+        border: 1px solid;
+        margin-left: auto;
+        margin-right: 0;
+        right: 0;
+    }
 }
 
 .modal__newTask #timesheetForm{
