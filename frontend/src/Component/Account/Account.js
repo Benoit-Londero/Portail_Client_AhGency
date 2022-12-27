@@ -8,6 +8,7 @@ import NavBar from "../NavBar/NavBar";
 import Entreprise from '../Entreprise/Entreprise.js';
 
 import * as BsIcons from "react-icons/bs";
+import * as RiIcons from "react-icons/ri";
 
 export default function NameForm() {
 
@@ -156,6 +157,12 @@ export default function NameForm() {
                                    </table>
                                    </form>
                                    {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
+                              </Col>
+                         </Row>
+
+                         <Row className="mobile">
+                              <Col>
+                                   <Link path="/Logout"><RiIcons.RiLogoutBoxLine /> Se déconnecter</Link>
                               </Col>
                          </Row>
                               

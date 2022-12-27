@@ -117,7 +117,7 @@ export default function Entreprise() {
                               <tr>
                                    <td>
                                         <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */}50 h</p>
-                                        <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min  (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
+                                        <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min <br></br> (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
                                    </td>
                                    <td><p><b>Dépensé : {/* {moneySpend} */}300 €</b></p></td>
                                    {/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}

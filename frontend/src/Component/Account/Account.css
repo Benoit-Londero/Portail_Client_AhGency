@@ -63,4 +63,8 @@
     .my-contact{
         margin-top:50px;
     }
+
+    .tabs_account button{
+        margin-right: 20px;
+    }
 }
