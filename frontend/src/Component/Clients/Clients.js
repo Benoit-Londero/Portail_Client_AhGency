@@ -8,6 +8,7 @@ import NavBar from "../NavBar/NavBar";
 import AjoutClient from '../AjoutClient/AjoutClient.js';
 
 import Button from 'react-bootstrap/Button';
+import { json } from "react-router-dom";
 
 export default function Clients() {
 
@@ -23,6 +24,7 @@ export default function Clients() {
      const [currentIDentr, setCurrentIDentr] = useState();
      const [currentRole, setCurrentRole] = useState();
      const [currentMina, setCurrentMina] = useState();
+     const [currentTitre, setCurrentTitre] = usestate();
 
      const [data,setDataClient] = useState();
 
@@ -34,19 +36,14 @@ export default function Clients() {
           let dataU = {currentIDUser: currentIDU};
           let dataE = {currentIDEnt: currentIDE};
 
-          fetch('/api/getTimesheet', { 
+          fetch('/api/getUsers', { 
                method: 'POST', 
                body: JSON.stringify(dataU)
           })
           .then(res => res.json())
+          .then(console.log(json))
           .catch(err => console.info(err))
 
-          fetch('/api/getProjet', { 
-               method: 'POST', 
-               body: JSON.stringify(dataE)
-          })
-          .then(res => res.json())
-          .catch(err => console.info(err))
           
      }, [currentIDU, currentIDE])
 
@@ -93,6 +90,7 @@ export default function Clients() {
           .then(setCurrentIDentr(data.ID_entreprise))
           .then(setCurrentRole(data.Role))
           .then(setCurrentMina(data.Minutes_Achetees))
+          .then(setCurrentTitre(data.Titre))
 
           .then(setShowDetails(true))
           .catch(err => console.info(err))
@@ -224,13 +222,46 @@ export default function Clients() {
                          <h2>Détails Client</h2>
 
                          <div>
-                              <p>{currentID}</p>
-                              <p>{currentNOM}</p>
-                              <p>{currentPNOM}</p>
-                              <p>{currentMAIL}</p>
-                              <p>{currentIDentr}</p>
-                              <p>{currentRole}</p>
-                              <p>{currentMina}</p>
+                              <table>
+                                   <tr>
+                                        <td><p className="bold">ID Client :</p></td>
+                                        <td><p>{currentID}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Role :</p></td>
+                                        <td><p>{currentRole}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Nom :</p></td>
+                                        <td><p>{currentNOM}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Prénom :</p></td>
+                                        <td><p>{currentPNOM}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Adresse mail :</p></td>
+                                        <td><p>{currentMAIL}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">ID Entreprise :</p></td>
+                                        <td><p>{currentIDentr}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Fonction :</p></td>
+                                        <td><p>{currentTitre}</p></td>
+                                   </tr>
+                                   
+                                   <tr>
+                                        <td><p className="bold">Minutes achetées :</p></td>
+                                        <td><p>{currentMina}</p></td>
+                                   </tr>
+                              </table>
+                              
+                              
+                              
+                              
+                              
                          </div>
                     </div>  
                </Row>
