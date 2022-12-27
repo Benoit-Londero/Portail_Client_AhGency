@@ -150,7 +150,7 @@ export default function Home() {
                               <th><h2>Statistiques</h2></th>
                          </thead>
                          <tbody>
-                              <td>{checkPercent > 10 ? <CircularProgressbar
+                              <td className="circular_stats">{checkPercent > 10 ? <CircularProgressbar
                                         value={checkPercent}
                                         text={`${checkPercent}%`}
                                         styles={{
@@ -204,6 +204,15 @@ export default function Home() {
                          </tbody>
                     </table>
                </div>
+          </Row>
+          <Row>
+                    {projet.map((item,index) => {
+                         return(
+                              <select key={index}>
+                                   <option value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</option>
+                              </select>
+                         )
+                    })}
           </Row>
           <Row>
                <Col className="tableauTS">

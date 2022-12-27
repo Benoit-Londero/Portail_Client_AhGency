@@ -101,7 +101,7 @@ export default function Projet() {
     <div>
         <div className="project_sidebar"></div>
 
-        <div id='adminForm'>
+        <div id='adminForm' className="main__content">
             <NavBar />
 
             {message === false ? <form id="DemandeForm" onSubmit={handleDemande}>
