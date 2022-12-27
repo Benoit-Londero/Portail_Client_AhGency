@@ -39,8 +39,7 @@ export default function Clients() {
                method: 'POST'
           })
           .then(res => res.json())
-          .then(console.log(json))
-          .then(setAllUsers(json))
+          .then(json => setAllUsers(json))
           .catch(err => console.info(err))
 
      }, [])
