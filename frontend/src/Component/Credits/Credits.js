@@ -5,7 +5,6 @@ import illu from '../../img/Brainstorming_session_Monochromatic.png';
 
 export default function Boutique() {
 
-
      return (
           <div>
                <NavBar />
@@ -15,31 +14,31 @@ export default function Boutique() {
                     <h1>Commander des heures</h1>
 
                     <ul>
-                         <li class="product_fiche">
+                         <li class="product_fiche first">
                               <h2>Pack 1 heures</h2>
-                              <p class="price">75 €</p>
+                              <p class="price">90 €</p>
 
                               <p class="descp">Un pack d'une heure utile pour vos petites modifications tel que des changements de couleur, de texte ou d'image.</p>
 
-                              <a href='https://buy.stripe.com/fZe6qybRLd0L4xy5kk' rel="noopener noreferrer" target="_blank" class="btn primary_btn">Acheter 1 heures</a>         
+                              <a href='https://book.stripe.com/4gw4iq7Bv9Oz6FG4gl' rel="noopener noreferrer" target="_blank" class="btn primary_btn">Acheter 1 heures</a>         
                          </li>
 
                          <li class="product_fiche">
                               <h2>Pack 5 heures</h2>
-                              <p class='price'>325 €</p>
+                              <p class='price'>425 €</p>
 
                               <p class="descp">Vous avez pensé à une nouvelle fonctionnalité pour votre site, ou un besoin d'ajout de contenu, ce pack est fait pour vous.</p>
 
-                              <a href='https://buy.stripe.com/aEU7uCdZT1i35BC8wy' rel="noopener noreferrer" target="_blank" class="btn primary_btn">Acheter 5 heures</a>
+                              <a href='https://book.stripe.com/3cs7uCaNH3qb2pqcMT' rel="noopener noreferrer" target="_blank" class="btn primary_btn">Acheter 5 heures</a>
                          </li>
 
                          <li class="product_fiche">
                               <h2>Pack 10 heures</h2>
-                              <p class="price">600 €</p>
+                              <p class="price">800 €</p>
 
                               <p class="descp">Envie de faire peau neuve, de procéder à une refonte de votre site ou de tout simplement prévoir un "capital" temps pour vos futures demandes, ce pack répondra à vos attentes.</p>
 
-                              <a href='https://buy.stripe.com/28og183lff8T9RS8wx' rel="noopener noreferrer" target="_blank" class="btn primary_btn">Acheter 10 heures</a>
+                              <a href='https://book.stripe.com/cN23emcVP8Kvfcc7sy' rel="noopener noreferrer" target="_blank" class="btn primary_btn">Acheter 10 heures</a>
                          </li>
                     </ul>
 

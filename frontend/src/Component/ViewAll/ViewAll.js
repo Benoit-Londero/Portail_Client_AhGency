@@ -157,8 +157,9 @@ export default function ViewAll() {
                </Col>
           </Row>
 
-          <Row>
-               {detailTask === true ? 
+          
+          {detailTask === true ? 
+               <Row className="modal__newTask">
                     <div id="modal_desktop">
                     {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
 
@@ -189,8 +190,8 @@ export default function ViewAll() {
                     })}
                </div> 
                
-               : ''}
-          </Row>
+               </Row>     : ''}
+          
      </Container>
      </div>
       )
