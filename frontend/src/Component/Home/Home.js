@@ -206,13 +206,13 @@ export default function Home() {
                </div>
           </Row>
           <Row>
+               <select>
                     {projet.map((item,index) => {
                          return(
-                              <select key={index}>
-                                   <option value={item.ID} onClick={handleFilterProjet}>{item.Tickets}</option>
-                              </select>
+                              <option key={index} value={item.ID} onChange={handleFilterProjet}>{item.Tickets}</option>
                          )
                     })}
+               </select>
           </Row>
           <Row>
                <Col className="tableauTS">
