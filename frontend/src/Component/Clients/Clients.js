@@ -63,13 +63,13 @@ export default function Clients() {
           
      }
 
-     const handleShowClient = async (e) => {
+     const handleShowClient = (e) => {
           let id_client = e.target.value;
           
           let jsonID = {currentIDUser: id_client};
           console.log(jsonID);
 
-          const response = await fetch('/api/getInfosClient', { 
+          const response = fetch('/api/getInfosClient', { 
                method: 'POST',
                headers: {'Content-Type': 'application/json'},
                body: JSON.stringify(jsonID)
