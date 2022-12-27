@@ -64,7 +64,7 @@ export default function Clients() {
                setShowEntreprise(false);
           }
 
-          setIsActive(current => !current);
+          e.currentTarget.classList.toggle('active');
      }
 
      const handleShowClient = (e) => {
@@ -104,8 +104,8 @@ export default function Clients() {
           <h2>CRM</h2>
 
           <ul>
-               <li><Button className={isActive ? 'btn noborder active' : 'btn noborder'} value="clients" onClick={handleEntreprise}>Clients</Button></li>
-               <li><Button className={isActive ? 'btn noborder active' : 'btn noborder'} value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
+               <li><Button className='btn noborder' value="clients" onClick={handleEntreprise}>Clients</Button></li>
+               <li><Button className='btn noborder' value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
                <li><Button className="btn sidebar_btn" onClick={handleAddClient}>+</Button></li>
           </ul>
      </div>
