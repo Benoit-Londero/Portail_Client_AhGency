@@ -107,8 +107,8 @@ export default function Clients() {
           <h2>CRM</h2>
 
           <ul>
-               <li><Button value="clients" onClick={handleEntreprise}>Clients</Button></li>
-               <li><Button value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
+               <li><Button className="btn noborder" value="clients" onClick={handleEntreprise}>Clients</Button></li>
+               <li><Button className="btn noborder" value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
                <li><Button className="sidebar_btn" onClick={handleAddClient}>+</Button></li>
           </ul>
      </div>

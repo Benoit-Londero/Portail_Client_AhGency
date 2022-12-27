@@ -150,6 +150,17 @@
         border: 1px solid #D1D1D1!important;
     }
 
+    .noborder{
+        background: none;
+        border: none;
+        text-align: left;
+        color:#acacac
+    }
+
+    .noborder:active{
+        color: #6610f2;
+    }
+
 .bold{
     font-weight: 600;
 }
