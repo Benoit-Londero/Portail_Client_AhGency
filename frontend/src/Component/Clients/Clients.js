@@ -26,7 +26,7 @@ export default function Clients() {
      const [currentTitre, setCurrentTitre] = useState();
 
      /*** Ajout classe active sur un bouton ***/
-     const [isActive, setIsActive] = useState(false);
+     /* const [isActive, setIsActive] = useState(false); */
 
      const [allUsers, setAllUsers] = useState([]);
 
