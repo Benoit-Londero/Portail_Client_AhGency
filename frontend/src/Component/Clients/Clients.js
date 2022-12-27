@@ -37,14 +37,10 @@ export default function Clients() {
 
      useEffect (() => {
 
-          fetch('/api/getAllUsers', {
-               method: 'GET',
-               headers: "*/*"
-          })
-          .then(res => res.json())
-          .then(json => console.log(json))
-          .then(json => setAllUsers(json))
-          .catch(err => console.info(err))
+          fetch('/api/getAllUsers')
+               .then(res => res.json())
+               .then(json => setAllUsers(json))
+               .catch(err => console.info(err))
 
      }, [])
 
