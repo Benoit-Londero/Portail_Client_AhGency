@@ -37,7 +37,9 @@ export default function Clients() {
 
      useEffect (() => {
 
-          fetch('/api/getAllUsers')
+          fetch('/api/getAllUsers', {
+               method: 'POST'
+          })
                .then(res => res.json())
                .then(json => setAllUsers(json))
                .then(console.log(allUsers))
@@ -67,13 +69,13 @@ export default function Clients() {
           e.currentTarget.classList.toggle('active');
      }
 
-     const handleShowClient = async (e) => {
+     const handleShowClient = (e) => {
           let id_client = e.target.value;
           
           let jsonID = {currentIDUser: id_client};
           console.log(jsonID);
 
-          const response = await fetch('/api/getInfosClient', { 
+          fetch('/api/getInfosClient', { 
                method: 'POST',
                headers: {'Content-Type': 'application/json'},
                body: JSON.stringify(jsonID)
@@ -93,8 +95,6 @@ export default function Clients() {
 
           .then(setShowDetails(true))
           .catch(err => console.info(err))
-
-          setDataClient(response);
      }
 
      return (
