@@ -210,7 +210,7 @@ export default function Home() {
                     {projet.map((item,index) => {
                          return(
                               <tr className="prjt_lst" key={index}>
-                                   <td>{item.Tickets}</td>
+                                   <td className="title_prjt">{item.Tickets}</td>
                                    <td><span className="bdg_user">{item.Email.substring(0,1)}</span></td>
                                    <td>{item.ID_entreprise}</td>
                                    <td><Button className="btn btn_primary" value={item.ID} onClick={handleFilterProjet}>Voir plus</Button></td>

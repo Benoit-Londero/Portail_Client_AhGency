@@ -322,10 +322,6 @@
         border-bottom: 1px solid #ddd; 
     }
 
-    .prjt_lst:first-child{
-        text-align: left;
-    }
-
     .prjt_lst .bdg_user{
         font-size: 14px;
         height: 30px;
@@ -346,6 +342,10 @@
         margin-left: auto;
         margin-right: 0;
         right: 0;
+    }
+
+    .title_prjt{
+        text-align: left!important;
     }
 }
 
