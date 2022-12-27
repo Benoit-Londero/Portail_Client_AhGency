@@ -237,10 +237,10 @@ export default function Home() {
                                         return(<p key={index} className="descr__thead">{item.Description}</p>)
                                    })}</td>
                               </tr>
-                              <tr>
+                              {/* <tr>
                                    <td>{projetFiltrer.map((item,index)=>{
                                         return(<p key={index}>Assigné à <span className="bdg_user">{item.Email.substring(0,1)}</span></p>)})}</td>
-                              </tr>
+                              </tr> */}
                          </tbody>
                     </table>
                </Col>
@@ -267,7 +267,6 @@ export default function Home() {
                          </tbody>
                     </table>
                </Col>
-
           </Row>
 
           {detailTask === true ? <Row className="modal__newTask">

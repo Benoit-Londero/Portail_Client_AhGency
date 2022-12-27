@@ -144,6 +144,10 @@
     text-align:right;
 }
 
+.detail_TS{
+    width: 100%;
+}
+
 .detail_TS p{
     text-align:left;
     font-size: 12px;
@@ -180,6 +184,10 @@
     vertical-align: top;
 }
 
+.title_of_task{
+    text-align: left!important;
+    font-weight: 600;
+}
 
 @media screen and (max-width:756px) and (orientation: portrait) {
 
@@ -208,11 +216,6 @@
 
     .col_right_descr{
         padding-left: 15px;
-    }
-  
-    .title_of_task{
-        text-align: left;
-        font-weight: 600;
     }
   
     .tasks{
