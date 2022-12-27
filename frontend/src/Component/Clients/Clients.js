@@ -35,15 +35,17 @@ export default function Clients() {
 /*      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE"); */
 
-     useEffect (async () => {
+     useEffect (() => {
 
-          let response = await fetch("/api/getAllUsers", { 
-               method: "GET",
+          fetch('/api/getAllUsers', {
+               method: 'GET',
                headers: "*/*"
-          });
+          })
+          .then(res => res.json())
+          .then(json => console.log(json))
+          .then(json => setAllUsers(json))
+          .catch(err => console.info(err))
 
-          let allUsers = await response.text();
-          console.log(allUsers);
      }, [])
 
      /* AJOUT BENOIT - DECEMBRE 2022 */
