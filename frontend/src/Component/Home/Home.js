@@ -206,7 +206,7 @@ export default function Home() {
                </div>
           </Row>
           <Row>
-               <table>
+               <table className="mobile">
                     {projet.map((item,index) => {
                          return(
                               <tr className="prjt_lst" key={index}>

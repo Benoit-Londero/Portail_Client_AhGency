@@ -24,7 +24,6 @@
 }
 
 @media screen and (max-width:756px) and (orientation: portrait) {
-     #adminForm h1,
      #timesheetForm{
           margin-left:auto;
           margin-right:auto;
