@@ -12,8 +12,9 @@
     padding:0;
 }
 
-#page_boutique .first{
-    margin-left:0px;
+#page_boutique ul .first,
+#page_boutique ul:first-child{
+    margin-left:0px!important;
 }
 
 .product_fiche p {
