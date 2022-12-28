@@ -271,8 +271,11 @@ export default function Clients() {
                                    {allEntreprise && allEntreprise.map((item,index) => {
                                         
                                         let resultMember;
+
+                                        console.log(currentMembers);
+                                        console.log(typeof(currentMembers));
                                         
-                                        if(typeof currentMembers ==="string"){
+                                        if(typeof currentMembers === "string"){
                                         const splitMembers = currentMembers.split(",");
 
                                              for(let i=0; i < splitMembers.length;i++) {
