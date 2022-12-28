@@ -15,7 +15,8 @@ export default function Clients() {
      const [addClient, setAddClient] = useState(false);
 
      const [showDetails, setShowDetails] = useState(false);
-     const [showDetailsEntreprise, setShowDetailsEntreprise] = useState(false);
+     const [showEntreprise, setShowEntreprise] = useState(false);
+     const [showDetailsEntr, setShowDetailsEntreprise] = useState(false);
 
      /* Création Variable pour liste + infos Clients - AJOUT BENOIT DEC. 2022 */
 
@@ -44,7 +45,7 @@ export default function Clients() {
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
      
      const [allEntreprise, setAllEntreprise] = useState([]);
-     const [dataE, setDataEntr] = useState();
+     const [dataE, setDataEntr] = usestate();
 
      
 
@@ -160,7 +161,7 @@ export default function Clients() {
                .then(setCurrentMaint(dataE.Maintenance))
                .then(setCurrentSiteWeb(dataE.Site_Web))
 
-               .then(setShowEntrDetails(true))
+               .then(setShowDetailsEntreprise(true))
                .catch(err => console.info(err))
           }
 
@@ -313,7 +314,7 @@ export default function Clients() {
                </Row>
           : ''}
 
-          {showDetailsEntreprise === true ? 
+          {showDetailsEntr === true ? 
                <Row className="modal__newTask">
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
