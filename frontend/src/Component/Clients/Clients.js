@@ -275,11 +275,13 @@ export default function Clients() {
                                         let myMember = item.Membres;
                                         let resultMember;
 
+                                        const splitMembers;
+
                                         console.log(myMember);
                                         console.log(typeof(myMember));
                                         
                                         if(typeof(myMember) === 'string'){
-                                             const splitMembers = myMember.split(",");
+                                             splitMembers = myMember.split(",");
                                         } else {
                                              console.log('Aucune phrase trouvée');
                                         }
