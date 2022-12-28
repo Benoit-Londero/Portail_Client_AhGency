@@ -161,6 +161,32 @@ export default function Clients() {
                .catch(err => console.info(err))
           }
 
+          /* Ajout membres à l'entreprise */
+
+          const handleSubmit = async e => {
+               e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
+               
+               let addMemberForm = document.getElementById('addMember'); //on récupère l'élement <form> et ces différents <input>
+               let myMember = new FormData(addMemberForm); //que l'on intègre à un formData
+       
+               const jsonForm = buildJsonFormData(myMember)
+       
+               //On crée une boucle pour transformer le FormData en JSON
+               function buildJsonFormData(myMember){
+                   const jsonFormData = {};
+                   for(const pair of myMember){
+                       jsonFormData[pair[0]] = pair[1];
+                   }
+                   return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+               }
+
+               const reception = await fetch('/api/postAddMember', { 
+                   method: 'POST',
+                   headers: {'Content-Type':'application/json'},
+                   body: JSON.stringify(jsonForm) 
+               })
+           }
+
      return (
 
      <div>
@@ -234,7 +260,7 @@ export default function Clients() {
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
-                                                  <td><p>{item.Email}</p></td>
+                                                  <td><p>{item.Membres}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
                                              </tr>
@@ -246,6 +272,30 @@ export default function Clients() {
                     </Col> 
           }
 
+          </Row>
+
+          <Row>
+               <form id="addMember" onSubmit={handleSubmit}>
+                    <label>Entreprise</label>
+                    <select>
+                         {allEntreprise && allEntreprise.map((item,index) => {
+                              return(
+                                   <option key={index} value={item.ID_entreprise}>{item.Nom_societe}</option>
+                              )
+                         })}
+                    </select>
+                    <label>Membres à ajouter</label>
+                    <select miltiple="multiple">
+                         {allUsers && allUsers.map((item,index) => {
+                              return(
+                                   <option key={index} value={item.Prenom}> {item.Prenom} {item.Nom}</option>
+                              )
+                         })}
+                    </select>
+                         
+                    <input type="hidden" value={item.ID_entreprise}/>
+                    <input type="submit">Ajouter</input>
+               </form>
           </Row>
 
           {addClient === true ? <Row className="modal__newTask">
