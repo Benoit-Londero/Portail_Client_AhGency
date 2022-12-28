@@ -278,15 +278,17 @@ export default function Clients() {
                                         console.log(myMember);
                                         console.log(typeof(myMember));
                                         
-                                        const splitMembers = toString(myMember).split(",");
-                                        
+                                        if(typeof(myMember) === 'string'){
+                                             const splitMembers = myMember.split(",");
+                                        } else {
+                                             console.log('Aucune phrase trouvée');
+                                        }
+
                                         console.log(splitMembers);
 
                                         for(let i=0; i < splitMembers.length;i++) {
                                              resultMember += splitMembers[i].substring(0,1);
                                         }
-
-                                        console.log(resultMember);
 
                                         return(
                                              <tr key={index}>
