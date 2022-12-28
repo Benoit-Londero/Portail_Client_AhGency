@@ -15,7 +15,7 @@ export default function Clients() {
      const [addClient, setAddClient] = useState(false);
 
      const [showDetails, setShowDetails] = useState(false);
-     const [showEntreprise, setShowEntreprise] = useState(false);
+     const [showDetailsEntreprise, setShowDetailsEntreprise] = useState(false);
 
      /* Création Variable pour liste + infos Clients - AJOUT BENOIT DEC. 2022 */
 
@@ -44,7 +44,7 @@ export default function Clients() {
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
      
      const [allEntreprise, setAllEntreprise] = useState([]);
-     const [dataE, setDataEntr] = usestate();
+     const [dataE, setDataEntr] = useState();
 
      
 
