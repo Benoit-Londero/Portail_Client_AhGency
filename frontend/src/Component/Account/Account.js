@@ -106,16 +106,16 @@ export default function NameForm() {
 
                <div className="project_sidebar">
                     <div className="tabs_account">
-                         <button value="profil" onClick={handleOnglet}>Mon profil</button>
-                         <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
+                         <button className="btn noborder" value="profil" onClick={handleOnglet}>Mon profil</button>
+                         <button className="btn noborder" value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
                     </div>
                </div>
           
                <Container id="page_account" className="main__content">
 
                     <div className="tabs_account">
-                         <button value="profil" onClick={handleOnglet}>Mon profil</button>
-                         <button value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
+                         <button value="profil" className="btn noborder"  onClick={handleOnglet}>Mon profil</button>
+                         <button value="entreprise" className="btn noborder" onClick={handleOnglet}>Mon entreprise</button>
                     </div>
                     
                     {profil === false ? <div>

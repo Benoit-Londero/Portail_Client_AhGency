@@ -295,7 +295,7 @@ export default function Clients() {
                          })}
                     </select>
                     <label>Membres à ajouter</label>
-                    <select name="members" multiple={true} value={this.state.value} onChange={handleChange}>
+                    <select name="members" multiple={true} onChange={handleChange}>
                          {allUsers && allUsers.map((item,index) => {
                               return(
                                    <option key={index} value={item.Prenom}>{item.Prenom} {item.Nom}</option>

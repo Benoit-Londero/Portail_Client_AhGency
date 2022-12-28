@@ -28,7 +28,7 @@
 }
 
 .tabs_account button:active{
-    color: #06f8b8;
+    color: #6610f2;
 }
 
 .Profil .bold {
@@ -42,7 +42,6 @@
 .delete_account {
     margin-top: 30px;
 }
-
 
 .delete_account td {
     text-align: left;
