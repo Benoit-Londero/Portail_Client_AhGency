@@ -280,6 +280,7 @@ export default function Clients() {
                                         
                                         const splitMembers = toString(myMember).split(",");
                                         
+                                        console.log(splitMembers);
                                         for(let i=0; i < splitMembers.length;i++) {
                                              resultMember += splitMembers[i].substring(0,1);
                                         }
