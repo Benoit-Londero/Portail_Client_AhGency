@@ -47,6 +47,8 @@ export default function Clients() {
      const [allEntreprise, setAllEntreprise] = useState([]);
      const [dataE, setDataEntr] = useState();
 
+     const [selectMembers, setMembers] = useState([]);
+
      useEffect (() => {
 
           const listUser = async () => {
@@ -162,6 +164,20 @@ export default function Clients() {
 
           /* Ajout membres à l'entreprise */
 
+          const handleChange = (e) => {
+               var options = e.target.options;
+               var value = [];
+               
+               for (var i=0, l = options.length; i<l; i++) {
+                    if (options[i].selected){
+                         value.push(options[i].value);
+                    }
+               }
+
+               setMembers({'members': value});
+               console.log(members)
+          }
+
           const handleSubmit = async e => {
                e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
                
@@ -185,7 +201,7 @@ export default function Clients() {
                const reception = await fetch('/api/postAddMember', { 
                    method: 'POST',
                    headers: {'Content-Type':'application/json'},
-                   body: JSON.stringify(jsonForm) 
+                   body: JSON.stringify(jsonForm + members) 
                })
 
                console.log(reception)
@@ -249,16 +265,6 @@ export default function Clients() {
                                    <th><p>Action</p></th>
                               </thead>
                               <tbody>
-                                   {/* <tr onClick={handleShowClient} value="3">
-                                        <td><p>Greenkids</p></td>
-                                        <td>
-                                             <p className="bdg_user">V</p>
-                                             <p className="bdg_user">S</p>
-                                             <p className="bdg_user">J</p>
-                                        </td>
-                                        <td><p>20</p></td>
-                                        <td><p>20.12.2022</p></td>
-                                   </tr> */}
 
                                    {allEntreprise && allEntreprise.map((item,index) => {
                                         return(
@@ -289,10 +295,10 @@ export default function Clients() {
                          })}
                     </select>
                     <label>Membres à ajouter</label>
-                    <select name="members[]" multiple>
+                    <select name="members" multiple={true} value={this.state.value} onChange={handleChange}>
                          {allUsers && allUsers.map((item,index) => {
                               return(
-                                   <option key={index} value={item.Prenom}> {item.Prenom} {item.Nom}</option>
+                                   <option key={index} value={item.Prenom}>{item.Prenom} {item.Nom}</option>
                               )
                          })}
                     </select>
