@@ -38,11 +38,18 @@ export default function Clients() {
 
      useEffect (() => {
 
-          fetch('/api/getAllUsers')
-               .then(res => res.json())
-               .then(json => setAllUsers(json))
-               .catch(err => console.info(err))
+          const listUser = async () => {
+               const response = await fetch('/api/getAllUsers');
 
+               const data = await response.json();
+               if(response.status === 200){
+                    setAllUsers(data)
+               } else {
+                    alert('Erreur du serveur, veuillez réessayer plus tard');
+               }
+          }
+
+          listUser();
      }, [])
 
      /* AJOUT BENOIT - DECEMBRE 2022 */
@@ -63,7 +70,7 @@ export default function Clients() {
           } else {
                setShowEntreprise(false);
           }
-
+          Button.classList.remove('active');
           e.currentTarget.classList.toggle('active');
      }
 

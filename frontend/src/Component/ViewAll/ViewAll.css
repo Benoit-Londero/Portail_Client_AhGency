@@ -137,11 +137,36 @@
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
 }
 
+/* Tableau tâches*/
+
+.title_of_task{
+    width: 140px;
+}
+
+.title_of_task p{
+    text-align: left!important;
+    font-weight: 600;
+}
+
+.tasks__descr{
+    padding: 10px 30px;
+    width: 450px;
+}
+
+.tasks__descr p{
+    text-align: justify;
+}
+
 .agent__{
     text-align:left;
 }
+
 .time_spend{
     text-align:right;
+}
+
+.timesheet .btn_ts_bottom{
+    width: 100px;
 }
 
 .detail_TS{
@@ -184,10 +209,9 @@
     vertical-align: top;
 }
 
-.title_of_task{
-    text-align: left!important;
-    font-weight: 600;
-}
+
+
+/******************/
 
 @media screen and (max-width:756px) and (orientation: portrait) {
 

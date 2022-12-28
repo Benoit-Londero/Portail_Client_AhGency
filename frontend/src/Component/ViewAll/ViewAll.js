@@ -110,15 +110,15 @@ export default function ViewAll() {
 
                          {filtredtasks && filtredtasks.map((item,index) => {
 
-                         var day = Moment(item.Date_Tache_Effectuee).format('DD');
-                         var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+                         /* var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                         var Month = Moment(item.Date_Tache_Effectuee).format('MMM'); */
 
                          return (
                               <tr key={index} className="line_task">
-                                   <td><p className="title_of_task">{ item.Titre}</p></td>
-                                   <td><p className="tasks__descr">{ item.Informations.substring(0,100)}...</p></td>
-                                   <td><p className="date_badge_timesheet">{day} {Month}.</p></td>
-                                   <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
+                                   <td className="title_of_task"><p>{ item.Titre}</p></td>
+                                   <td className="tasks__descr"><p>{ item.Informations.substring(0,100)}...</p></td>
+                                   {/* <td><p className="date_badge_timesheet">{day} {Month}.</p></td> */}
+                                   <td className="bdg_user"><p> {item.Agent.substring(0,1)}</p></td>
                                    <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                    <td className="last-child"><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
                               </tr>
