@@ -44,6 +44,7 @@ export default function Clients() {
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
      
      const [allEntreprise, setAllEntreprise] = useState([]);
+     const [dataE, setDataEntr] = usestate();
 
      
 
@@ -322,7 +323,7 @@ export default function Clients() {
                               <table>
                                    <tr>
                                         <td><p className="bold">ID Entreprise :</p></td>
-                                        <td><p>{currentID}</p></td>
+                                        <td><p>{currentIDE}</p></td>
                                    </tr>
                                    <tr>
                                         <td><p className="bold">Nom société :</p></td>
@@ -346,7 +347,7 @@ export default function Clients() {
                                    </tr>
                                    <tr>
                                         <td><p className="bold">Maintenance :</p></td>
-                                        <td><p>{currentMain}</p></td>
+                                        <td><p>{currentMaint}</p></td>
                                    </tr>
                                    
                                    <tr>

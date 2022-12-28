@@ -5,7 +5,15 @@
     padding: 20px;
     box-shadow: 7px 6px 9px 0px rgb(132 131 147 / 32%);
     display:inline-block;
-    margin-left: 3%;
+    margin-left: 5%;
+}
+
+#page_boutique ul{
+    padding:0;
+}
+
+#page_boutique .first{
+    margin-left:0px;
 }
 
 .product_fiche p {

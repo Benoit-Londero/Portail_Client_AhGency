@@ -2,6 +2,15 @@
      display:none;
 }
 
+#adminForm{
+     width:45vw!important;
+}
+
+.illu_prjt{
+     width:20vw;
+     float:right;
+}
+
 @media screen and (max-width:756px) and (orientation: portrait) {
      #adminForm .mobile{
           display:block;

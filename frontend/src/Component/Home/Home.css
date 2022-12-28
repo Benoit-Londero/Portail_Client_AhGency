@@ -23,11 +23,6 @@
     margin-bottom: 0;
 }
 
-/* .tableauTS table {
-    min-width: 340px;
-    width: 100%;
-} */
-
 .task_table{
     text-align: left;
     margin-bottom: 0px;
@@ -36,10 +31,6 @@
 .tableauTask h2{
     text-align: left;
 }
-
-/* .tableauTask table{
-    width:100%;
-} */
 
 .tableauTask .last-child {
     text-align: right;
@@ -132,10 +123,6 @@
     font-size:12px;
 }
 
-/* .timesheet table {
-    width: 100%;
-} */
-
 .timesheet thead {
     border-bottom: 1px solid #eee;
     line-height: 1em;
@@ -205,15 +192,6 @@
     vertical-align: top;
 }
 
-/* Responsive tablet */
-
-@media (min-width:756px) and (max-width:1480px) {
-    #page_dashboard {
-        margin-left: 200px;
-    }
-}
-
-
 /* Responsive Mobile */
 /*********************/
 
@@ -226,10 +204,6 @@
     .circular_stats{
         width:130px;
     }
-
-/*     .circular_stats table{
-        width:100%;
-    } */
 
     .circular_stats table p{
         text-align: right;
