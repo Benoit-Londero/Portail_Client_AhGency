@@ -135,7 +135,7 @@ export default function Clients() {
           const handleShowEntreprise = (e) => {
                let id_entr = e.target.value;
                
-               let jsonID = {currentIDE: id_entr};
+               let jsonID = {currentIDEntreprise: id_entr};
                console.log(jsonID);
 
                fetch('/api/getInfosEntreprise', { 
@@ -191,13 +191,6 @@ export default function Clients() {
                                    <th><p>Action</p></th>
                               </thead>
                               <tbody>
-                                   {/* <tr>
-                                        <td><p>Vicky Allard</p></td>
-                                        <td><p>Greenkids</p></td>
-                                        <td><p>4</p></td>
-                                        <td><p>20.12.2022</p></td>
-                                        <td><Button className="dts_client" onClick={handleShowClient} value="55">...</Button> </td>
-                                   </tr> */}
 
                                    {allUsers && allUsers.map((item,index) => {
                                         return(
@@ -226,7 +219,7 @@ export default function Clients() {
                                    <th><p>Action</p></th>
                               </thead>
                               <tbody>
-                                   <tr onClick={handleShowClient} value="3">
+                                   {/* <tr onClick={handleShowClient} value="3">
                                         <td><p>Greenkids</p></td>
                                         <td>
                                              <p className="bdg_user">V</p>
@@ -235,7 +228,7 @@ export default function Clients() {
                                         </td>
                                         <td><p>20</p></td>
                                         <td><p>20.12.2022</p></td>
-                                   </tr>
+                                   </tr> */}
 
                                    {allEntreprise && allEntreprise.map((item,index) => {
                                         return(
