@@ -174,7 +174,7 @@ export default function Clients() {
                     }
                }
 
-               setMembers({'members': value});
+               setMembers({'members': value.toString()});
                console.log(selectMembers)
           }
 
@@ -184,10 +184,17 @@ export default function Clients() {
                let addMemberForm = document.getElementById('addMember'); //on récupère l'élement <form> et ces différents <input>
                let myMember = new FormData(addMemberForm); //que l'on intègre à un formData
        
-               console.log(addMemberForm);
                console.log(myMember);
 
                const jsonForm = buildJsonFormData(myMember)
+
+               const selectedMembers = JSON.stringify(selectMembers);
+               const bodyForm = JSON.stringify(jsonForm);
+
+               const mergedObject = {
+                    ...selectedMembers,
+                    ...bodyForm
+               }
        
                //On crée une boucle pour transformer le FormData en JSON
                function buildJsonFormData(myMember){
@@ -201,7 +208,7 @@ export default function Clients() {
                const reception = await fetch('/api/postAddMember', { 
                    method: 'POST',
                    headers: {'Content-Type':'application/json'},
-                   body: JSON.stringify(jsonForm + selectMembers) 
+                   body: JSON.stringify(mergedObject) 
                })
 
                console.log(reception)

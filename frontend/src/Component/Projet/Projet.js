@@ -75,7 +75,6 @@ export default function Projet() {
         setMessage(false);
     }
 
-
     /** Ajout Benoit */
 
     const changeForm = (e) =>{
