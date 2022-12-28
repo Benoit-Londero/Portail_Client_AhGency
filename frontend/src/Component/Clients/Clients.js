@@ -175,7 +175,7 @@ export default function Clients() {
                }
 
                setMembers({'members': value});
-               console.log(members)
+               console.log(selectMembers)
           }
 
           const handleSubmit = async e => {
@@ -201,7 +201,7 @@ export default function Clients() {
                const reception = await fetch('/api/postAddMember', { 
                    method: 'POST',
                    headers: {'Content-Type':'application/json'},
-                   body: JSON.stringify(jsonForm + members) 
+                   body: JSON.stringify(jsonForm + selectMembers) 
                })
 
                console.log(reception)
