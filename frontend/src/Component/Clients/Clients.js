@@ -275,12 +275,13 @@ export default function Clients() {
                                         let myMember = item.Membres;
                                         let resultMember;
 
-                                        console.log(toString(myMember));
+                                        console.log(myMember);
                                         console.log(typeof(myMember));
                                         
                                         const splitMembers = toString(myMember).split(",");
                                         
                                         console.log(splitMembers);
+
                                         for(let i=0; i < splitMembers.length;i++) {
                                              resultMember += splitMembers[i].substring(0,1);
                                         }
@@ -290,7 +291,7 @@ export default function Clients() {
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
-                                                  <td><p> {resultMember}</p></td>
+                                                  <td><p> <span>{resultMember}</span><span>{item.Membres}</span></p></td>
                                                   <td><p>{item.Date_creation}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
                                              </tr>
