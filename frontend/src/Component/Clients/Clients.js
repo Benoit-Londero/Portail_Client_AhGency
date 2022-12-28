@@ -44,6 +44,8 @@ export default function Clients() {
      const [currentMaint, setCurrentMaint] = useState();
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
      const [currentMembers, setCurrentMembers] = useState('');
+
+     console.log(currentMembers);
      
      const [allEntreprise, setAllEntreprise] = useState([]);
      const [dataE, setDataEntr] = useState();
