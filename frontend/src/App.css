@@ -29,7 +29,7 @@
 }
 
 .main__content{
-    width: 80vw;
+    width: 75vw;
     margin-left: 20vw;
     margin-top: 9vh;
 }
@@ -47,6 +47,10 @@
     }
 }
 
+table{
+    min-width: 340px;
+    width:100%;
+}
 
 /******** TEXTE - TITRE - LABEL ********/ 
 

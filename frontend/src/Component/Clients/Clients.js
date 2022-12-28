@@ -44,6 +44,7 @@ export default function Clients() {
                const data = await response.json();
                if(response.status === 200){
                     setAllUsers(data)
+                    console.log(data);
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
@@ -70,8 +71,7 @@ export default function Clients() {
           } else {
                setShowEntreprise(false);
           }
-          Button.classList.remove('active');
-          e.currentTarget.classList.toggle('active');
+          Button.classList.toggle('active');
      }
 
      const handleShowClient = (e) => {
