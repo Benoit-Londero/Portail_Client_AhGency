@@ -282,16 +282,14 @@ input:hover{
 }
 
 input[type="submit"]{
-    width:45%;
-    color:#6610f2;
+    color:#fff;
     text-align: center;
-    background-color: #160531;
+    background-color: #6610f2;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     vertical-align: middle;
     font-size: 12px;
-    border: 1px solid;
-    border-bottom: 3px solid;
+    border: none;
     border-radius: 5px;
     margin-bottom: 6px;
     width: 100%;
@@ -299,9 +297,9 @@ input[type="submit"]{
 }
 
 input[type="submit"]:hover{
-    color:#fff;
+    color:#6610f2;
     text-align: center;
-    background-color: #6610f2;
+    background-color: #fff;
 }
 
 input[type="reset"]{

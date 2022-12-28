@@ -41,10 +41,10 @@ export default function Clients() {
           const listUser = async () => {
                const response = await fetch('/api/getAllUsers');
 
-               const data = await response.json();
+               const result = await response.json();
                if(response.status === 200){
-                    setAllUsers(data)
-                    console.log(data);
+                    setAllUsers(result)
+                    console.log(allUsers);
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
@@ -156,7 +156,7 @@ export default function Clients() {
 
                                    </tr>
 
-                                   {allUsers && allUsers.map((index,item) => {
+                                   {allUsers && allUsers.map((item,index) => {
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom} {item.Prenom}</p></td>
