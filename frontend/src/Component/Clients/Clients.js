@@ -12,14 +12,15 @@ import Button from 'react-bootstrap/Button';
 
 export default function Clients() {
 
-     const [addClient, setAddClient] = useState(false);
 
-     const [showDetails, setShowDetails] = useState(false);
-     const [showEntreprise, setShowEntreprise] = useState(false);
-     const [showDetailsEntr, setShowDetailsEntreprise] = useState(false);
+     const [addClient, setAddClient] = useState(false); //Const pour afficher le formulaire d'ajout client / Entreprise
+     const [showEntreprise, setShowEntreprise] = useState(false); // Navigation dans les onglets CLIENTS / ENTREPRISE
 
-     /* Création Variable pour liste + infos Clients - AJOUT BENOIT DEC. 2022 */
 
+     const [showDetails, setShowDetails] = useState(false); //Affichage Modale Client
+     const [showDetailsEntr, setShowDetailsEntreprise] = useState(false); //Affichage Modale Entreprise
+
+     /* Variables pour liste + infos Clients - AJOUT BENOIT DEC. 2022 */
      const [currentNOM, setCurrentNOM] = useState();
      const [currentPNOM, setCurrentPNOM] = useState();
      const [currentMAIL, setCurrentMAIL] = useState();
@@ -32,7 +33,7 @@ export default function Clients() {
      const [allUsers, setAllUsers] = useState([]);
      const [data,setDataClient] = useState();
 
-     /* Création Variable pour liste + infos Entreprise - AJOUT BENOIT DEC. 2022 */
+     /* Variables pour liste + infos Entreprise - AJOUT BENOIT DEC. 2022 */
 
      const [currentIDE, setCurrentIDE] = useState();
      const [currentNOMSOC, setCurrentNOMSOC] = useState();
@@ -45,12 +46,7 @@ export default function Clients() {
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
      
      const [allEntreprise, setAllEntreprise] = useState([]);
-     const [dataE, setDataEntr] = usestate();
-
-     
-
-/*      const currentIDU = localStorage.getItem("currentIDU");
-     const currentIDE = localStorage.getItem("currentIDE"); */
+     const [dataE, setDataEntr] = useState();
 
      useEffect (() => {
 
