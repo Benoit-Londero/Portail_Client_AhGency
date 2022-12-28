@@ -175,7 +175,7 @@ export default function Clients() {
                }
 
                setMembers({'members': value.toString()}); // Conversion en String
-               console.log(selectMembers)
+               
           }
 
           const handleSubmit = async e => {
@@ -186,6 +186,10 @@ export default function Clients() {
        
                const jsonForm = buildJsonFormData(myMember)
 
+               console.log(typeof(selectMembers));
+               console.log(typeof(jsonForm));
+
+               
                const selectedMembers = JSON.parse(selectMembers);
                const bodyForm = JSON.parse(jsonForm);
 
@@ -202,8 +206,6 @@ export default function Clients() {
                    }
                    return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
                }
-
-               
 
                //Merge des 2 objets afin de soumettre qu'un seul formulaire à l'API
                const mergedObject = {
