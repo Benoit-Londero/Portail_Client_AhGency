@@ -43,6 +43,7 @@ export default function Clients() {
      const [currentDatCrea, setCurrentDatCrea] = useState();
      const [currentMaint, setCurrentMaint] = useState();
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
+     const [currentMembers, setCurrentMembers] = useState();
      
      const [allEntreprise, setAllEntreprise] = useState([]);
      const [dataE, setDataEntr] = useState();
@@ -157,6 +158,7 @@ export default function Clients() {
                .then(setCurrentDatCrea(dataE.Date_creation))
                .then(setCurrentMaint(dataE.Maintenance))
                .then(setCurrentSiteWeb(dataE.Site_Web))
+               .then(setCurrentMembers(data.Membres))
 
                .then(setShowDetailsEntreprise(true))
                .catch(err => console.info(err))
@@ -280,10 +282,17 @@ export default function Clients() {
                               <tbody>
 
                                    {allEntreprise && allEntreprise.map((item,index) => {
+                                        const split = currentMembers.split(",");
+                                        
+                                        let resultMember;
+                                        for(let i=0; i < split.length;i++) {
+                                             resultMember += split[i].substring(0,1);
+                                        }
+                                        
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
-                                                  <td><p>{item.Membres}</p></td>
+                                                  <td><p> {resultMember}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
                                              </tr>
