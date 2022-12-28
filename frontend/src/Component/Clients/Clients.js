@@ -188,6 +188,11 @@ export default function Clients() {
 
                const selectedMembers = JSON.parse(selectMembers);
                const bodyForm = JSON.parse(jsonForm);
+
+               console.log(selectMembers);
+               console.log(jsonForm);
+               console.log(selectedMembers);
+               console.log(bodyForm);
        
                //On crée une boucle pour transformer le FormData en JSON
                function buildJsonFormData(myMember){
@@ -197,6 +202,8 @@ export default function Clients() {
                    }
                    return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
                }
+
+               
 
                //Merge des 2 objets afin de soumettre qu'un seul formulaire à l'API
                const mergedObject = {
