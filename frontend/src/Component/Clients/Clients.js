@@ -43,7 +43,7 @@ export default function Clients() {
      const [currentDatCrea, setCurrentDatCrea] = useState();
      const [currentMaint, setCurrentMaint] = useState();
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
-     const [currentMembers, setCurrentMembers] = useState();
+     const [currentMembers, setCurrentMembers] = useState('');
      
      const [allEntreprise, setAllEntreprise] = useState([]);
      const [dataE, setDataEntr] = useState();
@@ -268,11 +268,17 @@ export default function Clients() {
                               <tbody>
 
                                    {allEntreprise && allEntreprise.map((item,index) => {
+
+                                        if(typeof currentMembers ==="string"){
                                         const splitMembers = currentMembers.split(",");
-                                        
-                                        let resultMember;
-                                        for(let i=0; i < splitMembers.length;i++) {
-                                             resultMember += splitMembers[i].substring(0,1);
+
+                                             let resultMember;
+                                             for(let i=0; i < splitMembers.length;i++) {
+                                                  resultMember += splitMembers[i].substring(0,1);
+                                             }
+
+                                        } else {
+                                             console.log('currentMembers is not a string');
                                         }
                                         
                                         return(
