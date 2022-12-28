@@ -187,14 +187,6 @@ export default function Clients() {
                let myMember = new FormData(addMemberForm); //que l'on intègre à un formData
        
                const jsonForm = buildJsonFormData(myMember)
-
-               /* const selectedMembers = JSON.parse(selectMembers);
-               const bodyForm = JSON.parse(jsonForm);
-
-               console.log(selectMembers);
-               console.log(jsonForm);
-               console.log(selectedMembers);
-               console.log(bodyForm); */
        
                //On crée une boucle pour transformer le FormData en JSON
                function buildJsonFormData(myMember){
@@ -204,12 +196,6 @@ export default function Clients() {
                    }
                    return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
                }
-
-               //Merge des 2 objets afin de soumettre qu'un seul formulaire à l'API
-               /* const mergedObject = {
-                    ...selectedMembers,
-                    ...bodyForm
-               }; */
 
                const obj = JSON.stringify(Object.assign({}, jsonForm, selectMembers));
 
@@ -282,11 +268,11 @@ export default function Clients() {
                               <tbody>
 
                                    {allEntreprise && allEntreprise.map((item,index) => {
-                                        const split = currentMembers.split(",");
+                                        const splitMembers = currentMembers.split(",");
                                         
                                         let resultMember;
-                                        for(let i=0; i < split.length;i++) {
-                                             resultMember += split[i].substring(0,1);
+                                        for(let i=0; i < splitMembers.length;i++) {
+                                             resultMember += splitMembers[i].substring(0,1);
                                         }
                                         
                                         return(
