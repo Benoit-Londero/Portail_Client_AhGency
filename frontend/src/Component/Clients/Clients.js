@@ -65,10 +65,10 @@ export default function Clients() {
           listUser();
 
           const listEntrep = async () => {
-               const response = await fetch('/api/getAllEntreprise');
+               const response2 = await fetch('/api/getAllEntreprise');
 
-               const res = await response.json();
-               if(res.status === 200){
+               const res = await response2.json();
+               if(response2.status === 200){
                     setAllEntreprise(res);
                     console.log(allEntreprise);
                } else {
