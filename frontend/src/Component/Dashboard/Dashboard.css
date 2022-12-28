@@ -289,12 +289,6 @@
         font-size: 2em!important;
     }
 
-    /*********************************/
-    /*** Tableau tableauTS récentes ***/
-    .tableauTS table {
-        min-width: 90%;
-    }
-    /*********************************/
     /***** Timesheet ******/
     .timesheet {
         width: 100%;
@@ -305,7 +299,6 @@
     #desktop{
         display:none;
     }
-
 
     .mobile{
         display:block;

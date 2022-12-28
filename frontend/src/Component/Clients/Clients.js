@@ -17,6 +17,8 @@ export default function Clients() {
      const [showDetails, setShowDetails] = useState(false);
      const [showEntreprise, setShowEntreprise] = useState(false);
 
+     /* Création Variable pour liste + infos Clients - AJOUT BENOIT DEC. 2022 */
+
      const [currentNOM, setCurrentNOM] = useState();
      const [currentPNOM, setCurrentPNOM] = useState();
      const [currentMAIL, setCurrentMAIL] = useState();
@@ -26,12 +28,24 @@ export default function Clients() {
      const [currentMina, setCurrentMina] = useState();
      const [currentTitre, setCurrentTitre] = useState();
 
-     /*** Ajout classe active sur un bouton ***/
-     /* const [isActive, setIsActive] = useState(false); */
-
      const [allUsers, setAllUsers] = useState([]);
-
      const [data,setDataClient] = useState();
+
+     /* Création Variable pour liste + infos Entreprise - AJOUT BENOIT DEC. 2022 */
+
+     const [currentIDE, setCurrentIDE] = useState();
+     const [currentNOMSOC, setCurrentNOMSOC] = useState();
+     const [currentMAILE, setCurrentMAILE] = useState();
+     const [currentTVA, setCurrentTVA] = useState();
+     const [currentADR, setCurrentADR] = useState();
+     const [currentTelEnt, setCurrentTelEnt] = useState();
+     const [currentDatCrea, setCurrentDatCrea] = useState();
+     const [currentMaint, setCurrentMaint] = useState();
+     const [currentSiteWeb, setCurrentSiteWeb] = useState();
+     
+     const [allEntreprise, setAllEntreprise] = useState([]);
+
+     
 
 /*      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE"); */
@@ -51,56 +65,103 @@ export default function Clients() {
           }
 
           listUser();
+
+          const listEntrep = async () => {
+               const response = await fetch('/api/getAllEntreprise');
+
+               const res = await response.json();
+               if(res.status === 200){
+                    setAllEntreprise(res);
+                    console.log(allEntreprise);
+               } else {
+                    alert('Erreur du serveur, veuillez réessayer plus tard')
+               }
+          }
+
+          listEntrep();
      }, [])
 
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
-     const handleAddClient = (e) =>{
-          setAddClient(true);
-     }
-
-     const closeTasks = (e) => {
-          setAddClient(false);
-          setShowDetails(false);
-     }
-
-     const handleEntreprise = (e) => {
-          let onglet = e.target.value;
-          if(onglet === "entreprise"){
-               setShowEntreprise(true)
-          } else {
-               setShowEntreprise(false);
+          const handleAddClient = (e) =>{
+               setAddClient(true);
           }
-          Button.classList.toggle('active');
-     }
 
-     const handleShowClient = (e) => {
-          let id_client = e.target.value;
-          
-          let jsonID = {currentIDUser: id_client};
-          console.log(jsonID);
+          const closeTasks = (e) => {
+               setAddClient(false);
+               setShowDetails(false);
+               setShowDetailsEntreprise(false);
+          }
 
-          fetch('/api/getInfosClient', { 
-               method: 'POST',
-               headers: {'Content-Type': 'application/json'},
-               body: JSON.stringify(jsonID)
-          })
-          .then(res => res.json())
-          .then(json => setDataClient(json))
-          .then(console.log(data))
+          /** Switch l'affichage entre l'onglet client & entreprise **/
+          const handleEntreprise = (e) => {
+               let onglet = e.target.value;
+               if(onglet === "entreprise"){
+                    setShowEntreprise(true)
+               } else {
+                    setShowEntreprise(false);
+               }
+               e.target.classList.toggle('active');
+          }
 
-          .then(setCurrentID(data.ID))
-          .then(setCurrentNOM(data.Nom))
-          .then(setCurrentPNOM(data.Prenom))
-          .then(setCurrentMAIL(data.Email))
-          .then(setCurrentIDentr(data.ID_entreprise))
-          .then(setCurrentRole(data.Role))
-          .then(setCurrentMina(data.Minutes_Achetees))
-          .then(setCurrentTitre(data.Titre))
+          /** Function qui permet de récupérer les informations CLIENTS et de les définir pour la modale **/
+          const handleShowClient = (e) => {
+               let id_client = e.target.value;
+               
+               let jsonID = {currentIDUser: id_client};
+               console.log(jsonID);
 
-          .then(setShowDetails(true))
-          .catch(err => console.info(err))
-     }
+               fetch('/api/getInfosClient', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(jsonID)
+               })
+               .then(res => res.json())
+               .then(json => setDataClient(json))
+               .then(console.log(data))
+
+               .then(setCurrentID(data.ID))
+               .then(setCurrentNOM(data.Nom))
+               .then(setCurrentPNOM(data.Prenom))
+               .then(setCurrentMAIL(data.Email))
+               .then(setCurrentIDentr(data.ID_entreprise))
+               .then(setCurrentRole(data.Role))
+               .then(setCurrentMina(data.Minutes_Achetees))
+               .then(setCurrentTitre(data.Titre))
+
+               .then(setShowDetails(true))
+               .catch(err => console.info(err))
+          }
+
+          /** Function qui permet de récupérer les informations ENTREPRISE et de les définir pour la modale **/
+          const handleShowEntreprise = (e) => {
+               let id_entr = e.target.value;
+               
+               let jsonID = {currentIDE: id_entr};
+               console.log(jsonID);
+
+               fetch('/api/getInfosEntreprise', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(jsonID)
+               })
+               .then(res => res.json())
+               .then(json => setDataEntr(json))
+               .then(console.log(dataE))
+
+               .then(setCurrentIDE(dataE.ID_entreprise))
+               .then(setCurrentNOMSOC(dataE.Nom_societe))
+               .then(setCurrentTVA(dataE.TVA))
+               .then(setCurrentADR(dataE.Adresse))
+               .then(setCurrentTelEnt(dataE.Telephone))
+               .then(setCurrentMAILE(dataE.Email))
+               .then(setCurrentDatCrea(dataE.Date_creation))
+               .then(setCurrentMaint(dataE.Maintenance))
+               .then(setCurrentSiteWeb(dataE.Site_Web))
+
+               .then(setShowEntrDetails(true))
+               .catch(err => console.info(err))
+          }
 
      return (
 
@@ -132,29 +193,13 @@ export default function Clients() {
                                    <th><p>Action</p></th>
                               </thead>
                               <tbody>
-                                   <tr >
+                                   {/* <tr>
                                         <td><p>Vicky Allard</p></td>
                                         <td><p>Greenkids</p></td>
                                         <td><p>4</p></td>
                                         <td><p>20.12.2022</p></td>
                                         <td><Button className="dts_client" onClick={handleShowClient} value="55">...</Button> </td>
-                                   </tr>
-                                   <tr>
-                                        <td><p>Vicky Allard</p></td>
-                                        <td><p>Greenkids</p></td>
-                                        <td><p>4</p></td>
-                                        <td><p>20.12.2022</p></td>
-                                        <td><Button className="dts_client" onClick={handleShowClient} value="54">...</Button> </td>
-
-                                   </tr>
-                                   <tr>
-                                        <td><p>Vicky Allard</p></td>
-                                        <td><p>Greenkids</p></td>
-                                        <td><p>4</p></td>
-                                        <td><p>20.12.2022</p></td>
-                                        <td><Button className="dts_client" onClick={handleShowClient} value="4">...</Button> </td>
-
-                                   </tr>
+                                   </tr> */}
 
                                    {allUsers && allUsers.map((item,index) => {
                                         return(
@@ -179,8 +224,8 @@ export default function Clients() {
                               <thead>
                                    <th><p>Nom de l'entreprise</p></th>
                                    <th><p>Membres</p></th>
-                                   <th><p>Projets</p></th>
                                    <th><p>Créé</p></th>
+                                   <th><p>Action</p></th>
                               </thead>
                               <tbody>
                                    <tr onClick={handleShowClient} value="3">
@@ -193,24 +238,18 @@ export default function Clients() {
                                         <td><p>20</p></td>
                                         <td><p>20.12.2022</p></td>
                                    </tr>
-                                   <tr onClick={handleShowClient} value="4">
-                                        <td><p>Et si on créait</p></td>
-                                        <td>
-                                             <p className="bdg_user">A</p>
-                                        </td>
-                                        <td><p>2</p></td>
-                                        <td><p>20.12.2022</p></td>
-                                   </tr>
-                                   <tr onClick={handleShowClient} value="5">
-                                        <td><p>CFE Tax Adviser Europe</p></td>
-                                        <td>
-                                             <p className="bdg_user">K</p>
-                                             <p className="bdg_user">A</p>
-                                             <p className="bdg_user">B</p>
-                                        </td>
-                                        <td><p>1</p></td>
-                                        <td><p>20.12.2022</p></td>
-                                   </tr>
+
+                                   {allEntreprise && allEntreprise.map((item,index) => {
+                                        return(
+                                             <tr key={index}>
+                                                  <td><p>{item.Nom_societe}</p></td>
+                                                  <td><p>{item.Email}</p></td>
+                                                  <td><p>{item.Date_creation}</p></td>
+                                                  <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
+                                             </tr>
+                                        )
+                                   })
+                                   }
                               </tbody>
                          </table>
                     </Col> 
@@ -268,11 +307,58 @@ export default function Clients() {
                                         <td><p>{currentMina}</p></td>
                                    </tr>
                               </table>
-                              
-                              
-                              
-                              
-                              
+                         </div>
+                    </div>  
+               </Row>
+          : ''}
+
+          {showDetailsEntreprise === true ? 
+               <Row className="modal__newTask">
+                    <div id="modal_desktop">
+                         <button className="close_modale" onClick={closeTasks}>X</button>                                   
+                         <h2>Détails Entreprise</h2>
+
+                         <div>
+                              <table>
+                                   <tr>
+                                        <td><p className="bold">ID Entreprise :</p></td>
+                                        <td><p>{currentID}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Nom société :</p></td>
+                                        <td><p>{currentNOMSOC}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">TVA :</p></td>
+                                        <td><p>{currentTVA}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Adresse :</p></td>
+                                        <td><p>{currentADR}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Telephone :</p></td>
+                                        <td><p>{currentTelEnt}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Email :</p></td>
+                                        <td><p>{currentMAILE}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Maintenance :</p></td>
+                                        <td><p>{currentMain}</p></td>
+                                   </tr>
+                                   
+                                   <tr>
+                                        <td><p className="bold">Site Web :</p></td>
+                                        <td><p>{currentSiteWeb}</p></td>
+                                   </tr>
+
+                                   <tr>
+                                        <td><p className="bold">Date création :</p></td>
+                                        <td><p>{currentDatCrea}</p></td>
+                                   </tr>
+                              </table>
                          </div>
                     </div>  
                </Row>
