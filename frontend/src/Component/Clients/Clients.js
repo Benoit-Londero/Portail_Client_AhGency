@@ -185,6 +185,8 @@ export default function Clients() {
                    headers: {'Content-Type':'application/json'},
                    body: JSON.stringify(jsonForm) 
                })
+
+               console.log(reception)
            }
 
      return (
@@ -285,7 +287,7 @@ export default function Clients() {
                          })}
                     </select>
                     <label>Membres à ajouter</label>
-                    <select miltiple="multiple">
+                    <select multiple="multiple">
                          {allUsers && allUsers.map((item,index) => {
                               return(
                                    <option key={index} value={item.Prenom}> {item.Prenom} {item.Nom}</option>
@@ -297,13 +299,15 @@ export default function Clients() {
                </form>
           </Row>
 
-          {addClient === true ? <Row className="modal__newTask">
+          {addClient === true ? 
+               <Row className="modal__newTask">
                
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          <AjoutClient/>
                     </div>  
-          </Row> : ''}
+               </Row>
+          : ''}
 
           {showDetails === true ? 
                <Row className="modal__newTask">
@@ -403,6 +407,7 @@ export default function Clients() {
                     </div>  
                </Row>
           : ''}
+
      </Container>
      </div>
       )
