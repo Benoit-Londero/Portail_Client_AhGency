@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 
-
 import AjoutClient from '../AjoutClient/AjoutClient.js';
 
 import Button from 'react-bootstrap/Button';
@@ -279,7 +278,7 @@ export default function Clients() {
           <Row>
                <form id="addMember" onSubmit={handleSubmit}>
                     <label>Entreprise</label>
-                    <select>
+                    <select name="id_entr">
                          {allEntreprise && allEntreprise.map((item,index) => {
                               return(
                                    <option key={index} value={item.ID_entreprise}>{item.Nom_societe}</option>
@@ -287,7 +286,7 @@ export default function Clients() {
                          })}
                     </select>
                     <label>Membres à ajouter</label>
-                    <select multiple="multiple">
+                    <select name="members" multiple="multiple">
                          {allUsers && allUsers.map((item,index) => {
                               return(
                                    <option key={index} value={item.Prenom}> {item.Prenom} {item.Nom}</option>
