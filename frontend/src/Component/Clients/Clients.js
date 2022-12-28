@@ -294,7 +294,7 @@ export default function Clients() {
                          })}
                     </select>
                          
-                    <input type="submit">Ajouter</input>
+                    <input type="submit" value="Ajouter"/>
                </form>
           </Row>
 
