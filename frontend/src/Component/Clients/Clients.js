@@ -186,17 +186,13 @@ export default function Clients() {
        
                const jsonForm = buildJsonFormData(myMember)
 
-               console.log(typeof(selectMembers));
-               console.log(typeof(jsonForm));
-
-               
-               const selectedMembers = JSON.parse(selectMembers);
+               /* const selectedMembers = JSON.parse(selectMembers);
                const bodyForm = JSON.parse(jsonForm);
 
                console.log(selectMembers);
                console.log(jsonForm);
                console.log(selectedMembers);
-               console.log(bodyForm);
+               console.log(bodyForm); */
        
                //On crée une boucle pour transformer le FormData en JSON
                function buildJsonFormData(myMember){
@@ -208,17 +204,17 @@ export default function Clients() {
                }
 
                //Merge des 2 objets afin de soumettre qu'un seul formulaire à l'API
-               const mergedObject = {
+               /* const mergedObject = {
                     ...selectedMembers,
                     ...bodyForm
-               };
-               
-               console.log(mergedObject);
+               }; */
+
+               const obj = JSON.stringify(Object.assign({}, jsonForm, selectMember));
 
                const reception = await fetch('/api/postAddMember', { 
                    method: 'POST',
                    headers: {'Content-Type':'application/json'},
-                   body: JSON.stringify(mergedObject) 
+                   body: obj
                })
 
                console.log(reception)
