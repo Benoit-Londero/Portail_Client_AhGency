@@ -334,7 +334,7 @@ export default function Home() {
           </Row> : ''}
      </Container>
 
-     {newTask === true ? <div className="modal__newTask"><button className="close_modale" onClick={closeTasks}>X</button><AdminForm/></div> : ''}
+     {newTask === true ? <div className="modal__newTask"><div id="modal_desktop"><button className="close_modale" onClick={closeTasks}>X</button><AdminForm/></div></div> : ''}
      </div>
       )
  }
