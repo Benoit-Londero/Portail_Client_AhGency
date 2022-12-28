@@ -170,7 +170,7 @@ export default function Clients() {
        
                console.log(addMemberForm);
                console.log(myMember);
-               
+
                const jsonForm = buildJsonFormData(myMember)
        
                //On crée une boucle pour transformer le FormData en JSON
@@ -289,7 +289,7 @@ export default function Clients() {
                          })}
                     </select>
                     <label>Membres à ajouter</label>
-                    <select name="members" multiple>
+                    <select name="members[]" multiple>
                          {allUsers && allUsers.map((item,index) => {
                               return(
                                    <option key={index} value={item.Prenom}> {item.Prenom} {item.Nom}</option>
