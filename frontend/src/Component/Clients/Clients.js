@@ -209,7 +209,7 @@ export default function Clients() {
                     ...bodyForm
                }; */
 
-               const obj = JSON.stringify(Object.assign({}, jsonForm, selectMember));
+               const obj = JSON.stringify(Object.assign({}, jsonForm, selectMembers));
 
                const reception = await fetch('/api/postAddMember', { 
                    method: 'POST',
