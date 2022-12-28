@@ -81,7 +81,7 @@ export default function Projet() {
     const changeForm = (e) =>{
         let value = e.target.value;
 
-        switch(value){
+        /* switch(value){
             case 'projet': 
                 setFormDisplay('projet');
                 break;
@@ -94,7 +94,15 @@ export default function Projet() {
 
             default :
                 setFormDisplay('projet');
-        }
+        } */
+
+        if(value === 'taches'){
+            setFormDisplay('taches');
+        } else if(value === 'heures'){
+            setFormDisplay('heures');
+        } else {
+            setFormDisplay('projet');
+        }   
     }
 
   return (
