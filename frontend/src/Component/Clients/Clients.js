@@ -274,7 +274,7 @@ export default function Clients() {
                                         
                                         let resultMember;
 
-                                        console.log(item.Membres);
+                                        console.log(toString(item.Membres));
                                         console.log(typeof(item.Membres));
                                         
                                         const splitMembers = item.Membres.split(",");
