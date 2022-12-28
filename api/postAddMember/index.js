@@ -8,12 +8,12 @@ module.exports = async function (context, req) {
   addMember = await new Promise((resolve,reject) => {
     
       let members = req.body.members;
-      let str_members = members.join(", ")
+      //let str_members = members.join(", ")
       let ID_Entreprise = req.body.id_entr;
   
       let qSQL = "UPDATE users SET Membres = ? WHERE ID_entreprise = ?";
   
-      con.query(qSQL, [str_members,ID_Entreprise], function (err,results){
+      con.query(qSQL, [members,ID_Entreprise], function (err,results){
         if (err) throw err;
 
         console.log('Membres ajoutée')

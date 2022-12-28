@@ -168,6 +168,9 @@ export default function Clients() {
                let addMemberForm = document.getElementById('addMember'); //on récupère l'élement <form> et ces différents <input>
                let myMember = new FormData(addMemberForm); //que l'on intègre à un formData
        
+               console.log(addMemberForm);
+               console.log(myMember);
+               
                const jsonForm = buildJsonFormData(myMember)
        
                //On crée une boucle pour transformer le FormData en JSON
@@ -286,7 +289,7 @@ export default function Clients() {
                          })}
                     </select>
                     <label>Membres à ajouter</label>
-                    <select name="members" multiple="multiple">
+                    <select name="members" multiple>
                          {allUsers && allUsers.map((item,index) => {
                               return(
                                    <option key={index} value={item.Prenom}> {item.Prenom} {item.Nom}</option>
