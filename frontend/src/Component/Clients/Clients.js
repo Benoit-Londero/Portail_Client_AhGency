@@ -293,7 +293,6 @@ export default function Clients() {
                          })}
                     </select>
                          
-                    <input type="hidden" value={item.ID_entreprise}/>
                     <input type="submit">Ajouter</input>
                </form>
           </Row>
