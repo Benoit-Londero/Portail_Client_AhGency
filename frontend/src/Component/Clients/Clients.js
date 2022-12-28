@@ -272,21 +272,17 @@ export default function Clients() {
                                         
                                         let resultMember;
 
-                                        console.log(currentMembers);
-                                        console.log(typeof(currentMembers));
+                                        console.log(item.Membres);
+                                        console.log(typeof(item.Membres));
                                         
-                                        if(typeof currentMembers === "string"){
-                                        const splitMembers = currentMembers.split(",");
-
-                                             for(let i=0; i < splitMembers.length;i++) {
-                                                  resultMember += splitMembers[i].substring(0,1);
-                                             }
-
-                                        } else {
-                                             console.log('currentMembers is not a string');
+                                        const splitMembers = item.Membres.split(",");
+                                        
+                                        for(let i=0; i < splitMembers.length;i++) {
+                                             resultMember += splitMembers[i].substring(0,1);
                                         }
 
-                                        /* const splitMembers = currentMembers?.split(","); */
+                                        console.log(resultMember);
+
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
