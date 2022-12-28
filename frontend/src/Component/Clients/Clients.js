@@ -162,7 +162,7 @@ export default function Clients() {
                .catch(err => console.info(err))
           }
 
-          /* Ajout membres à l'entreprise */
+          /* Ajout membres à l'entreprise -- Création du tableau contenant les différents membres */
 
           const handleChange = (e) => {
                var options = e.target.options;
@@ -174,7 +174,7 @@ export default function Clients() {
                     }
                }
 
-               setMembers({'members': value.toString()});
+               setMembers({'members': value.toString()}); // Conversion en String
                console.log(selectMembers)
           }
 
@@ -184,17 +184,10 @@ export default function Clients() {
                let addMemberForm = document.getElementById('addMember'); //on récupère l'élement <form> et ces différents <input>
                let myMember = new FormData(addMemberForm); //que l'on intègre à un formData
        
-               console.log(myMember);
-
                const jsonForm = buildJsonFormData(myMember)
 
                const selectedMembers = JSON.parse(selectMembers);
                const bodyForm = JSON.parse(jsonForm);
-
-               const mergedObject = {
-                    ...selectedMembers,
-                    ...bodyForm
-               };
        
                //On crée une boucle pour transformer le FormData en JSON
                function buildJsonFormData(myMember){
@@ -204,6 +197,14 @@ export default function Clients() {
                    }
                    return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
                }
+
+               //Merge des 2 objets afin de soumettre qu'un seul formulaire à l'API
+               const mergedObject = {
+                    ...selectedMembers,
+                    ...bodyForm
+               };
+               
+               console.log(mergedObject);
 
                const reception = await fetch('/api/postAddMember', { 
                    method: 'POST',
