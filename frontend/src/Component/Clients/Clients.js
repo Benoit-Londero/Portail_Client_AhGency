@@ -205,7 +205,8 @@ export default function Clients() {
                    body: obj
                })
 
-               console.log(reception)
+               console.log(reception);
+               window.location.reload();
            }
 
      return (
@@ -268,11 +269,12 @@ export default function Clients() {
                               <tbody>
 
                                    {allEntreprise && allEntreprise.map((item,index) => {
-
+                                        
+                                        let resultMember;
+                                        
                                         if(typeof currentMembers ==="string"){
                                         const splitMembers = currentMembers.split(",");
 
-                                             let resultMember;
                                              for(let i=0; i < splitMembers.length;i++) {
                                                   resultMember += splitMembers[i].substring(0,1);
                                              }
@@ -280,7 +282,8 @@ export default function Clients() {
                                         } else {
                                              console.log('currentMembers is not a string');
                                         }
-                                        
+
+                                        /* const splitMembers = currentMembers?.split(","); */
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
