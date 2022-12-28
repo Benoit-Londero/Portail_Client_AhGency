@@ -188,13 +188,13 @@ export default function Clients() {
 
                const jsonForm = buildJsonFormData(myMember)
 
-               const selectedMembers = JSON.stringify(selectMembers);
-               const bodyForm = JSON.stringify(jsonForm);
+               const selectedMembers = JSON.parse(selectMembers);
+               const bodyForm = JSON.parse(jsonForm);
 
                const mergedObject = {
                     ...selectedMembers,
                     ...bodyForm
-               }
+               };
        
                //On crée une boucle pour transformer le FormData en JSON
                function buildJsonFormData(myMember){
