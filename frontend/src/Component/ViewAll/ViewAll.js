@@ -130,7 +130,7 @@ export default function ViewAll() {
                     <div class="mobile">
                          <h2>Liste des tâches réalisées :</h2>
 
-                         {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
+                         {alltasks.map((item,index) => {
 
                               var day = Moment(item.Date_Tache_Effectuee).format('DD');
                               var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
@@ -151,8 +151,7 @@ export default function ViewAll() {
                                         </tr>
                                    </tbody>
                               </table>)
-                         })
-                         }
+                         })}
                     </div>
                </Col>
           </Row>
@@ -190,7 +189,8 @@ export default function ViewAll() {
                     })}
                </div> 
                
-               </Row>     : ''}
+               </Row>
+          : ''}
           
      </Container>
      </div>
