@@ -12,10 +12,8 @@ import Button from 'react-bootstrap/Button';
 
 export default function Clients() {
 
-
      const [addClient, setAddClient] = useState(false); //Const pour afficher le formulaire d'ajout client / Entreprise
      const [showEntreprise, setShowEntreprise] = useState(false); // Navigation dans les onglets CLIENTS / ENTREPRISE
-
 
      const [showDetails, setShowDetails] = useState(false); //Affichage Modale Client
      const [showDetailsEntr, setShowDetailsEntreprise] = useState(false); //Affichage Modale Entreprise
@@ -160,13 +158,12 @@ export default function Clients() {
                .then(setCurrentMaint(dataE.Maintenance))
                .then(setCurrentSiteWeb(dataE.Site_Web))
                .then(setCurrentMembers(dataE.Membres))
-
                .then(setShowDetailsEntreprise(true))
+
                .catch(err => console.info(err))
           }
 
           /* Ajout membres à l'entreprise -- Création du tableau contenant les différents membres */
-
           const handleChange = (e) => {
                var options = e.target.options;
                var value = [];
@@ -176,9 +173,7 @@ export default function Clients() {
                          value.push(options[i].value);
                     }
                }
-
                setMembers({'members': value.toString()}); // Conversion en String
-               
           }
 
           const handleMemberSubmit = async e => {
@@ -240,7 +235,6 @@ export default function Clients() {
                                    <th><p>Action</p></th>
                               </thead>
                               <tbody>
-
                                    {allUsers && allUsers.map((item,index) => {
                                         return(
                                              <tr key={index}>
@@ -248,16 +242,14 @@ export default function Clients() {
                                                   <td><p>{item.ID_entreprise}</p></td>
                                                   <td><p>{item.Titre}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
-                                                  <td><Button className="dts_client" onClick={handleShowClient} value={item.ID}>...</Button> </td>
+                                                  <td><Button className="dts_client" onClick={handleShowClient} value={item.ID}>...</Button></td>
                                              </tr>
                                         )
-                                   })
-                                   }
+                                   })}
                               </tbody>
                          </table>
                     </Col> 
-
-               :    
+                    :    
                     <Col className="tbl" id="TblClients">
                          <h2>Entreprise</h2>
                          <table>
@@ -268,21 +260,38 @@ export default function Clients() {
                                    <th><p>Action</p></th>
                               </thead>
                               <tbody>
-
                                    {allEntreprise && allEntreprise.map((item,index) => {
+                                        let idEnt_ = item.ID_entreprise;
+                                        return(
+                                             <tr key={index}>
+                                                  <td><p>{item.Nom_societe}</p></td>
+                                                  <td>
+                                                  {allUsers & allUsers.filter(data => data.ID_entreprise === idEnt_).map((item,index) =>{
+                                                       <span key={index} className="bdg_user">{item.Prenom.substring(0,1)}</span>
+                                                  })}</td>
+                                                  <td><p dangerouslySetInnerHTML={{__html: resultMember}}></p></td>
+                                                  <td><p dangerouslySetInnerHTML={{_html: userMember}}></p></td>
+                                                  <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
+                                                  <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
+                                             </tr>
+                                        )
+                                   })
+
+                                   }
+                                   {/* {allEntreprise && allEntreprise.map((item,index) => {
                                         
                                         let myMember = item.Membres;
                                         let resultMember = '';
-
                                         let splitMembers;
 
-                                        console.log(myMember);
-                                        console.log(typeof(myMember));
+                                        let userMember;
+
+                                        for(let i=0; i<allEntreprise.length;i++){
+                                             userMember += '<span class="bdg_user">' + allEntreprise[i].Prenom.substring(0,1) + '</span>';
+                                        }
                                         
                                         if(typeof(myMember) === 'string'){
                                              splitMembers = myMember.split(",");
-
-                                             console.log(splitMembers);
 
                                              for(let i=0; i < splitMembers.length;i++) {
                                                   resultMember += '<span class="bdg_user">' + splitMembers[i].substring(0,1) + '</span>';
@@ -295,24 +304,24 @@ export default function Clients() {
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
                                                   <td><p dangerouslySetInnerHTML={{__html: resultMember}}></p></td>
+                                                  <td><p dangerouslySetInnerHTML={{_html: userMember}}></p></td>
                                                   <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
                                              </tr>
                                         )
-                                   })
-                                   }
+                                   })} */}
                               </tbody>
                          </table>
                     </Col> 
-          }
-
+               }
           </Row>
+
           <Row id="catchow">
                <h2>Ajouter des membres</h2>
                <form id="addMember" onSubmit={handleMemberSubmit}>
                     <label>Entreprise</label>
                     <select name="id_entr">
-                         {allEntreprise && allEntreprise.map((item,index) => {
+                        {allEntreprise && allEntreprise.map((item,index) => {
                               return(
                                    <option key={index} value={item.ID_entreprise}>{item.Nom_societe}</option>
                               )
@@ -322,7 +331,7 @@ export default function Clients() {
                     <select name="members" multiple={true} onChange={handleChange}>
                          {allUsers && allUsers.map((item,index) => {
                               return(
-                                   <option key={index} value={item.Prenom}>{item.Prenom} {item.Nom}</option>
+                                   <option key={index} value={item.ID}>{item.Prenom} {item.Nom}</option>
                               )
                          })}
                     </select>
@@ -333,7 +342,6 @@ export default function Clients() {
 
           {addClient === true ? 
                <Row className="modal__newTask">
-               
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          <AjoutClient/>
