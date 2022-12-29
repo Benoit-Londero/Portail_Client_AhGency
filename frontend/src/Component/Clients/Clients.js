@@ -261,21 +261,18 @@ export default function Clients() {
                               </thead>
                               <tbody>
                                    {allEntreprise && allEntreprise.map((item,index) => {
-                                        let idEnt_ = item.ID_entreprise;
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
                                                   <td>
-                                                  {allUsers & allUsers.filter(data => data.ID_entreprise === idEnt_).map((item,index) =>{
+                                                  {allUsers & allUsers.filter(data => data.ID_entreprise === item.ID_entreprise).map((item,index) =>{
                                                        return(<span key={index} className="bdg_user">{item.Prenom.substring(0,1)}</span>)
                                                   })}</td>
                                                   <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
                                              </tr>
                                         )
-                                   })
-
-                                   }
+                                   })}
                                    {/* {allEntreprise && allEntreprise.map((item,index) => {
                                         
                                         let myMember = item.Membres;
