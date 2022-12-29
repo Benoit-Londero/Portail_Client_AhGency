@@ -433,17 +433,17 @@ export default function Clients() {
                                              </tr>
                                              <tr>
                                                   <td><p className="bold">Maintenance :</p></td>
-                                                  <td><p>{item.Maintenance}</p></td>
+                                                  <td>{item.Maintenance === "1" ? <p className="succeed">Contrat en ordre</p> : <p className="failed">Aucun contrat</p>}</td>
                                              </tr>
                                              
                                              <tr>
                                                   <td><p className="bold">Site Web :</p></td>
-                                                  <td><p>{item.Site_Web}</p></td>
+                                                  <td><p>{item.Site_web}</p></td>
                                              </tr>
 
                                              <tr>
                                                   <td><p className="bold">Date création :</p></td>
-                                                  <td><p>{currentDatCrea}</p></td>
+                                                  <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
                                              </tr>
                                         </table>
                                    )})}
