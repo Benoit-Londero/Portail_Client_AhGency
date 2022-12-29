@@ -18,7 +18,9 @@ export default function Projet() {
     const [currentMAIL, setCurrentMAIL] = useState();
     const [message, setMessage] = useState(false);
 
-    const [formDisplay, setFormDisplay] = useState('projet');
+    const [formHeures, setFormHeures] = useState(false);
+    const [formTasks, setFormTasks] = useState(false);
+    const [formProjet, setFormProjet] = useState(true);
 
     useEffect (() => {
         let dataU = {currentIDUser: currentIDU};
@@ -80,28 +82,28 @@ export default function Projet() {
     const changeForm = (e) =>{
         let value = e.target.value;
 
-        /* switch(value){
+        switch(value){
             case 'projet': 
-                setFormDisplay('projet');
+                setFormTasks(false);
+                setFormHeures(false);
+                setFormProjet(true);
                 break;
             case 'taches':
-                setFormDisplay('taches');
+                setFormTasks(true);
+                setFormHeures(false);
+                setFormProjet(false);
                 break;
             case 'heures':
-                setFormDisplay('heures');
+                setFormTasks(false);
+                setFormHeures(true);
+                setFormProjet(false);
                 break;
 
             default :
-                setFormDisplay('projet');
-        } */
-
-        if(value === 'taches'){
-            setFormDisplay('taches');
-        } else if(value === 'heures'){
-            setFormDisplay('heures');
-        } else {
-            setFormDisplay('projet');
-        }   
+                setFormTasks(false);
+                setFormHeures(false);
+                setFormProjet(true);
+        }
     }
 
   return (
@@ -125,7 +127,7 @@ export default function Projet() {
             </div>
                 
 
-            {formDisplay === 'projet' ? <table>
+            {formProjet === true ? <table>
                 <thead></thead>
                 <tbody>
                     <tr>
@@ -159,14 +161,12 @@ export default function Projet() {
                         <td><input type="date" name="deadline" id="deadline" required></input></td>
                     </tr>
                     <tr className="row_submit">
-                        <td colspan="2">
-                            <input type="submit" value="Enregistrer"/>
-                        </td>
+                        <td colspan="2"><input type="submit" value="Enregistrer"/></td>
                     </tr>
                 </tbody>
             </table> : ''}
-            {formDisplay === 'taches' ? <AdminForm /> : ''}
-            {formDisplay === 'heures' ? <AdminHeure /> : ''}
+            {formTasks === true ? <AdminForm /> : ''}
+            {formHeures === true ? <AdminHeure /> : ''}
             </form> : <table><thead>Votre demande a bien été enregistrée, notre équipe reviendra vers vous dans les plus brefs délais</thead><tbody><button onClick={handleRetour}>Revenir au formulaire</button></tbody></table>}
         </div>
 
