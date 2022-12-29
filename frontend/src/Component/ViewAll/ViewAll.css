@@ -24,10 +24,6 @@
     background: #fafafa;
 }
 
-/* .tableauTS table {
-    width: 100%;
-} */
-
 #list_all_tasks p{
     text-align:left;
 }
@@ -106,10 +102,6 @@
 .date_creation{
     font-size:12px;
 }
-
-/* .timesheet table {
-    width: 100%;
-} */
 
 .timesheet thead {
     border-bottom: 1px solid #eee;
@@ -235,6 +227,10 @@
         background: linear-gradient(90deg, rgba(255,255,255,0.34919905462184875) 48%,
                                              rgba(231,231,231,1) 50%,
                                              rgba(255,255,255,0) 52%);
+    }
+
+    .project_sidebar{
+        display:none;
     }
 
     .col_right_descr{

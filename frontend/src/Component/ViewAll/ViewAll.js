@@ -85,22 +85,20 @@ export default function ViewAll() {
      </Row>
      <Container id="page_viewall" className="main__content">
           <Row className="customer_card_all timesheet">
-               <Col>
+               <div class="tableauTS">
+                    <h2>{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom)}</h2>
+               </div>
 
-                    <div class="tableauTS">
-                         <h2>{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom)}</h2>
-                    </div>
-
-                    <table>
+               <table>
                          <tbody>
                               <tr>
                                    <td><p>Minutes Totales : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Achetees)}</p></td>
                                    <td><p>Minutes Restantes : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Restantes)}</p></td>
                               </tr>
                          </tbody>
-                    </table>
+               </table>
                
-                    <table id="desktop list_all_tasks">
+               <table id="desktop list_all_tasks">
                          <thead>
                               <tr>
                               <td><h2>Tâches :</h2></td>
@@ -125,18 +123,18 @@ export default function ViewAll() {
                               )
                          })}
                          </tbody>
-                    </table>
+               </table>
 
-                    <div class="mobile">
-                         <h2>Liste des tâches réalisées :</h2>
-                         
-                         <table>
-                         {alltasks.map((item,index) => {
+               <div class="mobile">
+                    <h2>Liste des tâches réalisées :</h2>               
+                    
+                    <table>
+                    {alltasks.map((item,index) => {
 
-                             /*  var day = Moment(item.Date_Tache_Effectuee).format('DD');
-                              var Month = Moment(item.Date_Tache_Effectuee).format('MMM'); */
+                         /*  var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                             var Month = Moment(item.Date_Tache_Effectuee).format('MMM'); */
                               
-                              /* return(
+                         /* return(
                               {<table key={index} class="mobile">
                                    <thead></thead>
                                    <tbody>
@@ -153,18 +151,17 @@ export default function ViewAll() {
                                    </tbody>
                               </table>} )*/
                               
-                              return(
-                                   <tr key={index} className="line_task">
-                                        <td className="title_of_task"><p>{ item.Titre }</p></td>
-                                        <td className="time"><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                        <td className="bdg_user"><p > {item.Agent.substring(0,1)}</p></td>
-                                        <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
-                                   </tr>
-                              )
-                         })}
-                         </table>
-                    </div>
-               </Col>
+                         return(
+                              <tr key={index} className="line_task">
+                                   <td className="title_of_task"><p>{ item.Titre }</p></td>
+                                   <td className="time"><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                   <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
+                                   <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
+                              </tr>
+                         )
+                    })}
+                    </table>
+               </div>
           </Row>
 
           {detailTask === true ? 

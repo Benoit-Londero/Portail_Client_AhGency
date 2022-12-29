@@ -36,6 +36,7 @@
           margin:0;
           margin-top:20px;
           margin-bottom:50px;
+          margin-left:-20px;
      }
 
      #DemandeForm .mobile li{
@@ -45,7 +46,6 @@
 
      #DemandeForm .mobile button{
           width: 30vw;
-          background: #6610f2;
           text-align: center;
      }
 

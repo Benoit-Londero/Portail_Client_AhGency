@@ -117,6 +117,12 @@ table{
         border-radius: 5px;
     }
 
+    .btn:hover {
+        color: #fff;
+        background-color: #6610f2;
+        border-color: none;
+    }
+
     .primary_btn{
         color: #6610f2;
         background: none;
