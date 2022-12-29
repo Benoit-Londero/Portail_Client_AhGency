@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 
 import AjoutClient from '../AjoutClient/AjoutClient.js';
+import Moment from "moment";
 
 import Button from 'react-bootstrap/Button';
 
@@ -45,10 +46,10 @@ export default function Clients() {
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
      const [currentMembers, setCurrentMembers] = useState('');
      
-     const [allEntreprise, setAllEntreprise] = useState([]);
-     const [dataE, setDataEntr] = useState();
+     const [allEntreprise, setAllEntreprise] = useState([]); //Affiche toutes les entreprises
+     const [dataE, setDataEntr] = useState(); //Défini l'ID pour la page détailsEntreprise
 
-     const [selectMembers, setMembers] = useState([]);
+     const [selectMembers, setMembers] = useState([]); //Sélection des membres en fonction de l'ID_ENTR
 
      useEffect (() => {
 
@@ -180,7 +181,7 @@ export default function Clients() {
                
           }
 
-          const handleSubmit = async e => {
+          const handleMemberSubmit = async e => {
                e.preventDefault(); //on empêche le refresh de la page, nécessaire pour garder les infos déjà présente lors d'un submit érronés
                
                let addMemberForm = document.getElementById('addMember'); //on récupère l'élement <form> et ces différents <input>
@@ -207,7 +208,7 @@ export default function Clients() {
 
                console.log(reception);
                window.location.reload();
-           }
+          }
 
      return (
 
@@ -220,7 +221,7 @@ export default function Clients() {
           <ul>
                <li><Button className='btn noborder' value="clients" onClick={handleEntreprise}>Clients</Button></li>
                <li><Button className='btn noborder' value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
-               <li><Button className="btn sidebar_btn" onClick={handleAddClient}>+</Button></li>
+               <li><Button className="btn primary_btn" onClick={handleAddClient}>+</Button></li>
           </ul>
      </div>
 
@@ -294,7 +295,7 @@ export default function Clients() {
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
                                                   <td><p dangerouslySetInnerHTML={{__html: resultMember}}></p></td>
-                                                  <td><p>{item.Date_creation}</p></td>
+                                                  <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
                                              </tr>
                                         )
@@ -306,8 +307,9 @@ export default function Clients() {
           }
 
           </Row>
-          <Row>
-               <form id="addMember" onSubmit={handleSubmit}>
+          <Row id="catchow">
+               <h2>Ajouter des membres</h2>
+               <form id="addMember" onSubmit={handleMemberSubmit}>
                     <label>Entreprise</label>
                     <select name="id_entr">
                          {allEntreprise && allEntreprise.map((item,index) => {
