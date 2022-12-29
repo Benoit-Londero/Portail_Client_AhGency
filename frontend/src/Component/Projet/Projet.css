@@ -39,10 +39,23 @@
      }
 
      #DemandeForm .mobile li{
-          width:30vw;
+          width: 30vw;
+          text-align: center;
+     }
+
+     #DemandeForm .mobile button{
+          width: 30vw;
+          background: #6610f2;
+          text-align: center;
      }
 
      #DemandeForm #timesheetForm{
           width:auto!important;
      }
+
+     #DemandeForm .s-sidebar__nav{
+          display:none;
+     }
+
+
  }
