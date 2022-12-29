@@ -22,5 +22,27 @@
 
      .illu_prjt{
           width:50vw;
+          float:inherit;
+          margin-top:60px;
+     }
+
+     #DemandeForm .mobile{
+          margin-top:50px;
+     }
+
+     #DemandeForm .mobile ul{
+          display:inline-flex;
+          padding: 0;
+          margin:0;
+          margin-top:20px;
+          margin-bottom:50px;
+     }
+
+     #DemandeForm .mobile li{
+          width:30vw;
+     }
+
+     #DemandeForm #timesheetForm{
+          width:auto!important;
      }
  }
