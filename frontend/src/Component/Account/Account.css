@@ -64,7 +64,27 @@
         margin-top:50px;
     }
 
+    .tabs_account{
+        display: inline-flex;
+        width: 100%;
+    }
+
     .tabs_account button{
-        margin-right: 20px;
+        margin-right: 10px;
+        font-size: .8rem!important;
+    }
+
+    .profil{
+        min-width: 300px;
+    }
+
+    #page_account .mobile a{
+        font-size: .6em;
+        text-transform: uppercase;
+        text-align: left;
+        display: block;
+        letter-spacing: 2px;
+        color: red;
+        margin-top: 50px;
     }
 }

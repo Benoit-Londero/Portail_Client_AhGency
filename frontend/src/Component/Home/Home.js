@@ -220,7 +220,7 @@ export default function Home() {
                </table>
           </Row>
           <Row>
-               <Col className="tableauTS">
+               <Col className="tableauTS hide_mobile">
                     <table>
                          <tbody>
                               {projetFiltrer.map((item,index) => {
@@ -247,7 +247,51 @@ export default function Home() {
           </Row>
 
           <Row>
-          <Col className="tableauTask">
+          <Col className="tableauTask hide_mobile">
+                    <h2>Tâches</h2>
+                    <table>
+                         <tbody>
+                         {
+                              filteredTaches.map((item,index) => {
+                                   return (
+                                        <tr key={index} className="line_task">
+                                             <td><p className="task_table">{ item.Titre}</p></td>
+                                             <td><p className="task_table">{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
+                                             <td><p className="statut_task">{item.Statut}</p></td>
+                                             <td className="last-child"><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
+                                        </tr>
+                                   )
+                              })
+                         }
+                         <tr><td><button name="addTask" className="add_new_task btn btn_primary" onClick={handleAddTask}>créer une nouvelle tâche</button></td></tr>
+                         </tbody>
+                    </table>
+               </Col>
+          </Row>
+
+          <Row id="displayMobile">
+               <Col className="tableauTS">
+                    <table>
+                         <tbody>
+                              {projetFiltrer.map((item,index) => {
+                                   return(
+                                   <tr>
+                                        <td key={index} rowspan="3" className="first_col_pjt"><p className="bdg_user">{item.Tickets.substring(0,1)}</p></td>
+                                        <td><h1>{item.Tickets}</h1><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>
+                                        <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
+                                   </tr>)
+                              })
+                              }
+                              <tr> 
+                                   <td colspan="2"><h2>Description</h2>{projetFiltrer.map((item,index)=>{
+                                        return(<p key={index} className="descr__thead">{item.Description}</p>)
+                                   })}</td>
+                              </tr>
+                         </tbody>
+                    </table>
+               </Col>
+
+               <Col className="tableauTask">
                     <h2>Tâches</h2>
                     <table>
                          <tbody>

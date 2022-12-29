@@ -48,7 +48,7 @@
 }
 
 table{
-    min-width: 340px;
+    min-width: 300px;
     width:100%;
 }
 
@@ -337,7 +337,6 @@ svg {
         display:none;
     }
 }
-
 
 .stats_account,
 .stats{
