@@ -44,13 +44,12 @@ export default function Clients() {
      const [currentMaint, setCurrentMaint] = useState();
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
      const [currentMembers, setCurrentMembers] = useState('');
-
-     console.log(currentMembers);
      
      const [allEntreprise, setAllEntreprise] = useState([]);
      const [dataE, setDataEntr] = useState();
 
      const [selectMembers, setMembers] = useState([]);
+     const [memberToDisplay, setMemberToDisplay] = useState('');
 
      const parser = new DOMParser();
 
@@ -162,7 +161,7 @@ export default function Clients() {
                .then(setCurrentDatCrea(dataE.Date_creation))
                .then(setCurrentMaint(dataE.Maintenance))
                .then(setCurrentSiteWeb(dataE.Site_Web))
-               .then(setCurrentMembers(data.Membres))
+               .then(setCurrentMembers(dataE.Membres))
 
                .then(setShowDetailsEntreprise(true))
                .catch(err => console.info(err))
@@ -294,7 +293,7 @@ export default function Clients() {
                                              console.log('Aucune phrase trouvée');
                                         }
                                         
-                                        const memberToDisplay = parser.parseFromString(resultMember, "text/html");
+                                        setMemberToDisplay(parser.parseFromString(resultMember, "text/html"));
                                         
 
                                         return(
@@ -313,7 +312,6 @@ export default function Clients() {
           }
 
           </Row>
-
           <Row>
                <form id="addMember" onSubmit={handleSubmit}>
                     <label>Entreprise</label>
@@ -409,6 +407,10 @@ export default function Clients() {
                                    <tr>
                                         <td><p className="bold">Nom société :</p></td>
                                         <td><p>{currentNOMSOC}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold">Membres:</p></td>
+                                        <td><p>{currentMembers}</p></td>
                                    </tr>
                                    <tr>
                                         <td><p className="bold">TVA :</p></td>
