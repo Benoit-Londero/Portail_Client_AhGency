@@ -356,25 +356,27 @@ export default function Home() {
                               var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
                               
                               return(
+                              
                               <table key={index}>
                                    <thead>
-                                        <th className="col_mobile_badge"><p className="date_badge">{day}<br></br>{Month}</p></th>
-                                        <th colspan="2"><p className="title_of_task">{ item.Titre }</p></th>
+                                        <tr><th><button className="close_modale" onClick={closeTasks}>X</button></th></tr>
+                                        <tr>
+                                             <th><p className="date_badge">{day}<br></br>{Month}</p></th>
+                                             <th><p className="title_of_task">{ item.Titre }</p></th>
+                                        </tr>
                                    </thead>
                                    <tbody>
                                         <tr>
                                              <td><label>Assigné à</label></td>
-                                             <td><p className="developer"> {item.Agent.substring(0,1)}</p></td>
+                                             <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
                                         </tr>
                                         <tr>
                                              <td><label>Suivi de temps</label></td>
                                              <td><p className="timeoftask">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                         </tr>
 
-                                        <tr>
-                                             <td colspan="2"><label>Description</label></td>                                           
-                                             <td colspan="2"><p className="tasks">{ item.Informations}</p></td>
-                                        </tr>
+                                        <tr><td colspan="2"><label>Description</label></td></tr>
+                                        <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
                                    </tbody>
                               </table>)
                          })}                    
