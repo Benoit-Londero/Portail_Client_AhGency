@@ -215,8 +215,8 @@ export default function Home() {
                          return(
                               <tr className="prjt_lst" key={index}>
                                    <td className="title_prjt">{item.Tickets}</td>
-                                   <td><span className="bdg_user">{item.Email.substring(0,1)}</span></td>
                                    <td>{item.ID_entreprise}</td>
+                                   <td><span className="bdg_user">{item.Email.substring(0,1)}</span></td>
                                    <td><Button className="btn btn_primary" value={item.ID} onClick={handleFilterProjet}>Voir plus</Button></td>
                               </tr>
                          )
