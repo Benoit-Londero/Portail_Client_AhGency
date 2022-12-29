@@ -43,6 +43,8 @@ export default function Clients() {
      const [currentMaint, setCurrentMaint] = useState();
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
      const [currentMembers, setCurrentMembers] = useState('');
+
+     console.log(currentIDE + currentIDE + currentNOMSOC + currentMAILE + currentTVA + currentADR + currentTelEnt + currentDatCrea + currentMaint + currentSiteWeb +currentMembers);
      
      const [allEntreprise, setAllEntreprise] = useState([]); //Affiche toutes les entreprises
      const [dataE, setDataEntr] = useState(); //Défini l'ID pour la page détailsEntreprise
