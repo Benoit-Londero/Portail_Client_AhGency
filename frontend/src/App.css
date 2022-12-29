@@ -212,10 +212,11 @@ table{
 }
 
 .bdg_user{
-    display: inline-block;
+    /* display: inline-block; */
     text-align: center!important;
     margin-left: -3px;
     border-radius: 20px;
+    float:left;
 }
 
 /*************************/

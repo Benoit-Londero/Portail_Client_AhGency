@@ -146,7 +146,7 @@ export default function Clients() {
                })
                .then(res => res.json())
                .then(json => setDataEntr(json))
-               .then(console.log(dataE))
+               .then(console.log(dataE))     
 
                .then(setCurrentIDE(dataE.ID_entreprise))
                .then(setCurrentNOMSOC(dataE.Nom_societe))
@@ -266,7 +266,6 @@ export default function Clients() {
                                                   <td><p>{item.Nom_societe}</p></td>
                                                   <td>
                                                   {allUsers && allUsers.filter(data => data.ID_entreprise === item.ID_entreprise).map((item,index) =>{
-                                                       console.log(item)
                                                        return(<span key={index} className="bdg_user">{item.Prenom.substring(0,1)}</span>)
                                                   })}</td>
                                                   <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
@@ -399,8 +398,54 @@ export default function Clients() {
                          <h2>Détails Entreprise</h2>
 
                          <div>
-                              <table>
-                                   <tr>
+                              {dataE && dataE.map((item,index) => {
+                                   return(
+                                        <table key={index}>
+                                             <tr>
+                                                  <td><p className="bold">ID Entreprise :</p></td>
+                                                  <td><p>{item.ID_entreprise}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Nom société :</p></td>
+                                                  <td><p>{item.Nom_societe}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Membres:</p></td>
+                                                  <td><p>{item.Membres}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">TVA :</p></td>
+                                                  <td><p>{item.TVA}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Adresse :</p></td>
+                                                  <td><p>{item.Adresse}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Telephone :</p></td>
+                                                  <td><p>{item.Telephone}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Email :</p></td>
+                                                  <td><p>{item.Email}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Maintenance :</p></td>
+                                                  <td><p>{item.Maintenance}</p></td>
+                                             </tr>
+                                             
+                                             <tr>
+                                                  <td><p className="bold">Site Web :</p></td>
+                                                  <td><p>{item.Site_Web}</p></td>
+                                             </tr>
+
+                                             <tr>
+                                                  <td><p className="bold">Date création :</p></td>
+                                                  <td><p>{currentDatCrea}</p></td>
+                                             </tr>
+                                        </table>
+                                   )})}
+                                   {/* <tr>
                                         <td><p className="bold">ID Entreprise :</p></td>
                                         <td><p>{currentIDE}</p></td>
                                    </tr>
@@ -441,8 +486,7 @@ export default function Clients() {
                                    <tr>
                                         <td><p className="bold">Date création :</p></td>
                                         <td><p>{currentDatCrea}</p></td>
-                                   </tr>
-                              </table>
+                                   </tr> */}
                          </div>
                     </div>  
                </Row>
