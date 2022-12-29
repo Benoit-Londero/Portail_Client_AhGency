@@ -115,9 +115,9 @@ export default function Projet() {
 
             <div className="mobile">
                 <ul>
-                    <li><Button className="btn noborder" value="projet" onclick={changeForm}>Projet</Button></li>
-                    <li><Button className="btn noborder" value="taches" onclick={changeForm}>Tâches</Button></li>
-                    <li><Button className="btn noborder" value="heures" onclick={changeForm}>Credit</Button></li>
+                    <li><Button className="btn noborder" value="projet" onClick={changeForm}>Projet</Button></li>
+                    <li><Button className="btn noborder" value="taches" onClick={changeForm}>Tâches</Button></li>
+                    <li><Button className="btn noborder" value="heures" onClick={changeForm}>Credit</Button></li>
                 </ul>
             </div>
                 
