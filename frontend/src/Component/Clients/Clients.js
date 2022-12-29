@@ -49,7 +49,6 @@ export default function Clients() {
      const [dataE, setDataEntr] = useState();
 
      const [selectMembers, setMembers] = useState([]);
-     const [memberToDisplay, setMemberToDisplay] = useState('');
 
      const parser = new DOMParser();
 
@@ -292,14 +291,11 @@ export default function Clients() {
                                         } else {
                                              console.log('Aucune phrase trouvée');
                                         }
-                                        
-                                        setMemberToDisplay(parser.parseFromString(resultMember, "text/html"));
-                                        
 
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
-                                                  <td><p>{resultMember}{memberToDisplay}</p></td>
+                                                  <td><p>{resultMember}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
                                              </tr>
