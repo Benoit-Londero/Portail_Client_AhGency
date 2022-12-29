@@ -52,6 +52,8 @@ export default function Clients() {
 
      const [selectMembers, setMembers] = useState([]);
 
+     const parser = new DOMParser();
+
      useEffect (() => {
 
           const listUser = async () => {
@@ -291,13 +293,14 @@ export default function Clients() {
                                         } else {
                                              console.log('Aucune phrase trouvée');
                                         }
-
+                                        
+                                        const memberToDisplay = parser.parseFromString(resultMember, "text/html");
                                         
 
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
-                                                  <td><p> <span>{resultMember}</span></p></td>
+                                                  <td><p>{resultMember}{memberToDisplay}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
                                              </tr>
