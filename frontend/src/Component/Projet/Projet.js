@@ -79,30 +79,21 @@ export default function Projet() {
 
     /** Ajout Benoit */
 
-    const changeForm = (e) =>{
+    const changeForm = (e) => {
         let value = e.target.value;
 
-        switch(value){
-            case 'projet': 
-                setFormTasks(false);
-                setFormHeures(false);
-                setFormProjet(true);
-                break;
-            case 'taches':
-                setFormTasks(true);
-                setFormHeures(false);
-                setFormProjet(false);
-                break;
-            case 'heures':
-                setFormTasks(false);
-                setFormHeures(true);
-                setFormProjet(false);
-                break;
-
-            default :
-                setFormTasks(false);
-                setFormHeures(false);
-                setFormProjet(true);
+        if(value === 'projet'){
+            setFormTasks(false);
+            setFormHeures(false);
+            setFormProjet(true);
+        } else if(value === 'taches'){
+            setFormTasks(true);
+            setFormHeures(false);
+            setFormProjet(false);
+        } else if(value === 'heures'){
+            setFormTasks(false);
+            setFormHeures(true);
+            setFormProjet(false);
         }
     }
 
@@ -127,46 +118,51 @@ export default function Projet() {
             </div>
                 
 
-            {formProjet === true ? <table>
-                <thead></thead>
-                <tbody>
-                    <tr>
-                        <td colspan="2"><label for="title">Nom du projet <span className="required">*</span></label>
-                        <input type="text" placeholder="Créer un projet..." id="title" name="title" required/></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br>
-                        <textarea id="tache" name="tache" placeholder="tâche" required></textarea></td>
-                    </tr>
-                    <tr>
-                        <td><label for="title">Combien de temps désirez-vous allouer à votre projet ?<span className="required">*</span></label></td>
-                        <td>
-                            <select id="allocation" name="allocation">
-                                <option value="0"> 0</option>
-                                <option value="60">1 heure</option>
-                                <option value="120">2 heures</option>
-                                <option value="180">3 heures</option>
-                                <option value="240">4 heures</option>
-                                <option value="300">5 heures</option>
-                                <option value="600">10 heures</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
-                    <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
-                    <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>
+            {formProjet === true ? 
+                <table>
+                    <thead></thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2"><label for="title">Nom du projet <span className="required">*</span></label>
+                            <input type="text" placeholder="Créer un projet..." id="title" name="title" required/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br>
+                            <textarea id="tache" name="tache" placeholder="tâche" required></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label for="title">Combien de temps désirez-vous allouer à votre projet ?<span className="required">*</span></label></td>
+                            <td>
+                                <select id="allocation" name="allocation">
+                                    <option value="0"> 0</option>
+                                    <option value="60">1 heure</option>
+                                    <option value="120">2 heures</option>
+                                    <option value="180">3 heures</option>
+                                    <option value="240">4 heures</option>
+                                    <option value="300">5 heures</option>
+                                    <option value="600">10 heures</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
+                        <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
+                        <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>
 
-                    <tr>
-                        <td><label for="deadline">Pour quand doit-il être fini?</label></td>
-                        <td><input type="date" name="deadline" id="deadline" required></input></td>
-                    </tr>
-                    <tr className="row_submit">
-                        <td colspan="2"><input type="submit" value="Enregistrer"/></td>
-                    </tr>
-                </tbody>
-            </table> : ''}
-            {formTasks === true ? <AdminForm /> : ''}
-            {formHeures === true ? <AdminHeure /> : ''}
+                        <tr>
+                            <td><label for="deadline">Pour quand doit-il être fini?</label></td>
+                            <td><input type="date" name="deadline" id="deadline" required></input></td>
+                        </tr>
+                        <tr className="row_submit">
+                            <td colspan="2"><input type="submit" value="Enregistrer"/></td>
+                        </tr>
+                    </tbody>
+                </table> 
+            :''}
+
+            {formTasks === true ? <AdminForm />:''}
+
+            {formHeures === true ? <AdminHeure />:''}
+            
             </form> : <table><thead>Votre demande a bien été enregistrée, notre équipe reviendra vers vous dans les plus brefs délais</thead><tbody><button onClick={handleRetour}>Revenir au formulaire</button></tbody></table>}
         </div>
 
