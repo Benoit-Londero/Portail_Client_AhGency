@@ -82,14 +82,18 @@ export default function Projet() {
     const changeForm = (e) => {
         let value = e.target.value;
 
+        console.log(value);
+
         if(value === 'projet'){
             setFormTasks(false);
             setFormHeures(false);
             setFormProjet(true);
+
         } else if(value === 'taches'){
             setFormTasks(true);
             setFormHeures(false);
             setFormProjet(false);
+
         } else if(value === 'heures'){
             setFormTasks(false);
             setFormHeures(true);
@@ -111,9 +115,9 @@ export default function Projet() {
 
             <div className="mobile">
                 <ul>
-                    <li><Button value="projet" onclick={changeForm}>Projet</Button></li>
-                    <li><Button value="taches" onclick={changeForm}>Tâches</Button></li>
-                    <li><Button value="heures" onclick={changeForm}>Credit</Button></li>
+                    <li><Button className="btn noborder" value="projet" onclick={changeForm}>Projet</Button></li>
+                    <li><Button className="btn noborder" value="taches" onclick={changeForm}>Tâches</Button></li>
+                    <li><Button className="btn noborder" value="heures" onclick={changeForm}>Credit</Button></li>
                 </ul>
             </div>
                 
@@ -162,7 +166,7 @@ export default function Projet() {
             {formTasks === true ? <AdminForm />:''}
 
             {formHeures === true ? <AdminHeure />:''}
-            
+
             </form> : <table><thead>Votre demande a bien été enregistrée, notre équipe reviendra vers vous dans les plus brefs délais</thead><tbody><button onClick={handleRetour}>Revenir au formulaire</button></tbody></table>}
         </div>
 

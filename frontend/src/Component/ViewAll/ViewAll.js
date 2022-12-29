@@ -156,7 +156,6 @@ export default function ViewAll() {
                </Col>
           </Row>
 
-          
           {detailTask === true ? 
                <Row className="modal__newTask">
                     <div id="modal_desktop">
