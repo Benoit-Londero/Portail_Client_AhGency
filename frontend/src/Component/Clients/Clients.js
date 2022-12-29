@@ -293,7 +293,7 @@ export default function Clients() {
                                         return(
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
-                                                  <td><p>{resultMember}</p></td>
+                                                  <td><p>{dangerouslySetInnerHTML={__html: resultMember}}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
                                              </tr>
