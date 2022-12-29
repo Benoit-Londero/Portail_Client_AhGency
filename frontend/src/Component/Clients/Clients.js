@@ -50,8 +50,6 @@ export default function Clients() {
 
      const [selectMembers, setMembers] = useState([]);
 
-     const parser = new DOMParser();
-
      useEffect (() => {
 
           const listUser = async () => {
