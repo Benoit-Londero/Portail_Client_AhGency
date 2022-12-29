@@ -129,14 +129,15 @@ export default function ViewAll() {
 
                     <div class="mobile">
                          <h2>Liste des tâches réalisées :</h2>
-
+                         
+                         <table>
                          {alltasks.map((item,index) => {
 
                               var day = Moment(item.Date_Tache_Effectuee).format('DD');
                               var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
-
-                              return(
-                              <table key={index} class="mobile">
+                              
+                              /* return(
+                              {<table key={index} class="mobile">
                                    <thead></thead>
                                    <tbody>
                                         <tr>
@@ -150,8 +151,18 @@ export default function ViewAll() {
                                              </td>
                                         </tr>
                                    </tbody>
-                              </table>)
+                              </table>} )*/
+                              
+                              return(
+                                   <tr className="line_task">
+                                        <td className="title_of_task"><p>{ item.Titre }</p></td>
+                                        <td className="time"><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                        <td className="bdg_user"><p > {item.Agent.substring(0,1)}</p></td>
+                                        <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
+                                   </tr>
+                              )
                          })}
+                         </table>
                     </div>
                </Col>
           </Row>
