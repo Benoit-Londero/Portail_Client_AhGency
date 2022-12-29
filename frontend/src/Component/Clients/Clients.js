@@ -433,7 +433,8 @@ export default function Clients() {
                                              </tr>
                                              <tr>
                                                   <td><p className="bold">Maintenance :</p></td>
-                                                  <td>{item.Maintenance === "1" ? <p className="succeed">Contrat en ordre</p> : <p className="failed">Aucun contrat</p>}</td>
+                                                  <td>{item.Maintenance === 1 ? <p className="succeed">Contrat en ordre
+                                                  </p> : <p className="failed">Aucun contrat</p>}</td>
                                              </tr>
                                              
                                              <tr>
