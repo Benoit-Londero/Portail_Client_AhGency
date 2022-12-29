@@ -265,7 +265,8 @@ export default function Clients() {
                                              <tr key={index}>
                                                   <td><p>{item.Nom_societe}</p></td>
                                                   <td>
-                                                  {allUsers & allUsers.filter(data => data.ID_entreprise === item.ID_entreprise).map((item,index) =>{
+                                                  {allUsers && allUsers.filter(data => data.ID_entreprise === item.ID_entreprise).map((item,index) =>{
+                                                       console.log(item)
                                                        return(<span key={index} className="bdg_user">{item.Prenom.substring(0,1)}</span>)
                                                   })}</td>
                                                   <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
