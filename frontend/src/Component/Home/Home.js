@@ -36,6 +36,8 @@ export default function Home() {
      const [moneySpend, setMoneySpend] = useState();
      const [checkPercent, setCheckPercent] = useState();
 
+     const  [handleDisplayMobile, sethandleDisplayMobile] = useState(false);
+
      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
 
@@ -105,6 +107,7 @@ export default function Home() {
           let IDProjet = e.target.value;
           let detailProjet = projet.filter(donnee => donnee.ID === parseInt(IDProjet));
           let tacheAssociee = timesheet.filter(data => data.ID_Projet === parseInt(IDProjet));
+          sethandleDisplayMobile(true);
           setProjetFiltrer(detailProjet);
           setFilteredTaches(tacheAssociee);
      }
@@ -118,6 +121,7 @@ export default function Home() {
      const closeTasks = (e) => {
           setnewTask(false);
           setdetailTask(false);
+          sethandleDisplayMobile(false);
      }
      
      return (
@@ -269,7 +273,8 @@ export default function Home() {
                </Col>
           </Row>
 
-          <Row id="displayMobile">
+          {handleDisplayMobile === true ? <Row id="displayMobile">
+               <button className="close_modale" onClick={closeTasks}>X</button>
                <Col className="tableauTS">
                     <table>
                          <tbody>
@@ -311,7 +316,7 @@ export default function Home() {
                          </tbody>
                     </table>
                </Col>
-          </Row>
+          </Row> : ''}
 
           {detailTask === true ? <Row className="modal__newTask">
                
