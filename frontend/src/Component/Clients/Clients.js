@@ -274,7 +274,7 @@ export default function Clients() {
                                         
                                         let myMember = item.Membres;
                                         let resultMember;
-                                        
+
                                         let splitMembers;
 
                                         console.log(myMember);
@@ -282,15 +282,17 @@ export default function Clients() {
                                         
                                         if(typeof(myMember) === 'string'){
                                              splitMembers = myMember.split(",");
+
+                                             console.log(splitMembers);
+
+                                             for(let i=0; i < splitMembers.length;i++) {
+                                                  resultMember += splitMembers[i].substring(0,1);
+                                             }
                                         } else {
                                              console.log('Aucune phrase trouvée');
                                         }
 
-                                        console.log(splitMembers);
-
-                                        for(let i=0; i < splitMembers.length;i++) {
-                                             resultMember += splitMembers[i].substring(0,1);
-                                        }
+                                        
 
                                         return(
                                              <tr key={index}>
