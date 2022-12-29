@@ -79,6 +79,15 @@ export default function ViewAll() {
                               ) 
                          })}
                     </select>
+
+                    <label> Assigné à</label>
+                    <ul>
+                         {clients && clients.filter(data => data.Role === 'administrator').map((item,index) =>{
+                              return(
+                                   <li key={index}><Button onClick={handleTasks}>{item.Prenom} {item.Nom}</Button></li>
+                              )
+                         })}
+                    </ul>
                </div>
           </div>
      </Row>
