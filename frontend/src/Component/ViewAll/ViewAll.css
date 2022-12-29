@@ -210,8 +210,22 @@
         display:block;
     }
   
-    .hide_mobile{
+    .hide_mobile,
+    .tableauTS,
+    .list_all_tasks{
         display:none;
+    }
+
+    .customer_card_all,
+    .tableauTS,
+    .tableauTS table,
+    .list_all_tasks,
+    .mobile{
+        padding:0;
+    }
+
+    .title_of_task {
+        width: 20vw;
     }
 
     .client_list{
