@@ -201,6 +201,14 @@
     vertical-align: top;
 }
 
+.assigned_to{
+    background: none;
+    color: #6610f2;
+    text-align: left;
+    border: none;
+    font-size: .56rem;
+}
+
 
 /******************/
 

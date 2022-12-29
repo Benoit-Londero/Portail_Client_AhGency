@@ -84,7 +84,7 @@ export default function ViewAll() {
                     <ul>
                          {clients && clients.filter(data => data.Role === 'administrator').map((item,index) =>{
                               return(
-                                   <li key={index}><Button onClick={handleTasks}>{item.Prenom} {item.Nom}</Button></li>
+                                   <li key={index}><Button onClick={handleTasks} value={item.ID} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
                               )
                          })}
                     </ul>
