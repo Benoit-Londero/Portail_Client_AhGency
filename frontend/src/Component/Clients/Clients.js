@@ -267,7 +267,7 @@ export default function Clients() {
                                                   <td><p>{item.Nom_societe}</p></td>
                                                   <td>
                                                   {allUsers & allUsers.filter(data => data.ID_entreprise === idEnt_).map((item,index) =>{
-                                                       <span key={index} className="bdg_user">{item.Prenom.substring(0,1)}</span>
+                                                       return(<span key={index} className="bdg_user">{item.Prenom.substring(0,1)}</span>)
                                                   })}</td>
                                                   <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
                                                   <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
