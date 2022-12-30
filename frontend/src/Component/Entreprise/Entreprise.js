@@ -8,9 +8,9 @@ import './Entreprise.css';
 
 import * as BsIcons from "react-icons/bs";
 import * as MdIcons from "react-icons/md";
-
+/* 
 import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; */
 
 export default function Entreprise() {
 
@@ -25,12 +25,12 @@ export default function Entreprise() {
      const [tempsAlloue, setTempsAlloue] = useState();
      const [validation, setValidation] = useState(false);
 
-     const [moneySpend, setMoneySpend] = useState();
+/*      const [moneySpend, setMoneySpend] = useState();
      const [checkPercent, setCheckPercent] = useState();
      const [styleProgressBar, setStyleProgressBar] = useState({
           width: '100%',
           background: '#6610f2'
-     });
+     }); */
 
      const currentIDE = localStorage.getItem("currentIDE");
 
@@ -84,8 +84,10 @@ export default function Entreprise() {
                .then(res => res.json())
                .then(json => setTotMinEntreprise(json[0].totachEntreprise))
                .catch(err => console.info(err))
+
+               console.log(totminEntreprise);
                
-               //Calcul temps restants (On soustrait le temps dépensé au temps total)
+/*                //Calcul temps restants (On soustrait le temps dépensé au temps total)
                const timeSpend = totminEntreprise - minEntreprise;
 
                //Calcul du montant dépensé (temps dépensé)
@@ -98,7 +100,7 @@ export default function Entreprise() {
                     const percentage = Math.round(((100*minEntreprise) / totminEntreprise));
                     setCheckPercent(percentage);
                     console.log(percentage);
-               }
+               } */
           }
 
           onLoad();
@@ -135,7 +137,7 @@ export default function Entreprise() {
           }
      }
      
-     if(checkPercent > 10){
+/*      if(checkPercent > 10){
           setStyleProgressBar({
                width: checkPercent+'%',
                background: '#6610f2'
@@ -145,7 +147,7 @@ export default function Entreprise() {
                width: checkPercent+'%',
                background: '#ff0000'
           })
-     }
+     } */
 
      return (
           <div id="page_entreprise">
@@ -157,15 +159,15 @@ export default function Entreprise() {
                                    <tr><td colspan="4"><h2>Statistiques</h2></td></tr>          
                                    <tr>
                                         <td>
-                                             <p>Achetées : {Math.round(minEntreprise /60)} h</p>
+                                             <p>Achetées : {/* {Math.round(minEntreprise /60)} */} h</p>
                                              <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min <br></br> (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
                                         </td>
-                                        <td><p><b>Dépensé : {moneySpend} €</b></p></td>                              
+                                        <td><p><b>Dépensé : {/* {moneySpend} */} €</b></p></td>                              
                                    </tr>
                                    <tr>
-                                        <td colspan="2"><div id="progress_bar" style={styleProgressBar}><p>{checkPercent} %</p></div></td>
+                                        <td colspan="2"><div id="progress_bar" /* style={styleProgressBar} */><p>{/* {checkPercent} */} %</p></div></td>
                                    </tr>
-                                   <tr>{checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>}</tr>
+                                   <tr>{/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}</tr>
                               </table>
                          </div>
                     </Row>
