@@ -70,26 +70,26 @@ export default function Entreprise() {
                .then(json => setTempsAlloue(json[0].minutesAllouees))
                .catch(err => console.info(err))
 
-               fetch('/api/getTotHeurEntreprise', { 
+               const resphu = await fetch('/api/getTotHeurEntreprise', { 
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(dataE)
-               })
-               .then(res => res.json())
-               .then(json => setTotMinEntreprise(json[0].totachEntreprise))
-               .catch(err => console.info(err))
+               });
 
-               console.log(typeof(totminEntreprise))
-               if (parseInt(totminEntreprise) === 0) {
+               const dathour = await resphu.json();
+
+               if (parseInt(dathour.totachEntreprise) === 0) {
                     Math.round(((100*minEntreprise) / totminEntreprise))
-                    console.log('haaaaaa')
 
                     const percentage = 0;
                     setCheckPercent(percentage);
+                    setTotMinEntreprise(dathour.totachEntreprise);
                } else {
-                    const percentage = Math.round(((100*minEntreprise) / totminEntreprise));
+                    const percentage = Math.round(((100*minEntreprise) / dathour.totachEntreprise));
                     console.log('hooooo')
                     setCheckPercent(percentage);
+                    setTotMinEntreprise(dathour.totachEntreprise);
+
                     console.log(percentage);
                } 
           }
