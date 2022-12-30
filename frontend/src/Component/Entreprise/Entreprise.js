@@ -72,7 +72,6 @@ export default function Entreprise() {
                })
                .then(res => res.json())
                .then(json => setTempsAlloue(json[0].minutesAllouees))
-               .then(console.log(res))
                .catch(err => console.info(err))
 
                const reponse = await fetch('/api/getTotHeurEntreprise', { 
@@ -89,7 +88,7 @@ export default function Entreprise() {
 
                     const minRes = data_2.totachEntreprise - data_2.restheEntreprise;
                     console.log(minRes);
-                    console.log(typeof(data_hour.totachEntreprise));
+                    console.log(typeof(data_2.totachEntreprise));
 
                     setMoneySpend(Math.round(((minRes/60) * 90)));
 
