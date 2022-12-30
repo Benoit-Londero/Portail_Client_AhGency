@@ -245,10 +245,10 @@ export default function Clients() {
                <li><Button className='btn noborder' value="clients" onClick={handleEntreprise}>Clients</Button></li>
                <li><Button className='btn noborder' value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
                <li></li>
-               <li>{setShowEntreprise === false ? <label className="bold">Ajouter un client
+               <li>{showDetailsEntr === false ? <label className="bold">Ajouter un client
                     <Button className="btn primary_btn" onClick={handleAddClient}>+</Button></label>
                :
-               <label>Ajouter une entreprise
+               <label>Ajouter une entreprise<br></br>
                <Button className="btn primary_btn" onClick={handleAddClient}>+</Button>
                </label>}
                </li>
@@ -304,7 +304,10 @@ export default function Clients() {
                                                        return(<span key={index} className="bdg_user">{item.Prenom.substring(0,1)}</span>)
                                                   })}</td>
                                                   <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
-                                                  <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
+                                                  <td>
+                                                       <Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> 
+                                                       <Button classname="delete failed" /* onClick={handleDeleteClient} */ value={item.ID_entreprise}>Del</Button>
+                                                  </td>
                                              </tr>
                                         )
                                    })}
