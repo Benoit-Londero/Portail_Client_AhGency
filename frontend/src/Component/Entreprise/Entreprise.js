@@ -140,13 +140,13 @@ export default function Entreprise() {
      }
 
      const styleProgress = {
-          backgroundColor: '#6610f2',
+          backgroundColor: '#6610f2!important',
           width: `${checkPercent}%`
      }
 
      const warningProgress = {
           backgroundColor: '#ff0000',
-          width: `${checkPercent}%`
+          width: `${checkPercent}%!important`
      }
 
      return (
@@ -168,9 +168,9 @@ export default function Entreprise() {
                                    <tr>
                                         <td colspan="2">
                                              {checkPercent < 10 ?
-                                                  <div id="progress_bar"  style={styleProgress} ><p>{checkPercent} %</p>
+                                                  <div id="progress_bar" style={warningProgress}><p>{checkPercent} %</p>
                                                   </div>
-                                                  : <div id="progress_bar"  style={warningProgress}><p>{checkPercent} %</p>
+                                                  : <div id="progress_bar"  style={styleProgress}><p>{checkPercent} %</p>
                                                   </div>}
                                              
                                         </td>
