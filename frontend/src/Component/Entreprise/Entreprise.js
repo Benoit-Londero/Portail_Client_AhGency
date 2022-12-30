@@ -26,9 +26,13 @@ export default function Entreprise() {
      const [validation, setValidation] = useState(false);
 
      const [checkPercent, setCheckPercent] = useState();
+     const [moneySpend, setMoneySpend] = useState();
+
+     const [currentHeureREST, setCurrentHeureREST] = useState();
 
      const currentIDE = localStorage.getItem("currentIDE");
 
+     console.log(currentHeureREST);
      useEffect(() => {
           let dataE = {currentIDEntreprise: currentIDE};
           
@@ -71,42 +75,39 @@ export default function Entreprise() {
                .then(console.log(res))
                .catch(err => console.info(err))
 
-               const respHour = await fetch('/api/getTotHeurEntreprise', { 
+               const reponse = await fetch('/api/getTotHeurEntreprise', { 
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(dataE)
                });
 
-               const data_hour = await respHour.json();
-               const minRes = Number(data_hour.totachEntreprise - data_hour.restheEntreprise);
+               const data_2 = await reponse.json();
 
-               console.log(minRes);
-               console.log(typeof(data_hour.totachEntreprise));
+               if(reponse.status === 200){
+                    setTotMinEntreprise(data_2.totachEntreprise);
+                    setCurrentHeureREST(data_2.restheEntreprise);
 
-               if (parseInt(data_hour.totachEntreprise) === 0) {
-                    
-                    Math.round(((100*minRes) / totminEntreprise))
+                    const minRes = data_2.totachEntreprise - data_2.restheEntreprise;
+                    console.log(minRes);
+                    console.log(typeof(data_hour.totachEntreprise));
 
-                    const percentage = 0;
-                    setCheckPercent(percentage);
-                    setTotMinEntreprise(data_hour.totachEntreprise);
+                    setMoneySpend(Math.round(((minRes/60) * 90)));
 
-                    console.log(percentage);
-
-               } else {
-                    const percentage = Math.round(((100*minRes) / Number(data_hour.totachEntreprise)));
-                    console.log('hooooo')
-                    setCheckPercent(percentage);
-                    setTotMinEntreprise(data_hour.totachEntreprise);
-
-                    console.log(percentage);
-
-               } 
+                    if (parseInt(data_2.totachEntreprise) === 0) {
+                         const percentage = 0;
+                         setCheckPercent(percentage);
+                         console.log(percentage);
+                    } else {
+                         const percentage = Math.round(((100*data_2.restheEntreprise) / data_2.totachEntreprise));
+     
+                         setCheckPercent(percentage);
+                         console.log(percentage);
+                    } 
+               }
           }
 
           onLoad();
      }, [currentIDE])
-
 
      const handleClick = async e => {
           e.preventDefault();
@@ -163,7 +164,7 @@ export default function Entreprise() {
                                              <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min 
                                                   <br></br> (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
                                         </td>
-                                        <td><p><b>Dépensé : {Math.round(((totminEntreprise/60) * 90))} €</b></p></td>                              
+                                        <td><p><b>Dépensé : {moneySpend} €</b></p></td>                              
                                    </tr>
                                    <tr>
                                         <td colspan="2">
