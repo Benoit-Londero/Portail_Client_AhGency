@@ -244,7 +244,14 @@ export default function Clients() {
           <ul>
                <li><Button className='btn noborder' value="clients" onClick={handleEntreprise}>Clients</Button></li>
                <li><Button className='btn noborder' value="entreprise" onClick={handleEntreprise}>Entreprise</Button></li>
-               <li><Button className="btn primary_btn" onClick={handleAddClient}>+</Button></li>
+               <li></li>
+               <li>{setShowEntreprise === false ? <label className="bold">Ajouter un client
+                    <Button className="btn primary_btn" onClick={handleAddClient}>+</Button></label>
+               :
+               <label>Ajouter une entreprise
+               <Button className="btn primary_btn" onClick={handleAddClient}>+</Button>
+               </label>}
+               </li>
           </ul>
      </div>
 
