@@ -13,7 +13,8 @@ import * as MdIcons from "react-icons/md";
 
 export default function Clients() {
 
-     const [addClient, setAddClient] = useState(false); //Const pour afficher le formulaire d'ajout client / Entreprise
+     const [addClient, setAddClient] = useState(false); //Const pour afficher le formulaire d'ajout client
+     const [addEntreprise, setAddEntreprise] = useState(false); //Const création d'entreprise
      const [showEntreprise, setShowEntreprise] = useState(false); // Navigation dans les onglets CLIENTS / ENTREPRISE
 
      const [showDetails, setShowDetails] = useState(false); //Affichage Modale Client
@@ -87,6 +88,10 @@ export default function Clients() {
 
           const handleAddClient = (e) =>{
                setAddClient(true);
+          }
+
+          const handleAddEntreprise = (e) =>{
+               setAddEntreprise(true);
           }
 
           const closeTasks = (e) => {
@@ -218,9 +223,9 @@ export default function Clients() {
 
                const jsonForm2 = buildJsonFormData(myNewClient);
 
-               function buildJsonFormData(myMember){
+               function buildJsonFormData(myNewClient){
                     const jsonFormData = {};
-                    for(const pair of myMember){
+                    for(const pair of myNewClient){
                         jsonFormData[pair[0]] = pair[1];
                     }
                     return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
@@ -230,6 +235,34 @@ export default function Clients() {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(jsonForm2)
+               })
+
+               console.log(reception);
+               window.location.reload();
+          }
+          /************************/
+
+          /* Ajout nouveau entreprise */
+          const handleSubmitEntreprise = async e => {
+               e.preventDefault();
+               
+               let newEntr = document.getElementById('newEntreprise');
+               let myEntre = new FormData(newEntr);
+
+               const jsonFormE = buildJsonFormData(myEntre);
+
+               function buildJsonFormData(myEntre){
+                    const jsonFormData = {};
+                    for(const pair of myEntre){
+                        jsonFormData[pair[0]] = pair[1];
+                    }
+                    return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+               }
+
+               const reception = await fetch('/api/postNewEntreprise',{
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(jsonFormE)
                })
 
                console.log(reception);
@@ -272,7 +305,7 @@ export default function Clients() {
                     <Button className="btn primary_btn" onClick={handleAddClient}>+</Button></label>
                     :
                     <label>Ajouter une entreprise<br></br>
-                    <Button className="btn primary_btn" onClick={handleAddClient}>+</Button>
+                    <Button className="btn primary_btn" onClick={handleAddEntreprise}>+</Button>
                     </label>}
                </li>
           </ul>
@@ -424,6 +457,47 @@ export default function Clients() {
                     </div>  
                </Row>
           : ''}
+
+          {addEntreprise === true ? 
+               <Row className="modal__newTask">
+                    <div id="modal_desktop">
+                         <button className="close_modale" onClick={closeTasks}>X</button>                                   
+                         {/* <AjoutClient/> */}
+                         <form id="newEntreprise" onSubmit={handleSubmitEntreprise}>
+                              <label>Nom société<input type="text" name="nomsoc" placeholder="Bouchard" required></input></label>
+                              <label>
+                                   Responsable
+                                   <select name="resp">
+                                        <option selected="selected" value='' disabled> - </option>
+                                        {allUsers && allUsers.map((item,index) => {
+                                             return(<option key={index} value={item.ID}>{item.Nom} {item.Prenom}</option>)
+                                        })}
+                                   </select>
+                              </label>
+                              <label>TVA<input type="number" name="tva" placeholder="0123456789"></input></label>
+                              <label>Adresse<input type="text" name="adress" placeholder="Rue de la Paix, 1"></input></label>
+                              <label>Ville<input type="text" name="ville" placeholder="Bruxelles"></input></label>
+                              <label>Code postal<input type="number" name="cp" placeholder="1000"></input></label>
+                              <label>Pays<input type="text" name="country" placeholder="Belgique" required></input></label>
+                              <label>Téléphone<input type="tel" name="phone" placeholder="0123456789" required></input></label>
+                              <label>Site Internet<input type="text" name="site" placeholder="www.ahgency.be" required></input></label>
+                              <label>Adresse e-mail<input type="email" name="email" placeholder="gerard.bouchard@mail.com" required></input></label>
+                              <label>
+                                   Maintenance
+                                   <select name="maintenance">
+                                        <option selected="selected" value='0'> Non </option>
+                                        <option value='1'> Oui </option>
+                                   </select>
+                              </label>
+                              <label>Facebook<input type="text" name="fb" placeholder="Facebook" required></input></label>
+                              <label>Instagram<input type="text" name="ig" placeholder="Instagram" required></input></label>
+                              <label>Linkedin<input type="text" name="lkdin" placeholder="Linkedin" required></input></label>
+                              <label>Pinterest<input type="text" name="pint" placeholder="Pinterest" required></input></label>
+                              <input type="submit" value="Créer"></input>
+                         </form>
+                    </div>  
+               </Row>
+          : ''}     
 
           {showDetails === true ? 
                <Row className="modal__newTask">

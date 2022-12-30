@@ -79,7 +79,9 @@ export default function ViewAll() {
                               ) 
                          })}
                     </select>
+                    
 
+               {/* A CORRIGER l'ID présent dans la colonne ID_Client n'est pas celle de l'ADMIN */}
                     <label> Assigné à</label>
                     <ul>
                          {clients && clients.filter(data => data.Role === 'administrator').map((item,index) =>{
@@ -88,6 +90,7 @@ export default function ViewAll() {
                               )
                          })}
                     </ul>
+               {/* FIN CORRECTION*/}
                </div>
           </div>
      </Row>
