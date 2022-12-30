@@ -79,7 +79,7 @@ export default function Entreprise() {
                .then(json => setTotMinEntreprise(json[0].totachEntreprise))
                .catch(err => console.info(err))
 
-               consol.log(typeof(totminEntreprise))
+               console.log(typeof(totminEntreprise))
                if (parseInt(totminEntreprise) === 0) {
                     Math.round(((100*minEntreprise) / totminEntreprise))
                     console.log('haaaaaa')
