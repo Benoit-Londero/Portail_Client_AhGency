@@ -68,6 +68,7 @@ export default function Entreprise() {
                })
                .then(res => res.json())
                .then(json => setTempsAlloue(json[0].minutesAllouees))
+               .then(console.log(res))
                .catch(err => console.info(err))
 
                const respHour = await fetch('/api/getTotHeurEntreprise', { 
