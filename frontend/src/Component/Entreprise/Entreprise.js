@@ -25,12 +25,7 @@ export default function Entreprise() {
      const [tempsAlloue, setTempsAlloue] = useState();
      const [validation, setValidation] = useState(false);
 
-/*      const [moneySpend, setMoneySpend] = useState();
      const [checkPercent, setCheckPercent] = useState();
-     const [styleProgressBar, setStyleProgressBar] = useState({
-          width: '100%',
-          background: '#6610f2'
-     }); */
 
      const currentIDE = localStorage.getItem("currentIDE");
 
@@ -53,7 +48,6 @@ export default function Entreprise() {
                     setCurrentTEL(data.Telephone);
                     setCurrentEMAILE(data.Email);
                     setCurrentSITE(data.Site_web);
-                    /* setCurrentMAINTENANCE(data.Maintenance); */
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
@@ -85,22 +79,15 @@ export default function Entreprise() {
                .then(json => setTotMinEntreprise(json[0].totachEntreprise))
                .catch(err => console.info(err))
 
-               console.log(totminEntreprise);
-               
-/*                //Calcul temps restants (On soustrait le temps dépensé au temps total)
-               const timeSpend = totminEntreprise - minEntreprise;
-
-               //Calcul du montant dépensé (temps dépensé)
-               setMoneySpend(Math.round(((timeSpend/60) * 90)));
-
                if (parseInt(totminEntreprise) === 0) {
+                    Math.round(((100*minEntreprise) / totminEntreprise))
                     const percentage = 0;
                     setCheckPercent(percentage);
                } else {
                     const percentage = Math.round(((100*minEntreprise) / totminEntreprise));
                     setCheckPercent(percentage);
                     console.log(percentage);
-               } */
+               } 
           }
 
           onLoad();
@@ -136,18 +123,16 @@ export default function Entreprise() {
                setValidation(true);
           }
      }
-     
-/*      if(checkPercent > 10){
-          setStyleProgressBar({
-               width: checkPercent+'%',
-               background: '#6610f2'
-          })
-     } else {
-          setStyleProgressBar({
-               width: checkPercent+'%',
-               background: '#ff0000'
-          })
-     } */
+
+     const styleProgress = {
+          backgroundColor: '#6610f2',
+          width: checkPercent+'%'
+     }
+
+     const warningProgress = {
+          backgroundColor: '#ff0000',
+          width: checkPercent+'%'
+     }
 
      return (
           <div id="page_entreprise">
@@ -159,13 +144,21 @@ export default function Entreprise() {
                                    <tr><td colspan="4"><h2>Statistiques</h2></td></tr>          
                                    <tr>
                                         <td>
-                                             <p>Achetées : {/* {Math.round(minEntreprise /60)} */} h</p>
-                                             <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min <br></br> (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
+                                             <p>Achetées : {Math.round(totminEntreprise/60)} h</p>
+                                             <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min 
+                                                  <br></br> (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
                                         </td>
-                                        <td><p><b>Dépensé : {/* {moneySpend} */} €</b></p></td>                              
+                                        <td><p><b>Dépensé : {Math.round(((totminEntreprise/60) * 90))} €</b></p></td>                              
                                    </tr>
                                    <tr>
-                                        <td colspan="2"><div id="progress_bar" /* style={styleProgressBar} */><p>{/* {checkPercent} */} %</p></div></td>
+                                        <td colspan="2">
+                                             {checkPercent < 10 ?
+                                                  <div id="progress_bar"  style={styleProgress} ><p>{checkPercent} %</p>
+                                                  </div>
+                                                  : <div id="progress_bar"  style={warningProgress}><p>{checkPercent} %</p>
+                                                  </div>}
+                                             
+                                        </td>
                                    </tr>
                                    <tr>{/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}</tr>
                               </table>
