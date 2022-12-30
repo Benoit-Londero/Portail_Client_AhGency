@@ -4,23 +4,23 @@ const {con} = require('../db/db');
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
 
-    let allHeure;
+    let totHeure;
 
-    allHeure = await new Promise((resolve,reject) => {
+    totHeure = await new Promise((resolve,reject) => {
 
         let entreprise = req.body.currentIDEntreprise;
-        let query = "SELECT SUM(Minutes_Achetees) as totalesEntreprise FROM users WHERE ID_entreprise = ?";
+        let query = "SELECT SUM(Minutes_Achetees) as totachEntreprise FROM users WHERE ID_entreprise = ?";
 
         req = con.query(query, [entreprise], function (err,rows){
             if (err) throw err;
 
-            allHeure = rows;
-            resolve(allHeure)
+            totHeure = rows;
+            resolve(totHeure)
         })
     })
 
     context.res = {
         status : 200,
-        body : allHeure
+        body : totHeure
     }   
 }

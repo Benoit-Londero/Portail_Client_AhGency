@@ -79,7 +79,7 @@ export default function Entreprise() {
                     body: JSON.stringify(dataE)
                })
                .then(res => res.json())
-               .then(json => setTotMinEntreprise(json[0].minutesEntreprise))
+               .then(json => setTotMinEntreprise(json[0].totachEntreprise))
                .catch(err => console.info(err))
                
                //Calcul temps restants (On soustrait le temps dépensé au temps total)
@@ -143,8 +143,6 @@ export default function Entreprise() {
                background: '#ff0000'
           })
      }
-
-     console.log(checkPercent)
 
      return (
           <div id="page_entreprise">
@@ -213,7 +211,6 @@ export default function Entreprise() {
                                    </table>
                               </form>
                               {validation === true ? <tr><td colspan="3"><span>Vos données ont bien été modifiées !</span></td></tr> : null}
-                              {/* <p>Maintenance : { currentMAINTENANCE === 1 ? "Contrat de maintenance OK" : "Contrat de maintenance NOK"}</p> */}
                               </Col>
                          </Row>          
                     </Container>
