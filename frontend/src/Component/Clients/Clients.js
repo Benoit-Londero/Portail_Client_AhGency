@@ -9,6 +9,7 @@ import NavBar from "../NavBar/NavBar";
 import Moment from "moment";
 
 import Button from 'react-bootstrap/Button';
+import * as MdIcons from "react-icons/md";
 
 export default function Clients() {
 
@@ -206,7 +207,9 @@ export default function Clients() {
                console.log(reception);
                window.location.reload();
           }
+          /************************/
 
+          /* Ajout nouveau client */
           const handleSubmitClient = async e => {
                e.preventDefault();
                
@@ -226,12 +229,31 @@ export default function Clients() {
                const reception = await fetch('/api/postNewClient',{
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: jsonForm2
+                    body: JSON.stringify(jsonForm2)
                })
 
                console.log(reception);
                window.location.reload();
           }
+          /************************/
+
+          /*** Supprimer client ***/
+          const handleDeleteClient = async e => {
+               e.preventDefault();
+               
+               let idDelete = e.target.value;
+               let obj = {ID: idDelete}
+
+               const reception = await fetch('/api/postDeleteUser',{
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(obj)
+               })
+
+               console.log(reception);
+               window.location.reload();
+          }
+          /************************/
 
      return (
 
@@ -306,7 +328,7 @@ export default function Clients() {
                                                   <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
                                                   <td>
                                                        <Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> 
-                                                       <Button classname="delete failed" /* onClick={handleDeleteClient} */ value={item.ID_entreprise}>Del</Button>
+                                                       <Button className="delete failed" onClick={handleDeleteClient} value={item.ID_entreprise}><MdIcons.MdOutlineDeleteOutline /></Button>
                                                   </td>
                                              </tr>
                                         )
