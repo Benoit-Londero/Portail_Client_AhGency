@@ -474,7 +474,7 @@ export default function Clients() {
                                         })}
                                    </select>
                               </label>
-                              <label>TVA<input type="number" name="tva" placeholder="0123456789"></input></label>
+                              <label>TVA<input type="text" name="tva" placeholder="0123456789"></input></label>
                               <label>Adresse<input type="text" name="adress" placeholder="Rue de la Paix, 1"></input></label>
                               <label>Ville<input type="text" name="ville" placeholder="Bruxelles"></input></label>
                               <label>Code postal<input type="number" name="cp" placeholder="1000"></input></label>

@@ -28,12 +28,12 @@ module.exports = async function (context,req,res) {
 
         let Date_creation = new Date();
 
-        let sql = "INSERT INTO entreprise(Nom_societe,Responsable,TVA,Adresse,Ville,Code_Postal,Pays,Telephone,Site_web,Email,Maintenance,Facebook,Instagram,Linkedin,Pinterest,Date_creation) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        let sql = "INSERT INTO entreprise(Nom_societe,Responsable,TVA,Adresse,Ville,Code_Postal,Pays,Telephone,Site_web,Email,Maintenance,Facebook,Instagram,Linkedin,Pinterest,Date_creation) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         con.query(sql, [insc.nom_societe,insc.responsable,insc.tva,insc.adress,insc.ville,insc.cp,insc.pays,insc.tel,insc.site,insc.mail,insc.maintenance,insc.face,insc.insta,insc.linke,insc.pinte,Date_creation], function (err, resultat) {
             if (err) throw err;
         
-            response  =  JSON.stringify('Client créé');
+            response  =  JSON.stringify('Entreprise créé');
             resolve(response);
         });
     })
