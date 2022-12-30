@@ -411,7 +411,9 @@ export default function Clients() {
                               <label>Fonction<input type="text" name="fonction" placeholder="Chancelier suprême"></input></label>
 
                               <label>
+                                   Choissisez une entreprise
                                    <select name="entreprise">
+                                        <option selected="selected" value='' disabled>Aucune entreprise</option>
                                         {allEntreprise && allEntreprise.map((item,index) => {
                                              return(<option key={index} value={item.ID_entreprise}>{item.Nom_societe}</option>)
                                         })}
