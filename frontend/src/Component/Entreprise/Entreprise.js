@@ -102,6 +102,8 @@ export default function Entreprise() {
                     } else {
                          const percentage = Math.round(((100*currentHeureREST) / currentHeureTOT));
                          setCheckPercent(percentage);
+                         console.log(percentage);
+                    
                     }
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
@@ -145,11 +147,17 @@ export default function Entreprise() {
      
      if(checkPercent > 10){
           setStyleProgressBar({
-               width: +'%'
+               width: checkPercent+'%',
+               background: '#6610f2'
           })
      } else {
-
+          setStyleProgressBar({
+               width: checkPercent+'%',
+               background: '#ff0000'
+          })
      }
+
+     console.log(checkPercent)
 
      return (
           <div id="page_entreprise">
@@ -167,7 +175,7 @@ export default function Entreprise() {
                                         <td><p><b>Dépensé : {moneySpend} €</b></p></td>                              
                                    </tr>
                                    <tr>
-                                        <td colspan="2"><div id="progress_bar" style={styleProgressBar}><p>{checkPercent}</p></div></td>
+                                        <td colspan="2"><div id="progress_bar" style={styleProgressBar}><p>{checkPercent} %</p></div></td>
                                    </tr>
                                    <tr>{checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>}</tr>
                               </table>
