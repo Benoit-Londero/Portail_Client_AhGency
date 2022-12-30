@@ -70,32 +70,39 @@ export default function Entreprise() {
                .then(json => setTempsAlloue(json[0].minutesAllouees))
                .catch(err => console.info(err))
 
-               const resphu = await fetch('/api/getTotHeurEntreprise', { 
+               const respHour = await fetch('/api/getTotHeurEntreprise', { 
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(dataE)
                });
 
-               const dathour = await resphu.json();
+               const data_hour = await respHour.json();
+               const minRes = data_hour.totachEntreprise - data_hour.restheEntreprise;
 
-               if (parseInt(dathour.totachEntreprise) === 0) {
-                    Math.round(((100*minEntreprise) / totminEntreprise))
+               if (parseInt(data_hour.totachEntreprise) === 0) {
+                    
+                    Math.round(((100*minRes) / totminEntreprise))
 
                     const percentage = 0;
                     setCheckPercent(percentage);
-                    setTotMinEntreprise(dathour.totachEntreprise);
-               } else {
-                    const percentage = Math.round(((100*minEntreprise) / dathour.totachEntreprise));
-                    console.log('hooooo')
-                    setCheckPercent(percentage);
-                    setTotMinEntreprise(dathour.totachEntreprise);
+                    setTotMinEntreprise(data_hour.totachEntreprise);
 
                     console.log(percentage);
+
+               } else {
+                    const percentage = Math.round(((100*minRes) / data_hour.totachEntreprise));
+                    console.log('hooooo')
+                    setCheckPercent(percentage);
+                    setTotMinEntreprise(data_hour.totachEntreprise);
+
+                    console.log(percentage);
+
                } 
           }
 
           onLoad();
      }, [currentIDE])
+
 
      const handleClick = async e => {
           e.preventDefault();
@@ -130,12 +137,12 @@ export default function Entreprise() {
 
      const styleProgress = {
           backgroundColor: '#6610f2',
-          width: checkPercent+'%'
+          width: `${checkPercent}%`
      }
 
      const warningProgress = {
           backgroundColor: '#ff0000',
-          width: checkPercent+'%'
+          width: `${checkPercent}%`
      }
 
      return (
