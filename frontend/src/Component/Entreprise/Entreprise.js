@@ -77,7 +77,10 @@ export default function Entreprise() {
                });
 
                const data_hour = await respHour.json();
-               const minRes = data_hour.totachEntreprise - data_hour.restheEntreprise;
+               const minRes = Number(data_hour.totachEntreprise - data_hour.restheEntreprise);
+
+               console.log(minRes);
+               console.log(typeof(data_hour.totachEntreprise));
 
                if (parseInt(data_hour.totachEntreprise) === 0) {
                     
@@ -90,7 +93,7 @@ export default function Entreprise() {
                     console.log(percentage);
 
                } else {
-                    const percentage = Math.round(((100*minRes) / data_hour.totachEntreprise));
+                    const percentage = Math.round(((100*minRes) / Number(data_hour.totachEntreprise)));
                     console.log('hooooo')
                     setCheckPercent(percentage);
                     setTotMinEntreprise(data_hour.totachEntreprise);
