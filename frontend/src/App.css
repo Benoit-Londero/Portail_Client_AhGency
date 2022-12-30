@@ -202,8 +202,8 @@ table{
         width: 50%;
     }
 
-    .close_modale p,
-    .close_modale h2{
+    #page_CRM #modal_desktop p,
+    #page_CRM #modal_desktop h2{
         text-align:left;
     }
 

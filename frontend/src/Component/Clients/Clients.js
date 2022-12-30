@@ -248,7 +248,7 @@ export default function Clients() {
           </ul>
      </div>
 
-     <Container id="page_dashboard"  className="main__content">
+     <Container id="page_CRM"  className="main__content">
 
           <Row>
                {showEntreprise === false ?
@@ -382,6 +382,7 @@ export default function Clients() {
                                         })}
                                    </select>
                               </label>
+                              <input type="submit" value="Créer"></input>
                          </form>
                     </div>  
                </Row>
