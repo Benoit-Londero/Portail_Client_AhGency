@@ -27,7 +27,10 @@ export default function Entreprise() {
 
      const [moneySpend, setMoneySpend] = useState();
      const [checkPercent, setCheckPercent] = useState();
-     const [styleProgressBar, setStyleProgressBar] = useState();
+     const [styleProgressBar, setStyleProgressBar] = useState({
+          width: '100%',
+          background: '#6610f2'
+     });
 
      const currentIDE = localStorage.getItem("currentIDE");
 
