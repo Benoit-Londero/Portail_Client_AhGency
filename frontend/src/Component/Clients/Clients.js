@@ -300,7 +300,10 @@ export default function Clients() {
                                                   <td><p>{item.ID_entreprise}</p></td>
                                                   <td><p>{item.Titre}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
-                                                  <td><Button className="dts_client" onClick={handleShowClient} value={item.ID}>...</Button></td>
+                                                  <td>
+                                                       <Button className="dts_client" onClick={handleShowClient} value={item.ID}>...</Button>
+                                                       <Button className="delete failed" onClick={handleDeleteClient} value={item.ID}><MdIcons.MdOutlineDeleteOutline /></Button>
+                                                  </td>
                                              </tr>
                                         )
                                    })}
@@ -328,8 +331,7 @@ export default function Clients() {
                                                   })}</td>
                                                   <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
                                                   <td>
-                                                       <Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> 
-                                                       <Button className="delete failed" onClick={handleDeleteClient} value={item.ID_entreprise}><MdIcons.MdOutlineDeleteOutline /></Button>
+                                                       <Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button>
                                                   </td>
                                              </tr>
                                         )

@@ -208,6 +208,23 @@ table{
         width: 50%;
     }
 
+    .delete{
+        aspect-ratio: 1;
+        max-width: 35px;
+        padding: 2px 7px;
+        border-radius: 25px;
+        text-align: center!important;
+    }
+
+    .delete svg{
+        font-size: 20px!important;
+    }
+
+    .delete:hover{
+        background-color: red!important;
+        color:#fff;
+    }
+
 /***********************/
 /***** Badge User + Badge Date ******/
 
