@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 
-import AjoutClient from '../AjoutClient/AjoutClient.js';
+/* import AjoutClient from '../AjoutClient/AjoutClient.js'; */
 import Moment from "moment";
 
 import Button from 'react-bootstrap/Button';
