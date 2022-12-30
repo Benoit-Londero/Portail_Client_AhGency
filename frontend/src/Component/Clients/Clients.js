@@ -375,7 +375,7 @@ export default function Clients() {
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          {/* <AjoutClient/> */}
-                         <form id="newClient" action={handleSubmitClient}>
+                         <form id="newClient" onSubmit={handleSubmitClient}>
                               <label>Nom<input type="text" name="nom" placeholder="Bouchard" required></input></label>
                               <label>Prénom<input type="text" name="prenom" placeholder="Gerard" required></input></label>
                               <label>Mot de passe<input type="pass" name="pass" placeholder="*****" required></input></label>
