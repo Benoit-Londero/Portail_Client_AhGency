@@ -20,28 +20,21 @@ export default function Entreprise() {
      const [currentTEL, setCurrentTEL] = useState();
      const [currentEMAILE, setCurrentEMAILE] = useState();
      const [currentSITE, setCurrentSITE] = useState();
-     /* const [currentMAINTENANCE, setCurrentMAINTENANCE] = useState(); */
      const [minEntreprise, setMinEntreprise] = useState();
+     const [totminEntreprise,setTotMinEntreprise] = useState();
      const [tempsAlloue, setTempsAlloue] = useState();
      const [validation, setValidation] = useState(false);
 
-     const [currentHeureTOT, setCurrentHeureTOT] = useState();
-     const [currentHeureREST, setCurrentHeureREST] = useState();
      const [moneySpend, setMoneySpend] = useState();
      const [checkPercent, setCheckPercent] = useState();
      const [styleProgressBar, setStyleProgressBar] = useState();
 
-     const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
-
-     console.log(currentHeureREST)
 
      useEffect(() => {
           let dataE = {currentIDEntreprise: currentIDE};
-          let dataU = {currentIDUser: currentIDU};
           
           const onLoad = async () => {
-               
                const response = await fetch('/api/getInfosEntreprise', { 
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -80,41 +73,33 @@ export default function Entreprise() {
                .then(json => setTempsAlloue(json[0].minutesAllouees))
                .catch(err => console.info(err))
 
-               const progBar = await fetch('/api/getInfosClient', { 
+               fetch('/api/getTotHeurEntreprise', { 
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(dataU)
+                    body: JSON.stringify(dataE)
                })
+               .then(res => res.json())
+               .then(json => setTotMinEntreprise(json[0].minutesEntreprise))
+               .catch(err => console.info(err))
                
-               const data_us = await progBar.json();
-          
-               if(progBar.status === 200){
-                    setCurrentHeureTOT(data_us.Minutes_Achetees);
-                    setCurrentHeureREST(data_us.Minutes_Restantes);
+               //Calcul temps restants (On soustrait le temps dépensé au temps total)
+               const timeSpend = totminEntreprise - minEntreprise;
 
-                    //Calcul temps restants (On soustrait le temps dépensé au temps total)
-                    const timeSpend = data_us.Minutes_Achetees - data_us.Minutes_Restantes;
+               //Calcul du montant dépensé (temps dépensé)
+               setMoneySpend(Math.round(((timeSpend/60) * 90)));
 
-                    //Calcul du montant dépensé (temps dépensé)
-                    setMoneySpend(Math.round(((timeSpend/60) * 90)));
-
-                    if (parseInt(data_us.Minutes_Achetees) === 0) {
-                         const percentage = 0;
-                         setCheckPercent(percentage);
-                    } else {
-                         const percentage = Math.round(((100*data_us.Minutes_Restantes) / data_us.Minutes_Achetees));
-                         setCheckPercent(percentage);
-                         console.log(percentage);
-                    
-                    }
+               if (parseInt(totminEntreprise) === 0) {
+                    const percentage = 0;
+                    setCheckPercent(percentage);
                } else {
-                    alert('Erreur du serveur, veuillez réessayer plus tard');
+                    const percentage = Math.round(((100*minEntreprise) / totminEntreprise));
+                    setCheckPercent(percentage);
+                    console.log(percentage);
                }
           }
 
           onLoad();
-
-     }, [currentIDE,currentIDU])
+     }, [currentIDE])
 
      const handleClick = async e => {
           e.preventDefault();
@@ -171,7 +156,7 @@ export default function Entreprise() {
                                    <tr><td colspan="4"><h2>Statistiques</h2></td></tr>          
                                    <tr>
                                         <td>
-                                             <p>Achetées : {Math.round(currentHeureTOT /60)} h</p>
+                                             <p>Achetées : {Math.round(minEntreprise /60)} h</p>
                                              <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min <br></br> (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
                                         </td>
                                         <td><p><b>Dépensé : {moneySpend} €</b></p></td>                              
