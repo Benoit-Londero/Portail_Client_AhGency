@@ -34,7 +34,7 @@ export default function Clients() {
      const [data,setDataClient] = useState();
 
      /* Variables pour liste + infos Entreprise - AJOUT BENOIT DEC. 2022 */
-
+/* 
      const [currentIDE, setCurrentIDE] = useState();
      const [currentNOMSOC, setCurrentNOMSOC] = useState();
      const [currentMAILE, setCurrentMAILE] = useState();
@@ -44,7 +44,7 @@ export default function Clients() {
      const [currentDatCrea, setCurrentDatCrea] = useState();
      const [currentMaint, setCurrentMaint] = useState();
      const [currentSiteWeb, setCurrentSiteWeb] = useState();
-     const [currentMembers, setCurrentMembers] = useState('');
+     const [currentMembers, setCurrentMembers] = useState(''); */
      
      const [allEntreprise, setAllEntreprise] = useState([]); //Affiche toutes les entreprises
      const [dataE, setDataEntr] = useState(); //Défini l'ID pour la page détailsEntreprise
