@@ -376,6 +376,14 @@ svg {
     stroke: currentColor!important;;
 }
 
+#TblClients tr,
+#TblClients td{
+    vertical-align: middle;
+}
+
+#TblClients td p{
+    margin-bottom: 0!important;
+}
 /*********** FIN CSS FORM *************/
 /**************************************/
 
