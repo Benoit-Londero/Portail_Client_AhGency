@@ -37,21 +37,22 @@ export default function Entreprise() {
      console.log(currentHeureREST);
      useEffect(() => {
           let dataE = {currentIDEntreprise: currentIDE};
+
+          const listUser = async () => {
+               const response = await fetch('/api/getAllUsers');
+
+               const result = await response.json();
+               if(response.status === 200){
+                    setAllUsers(result)
+                    console.log(allUsers);
+               } else {
+                    alert('Erreur du serveur, veuillez réessayer plus tard');
+               }
+          }
+
+          listUser();
           
           const onLoad = async () => {
-               const listUser = async () => {
-                    const response = await fetch('/api/getAllUsers');
-     
-                    const result = await response.json();
-                    if(response.status === 200){
-                         setAllUsers(result)
-                         console.log(allUsers);
-                    } else {
-                         alert('Erreur du serveur, veuillez réessayer plus tard');
-                    }
-               }
-     
-               listUser();
 
                const response = await fetch('/api/getInfosEntreprise', { 
                     method: 'POST',
@@ -103,20 +104,15 @@ export default function Entreprise() {
                     setCurrentHeureREST(data_2[0].restheEntreprise);
 
                     const minRes = data_2[0].totachEntreprise - data_2[0].restheEntreprise;
-                    console.log(minRes);
-                    console.log(typeof(data_2[0].totachEntreprise));
 
                     setMoneySpend(Math.round(((minRes/60) * 90)));
 
                     if (parseInt(data_2[0].totachEntreprise) === 0) {
                          const percentage = 0;
                          setCheckPercent(percentage);
-                         console.log(percentage);
                     } else {
                          const percentage = Math.round(((100*data_2[0].restheEntreprise) / data_2[0].totachEntreprise));
-     
                          setCheckPercent(percentage);
-                         console.log(percentage);
                     } 
                }
           }
@@ -227,11 +223,8 @@ export default function Entreprise() {
                                              <tr>
                                                   <td><label className="bold"> Membres: </label></td>
                                                   <td>
-                                                       <p className="bdg_user">F</p>
-                                                       <p className="bdg_user">Q</p>
-                                                       <p className="bdg_user">B</p>
                                                        {allUsers && allUsers.filter(data => data.ID_entreprise === currentIDE).map((item,index) =>{
-                                                       return(<span key={index} className="bdg_user">{item.Prenom.substring(0,1)}</span>)
+                                                       return(<p key={index} className="bdg_user">{item.Prenom.substring(0,1)}</p>)
                                                   })}
                                                   </td>
                                              </tr>
