@@ -34,6 +34,8 @@ export default function Entreprise() {
      const currentIDU = localStorage.getItem("currentIDU");
      const currentIDE = localStorage.getItem("currentIDE");
 
+     console.log(currentHeureREST)
+
      useEffect(() => {
           let dataE = {currentIDEntreprise: currentIDE};
           let dataU = {currentIDUser: currentIDU};
@@ -91,16 +93,16 @@ export default function Entreprise() {
                     setCurrentHeureREST(data_us.Minutes_Restantes);
 
                     //Calcul temps restants (On soustrait le temps dépensé au temps total)
-                    const timeSpend = currentHeureTOT - currentHeureREST;
+                    const timeSpend = data_us.Minutes_Achetees - data_us.Minutes_Restantes;
 
                     //Calcul du montant dépensé (temps dépensé)
-                    setMoneySpend(Math.round(((timeSpend/60) * 75)));
+                    setMoneySpend(Math.round(((timeSpend/60) * 90)));
 
                     if (parseInt(data_us.Minutes_Achetees) === 0) {
                          const percentage = 0;
                          setCheckPercent(percentage);
                     } else {
-                         const percentage = Math.round(((100*currentHeureREST) / currentHeureTOT));
+                         const percentage = Math.round(((100*data_us.Minutes_Restantes) / data_us.Minutes_Achetees));
                          setCheckPercent(percentage);
                          console.log(percentage);
                     
@@ -169,7 +171,7 @@ export default function Entreprise() {
                                    <tr><td colspan="4"><h2>Statistiques</h2></td></tr>          
                                    <tr>
                                         <td>
-                                             <p>Achetées : {/* {Math.round(currentHeureTOT /60)} */}50 h</p>
+                                             <p>Achetées : {Math.round(currentHeureTOT /60)} h</p>
                                              <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min <br></br> (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
                                         </td>
                                         <td><p><b>Dépensé : {moneySpend} €</b></p></td>                              
