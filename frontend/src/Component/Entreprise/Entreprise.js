@@ -83,21 +83,21 @@ export default function Entreprise() {
                const data_2 = await reponse.json();
 
                if(reponse.status === 200){
-                    setTotMinEntreprise(data_2.totachEntreprise);
-                    setCurrentHeureREST(data_2.restheEntreprise);
+                    setTotMinEntreprise(data_2[0].totachEntreprise);
+                    setCurrentHeureREST(data_2[0].restheEntreprise);
 
-                    const minRes = data_2.totachEntreprise - data_2.restheEntreprise;
+                    const minRes = data_2[0].totachEntreprise - data_2[0].restheEntreprise;
                     console.log(minRes);
-                    console.log(typeof(data_2.totachEntreprise));
+                    console.log(typeof(data_2[0].totachEntreprise));
 
                     setMoneySpend(Math.round(((minRes/60) * 90)));
 
-                    if (parseInt(data_2.totachEntreprise) === 0) {
+                    if (parseInt(data_2[0].totachEntreprise) === 0) {
                          const percentage = 0;
                          setCheckPercent(percentage);
                          console.log(percentage);
                     } else {
-                         const percentage = Math.round(((100*data_2.restheEntreprise) / data_2.totachEntreprise));
+                         const percentage = Math.round(((100*data_2[0].restheEntreprise) / data_2[0].totachEntreprise));
      
                          setCheckPercent(percentage);
                          console.log(percentage);
