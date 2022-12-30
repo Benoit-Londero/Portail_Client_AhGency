@@ -79,12 +79,16 @@ export default function Entreprise() {
                .then(json => setTotMinEntreprise(json[0].totachEntreprise))
                .catch(err => console.info(err))
 
+               consol.log(typeof(totminEntreprise))
                if (parseInt(totminEntreprise) === 0) {
                     Math.round(((100*minEntreprise) / totminEntreprise))
+                    console.log('haaaaaa')
+
                     const percentage = 0;
                     setCheckPercent(percentage);
                } else {
                     const percentage = Math.round(((100*minEntreprise) / totminEntreprise));
+                    console.log('hooooo')
                     setCheckPercent(percentage);
                     console.log(percentage);
                } 
