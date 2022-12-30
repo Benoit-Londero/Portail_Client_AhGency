@@ -193,11 +193,18 @@ table{
     }
 
     .succeed{
-        color: #00ffc2;
+        color: #00f8bd;
         font-weight: 800;
         background: #d4fff5;
         border: 1px solid #00ffc3;
         border-radius: 3px;
+        text-align: center;
+        width: 50%;
+    }
+
+    .close_modale p,
+    .close_modale h2{
+        text-align:left;
     }
 
 /***********************/

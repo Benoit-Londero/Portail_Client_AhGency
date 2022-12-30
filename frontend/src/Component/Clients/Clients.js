@@ -207,6 +207,32 @@ export default function Clients() {
                window.location.reload();
           }
 
+          const handleSubmitClient = async e => {
+               e.preventDefault();
+               
+               let newClient = document.getElementById('newClient');
+               let myNewClient = new FormData(newClient);
+
+               const jsonForm2 = buildJsonFormData(myNewClient);
+
+               function buildJsonFormData(myMember){
+                    const jsonFormData = {};
+                    for(const pair of myMember){
+                        jsonFormData[pair[0]] = pair[1];
+                    }
+                    return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+               }
+
+               const reception = await fetch('/api/postNewClient',{
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: jsonForm2
+               })
+
+               console.log(reception);
+               window.location.reload();
+          }
+
      return (
 
      <div>
@@ -341,7 +367,22 @@ export default function Clients() {
                <Row className="modal__newTask">
                     <div id="modal_desktop">
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
-                         <AjoutClient/>
+                         {/* <AjoutClient/> */}
+                         <form id="newClient" action={handleSubmitClient}>
+                              <label>Nom<input type="text" name="nom" placeholder="Bouchard" required></input></label>
+                              <label>Prénom<input type="text" name="prenom" placeholder="Gerard" required></input></label>
+                              <label>Mot de passe<input type="pass" name="pass" placeholder="*****" required></input></label>
+                              <label>Adresse e-mail<input type="email" name="email" placeholder="gerard.bouchard@mail.com" required></input></label>
+                              <label>Fonction<input type="text" name="fonction" placeholder="Chancelier suprême"></input></label>
+
+                              <label>
+                                   <select name="entreprise">
+                                        {allEntreprise && allEntreprise.map((item,index) => {
+                                             return(<option key={index} value={item.ID_entreprise}>{item.Nom_societe}</option>)
+                                        })}
+                                   </select>
+                              </label>
+                         </form>
                     </div>  
                </Row>
           : ''}
