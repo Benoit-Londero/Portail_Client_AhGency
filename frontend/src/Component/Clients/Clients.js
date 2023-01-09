@@ -465,36 +465,52 @@ export default function Clients() {
                          <button className="close_modale" onClick={closeTasks}>X</button>                                   
                          {/* <AjoutClient/> */}
                          <form id="newEntreprise" onSubmit={handleSubmitEntreprise}>
-                              <label>Nom société<input type="text" name="nomsoc" placeholder="Bouchard" required></input></label>
-                              <label>
-                                   Responsable
-                                   <select name="resp">
-                                        <option selected="selected" value='' disabled> - </option>
-                                        {allUsers && allUsers.map((item,index) => {
-                                             return(<option key={index} value={item.ID}>{item.Nom} {item.Prenom}</option>)
-                                        })}
-                                   </select>
-                              </label>
-                              <label>TVA<input type="text" name="tva" placeholder="0123456789"></input></label>
-                              <label>Adresse<input type="text" name="adress" placeholder="Rue de la Paix, 1"></input></label>
-                              <label>Ville<input type="text" name="ville" placeholder="Bruxelles"></input></label>
-                              <label>Code postal<input type="number" name="cp" placeholder="1000"></input></label>
-                              <label>Pays<input type="text" name="country" placeholder="Belgique" required></input></label>
-                              <label>Téléphone<input type="tel" name="phone" placeholder="0123456789" required></input></label>
-                              <label>Site Internet<input type="text" name="site" placeholder="www.ahgency.be" required></input></label>
-                              <label>Adresse e-mail<input type="email" name="email" placeholder="gerard.bouchard@mail.com" required></input></label>
-                              <label>
-                                   Maintenance
-                                   <select name="maintenance">
-                                        <option selected="selected" value='0'> Non </option>
-                                        <option value='1'> Oui </option>
-                                   </select>
-                              </label>
-                              <label>Facebook<input type="text" name="fb" placeholder="Facebook" required></input></label>
-                              <label>Instagram<input type="text" name="ig" placeholder="Instagram" required></input></label>
-                              <label>Linkedin<input type="text" name="lkdin" placeholder="Linkedin" required></input></label>
-                              <label>Pinterest<input type="text" name="pint" placeholder="Pinterest" required></input></label>
-                              <input type="submit" value="Créer"></input>
+                              <table>
+                                   <tbody>
+                                        <tr><td colspan="2"><label>Nom société<input type="text" name="nomsoc" placeholder="Bouchard" required></input></label></td></tr>
+                                        <tr><td colspan="2"><label>
+                                                  Responsable
+                                                  <select name="resp">
+                                                       <option selected="selected" value='' disabled> - </option>
+                                                       {allUsers && allUsers.map((item,index) => {
+                                                            return(<option key={index} value={item.ID}>{item.Nom} {item.Prenom}</option>)
+                                                       })}
+                                                  </select>
+                                             </label></td>
+                                        </tr>
+                                        <tr><td colspan="2"><label>TVA<input type="text" name="tva" placeholder="0123456789"></input></label></td></tr>
+                                        <tr>
+                                             <td><label>Adresse<input type="text" name="adress" placeholder="Rue de la Paix, 1"></input></label></td>
+                                             <td><label>Code postal<input type="number" name="cp" placeholder="1000"></input></label></td>
+                                        </tr>
+                                        <tr>
+                                             <td><label>Ville<input type="text" name="ville" placeholder="Bruxelles"></input></label></td>
+                                             <td><label>Pays<input type="text" name="country" placeholder="Belgique" required></input></label></td>
+                                        </tr>
+                                        <tr><td colspan="2"><label>Téléphone<input type="tel" name="phone" placeholder="0123456789" required></input></label></td></tr>
+                                        <tr><td colspan="2"><label>Site Internet<input type="text" name="site" placeholder="www.ahgency.be" required></input></label></td></tr>
+                                        <tr><td colspan="2"><label>Adresse e-mail<input type="email" name="email" placeholder="gerard.bouchard@mail.com" required></input></label></td></tr>
+
+                                        <tr>
+                                             <td><label>Facebook<input type="text" name="fb" placeholder="Facebook" required></input></label></td>
+                                             <td><label>Instagram<input type="text" name="ig" placeholder="Instagram" required></input></label></td>
+                                        </tr>
+                                        <tr>
+                                             <td><label>Linkedin<input type="text" name="lkdin" placeholder="Linkedin" required></input></label></td>
+                                             <td><label>Pinterest<input type="text" name="pint" placeholder="Pinterest" required></input></label></td>
+                                        </tr>
+                                        <tr><td colspan="2">
+                                             <label>
+                                                  Maintenance
+                                                  <select name="maintenance">
+                                                       <option selected="selected" value='0'> Non </option>
+                                                       <option value='1'> Oui </option>
+                                                  </select>
+                                             </label>
+                                        </td></tr>
+                                        <tr><td colspan="2"><input type="submit" value="Créer"></input></td></tr>
+                                   </tbody>
+                              </table>
                          </form>
                     </div>  
                </Row>
