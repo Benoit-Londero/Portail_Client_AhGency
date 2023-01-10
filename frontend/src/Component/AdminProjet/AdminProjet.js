@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import Container from "react-bootstrap/esm/Container";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { CircularProgressbar } from 'react-circular-progressbar';
-
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
-import "./Home.css";
 
 import Moment from "moment";
 
@@ -56,7 +53,7 @@ export default function Home() {
           .then(res => res.json())
           .then(json => setProjet(json))
           .catch(err => console.info(err))
-          
+
      }, [currentIDU, currentIDE])
 
      const handleFilter = (e) => {

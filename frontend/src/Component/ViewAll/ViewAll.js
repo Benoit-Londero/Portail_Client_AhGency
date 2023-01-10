@@ -53,11 +53,11 @@ export default function ViewAll() {
      }
 
      function AssignedTasks(e) {
-          let theClient = e.target.value;
+          let theAgent = e.target.value;
           console.log(theClient);
 
-          theClient !== "all" ? setFiltredtasks(AssignedFiltertask(theClient)) : setFiltredtasks(alltasks);
-          theClient === "all" ? setIdClient('') : setIdClient(theClient);
+          theAgent !== "all" ? setFiltredtasks(AssignedFiltertask(theAgent)) : setFiltredtasks(alltasks);
+          theAgent === "all" ? setIdClient('') : setIdClient(theAgent);
      }
 
 
