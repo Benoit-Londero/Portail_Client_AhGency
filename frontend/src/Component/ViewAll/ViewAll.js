@@ -39,6 +39,11 @@ export default function ViewAll() {
           return filtredtasks;
      }
 
+     function AssignedFiltertask(agent){
+          let filtredtasks = alltasks.filter(item => item.Agent === agent);
+          return filtredtasks;
+     }
+
      function handleTasks(e) {
           let theClient = e.target.value;
           console.log(theClient);
@@ -46,6 +51,15 @@ export default function ViewAll() {
           theClient !== "all" ? setFiltredtasks(filtertask(theClient)) : setFiltredtasks(alltasks);
           theClient === "all" ? setIdClient('') : setIdClient(theClient);
      }
+
+     function AssignedTasks(e) {
+          let theClient = e.target.value;
+          console.log(theClient);
+
+          theClient !== "all" ? setFiltredtasks(AssignedFiltertask(theClient)) : setFiltredtasks(alltasks);
+          theClient === "all" ? setIdClient('') : setIdClient(theClient);
+     }
+
 
      const closeTasks = (e) => {
           setdetailTask(false);
@@ -86,7 +100,7 @@ export default function ViewAll() {
                     <ul>
                          {clients.filter(data => data.Role === 'administrator').map((item,index) =>{
                               return(
-                                   <li key={index}><Button onClick={handleTasks} value={item.Prenom + ' ' + item.Nom} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
+                                   <li key={index}><Button onClick={AssignedTasks} value={item.Prenom + ' ' + item.Nom} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
                               )
                          })}
                     </ul>
