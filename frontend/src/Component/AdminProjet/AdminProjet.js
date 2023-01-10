@@ -85,17 +85,26 @@ export default function Home() {
      }
 
      const setTrackingTime = () => {
-          fetch("https://api.track.toggl.com/api/v9/6916769/time_entries", {
+          const startDate = new Date().format();
+          const milliTime = Date.now();
+          const timestamp = Math.floor(milliTime / 1000);
+
+          /* const email = "benoit@ahgency.be";
+          const pass = "XgvetInHe69PGoo2f474o" */
+
+          fetch("https://api.track.toggl.com/api/v9/workspaces/6916769/time_entries", {
                method: "POST",
                body: {
-                    "time_entry":{
-                         "description":"Hello Toggl",
-                         "duration" : -1,
-                         "start":"1984-01-03T19:15:05.000Z",
-                         "pid":188082635}
-                    },
+                    "description": "Test new timeStamp",
+                    "start": startDate,
+                    "duration": -1 * timestamp,
+                    "pid": 188082635,
+                    "created_with":"Portail Client",
+                    "wid":6916769,
+               },
                headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": 'Basic YmVub2l0QGFoZ2VuY3kuYmU6WGd2ZXRJbkhlNjlQR29vMmY0NzRv'
                },
           })
           .then((resp) => resp.json())
