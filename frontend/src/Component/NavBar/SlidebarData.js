@@ -17,15 +17,15 @@ export const SidebarData = [
         category: 'app',
         responsive: true
     },
-    /* {
-        title:'Nouvelle demande',
-        path: '/Projet',
+    {
+        title:'Admin Projet',
+        path: '/AdminProjet',
         icon: <FiIcons.FiPlusSquare/>,
         cName: 's-sidebar__nav-link',
         admin: false,
-        category: 'app',
-        responsive: false
-    }, */
+        category: 'admin',
+        responsive: true
+    },
     {
         title:'Achat',
         path: '/Credits',

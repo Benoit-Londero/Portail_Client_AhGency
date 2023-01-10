@@ -13,6 +13,7 @@ import AdminHeure from './Component/AdminHeures/AdminHeure.js'
 import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
 import Entreprise from './Component/Entreprise/Entreprise.js'
+import AdminProjet from './Component/AdminProjet/AdminProjet.js'
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -116,6 +117,7 @@ function App() {
               <Route path='/Credits' element={< Boutique />}></Route>
               <Route path='/Inscription' element={< Inscription />}></Route>
               <Route path='/Logout' element={< Deconnexion resetLogin={resetLogin}/>}></Route>
+              <Route path="/AdminProjet" element={< AdminProjet/>}></Route>
             </Routes>
         </Router>
       </header>
