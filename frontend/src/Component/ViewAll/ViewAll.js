@@ -84,9 +84,9 @@ export default function ViewAll() {
                {/* A CORRIGER l'ID présent dans la colonne ID_Client n'est pas celle de l'ADMIN */}
                     <label> Assigné à</label>
                     <ul>
-                         {clients && clients.filter(data => data.Role === 'administrator').map((item,index) =>{
+                         {clients.filter(data => data.Role === 'administrator').map((item,index) =>{
                               return(
-                                   <li key={index}><Button onClick={handleTasks} value={item.ID} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
+                                   <li key={index}><Button onClick={handleTasks} value={item.Prenom + ' ' + item.Nom} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
                               )
                          })}
                     </ul>
