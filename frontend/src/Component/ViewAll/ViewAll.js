@@ -92,6 +92,23 @@ export default function ViewAll() {
           setdetailTask(true);
      }
 
+     const item_statut = (props) => {
+          
+          if( props === "Non démarrée"){
+               return(
+                    <tr><th><p className="failed">{props}</p></th></tr>
+               );
+          } else if( props === "En cours"){
+               return(
+                    <tr><th><p className="inProgress">{props}</p></th></tr>
+               );
+          } else {
+               return(
+                    <tr><th><p className="succeed">{props}</p></th></tr>
+               )
+          }
+     }
+
      return (
      <div>
           <NavBar />
@@ -167,6 +184,7 @@ export default function ViewAll() {
                          return (
                               <tr key={index} className="line_task">
                                    <td className="title_of_task"><p>{ item.Titre}</p></td>
+                                   <td className="">{item_statut(item.Statut)}</td>
                                    <td className="tasks__descr"><p>{ item.Informations.substring(0,100)}...</p></td>
                                    <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
                                    <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
@@ -190,7 +208,6 @@ export default function ViewAll() {
                                    <td className="time"><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                    <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
                                    <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
-                                   <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>...</Button></td>
                               </tr>
                          )
                     })}
@@ -207,26 +224,29 @@ export default function ViewAll() {
                     var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
 
                     return(
-                    <table className="detail_TS" key={index}>
-                         <thead>
-                              <tr>
-                                   <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
-                                   <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
-                              </tr>
-                         </thead>
-                         <tbody>
-                              <tr>
-                                   <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
-                                   <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
-                              </tr>
-                              <tr>
-                                   <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
-                                   <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                              </tr>
-                              <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
-                              <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
-                         </tbody>
-                    </table>)
+                    <form method="POST">
+                         <table className="detail_TS" key={index}>
+                              <thead>
+                                   <tr>
+                                        <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
+                                        <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
+                                   </tr>
+                                   <tr><th className="statut_task">{item_statut(item.Statut)}</p></th>></tr>
+                              </thead>
+                              <tbody>
+                                   <tr>
+                                        <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
+                                        <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                   </tr>
+                                   <tr>
+                                        <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
+                                        <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                   </tr>
+                                   <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
+                                   <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
+                              </tbody>
+                         </table>
+                    </form>)
                     })}
                </div> 
                

@@ -128,15 +128,15 @@ export default function Home() {
           
           if( props === "Non démarrée"){
                return(
-                    <tr><th><p className="failed">{props}</p></th></tr>
+                    <p className="failed">{props}</p>
                );
           } else if( props === "En cours"){
                return(
-                    <tr><th><p className="inProgress">{props}</p></th></tr>
+                    <p className="inProgress">{props}</p>
                );
           } else {
                return(
-                    <tr><th><p className="succeed">{props}</p></th></tr>
+                    <p className="succeed">{props}</p>
                )
           }
      }
@@ -274,7 +274,7 @@ export default function Home() {
                                         <tr key={index} className="line_task">
                                              <td><p className="task_table">{ item.Titre}</p></td>
                                              <td><p className="task_table">{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
-                                             <td><p className="statut_task">{item_statut(item.Statut)}</p></td>
+                                             <td className="statut_task">{item_statut(item.Statut)}</td>
                                              <td className="last-child"><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
                                         </tr>
                                    )
