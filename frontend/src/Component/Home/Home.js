@@ -129,13 +129,15 @@ export default function Home() {
           if( props === "Non démaré"){
                return(
                     <tr><th><p className="failed">{props}</p></th></tr>
-               )
+               );
           } else if( props === "En cours"){
                return(
                     <tr><th><p className="inProgress">{props}</p></th></tr>
-               )
+               );
           } else {
+               return(
                <tr><th><p className="succeed">{props}</p></th></tr>
+               )
           }
      }
      
