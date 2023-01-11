@@ -71,6 +71,13 @@ export default function Projet() {
             console.log(data);
             setMessage(true);
         }
+
+        fetch('https://hook.eu1.make.com/kt8avwl6r9vhlh66cu9a57vgnz8iukpk',{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(ticketJSON)
+        })
+
     }
 
     const handleRetour = () => {

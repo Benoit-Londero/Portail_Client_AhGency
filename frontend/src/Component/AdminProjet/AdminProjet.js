@@ -97,7 +97,7 @@ export default function Home() {
                body: {
                     "description": "Test new timeStamp",
                     "start": startDate,
-                    "duration": -1 * timestamp,
+                    "duration": (-1 * timestamp),
                     "pid": 188082635,
                     "created_with":"Portail Client",
                     "wid":6916769,
