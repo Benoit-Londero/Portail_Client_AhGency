@@ -126,7 +126,7 @@ export default function Home() {
 
      const item_statut = (props) => {
           
-          if( props === "Non démaré"){
+          if( props === "Non démarrée"){
                return(
                     <tr><th><p className="failed">{props}</p></th></tr>
                );
@@ -136,7 +136,7 @@ export default function Home() {
                );
           } else {
                return(
-               <tr><th><p className="succeed">{props}</p></th></tr>
+                    <tr><th><p className="succeed">{props}</p></th></tr>
                )
           }
      }
