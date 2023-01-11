@@ -71,7 +71,7 @@ export default function ViewAll() {
 
      /* Filtre par Projet */
      function ProjetFiltertask(projet){
-          let filtredtasks = alltasks.filter(item => item.ID_Projet === projet);
+          let filtredtasks = alltasks.filter(item => item.ID_Projet === parseInt(projet));
           return filtredtasks;
      }
 
