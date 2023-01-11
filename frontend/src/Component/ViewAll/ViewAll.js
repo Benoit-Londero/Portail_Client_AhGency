@@ -17,7 +17,10 @@ export default function ViewAll() {
      const [clients, setClients] = useState([]);
      const [idClient, setIdClient] = useState();
      const [filtredtasks, setFiltredtasks] = useState(null);
-     const [value_dtls, setValueDetails] = useState(); 
+     const [value_dtls, setValueDetails] = useState();
+
+     const [allProject, setAllProjects] = useState();
+     const [idProjet, setIdProjet] = useState([]);
 
      const [detailTask, setdetailTask] = useState(false);
      
@@ -32,15 +35,15 @@ export default function ViewAll() {
                .then(res => res.json())
                .then(json => setClients(json))
                .catch(err => console.info(err))
+
+          fetch('/api/getAllProjet')
+               .then(res => res.json())
+               .then(json => setAllProjects(json))
+               .catch(err => console.info(err))
      }, [])
 
      function filtertask(clients_id){
           let filtredtasks = alltasks.filter(item => item.ID_Client === parseInt(clients_id));
-          return filtredtasks;
-     }
-
-     function AssignedFiltertask(agent){
-          let filtredtasks = alltasks.filter(item => item.Agent === agent);
           return filtredtasks;
      }
 
@@ -52,12 +55,32 @@ export default function ViewAll() {
           theClient === "all" ? setIdClient('') : setIdClient(theClient);
      }
 
+     /* Filtre par Agent */
+     function AssignedFiltertask(agent){
+          let filtredtasks = alltasks.filter(item => item.Agent === agent);
+          return filtredtasks;
+     }
+
      function AssignedTasks(e) {
           let theAgent = e.target.value;
           console.log(theAgent);
 
           theAgent !== "all" ? setFiltredtasks(AssignedFiltertask(theAgent)) : setFiltredtasks(alltasks);
           theAgent === "all" ? setIdClient('') : setIdClient(theAgent);
+     }
+     /* Fin filtre par agent */
+
+     /* Filtre par Projet */
+     function ProjetFiltertask(projet){
+          let filtredtasks = alltasks.filter(item => item.ID_Projet === projet);
+          return filtredtasks;
+     }
+
+     function ProjectTasks(e){
+          let theProjet = e.target.value;
+          console.log(theProjet);
+
+          theProjet !== 0 ? setFiltredtasks(ProjetFiltertask(projet)) : '';
      }
 
 
@@ -105,6 +128,15 @@ export default function ViewAll() {
                          })}
                     </ul>
                {/* FIN CORRECTION*/}
+
+                    <label>Tous les projets</label>
+                    <ul>
+                         {allProject.map((item,index) =>{
+                              return(
+                                   <li key={index}><Button onClick={ProjectTasks} value={item.ID}>{item.Tickets}</Button></li>
+                              )
+                         })}
+                    </ul>
                </div>
           </div>
      </Row>
