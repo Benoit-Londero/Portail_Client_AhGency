@@ -80,7 +80,7 @@ export default function ViewAll() {
           let theProjet = e.target.value;
           console.log(theProjet);
 
-          theProjet !== 0 ? setFiltredtasks(ProjetFiltertask(projet)) : '';
+          setFiltredtasks(ProjetFiltertask(theProjet));
      }
 
 
