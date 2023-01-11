@@ -14,17 +14,17 @@ import * as BsIcons from "react-icons/bs";
 export default function ViewAll() {
 
      const [alltasks, setAllTasks] = useState([]);
+
      const [clients, setClients] = useState([]);
      const [idClient, setIdClient] = useState();
+
      const [filtredtasks, setFiltredtasks] = useState(null);
-     const [value_dtls, setValueDetails] = useState();
-
-     const [allProject, setAllProjects] = useState();
-
      const [detailTask, setdetailTask] = useState(false);
+     const [value_dtls, setValueDetails] = useState();
      
-     useEffect (() => {
+     const [allProject, setAllProjects] = useState([]);
 
+     useEffect (() => {
           fetch('/api/getAllTimesheet')
                .then(res => res.json())
                .then(json => setAllTasks(json))
