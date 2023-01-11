@@ -214,6 +214,17 @@
     display:none;
 }
 
+.statut_task{
+    margin:0px!important;
+}
+
+.statut_task .succeed,
+.statut_task .failed,
+.statut_task .inProgress{
+    margin:0!important;
+    width:130px;
+}
+
 /* Responsive Mobile */
 /*********************/
 
@@ -341,16 +352,7 @@
         text-align: justify;
     }
 
-    .statut_task{
-        margin:0px!important;
-    }
-
-    .statut_task .succeed,
-    .statut_task .failed,
-    .statut_task .inProgress{
-        margin:0!important;
-        width:130px;
-    }
+    
 
     .dateoftask{
         text-align: left;

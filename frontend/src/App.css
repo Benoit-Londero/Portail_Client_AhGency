@@ -199,6 +199,15 @@ table{
         width: 50%;
     }
 
+    .inProgress{
+        color:orange;
+        border:1px solid orange;
+        background: rgb(253, 213, 139);
+        border-radius: 3px;
+        text-align: center!important;
+        width: 50%;
+    }
+
     .succeed{
         color: #00f8bd;
         font-weight: 800;
