@@ -149,7 +149,7 @@ export default function ViewAll() {
                     <ul>
                          {allProject.map((item,index) =>{
                               return(
-                                   <li key={index}><Button onClick={ProjectTasks} value={item.ID}>{item.Tickets}</Button></li>
+                                   <li key={index}><Button className="primary_btn" onClick={ProjectTasks} value={item.ID}>{item.Tickets}</Button></li>
                               )
                          })}
                     </ul>

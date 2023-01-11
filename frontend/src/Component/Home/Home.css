@@ -225,6 +225,14 @@
     width:130px;
 }
 
+.list_all_tasks .line_task .failed,
+.list_all_tasks .line_task .success,
+.list_all_tasks .line_task .inProgress{
+    width: 100%;
+    font-size: 0.7rem;
+    padding: 5px 15px;
+}
+
 /* Responsive Mobile */
 /*********************/
 
