@@ -231,7 +231,7 @@ export default function ViewAll() {
                                         <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
                                         <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
                                    </tr>
-                                   <tr><th className="statut_task">{item_statut(item.Statut)}</p></th>></tr>
+                                   <tr><th className="statut_task">{item_statut(item.Statut)}</th></tr>
                               </thead>
                               <tbody>
                                    <tr>
