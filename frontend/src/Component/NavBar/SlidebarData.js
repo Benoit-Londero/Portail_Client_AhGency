@@ -17,7 +17,7 @@ export const SidebarData = [
         category: 'app',
         responsive: true
     },
-    {
+    /* {
         title:'Admin Projet',
         path: '/AdminProjet',
         icon: <FiIcons.FiPlusSquare/>,
@@ -25,7 +25,7 @@ export const SidebarData = [
         admin: false,
         category: 'admin',
         responsive: true
-    },
+    }, */
     {
         title:'Achat',
         path: '/Credits',

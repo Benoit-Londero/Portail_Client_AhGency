@@ -332,6 +332,7 @@ export default function Home() {
                                                   <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
                                                   <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
                                              </tr>
+                                             <tr><th><p>{item.Statut}</p></th></tr>
                                         </thead>
                                         <tbody>
                                              <tr>

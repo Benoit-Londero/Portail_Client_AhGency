@@ -84,7 +84,7 @@ export default function Home() {
           sethandleDisplayMobile(false);
      }
 
-     const setTrackingTime = () => {
+     /* const setTrackingTime = () => {
           const startDate = new Date().format();
           const milliTime = Date.now();
           const timestamp = Math.floor(milliTime / 1000);
@@ -92,7 +92,7 @@ export default function Home() {
           /* const email = "benoit@ahgency.be";
           const pass = "XgvetInHe69PGoo2f474o" */
 
-          fetch("https://api.track.toggl.com/api/v9/workspaces/6916769/time_entries", {
+          /* fetch("https://api.track.toggl.com/api/v9/workspaces/6916769/time_entries", {
                method: "POST",
                body: {
                     "description": "Test new timeStamp",
@@ -112,7 +112,7 @@ export default function Home() {
                console.log(json);
           })
           .catch(err => console.error(err));
-     }
+     } */
      
      return (
 
