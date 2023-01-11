@@ -20,7 +20,6 @@ export default function ViewAll() {
      const [value_dtls, setValueDetails] = useState();
 
      const [allProject, setAllProjects] = useState();
-     const [idProjet, setIdProjet] = useState([]);
 
      const [detailTask, setdetailTask] = useState(false);
      
