@@ -123,6 +123,21 @@ export default function Home() {
           setdetailTask(false);
           sethandleDisplayMobile(false);
      }
+
+     const item_statut = (props) => {
+          
+          if( props === "Non démaré"){
+               return(
+                    <tr><th><p className="failed">{item.Statut}</p></th></tr>
+               )
+          } else if( props === "En cours"){
+               return(
+                    <tr><th><p className="inProgress">{item.Statut}</p></th></tr>
+               )
+          } else {
+               <tr><th><p className="succeed">{item.Statut}</p></th></tr>
+          }
+     }
      
      return (
 
@@ -241,10 +256,6 @@ export default function Home() {
                                         return(<p key={index} className="descr__thead">{item.Description}</p>)
                                    })}</td>
                               </tr>
-                              {/* <tr>
-                                   <td>{projetFiltrer.map((item,index)=>{
-                                        return(<p key={index}>Assigné à <span className="bdg_user">{item.Email.substring(0,1)}</span></p>)})}</td>
-                              </tr> */}
                          </tbody>
                     </table>
                </Col>
@@ -261,7 +272,7 @@ export default function Home() {
                                         <tr key={index} className="line_task">
                                              <td><p className="task_table">{ item.Titre}</p></td>
                                              <td><p className="task_table">{Moment(item.Date_Tache_Effectuee).format('DD-MM-YY')}</p></td>
-                                             <td><p className="statut_task">{item.Statut}</p></td>
+                                             <td><p className="statut_task">{item_statut(item.Statut)}</p></td>
                                              <td className="last-child"><button name = "Voirplus" className="btn_ts_bottom" value={item.ID_TS} onClick={handleFilter}> Détails </button></td>
                                         </tr>
                                    )
@@ -319,7 +330,6 @@ export default function Home() {
           </Row> : ''}
 
           {detailTask === true ? <Row className="modal__newTask">
-               
                <Col>                                      
                     {filteredTS.map((item,index) => {
                          var day = Moment(item.Date_Tache_Effectuee).format('DD');
@@ -332,7 +342,6 @@ export default function Home() {
                                                   <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
                                                   <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
                                              </tr>
-                                             <tr><th><p>{item.Statut}</p></th></tr>
                                         </thead>
                                         <tbody>
                                              <tr>
@@ -389,4 +398,4 @@ export default function Home() {
      {newTask === true ? <div className="modal__newTask"><div id="modal_desktop"><button className="close_modale" onClick={closeTasks}>X</button><AdminForm/></div></div> : ''}
      </div>
       )
- }
+}

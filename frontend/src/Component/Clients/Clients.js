@@ -289,6 +289,8 @@ export default function Clients() {
           }
           /************************/
 
+          
+
      return (
 
      <div>
@@ -370,38 +372,7 @@ export default function Clients() {
                                              </tr>
                                         )
                                    })}
-                                   {/* {allEntreprise && allEntreprise.map((item,index) => {
-                                        
-                                        let myMember = item.Membres;
-                                        let resultMember = '';
-                                        let splitMembers;
-
-                                        let userMember;
-
-                                        for(let i=0; i<allEntreprise.length;i++){
-                                             userMember += '<span class="bdg_user">' + allEntreprise[i].Prenom.substring(0,1) + '</span>';
-                                        }
-                                        
-                                        if(typeof(myMember) === 'string'){
-                                             splitMembers = myMember.split(",");
-
-                                             for(let i=0; i < splitMembers.length;i++) {
-                                                  resultMember += '<span class="bdg_user">' + splitMembers[i].substring(0,1) + '</span>';
-                                             }
-                                        } else {
-                                             console.log('Aucune phrase trouvée');
-                                        }
-
-                                        return(
-                                             <tr key={index}>
-                                                  <td><p>{item.Nom_societe}</p></td>
-                                                  <td><p dangerouslySetInnerHTML={{__html: resultMember}}></p></td>
-                                                  <td><p dangerouslySetInnerHTML={{_html: userMember}}></p></td>
-                                                  <td><p>{Moment(item.Date_creation).format('DD-MM-YYYY')}</p></td>
-                                                  <td><Button className="dts_client" onClick={handleShowEntreprise} value={item.ID_entreprise}>...</Button> </td>
-                                             </tr>
-                                        )
-                                   })} */}
+                                   
                               </tbody>
                          </table>
                     </Col> 
@@ -618,48 +589,7 @@ export default function Clients() {
                                              </tr>
                                         </table>
                                    )})}
-                                   {/* <tr>
-                                        <td><p className="bold">ID Entreprise :</p></td>
-                                        <td><p>{currentIDE}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Nom société :</p></td>
-                                        <td><p>{currentNOMSOC}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Membres:</p></td>
-                                        <td><p>{currentMembers}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">TVA :</p></td>
-                                        <td><p>{currentTVA}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Adresse :</p></td>
-                                        <td><p>{currentADR}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Telephone :</p></td>
-                                        <td><p>{currentTelEnt}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Email :</p></td>
-                                        <td><p>{currentMAILE}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Maintenance :</p></td>
-                                        <td><p>{currentMaint}</p></td>
-                                   </tr>
                                    
-                                   <tr>
-                                        <td><p className="bold">Site Web :</p></td>
-                                        <td><p>{currentSiteWeb}</p></td>
-                                   </tr>
-
-                                   <tr>
-                                        <td><p className="bold">Date création :</p></td>
-                                        <td><p>{currentDatCrea}</p></td>
-                                   </tr> */}
                          </div>
                     </div>  
                </Row>
