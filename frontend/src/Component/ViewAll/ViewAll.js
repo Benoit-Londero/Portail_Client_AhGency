@@ -300,7 +300,7 @@ export default function ViewAll() {
                               <table className="detail_TS" key={index}>
                                    <thead>
                                         <tr>
-                                             <th offset="1" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
+                                             <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
                                         </tr>
                                         <tr>
                                              <th><p className="bold">Statut du projet</p></th>
@@ -323,8 +323,8 @@ export default function ViewAll() {
                                         </tr>
                                         <tr><td><p className="bold"><BsIcons.BsTextParagraph/>Description</p></td></tr>
                                         <tr><td colspan="2"><textarea name="descr_" className="tasks">{item.Informations}</textarea></td></tr>
-                                        <tr><td><input type="submit" name="updateTask" value="Mettre à jour"></input>
-                                        <input type="hidden" name="id_task" value={item.ID}></input></td></tr>
+                                        <tr><td colspan="2"><input type="submit" name="updateTask" value="Mettre à jour"></input>
+                                        <input type="hidden" name="id_task" value={item.ID_TS}></input></td></tr>
                                    </tbody>
                               </table>
                          </form>)
