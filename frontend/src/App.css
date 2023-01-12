@@ -200,6 +200,15 @@ table{
         width: 50%;
     }
 
+    .new{
+        color: rgb(85, 85, 85);
+        background: #bcbcbc;
+        border: 1px solid rgb(85, 85, 85);;
+        border-radius: 3px;
+        text-align: center!important;
+        width: 50%;
+    }
+
     .inProgress{
         color:orange;
         border:1px solid orange;

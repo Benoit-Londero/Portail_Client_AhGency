@@ -100,6 +100,7 @@ export default function AdminForm() {
                       <option value="Fabian Hernandez Barco">Fabian Hernandez Barco</option>
                       <option value="Quentin De Jarnac">Quentin De Jarnac</option>
                       <option value="Benoit Londero">Benoit Londero</option>
+                      <option value="Client">Client</option>
                     </select>
                   </td>
                 </tr>

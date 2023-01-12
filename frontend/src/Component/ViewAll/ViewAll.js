@@ -103,7 +103,7 @@ export default function ViewAll() {
           
           if( props === "Non démarrée"){
                return(
-                    <tr><th><p className="failed">{props}</p></th></tr>
+                    <tr><th><p className="news">{props}</p></th></tr>
                );
           } else if( props === "En cours"){
                return(

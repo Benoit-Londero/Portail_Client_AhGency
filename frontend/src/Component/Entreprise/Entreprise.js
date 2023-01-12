@@ -198,27 +198,27 @@ export default function Entreprise() {
                                         <tbody>
                                              <tr>
                                                   <td><label className="bold">Nom: </label></td>
-                                                  <td><input type="text" name="nom" placeholder="Nom de l'entreprise" value={currentNomE} defaultValue={currentNomE} required/></td>
+                                                  <td><input type="text" name="nom" placeholder="Nom de l'entreprise" defaultValue={currentNomE} required/></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Numéro de TVA: </label></td>
-                                                  <td><input type="text" name="tva" placeholder="BE123456789" value={currentTVA} defaultValue={currentTVA} required/></td>
+                                                  <td><input type="text" name="tva" placeholder="BE123456789" defaultValue={currentTVA} required/></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Adresse: </label></td>
-                                                  <td><input type="text" name="adresse" placeholder="Votre adresse" value={currentADRESSE} defaultValue={currentADRESSE} required/></td>
+                                                  <td><input type="text" name="adresse" placeholder="Votre adresse" defaultValue={currentADRESSE} required/></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"><BsIcons.BsFillTelephoneFill/> Téléphone: </label></td>
-                                                  <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue={currentTEL} value={currentTEL}></input></td>
+                                                  <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue={currentTEL}></input></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"><MdIcons.MdAlternateEmail/> Email: </label></td>
-                                                  <td><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue={currentEMAILE} value={currentEMAILE}></input></td>
+                                                  <td><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue={currentEMAILE}></input></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Site: </label></td>
-                                                  <td><input type="text" id="web" name="web"  defaultValue={currentSITE} value={currentSITE}></input></td>
+                                                  <td><input type="text" id="web" name="web"  defaultValue={currentSITE}></input></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Membres: </label></td>
@@ -229,7 +229,7 @@ export default function Entreprise() {
                                                   </td>
                                              </tr>
                                              <tr>
-                                                  <td colspan="2"><input type="hidden" id="idE" name="idE" defaultValue={currentIDE} value={currentIDE}></input>
+                                                  <td colspan="2"><input type="hidden" id="idE" name="idE" defaultValue={currentIDE}></input>
                                                   <input type="submit" name="modifier" value="Enregistrer" /></td>
                                              </tr>
                                         </tbody>

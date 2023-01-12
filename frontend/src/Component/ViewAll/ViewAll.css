@@ -218,6 +218,14 @@
     border-radius: 3px;
 }
 
+.list_all_tasks .line_task .failed,
+.list_all_tasks .line_task .success,
+.list_all_tasks .line_task .inProgress{
+    margin:0!important;
+    width:130px;
+    font-size: 0.7rem;
+    padding: 5px 15px;
+}
 
 /******************/
 
