@@ -297,7 +297,7 @@ export default function ViewAll() {
                          {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
 
                          return(
-                         <form id="updateTask" method="POST">
+                         <form id="updateTask" onSubmit={handleUpdate} method="POST">
                               <table className="detail_TS" key={index}>
                                    <thead>
                                         <tr>
@@ -324,7 +324,7 @@ export default function ViewAll() {
                                         </tr>
                                         <tr><td><p className="bold"><BsIcons.BsTextParagraph/>Description</p></td></tr>
                                         <tr><td colspan="2"><textarea name="descr_" className="tasks">{ item.Informations}</textarea></td></tr>
-                                        <tr><td><input type="submit" name="updateTask">Mettre à jour</input>
+                                        <tr><td><input type="submit" name="updateTask" >Mettre à jour</input>
                                         <input type="hidden" name="id_task" value={item.ID}></input></td></tr>
                                    </tbody>
                               </table>
