@@ -209,6 +209,15 @@
     font-size: .56rem;
 }
 
+.AllProjet_box{
+    overflow: scroll;
+    height: 290px;
+    margin: 0;
+    padding: 20px 7px;
+    box-shadow: inset 3px 4px 10px rgb(0 0 0 / 8%);
+    border-radius: 3px;
+}
+
 
 /******************/
 

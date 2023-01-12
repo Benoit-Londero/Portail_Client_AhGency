@@ -20,6 +20,7 @@ export default function ViewAll() {
 
      const [filtredtasks, setFiltredtasks] = useState(null);
      const [detailTask, setdetailTask] = useState(false);
+     const [updateTask, setupdateTask] = useState(false);
      const [value_dtls, setValueDetails] = useState();
      
      const [allProject, setAllProjects] = useState([]);
@@ -92,6 +93,11 @@ export default function ViewAll() {
           setdetailTask(true);
      }
 
+     const updateTask = (e) => {
+          setValueDetails(e.target.value);
+          setupdateTask(true);
+     }
+
      const item_statut = (props) => {
           
           if( props === "Non démarrée"){
@@ -146,7 +152,7 @@ export default function ViewAll() {
                {/* FIN CORRECTION*/}
 
                     <label>Tous les projets</label>
-                    <ul>
+                    <ul className="AllProjet_box">
                          {allProject.map((item,index) =>{
                               return(
                                    <li key={index}><Button className="primary_btn" onClick={ProjectTasks} value={item.ID}>{item.Tickets}</Button></li>
@@ -185,11 +191,11 @@ export default function ViewAll() {
                               <tr key={index} className="line_task">
                                    <td className="title_of_task"><p>{ item.Titre}</p></td>
                                    <td className="">{item_statut(item.Statut)}</td>
-                                   <td className="tasks__descr"><p>{ item.Informations.substring(0,100)}...</p></td>
+                                   {/* <td className="tasks__descr"><p>{ item.Informations.substring(0,100)}...</p></td> */}
                                    <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
                                    <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                    <td className="last-child"><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
-                                   <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>...</Button></td>
+                                   <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={updateTask}>...</Button></td>
                               </tr>
                               )
                          })}
@@ -250,6 +256,47 @@ export default function ViewAll() {
                     })}
                </div> 
                
+               </Row>
+          : ''}
+
+          {updateTask === true ?
+               <Row className="modal__newTask">
+                    <div id="modal_desktop">
+                         {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
+
+                         var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                         var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+
+                         return(
+                         <form method="POST">
+                              <table className="detail_TS" key={index}>
+                                   <thead>
+                                        <tr>
+                                             <th offset="1" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
+                                        </tr>
+                                        <tr><th className="statut_task">
+                                             <select>
+                                                  <option value="En cours">En cours</option>
+                                                  <option value="Terminée">Terminée</option>
+                                             </select>
+                                        </th></tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
+                                             <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                        </tr>
+                                        <tr>
+                                             <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
+                                             <td><input type="number"></input></td>
+                                        </tr>
+                                        <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
+                                        <tr><td colspan="2"><textarea className="tasks">{ item.Informations}</textarea></td></tr>
+                                   </tbody>
+                              </table>
+                         </form>)
+                         })}
+                    </div> 
                </Row>
           : ''}
           
