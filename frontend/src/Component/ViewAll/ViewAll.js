@@ -76,6 +76,7 @@ export default function ViewAll() {
           return filtredtasks;
      }
 
+     /* Ajout Benoit - Filtre par projet + mise à jour tâche (statut + temps + description) */
      function ProjectTasks(e){
           let theProjet = e.target.value;
           console.log(theProjet);
@@ -86,6 +87,7 @@ export default function ViewAll() {
 
      const closeTasks = (e) => {
           setdetailTask(false);
+          setupdateTask(false);
      }
 
      const handleAddTask = (e) =>{
@@ -114,6 +116,36 @@ export default function ViewAll() {
                )
           }
      }
+
+     const handleUpdate = async e => {
+          e.preventDefault();
+          let updateTaskForm = document.getElementById('updateTask'); //on récupère l'élement <form> et ces différents <input>
+          let upd_ = new FormData(updateTaskForm); //que l'on intègre à un formData
+  
+          const updateJSON = buildJsonFormData(upd_);
+  
+          //On crée une boucle pour transformer le FormData en JSON
+          function buildJsonFormData(upd_){
+                  const jsonFormData = {};
+                  for(const pair of upd_){
+                      jsonFormData[pair[0]] = pair[1];
+                  }
+  
+                  return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+          }
+  
+          const response = await fetch('/api/PostUpdateTask', { 
+                  method: 'POST',
+                  headers: {'Content-Type': 'application/json'},
+                  body: JSON.stringify(updateJSON)
+          })
+  
+          const data = await response.json();
+          if(data === "Timesheet mis à jour"){
+              console.log(data);
+              setupdateTask(false);
+          }
+      }
 
      return (
      <div>
@@ -265,18 +297,21 @@ export default function ViewAll() {
                          {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
 
                          return(
-                         <form method="POST">
+                         <form id="updateTask" method="POST">
                               <table className="detail_TS" key={index}>
                                    <thead>
                                         <tr>
                                              <th offset="1" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
                                         </tr>
-                                        <tr><th className="statut_task">
-                                             <select>
-                                                  <option value="En cours">En cours</option>
-                                                  <option value="Terminée">Terminée</option>
-                                             </select>
-                                        </th></tr>
+                                        <tr>
+                                             <th><p className="bold">Statut du projet</p></th>
+                                             <th className="statut_task">
+                                                  <select name="state">
+                                                       <option value="En cours">En cours</option>
+                                                       <option value="Terminée">Terminée</option>
+                                                  </select>
+                                             </th>
+                                        </tr>
                                    </thead>
                                    <tbody>
                                         <tr>
@@ -285,10 +320,12 @@ export default function ViewAll() {
                                         </tr>
                                         <tr>
                                              <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
-                                             <td><input type="number"></input></td>
+                                             <td><input type="number" name="timeSpend"></input></td>
                                         </tr>
-                                        <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
-                                        <tr><td colspan="2"><textarea className="tasks">{ item.Informations}</textarea></td></tr>
+                                        <tr><td><p className="bold"><BsIcons.BsTextParagraph/>Description</p></td></tr>
+                                        <tr><td colspan="2"><textarea name="descr_" className="tasks">{ item.Informations}</textarea></td></tr>
+                                        <tr><td><input type="submit" name="updateTask">Mettre à jour</input>
+                                        <input type="hidden" name="id_task" value={item.ID}></input></td></tr>
                                    </tbody>
                               </table>
                          </form>)
