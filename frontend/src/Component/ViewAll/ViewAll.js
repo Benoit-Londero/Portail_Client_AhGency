@@ -264,9 +264,6 @@ export default function ViewAll() {
                     <div id="modal_desktop">
                          {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
 
-                         var day = Moment(item.Date_Tache_Effectuee).format('DD');
-                         var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
-
                          return(
                          <form method="POST">
                               <table className="detail_TS" key={index}>
