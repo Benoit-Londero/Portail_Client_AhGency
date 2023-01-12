@@ -13,14 +13,14 @@ import * as BsIcons from "react-icons/bs";
 
 export default function ViewAll() {
 
-     const [alltasks, setAllTasks] = useState([]);
+     const [alltasks, setAllTasks] = useState([]); // Retourne toutes les tâches
 
-     const [clients, setClients] = useState([]);
+     const [clients, setClients] = useState([]); // Retourne tous les clients
      const [idClient, setIdClient] = useState();
 
      const [filtredtasks, setFiltredtasks] = useState(null);
-     const [detailTask, setdetailTask] = useState(false);
-     const [updateTask, setupdateTask] = useState(false);
+     const [detailTask, setdetailTask] = useState(false); // Modale affichage détails tâche
+     const [updateTask, setupdateTask] = useState(false); // Modale update tâche
      const [value_dtls, setValueDetails] = useState();
      
      const [allProject, setAllProjects] = useState([]);
@@ -93,7 +93,7 @@ export default function ViewAll() {
           setdetailTask(true);
      }
 
-     const updateTask = (e) => {
+     const updateTheTask = (e) => {
           setValueDetails(e.target.value);
           setupdateTask(true);
      }
@@ -195,7 +195,7 @@ export default function ViewAll() {
                                    <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
                                    <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                    <td className="last-child"><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
-                                   <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={updateTask}>...</Button></td>
+                                   <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={updateTheTask}>...</Button></td>
                               </tr>
                               )
                          })}
