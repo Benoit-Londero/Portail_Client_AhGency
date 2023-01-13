@@ -211,11 +211,16 @@
 
 .AllProjet_box{
     overflow: scroll;
-    height: 290px;
+    height: 310px;
     margin: 0;
-    padding: 20px 7px;
-    box-shadow: inset 3px 4px 10px rgb(0 0 0 / 8%);
-    border-radius: 3px;
+    padding: 20px 10px;
+    box-shadow: inset 1px -3px 10px 0px rgb(0 0 0 / 19%);
+    border-radius: 13px;
+}
+
+.filter_admin{
+    margin-left:0;
+    padding-left:0;
 }
 
 .list_all_tasks .line_task .failed,

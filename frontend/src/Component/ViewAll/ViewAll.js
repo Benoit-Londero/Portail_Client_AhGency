@@ -159,7 +159,7 @@ export default function ViewAll() {
                     <button  value='all' className="btn primary_btn" onClick={handleTasks}>Tous</button>
                </div>
 
-               <div className="navbar_col_d">
+               <div className="navbar_col_d filter_admin">
                     <label>Filtrer par client</label>
                     <select onChange={handleTasks}>
                          <option name="default" disabled> Default </option>
@@ -222,11 +222,12 @@ export default function ViewAll() {
                               <tr key={index} className="line_task">
                                    <td className="title_of_task"><p>{ item.Titre}</p></td>
                                    <td className="">{item_statut(item.Statut)}</td>
-                                   {/* <td className="tasks__descr"><p>{ item.Informations.substring(0,100)}...</p></td> */}
                                    <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
                                    <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                   <td className="last-child"><Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
-                                   <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={updateTheTask}>...</Button></td>
+                                   <td className="last-child">
+                                        <Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button>
+                                        <Button className="btn_ts_bottom" value={item.ID_TS} onClick={updateTheTask}>...</Button>
+                                   </td>
                               </tr>
                               )
                          })}
