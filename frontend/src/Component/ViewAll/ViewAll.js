@@ -296,7 +296,7 @@ export default function ViewAll() {
                     })}
 
                     
-                    {allLogs.filter(item => item.ID_Tache === parseint(value_dtls)).map((item,index) =>{
+                    {allLogs.filter(item => item.ID_Tache === parseInt(value_dtls)).map((item,index) =>{
                          return(
                               <table>
                                    <thead>
