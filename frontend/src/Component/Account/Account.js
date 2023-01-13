@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import NavBar from "../NavBar/NavBar";
 import Entreprise from '../Entreprise/Entreprise.js';
-import Deconnexion from "../Deconnexion/Deconnexion";
+/* import Deconnexion from "../Deconnexion/Deconnexion"; */
 
 import * as BsIcons from "react-icons/bs";
 import * as RiIcons from "react-icons/ri";
