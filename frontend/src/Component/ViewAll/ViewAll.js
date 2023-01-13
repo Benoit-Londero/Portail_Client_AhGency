@@ -334,7 +334,7 @@ export default function ViewAll() {
                                              <th className="statut_task">
                                                   <select name="state" required>
                                                        <option defaultValue={item.Statut} default disabled> - </option>
-                                                       <option value="Non démarée">Non démarée</option>
+                                                       <option value="Non démarrée">Non démarrée</option>
                                                        <option value="En cours">En cours</option>
                                                        <option value="Terminée">Terminée</option>
                                                   </select>

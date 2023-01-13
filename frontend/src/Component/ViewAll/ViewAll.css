@@ -224,8 +224,8 @@
 }
 
 .admin_view_task .failed,
-.admin_view_task .success,
-.admin_view_task.inProgress,
+.admin_view_task .succeed,
+.admin_view_task .inProgress,
 .admin_view_task .new{
     margin:0!important;
     width:130px;
