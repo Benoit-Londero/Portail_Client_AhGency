@@ -24,6 +24,7 @@ export default function ViewAll() {
      const [value_dtls, setValueDetails] = useState();
      
      const [allProject, setAllProjects] = useState([]);
+     const [allLogs, setAllLogs] = useState([]); // Contient l'ensemble des logs
 
 
      const currentIDU = localStorage.getItem("currentIDU");
@@ -42,6 +43,11 @@ export default function ViewAll() {
           fetch('/api/getAllProjet')
                .then(res => res.json())
                .then(json => setAllProjects(json))
+               .catch(err => console.info(err))
+
+          fetch('/api/getAllLogs')
+               .then(res => res.json())
+               .then(json => setAllLogs(json))
                .catch(err => console.info(err))
      }, [])
 
@@ -265,7 +271,6 @@ export default function ViewAll() {
                     var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
 
                     return(
-                    <form method="POST">
                          <table className="detail_TS" key={index}>
                               <thead>
                                    <tr>
@@ -287,8 +292,28 @@ export default function ViewAll() {
                                    <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
                               </tbody>
                          </table>
-                    </form>)
+                    )
                     })}
+
+                    
+                    {allLogs.filter(item => item.ID_Tache === parseint(value_dtls)).map((item,index) =>{
+                         return(
+                              <table>
+                                   <thead>
+                                        <th><td colspan="3">Logs</td></th>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td><p>{item.ID_Logs_TS}</p></td>
+                                             <td><p>{item.Temps} min.</p></td>
+                                             <td><p>{item.Détails}</p></td>
+                                        </tr>
+                                   </tbody>
+                              </table>
+                         )
+                    })}
+
+                    
                </div> 
                
                </Row>

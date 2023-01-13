@@ -128,7 +128,7 @@ export default function Home() {
           
           if( props === "Non démarrée"){
                return(
-                    <p className="news">{props}</p>
+                    <p className="failed">{props}</p>
                );
           } else if( props === "En cours"){
                return(
