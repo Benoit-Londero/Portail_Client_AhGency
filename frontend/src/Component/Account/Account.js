@@ -36,6 +36,12 @@ export default function NameForm() {
      const [totminEntreprise,setTotMinEntreprise] = useState();
      const [tempsAlloue, setTempsAlloue] = useState();
 
+
+     const [checkPercent, setCheckPercent] = useState();
+     const [moneySpend, setMoneySpend] = useState();
+
+     const [currentHeureREST, setCurrentHeureREST] = useState();
+
      console.log(currentNomE);
      console.log(currentTVA);
      console.log(currentADRESSE);
@@ -45,6 +51,9 @@ export default function NameForm() {
      console.log(minEntreprise);
      console.log(totminEntreprise);
      console.log(tempsAlloue);
+     console.log(checkPercent);
+     console.log(moneySpend);
+     console.log(currentHeureREST);
 
      const [profil, setProfil] = useState(false);
 
