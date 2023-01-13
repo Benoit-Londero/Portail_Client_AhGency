@@ -12,7 +12,7 @@ import * as BsIcons from "react-icons/bs";
 import * as RiIcons from "react-icons/ri";
 
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function NameForm() {
 
@@ -264,7 +264,7 @@ export default function NameForm() {
 
                          <Row className="mobile">
                               <Col>
-                                   <Link path="/Logout"><RiIcons.RiLogoutBoxLine /> Se déconnecter</Link>
+                                   <NavLink to="/Logout"><RiIcons.RiLogoutBoxLine /> Se déconnecter</NavLink>
                               </Col>
                          </Row>
                               
