@@ -27,6 +27,14 @@ export default function Entreprise() {
      const [allUsers, setAllUsers] = useState([]);
 
 
+     console.log(currentNomE);
+     console.log(currentTVA);
+     console.log(currentADRESSE);
+     console.log(currentTEL);
+     console.log(currentEMAILE);
+     console.log(currentSITE);
+
+
      const [checkPercent, setCheckPercent] = useState();
      const [moneySpend, setMoneySpend] = useState();
 
