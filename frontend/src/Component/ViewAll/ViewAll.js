@@ -264,56 +264,106 @@ export default function ViewAll() {
 
           {detailTask === true ? 
                <Row className="modal__newTask">
-                    <div id="modal_desktop" className="mobile">
-                    {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
+                    <div id="modal_desktop">
+                         {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
 
-                    var day = Moment(item.Date_Tache_Effectuee).format('DD');
-                    var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+                         var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                         var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
 
-                    return(
-                         <table className="detail_TS" key={index}>
+                         return(
+                              <table className="detail_TS" key={index}>
+                                   <thead>
+                                        <tr>
+                                             <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
+                                             <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
+                                        </tr>
+                                        <tr><th className="statut_task">{item_statut(item.Statut)}</th></tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
+                                             <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                        </tr>
+                                        <tr>
+                                             <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
+                                             <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                        </tr>
+                                        <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
+                                        <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
+                                   </tbody>
+                              </table>
+                         )
+                         })}
+
+                         <table>
                               <thead>
-                                   <tr>
-                                        <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
-                                        <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
-                                   </tr>
-                                   <tr><th className="statut_task">{item_statut(item.Statut)}</th></tr>
+                                   <th><td colspan="3"><p className="bold">Logs</p></td></th>
                               </thead>
+                              
                               <tbody>
-                                   <tr>
-                                        <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
-                                        <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
-                                        <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                   </tr>
-                                   <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
-                                   <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
+                                   {allLogs.filter(item => item.ID_Tache === parseInt(value_dtls)).map((item,index) =>{
+                                        return(
+                                             <tr>
+                                                  <td><p>{item.ID_Logs_TS}</p></td>
+                                                  <td><p>{item.Temps} min.</p></td>
+                                                  <td><p>{item.Détails}</p></td>
+                                             </tr>
+                                        )
+                                   })}
                               </tbody>
                          </table>
-                    )
-                    })}
+                    </div> 
 
-                    <table>
-                         <thead>
-                              <th><td colspan="3"><p className="bold">Logs</p></td></th>
-                         </thead>
-                         
-                         <tbody>
-                              {allLogs.filter(item => item.ID_Tache === parseInt(value_dtls)).map((item,index) =>{
-                                   return(
+                    <div id="modal_desktop" className="mobile">
+                         {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
+
+                         var day = Moment(item.Date_Tache_Effectuee).format('DD');
+                         var Month = Moment(item.Date_Tache_Effectuee).format('MMM');
+
+                         return(
+                              <table className="detail_TS" key={index}>
+                                   <thead>
                                         <tr>
-                                             <td><p>{item.ID_Logs_TS}</p></td>
-                                             <td><p>{item.Temps} min.</p></td>
-                                             <td><p>{item.Détails}</p></td>
+                                             <th colspan="2"><p className="date_badge">{day}<br></br>{Month}</p><br></br><p className="title_of_task">{ item.Titre }</p></th>
+                                             <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
                                         </tr>
-                                    )
-                              })}
-                         </tbody>
-                    </table>
-               </div> 
-               
+                                        <tr><th className="statut_task">{item_statut(item.Statut)}</th></tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
+                                             <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                        </tr>
+                                        <tr>
+                                             <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
+                                             <td><p className="time_spend">{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                        </tr>
+                                        <tr><td><p className="bold"><BsIcons.BsTextParagraph/> Description</p></td></tr>
+                                        <tr><td colspan="2"><p className="tasks">{ item.Informations}</p></td></tr>
+                                   </tbody>
+                              </table>
+                         )
+                         })}
+
+                         <table>
+                              <thead>
+                                   <th><td colspan="3"><p className="bold">Logs</p></td></th>
+                              </thead>
+                              
+                              <tbody>
+                                   {allLogs.filter(item => item.ID_Tache === parseInt(value_dtls)).map((item,index) =>{
+                                        return(
+                                             <tr>
+                                                  <td><p>{item.ID_Logs_TS}</p></td>
+                                                  <td><p>{item.Temps} min.</p></td>
+                                                  <td><p>{item.Détails}</p></td>
+                                             </tr>
+                                        )
+                                   })}
+                              </tbody>
+                         </table>
+                    </div>
+                    
                </Row>
           : ''}
 
@@ -334,7 +384,50 @@ export default function ViewAll() {
                                              <th className="statut_task">
                                                   <select name="state" required>
                                                        <option defaultValue={item.Statut} default disabled> - </option>
-                                                       <option value="Non démarrée">Non démarrée</option>
+                                                       <option value="Non démarrée">Non démarée</option>
+                                                       <option value="En cours">En cours</option>
+                                                       <option value="Terminée">Terminée</option>
+                                                  </select>
+                                             </th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
+                                             <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                        </tr>
+                                        <tr>
+                                             <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
+                                             <td><input type="number" id="timespend" name="timeSpend" defaultValue={item.Temps_Min_Tache} required></input></td>
+                                        </tr>
+                                        <tr><td><p className="bold"><BsIcons.BsTextParagraph/>Détails action(s) réalisée(s)</p></td></tr>
+                                        <tr><td colspan="2"><textarea name="descr_" className="tasks" required>{item.Informations}</textarea></td></tr>
+                                        <tr><td colspan="2"><input type="submit" name="updateTask" value="Mettre à jour"></input>
+                                        <input type="hidden" name="id_task" value={item.ID_TS}></input>
+                                        <input type="hidden" name="idUser" value={currentIDU}></input>
+                                        </td></tr>
+                                   </tbody>
+                              </table>
+                         </form>)
+                         })}
+                    </div>
+
+                    <div id="modal_desktop" className="mobile">
+                         {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
+
+                         return(
+                         <form id="updateTask" onSubmit={handleUpdate}>
+                              <table className="detail_TS" key={index}>
+                                   <thead>
+                                        <tr>
+                                             <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
+                                        </tr>
+                                        <tr>
+                                             <th><p className="bold">Statut du projet</p></th>
+                                             <th className="statut_task">
+                                                  <select name="state" required>
+                                                       <option defaultValue={item.Statut} default disabled> - </option>
+                                                       <option value="Non démarrée">Non démarée</option>
                                                        <option value="En cours">En cours</option>
                                                        <option value="Terminée">Terminée</option>
                                                   </select>
