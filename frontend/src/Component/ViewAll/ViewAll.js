@@ -112,7 +112,7 @@ export default function ViewAll() {
           
           if( props === "Non démarrée"){
                return(
-                    <tr><th><p className="news">{props}</p></th></tr>
+                    <tr><th><p className="new">{props}</p></th></tr>
                );
           } else if( props === "En cours"){
                return(
@@ -230,7 +230,7 @@ export default function ViewAll() {
                          return (
                               <tr key={index} className="line_task">
                                    <td className="title_of_task"><p>{ item.Titre}</p></td>
-                                   <td className="">{item_statut(item.Statut)}</td>
+                                   <td className="admin_view_task">{item_statut(item.Statut)}</td>
                                    <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
                                    <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                    <td className="last-child">
@@ -264,7 +264,7 @@ export default function ViewAll() {
 
           {detailTask === true ? 
                <Row className="modal__newTask">
-                    <div id="modal_desktop">
+                    <div id="modal_desktop" className="mobile">
                     {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
 
                     var day = Moment(item.Date_Tache_Effectuee).format('DD');
@@ -295,25 +295,23 @@ export default function ViewAll() {
                     )
                     })}
 
-                    
-                    {allLogs.filter(item => item.ID_Tache === parseInt(value_dtls)).map((item,index) =>{
-                         return(
-                              <table>
-                                   <thead>
-                                        <th><td colspan="3">Logs</td></th>
-                                   </thead>
-                                   <tbody>
+                    <table>
+                         <thead>
+                              <th><td colspan="3"><p className="bold">Logs</p></td></th>
+                         </thead>
+                         
+                         <tbody>
+                              {allLogs.filter(item => item.ID_Tache === parseInt(value_dtls)).map((item,index) =>{
+                                   return(
                                         <tr>
                                              <td><p>{item.ID_Logs_TS}</p></td>
                                              <td><p>{item.Temps} min.</p></td>
                                              <td><p>{item.Détails}</p></td>
                                         </tr>
-                                   </tbody>
-                              </table>
-                         )
-                    })}
-
-                    
+                                    )
+                              })}
+                         </tbody>
+                    </table>
                </div> 
                
                </Row>

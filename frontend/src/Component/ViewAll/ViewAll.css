@@ -223,9 +223,10 @@
     padding-left:0;
 }
 
-#list_all_tasks .line_task .failed,
-#list_all_tasks .line_task .success,
-#list_all_tasks .line_task .inProgress{
+.admin_view_task .failed,
+.admin_view_task .success,
+.admin_view_task.inProgress,
+.admin_view_task .new{
     margin:0!important;
     width:130px;
     font-size: 0.7rem;
@@ -236,8 +237,9 @@
 
 @media screen and (max-width:756px) and (orientation: portrait) {
 
-    .mobile{
-        display:block;
+    #page_viewall .mobile{
+        display:block!important;
+        width:90vw;
     }
   
     .hide_mobile,
