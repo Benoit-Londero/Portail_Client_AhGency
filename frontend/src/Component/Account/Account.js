@@ -17,6 +17,8 @@ import { Link } from "react-router-dom";
 export default function NameForm() {
 
      const currentIDU = localStorage.getItem("currentIDU");
+     const currentIDE = localStorage.getItem("currentIDE");
+
 
      const [validation, setValidation] = useState(false);
      const [error, setError] = useState(false);
@@ -24,32 +26,119 @@ export default function NameForm() {
      const [currentPNOM, setCurrentPNOM] = useState();
      const [currentMAIL, setCurrentMAIL] = useState();
 
+     const [currentNomE, setCurrentNomE] = useState();
+     const [currentTVA, setCurrentTVA] = useState();
+     const [currentADRESSE, setCurrentADRESSE] = useState();
+     const [currentTEL, setCurrentTEL] = useState();
+     const [currentEMAILE, setCurrentEMAILE] = useState();
+     const [currentSITE, setCurrentSITE] = useState();
+     const [minEntreprise, setMinEntreprise] = useState();
+     const [totminEntreprise,setTotMinEntreprise] = useState();
+     const [tempsAlloue, setTempsAlloue] = useState();
+
+     console.log(currentNomE);
+     console.log(currentTVA);
+     console.log(currentADRESSE);
+     console.log(currentTEL);
+     console.log(currentEMAILE);
+     console.log(currentSITE);
+     console.log(minEntreprise);
+     console.log(totminEntreprise);
+     console.log(tempsAlloue);
+
      const [profil, setProfil] = useState(false);
 
      useEffect(() => {
           let dataU = {currentIDUser: currentIDU};
+          let dataE = {currentIDEntreprise: currentIDE};
+
 
           const onLoad = async () => {
            
                const response = await fetch('/api/getInfosClient', { 
-                 method: 'POST',
-                 headers: {'Content-Type': 'application/json'},
-                 body: JSON.stringify(dataU)
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dataU)
                })
            
                const data = await response.json();
+               
                if(response.status === 200){
-                 setCurrentNOM(data.Nom);
-                 setCurrentPNOM(data.Prenom);
-                 setCurrentMAIL(data.Email);
+                    setCurrentNOM(data.Nom);
+                    setCurrentPNOM(data.Prenom);
+                    setCurrentMAIL(data.Email);
                } else {
-                 alert('Erreur du serveur, veuillez réessayer plus tard');
+                    alert('Erreur du serveur, veuillez réessayer plus tard');
+               }
+
+               /* Infos entreprise */
+
+               const response2 = await fetch('/api/getInfosEntreprise', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dataE)
+               })
+
+               const data2 = await response2.json();
+          
+               if(response2.status === 200){
+                    setCurrentNomE(data2.Nom_societe); 
+                    setCurrentTVA(data2.TVA);
+                    setCurrentADRESSE(data2.Adresse);
+                    setCurrentTEL(data2.Telephone);
+                    setCurrentEMAILE(data2.Email);
+                    setCurrentSITE(data2.Site_web);
+               } else {
+                    alert('Erreur du serveur, veuillez réessayer plus tard');
+               }
+
+               fetch('/api/getHeureEntreprise', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dataE)
+               })
+               .then(res => res.json())
+               .then(json => setMinEntreprise(json[0].minutesEntreprise))
+               .catch(err => console.info(err))
+
+               fetch('/api/getTempsAlloue', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dataE)
+               })
+               .then(res => res.json())
+               .then(json => setTempsAlloue(json[0].minutesAllouees))
+               .catch(err => console.info(err))
+
+               const reponse = await fetch('/api/getTotHeurEntreprise', { 
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dataE)
+               });
+
+               const data_2 = await reponse.json();
+
+               if(reponse.status === 200){
+                    setTotMinEntreprise(data_2[0].totachEntreprise);
+                    setCurrentHeureREST(data_2[0].restheEntreprise);
+
+                    const minRes = data_2[0].totachEntreprise - data_2[0].restheEntreprise;
+
+                    setMoneySpend(Math.round(((minRes/60) * 90)));
+
+                    if (parseInt(data_2[0].totachEntreprise) === 0) {
+                         const percentage = 0;
+                         setCheckPercent(percentage);
+                    } else {
+                         const percentage = Math.round(((100*data_2[0].restheEntreprise) / data_2[0].totachEntreprise));
+                         setCheckPercent(percentage);
+                    } 
                }
           }
 
           onLoad();
 
-     }, [currentIDU])
+     }, [currentIDU,currentIDE])
 
      const handleClick = async e => {
           e.preventDefault();

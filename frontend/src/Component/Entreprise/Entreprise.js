@@ -43,6 +43,7 @@ export default function Entreprise() {
      const currentIDE = localStorage.getItem("currentIDE");
 
      console.log(currentHeureREST);
+     
      useEffect(() => {
           let dataE = {currentIDEntreprise: currentIDE};
 
