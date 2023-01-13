@@ -25,6 +25,9 @@ export default function ViewAll() {
      
      const [allProject, setAllProjects] = useState([]);
 
+
+     const currentIDU = localStorage.getItem("currentIDU");
+
      useEffect (() => {
           fetch('/api/getAllTimesheet')
                .then(res => res.json())
@@ -306,7 +309,9 @@ export default function ViewAll() {
                                         <tr>
                                              <th><p className="bold">Statut du projet</p></th>
                                              <th className="statut_task">
-                                                  <select name="state">
+                                                  <select name="state" required>
+                                                       <option defaultValue={item.Statut} default disabled> - </option>
+                                                       <option value="Non démarée">Non démarée</option>
                                                        <option value="En cours">En cours</option>
                                                        <option value="Terminée">Terminée</option>
                                                   </select>
@@ -320,12 +325,14 @@ export default function ViewAll() {
                                         </tr>
                                         <tr>
                                              <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
-                                             <td><input type="number" name="timeSpend"></input></td>
+                                             <td><input type="number" id="timespend" name="timeSpend" required>{item.Temps_Min_Tache}</input></td>
                                         </tr>
-                                        <tr><td><p className="bold"><BsIcons.BsTextParagraph/>Description</p></td></tr>
-                                        <tr><td colspan="2"><textarea name="descr_" className="tasks">{item.Informations}</textarea></td></tr>
+                                        <tr><td><p className="bold"><BsIcons.BsTextParagraph/>Détails action(s) réalisée(s)</p></td></tr>
+                                        <tr><td colspan="2"><textarea name="descr_" className="tasks" required>{item.Informations}</textarea></td></tr>
                                         <tr><td colspan="2"><input type="submit" name="updateTask" value="Mettre à jour"></input>
-                                        <input type="hidden" name="id_task" value={item.ID_TS}></input></td></tr>
+                                        <input type="hidden" name="id_task" value={item.ID_TS}></input>
+                                        <input type="hidden" name="idUser" value={currentIDU}></input>
+                                        </td></tr>
                                    </tbody>
                               </table>
                          </form>)
