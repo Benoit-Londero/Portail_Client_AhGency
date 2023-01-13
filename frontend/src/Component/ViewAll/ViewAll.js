@@ -325,7 +325,7 @@ export default function ViewAll() {
                                         </tr>
                                         <tr>
                                              <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
-                                             <td><input type="number" id="timespend" name="timeSpend" required>{item.Temps_Min_Tache}</input></td>
+                                             <td><input type="number" id="timespend" name="timeSpend" defaultValue={item.Temps_Min_Tache} required></input></td>
                                         </tr>
                                         <tr><td><p className="bold"><BsIcons.BsTextParagraph/>Détails action(s) réalisée(s)</p></td></tr>
                                         <tr><td colspan="2"><textarea name="descr_" className="tasks" required>{item.Informations}</textarea></td></tr>
