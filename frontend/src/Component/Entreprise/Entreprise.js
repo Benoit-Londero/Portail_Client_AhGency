@@ -20,6 +20,7 @@ export default function Entreprise() {
      const [currentTEL, setCurrentTEL] = useState();
      const [currentEMAILE, setCurrentEMAILE] = useState();
      const [currentSITE, setCurrentSITE] = useState();
+     const [currentURLShare, setUrlSHARE] = useState([]);
      const [minEntreprise, setMinEntreprise] = useState();
      const [totminEntreprise,setTotMinEntreprise] = useState();
      const [tempsAlloue, setTempsAlloue] = useState();
@@ -77,6 +78,7 @@ export default function Entreprise() {
                     setCurrentTEL(data.Telephone);
                     setCurrentEMAILE(data.Email);
                     setCurrentSITE(data.Site_web);
+                    setUrlSHARE(data.URL_SharePoint);
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
@@ -190,12 +192,13 @@ export default function Entreprise() {
                                              {checkPercent < 10 ?
                                                   <div id="progress_bar" style={warningProgress}><p>{checkPercent} %</p>
                                                   </div>
-                                                  : <div id="progress_bar"  style={styleProgress}><p>{checkPercent} %</p>
-                                                  </div>}
+                                                  : <div>
+                                                       <div id="progress_bar"  style={styleProgress}><p>{checkPercent} %</p></div>
+                                                       <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>
+                                                    </div>}
                                              
                                         </td>
                                    </tr>
-                                   <tr>{/* {checkPercent > 10 ? null : <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>} */}</tr>
                               </table>
                          </div>
                     </Row>
@@ -234,6 +237,13 @@ export default function Entreprise() {
                                                        {allUsers && allUsers.filter(data => data.ID_entreprise === currentIDE).map((item,index) =>{
                                                        return(<p key={index} className="bdg_user">{item.Prenom.substring(0,1)}</p>)
                                                   })}
+                                                  </td>
+                                             </tr>
+
+                                             <tr>
+                                                  <td><p className="bold">Lien SharePoint : </p></td>
+                                                  <td>
+                                                       <a href={currentURLShare}>Allez vers mon dossier</a>
                                                   </td>
                                              </tr>
                                              <tr>

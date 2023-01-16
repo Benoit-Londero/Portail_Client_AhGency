@@ -16,7 +16,7 @@ module.exports = async function (context, req) {
 
             allHeure = rows;
             resolve(allHeure)
-        })
+        }) 
     })
 
     context.res = {

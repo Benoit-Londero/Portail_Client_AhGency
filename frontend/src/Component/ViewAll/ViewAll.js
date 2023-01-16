@@ -149,7 +149,7 @@ export default function ViewAll() {
           })
   
           const data = await response.json();
-          if(data === "Timesheet mis à jour"){
+          if(response.status === 200){
                console.log(data);
                setupdateTask(false);
                window.location.reload();
