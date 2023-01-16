@@ -153,6 +153,9 @@ export default function ViewAll() {
               console.log(data);
               setupdateTask(false);
           }
+
+          setupdateTask(false);
+          window.location.reload();
       }
 
      return (
