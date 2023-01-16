@@ -27,15 +27,6 @@ export default function Entreprise() {
      const [validation, setValidation] = useState(false);
      const [allUsers, setAllUsers] = useState([]);
 
-
-     console.log(currentNomE);
-     console.log(currentTVA);
-     console.log(currentADRESSE);
-     console.log(currentTEL);
-     console.log(currentEMAILE);
-     console.log(currentSITE);
-
-
      const [checkPercent, setCheckPercent] = useState();
      const [moneySpend, setMoneySpend] = useState();
 
@@ -44,6 +35,7 @@ export default function Entreprise() {
      const currentIDE = localStorage.getItem("currentIDE");
 
      console.log(currentHeureREST);
+     
      useEffect(() => {
           let dataE = {currentIDEntreprise: currentIDE};
 
@@ -79,6 +71,13 @@ export default function Entreprise() {
                     setCurrentEMAILE(data.Email);
                     setCurrentSITE(data.Site_web);
                     setUrlSHARE(data.URL_SharePoint);
+
+                    console.log(currentNomE);
+                    console.log(currentTVA);
+                    console.log(currentADRESSE);
+                    console.log(currentTEL);
+                    console.log(currentEMAILE);
+                    console.log(currentSITE);
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
@@ -128,6 +127,7 @@ export default function Entreprise() {
           }
 
           onLoad();
+
      }, [currentIDE])
 
      const handleClick = async e => {
@@ -190,12 +190,11 @@ export default function Entreprise() {
                                    <tr>
                                         <td colspan="2">
                                              {checkPercent < 10 ?
-                                                  <div id="progress_bar" style={warningProgress}><p>{checkPercent} %</p>
-                                                  </div>
-                                                  : <div>
-                                                       <div id="progress_bar"  style={styleProgress}><p>{checkPercent} %</p></div>
+                                                  <div>
+                                                       <div id="progress_bar" style={warningProgress}><p>{checkPercent} %</p></div>
                                                        <Link to ='/Credits'><Button className="recharger">Recharger</Button></Link>
-                                                    </div>}
+                                                  </div>
+                                                  : <div id="progress_bar"  style={styleProgress}><p>{checkPercent} %</p></div>}
                                              
                                         </td>
                                    </tr>
@@ -209,32 +208,32 @@ export default function Entreprise() {
                                         <tbody>
                                              <tr>
                                                   <td><label className="bold">Nom: </label></td>
-                                                  <td><input type="text" name="nom" placeholder="Nom de l'entreprise" defaultValue={currentNomE} required/></td>
+                                                  <td><input type="text" name="nom" placeholder="Nom de l'entreprise" defaultValue ={currentNomE} required/></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Numéro de TVA: </label></td>
-                                                  <td><input type="text" name="tva" placeholder="BE123456789" defaultValue={currentTVA} required/></td>
+                                                  <td><input type="text" name="tva" placeholder="BE123456789" defaultValue ={currentTVA} required/></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Adresse: </label></td>
-                                                  <td><input type="text" name="adresse" placeholder="Votre adresse" defaultValue={currentADRESSE} required/></td>
+                                                  <td><input type="text" name="adresse" placeholder="Votre adresse" defaultValue ={currentADRESSE} required/></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"><BsIcons.BsFillTelephoneFill/> Téléphone: </label></td>
-                                                  <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue={currentTEL}></input></td>
+                                                  <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue ={currentTEL}></input></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"><MdIcons.MdAlternateEmail/> Email: </label></td>
-                                                  <td><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue={currentEMAILE}></input></td>
+                                                  <td><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue ={currentEMAILE}></input></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Site: </label></td>
-                                                  <td><input type="text" id="web" name="web"  defaultValue={currentSITE}></input></td>
+                                                  <td><input type="text" id="web" name="web"  defaultValue ={currentSITE}></input></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Membres: </label></td>
                                                   <td>
-                                                       {allUsers && allUsers.filter(data => data.ID_entreprise === currentIDE).map((item,index) =>{
+                                                       {allUsers.filter(data => data.ID_entreprise === currentIDE).map((item,index) =>{
                                                        return(<p key={index} className="bdg_user">{item.Prenom.substring(0,1)}</p>)
                                                   })}
                                                   </td>
@@ -247,7 +246,7 @@ export default function Entreprise() {
                                                   </td>
                                              </tr>
                                              <tr>
-                                                  <td colspan="2"><input type="hidden" id="idE" name="idE" defaultValue={currentIDE}></input>
+                                                  <td colspan="2"><input type="hidden" id="idE" name="idE" defaultValue ={currentIDE}></input>
                                                   <input type="submit" name="modifier" value="Enregistrer" /></td>
                                              </tr>
                                         </tbody>
