@@ -102,6 +102,7 @@ export default function AdminForm() {
                       <option value="Fabian Hernandez Barco">Fabian Hernandez Barco</option>
                       <option value="Quentin De Jarnac">Quentin De Jarnac</option>
                       <option value="Benoit Londero">Benoit Londero</option>
+                      <option value="Aline Siraut">Aline Siraut</option>
                       <option value="Client">Client</option>
                     </select>
                   </td>
@@ -112,7 +113,7 @@ export default function AdminForm() {
                     <select id='for_who' name="for_who" onChange={handleSelect} required>
                       <option id="disabled"> Sélectionnez un client </option>
                       {usersInfos.map((user, index) => 
-                        <option key={index} value={user.ID}>{user.Login}</option>
+                        <option key={index} value={user.ID}>{user.Prenom + ' ' + user.Nom}</option>
                       )}
                     </select>
                   </td>

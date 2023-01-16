@@ -332,7 +332,7 @@ export default function Clients() {
                                    {allUsers && allUsers.map((item,index) => {
                                         return(
                                              <tr key={index}>
-                                                  <td><p>{item.Nom} {item.Prenom}</p></td>
+                                                  <td><p>{item.Prenom} {item.Nom}</p></td>
                                                   <td><p>{item.ID_entreprise}</p></td>
                                                   <td><p>{item.Titre}</p></td>
                                                   <td><p>{item.Date_creation}</p></td>
