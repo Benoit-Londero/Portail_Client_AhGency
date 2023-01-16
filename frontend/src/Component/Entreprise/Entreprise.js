@@ -53,7 +53,7 @@ export default function Entreprise() {
 
           listUser();
           
-          const onLoad = async () => {
+          const onLoad2 = async () => {
 
                const response = await fetch('/api/getInfosEntreprise', { 
                     method: 'POST',
@@ -61,16 +61,16 @@ export default function Entreprise() {
                     body: JSON.stringify(dataE)
                })
      
-               const data = await response.json();
+               const data_E = await response.json();
                
                if(response.status === 200){
-                    setCurrentNomE(data.Nom_societe); 
-                    setCurrentTVA(data.TVA);
-                    setCurrentADRESSE(data.Adresse);
-                    setCurrentTEL(data.Telephone);
-                    setCurrentEMAILE(data.Email);
-                    setCurrentSITE(data.Site_web);
-                    setUrlSHARE(data.URL_SharePoint);
+                    setCurrentNomE(data_E.Nom_societe); 
+                    setCurrentTVA(data_E.TVA);
+                    setCurrentADRESSE(data_E.Adresse + ' ' + data_E.Code_Postal + ' ' + data_E.Ville);
+                    setCurrentTEL(data_E.Telephone);
+                    setCurrentEMAILE(data_E.Email);
+                    setCurrentSITE(data_E.Site_web);
+                    setUrlSHARE(data_E.URL_SharePoint);
 
                     console.log(currentNomE);
                     console.log(currentTVA);
@@ -126,7 +126,7 @@ export default function Entreprise() {
                }
           }
 
-          onLoad();
+          onLoad2();
 
      }, [currentIDE])
 
