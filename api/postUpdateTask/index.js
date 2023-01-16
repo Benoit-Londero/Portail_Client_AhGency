@@ -26,17 +26,20 @@ module.exports = async function (context, req) {
         updateTask = 'Timesheet mis à jour';  
         resolve(updateTask);
     })
+  })
 
+  insertLog = await new Promise((resolve, reject) => {
     let querySQL2 = "INSERT INTO Logs_entree_timesheet(ID_Tache,Temps,ID_Admin,Détails) VALUES(?,?,?,?)";
 
     con.query(querySQL2, [idTask,time,idUser, descr], function(err,result){
       if (err) throw err;
       console.log('Log ajouté avec succes');
 
-      insertLog = 'Log entré avec succes'
+      insertLog = 'Log ajouté avec succes'
       resolve(insertLog) 
     })
   })
+    
     
   context.res = {
     status: 200,

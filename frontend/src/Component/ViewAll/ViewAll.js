@@ -150,12 +150,10 @@ export default function ViewAll() {
   
           const data = await response.json();
           if(data === "Timesheet mis à jour"){
-              console.log(data);
-              setupdateTask(false);
+               console.log(data);
+               setupdateTask(false);
+               window.location.reload();
           }
-
-          setupdateTask(false);
-          window.location.reload();
       }
 
      return (
@@ -397,7 +395,7 @@ export default function ViewAll() {
                                    <tbody>
                                         <tr>
                                              <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
-                                             <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                             <td><p className="agent__"><span className="bdg_user">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
                                         </tr>
                                         <tr>
                                              <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
@@ -440,7 +438,7 @@ export default function ViewAll() {
                                    <tbody>
                                         <tr>
                                              <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
-                                             <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                             <td><p className="agent__"><span className="bdg_user">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
                                         </tr>
                                         <tr>
                                              <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
