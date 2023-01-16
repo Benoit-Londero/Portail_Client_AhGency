@@ -8,9 +8,9 @@ import './Entreprise.css';
 
 import * as BsIcons from "react-icons/bs";
 import * as MdIcons from "react-icons/md";
-/* 
+
 import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom"; */
+import { Link } from "react-router-dom";
 
 export default function Entreprise() {
 
