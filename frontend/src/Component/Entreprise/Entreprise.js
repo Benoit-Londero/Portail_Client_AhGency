@@ -10,7 +10,7 @@ import * as BsIcons from "react-icons/bs";
 import * as MdIcons from "react-icons/md";
 
 import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
+import { Linkv , NavLink } from "react-router-dom";
 
 export default function Entreprise() {
 
@@ -172,8 +172,18 @@ export default function Entreprise() {
      }
 
      return (
-          <div id="page_entreprise">
-               <Container>
+          <div>
+
+               <NavBar />
+
+               <div className="project_sidebar">
+                    <div className="tabs_account">
+                         <button className="btn noborder" value="profil" /* onClick={handleOnglet} */>Entreprise</button>
+                         <NavLink to="/Account"> Mon profil</NavLink>
+                    </div>
+               </div>
+
+               <Container id="page_entreprise" className="main__content">
                     <h2><BsIcons.BsBuilding/>Entreprise</h2>
                     <Row>
                          <div className="stats_account">

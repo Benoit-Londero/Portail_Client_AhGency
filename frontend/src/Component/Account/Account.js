@@ -4,20 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import NavBar from "../NavBar/NavBar";/* 
-import Entreprise from '../Entreprise/Entreprise.js'; */
-/* import Deconnexion from "../Deconnexion/Deconnexion"; */
+import NavBar from "../NavBar/NavBar";
 
 import * as BsIcons from "react-icons/bs";
 import * as RiIcons from "react-icons/ri";
-
 
 import { NavLink } from "react-router-dom";
 
 export default function NameForm() {
 
      const currentIDU = localStorage.getItem("currentIDU");
-     /* const currentIDE = localStorage.getItem("currentIDE"); */
 
      const [validation, setValidation] = useState(false);
      const [error, setError] = useState(false);
@@ -25,14 +21,10 @@ export default function NameForm() {
      const [currentPNOM, setCurrentPNOM] = useState();
      const [currentMAIL, setCurrentMAIL] = useState();
 
-     /* const [profil, setProfil] = useState(false); */
-
      useEffect(() => {
           let dataU = {currentIDUser: currentIDU};
-          /* let dataE = {currentIDEntreprise: currentIDE}; */
 
           const onLoad = async () => {
-           
                const response = await fetch('/api/getInfosClient', { 
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
@@ -95,23 +87,13 @@ export default function NameForm() {
           }           
      }
 
-     /* const handleOnglet = (e) => {
-          let onglet = e.target.value;
-          if(onglet === "entreprise") {
-               setProfil(true);
-          } else {
-               setProfil(false);
-          }
-     } */
-
      return (
           <div>
                <NavBar />
 
                <div className="project_sidebar">
                     <div className="tabs_account">
-                         <button className="btn noborder" value="profil" /* onClick={handleOnglet} */>Mon profil</button>
-                         {/* <button className="btn noborder" value="entreprise" onClick={handleOnglet}>Mon entreprise</button> */}
+                         <button className="btn noborder" value="profil">Mon profil</button>
                          <NavLink to="/Entreprise"> Entreprise</NavLink>
                     </div>
                </div>
@@ -119,11 +101,10 @@ export default function NameForm() {
                <Container id="page_account" className="main__content">
 
                     <div className="tabs_account">
-                         <button value="profil" className="btn noborder"  /* onClick={handleOnglet} */>Mon profil</button>
-                         {/* <button value="entreprise" className="btn noborder" onClick={handleOnglet}>Mon entreprise</button> */}
+                         <button value="profil" className="btn noborder">Mon profil</button>
                     </div>
                     
-                    {/* {profil === false ?  */}<div>
+                    <div>
 
                          <Row>
                               <Col className="account_section">
@@ -174,7 +155,7 @@ export default function NameForm() {
                               </Col>
                          </Row>
                               
-                    </div>{/*  : <Entreprise></Entreprise>} */}
+                    </div>
                </Container>
          </div>
      )
