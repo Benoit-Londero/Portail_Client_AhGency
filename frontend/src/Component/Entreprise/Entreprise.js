@@ -245,16 +245,16 @@ export default function Entreprise() {
                                              <tr>
                                                   <td><label className="bold"> Membres: </label></td>
                                                   <td>
-                                                       {allUsers.filter(data => data.ID_entreprise === currentIDE).map((item,index) =>{
+                                                       {allUsers.filter(data => data[0].ID_entreprise === currentIDE).map((item,index) =>{
                                                        return(<p key={index} className="bdg_user">{item.Prenom.substring(0,1)}</p>)
                                                   })}
                                                   </td>
                                              </tr>
 
                                              <tr>
-                                                  <td><p className="bold">Lien SharePoint : </p></td>
+                                                  <td><label className="bold">Lien SharePoint : </label></td>
                                                   <td>
-                                                       <a href={currentURLShare}>Allez vers mon dossier</a>
+                                                       <a href={currentURLShare}>Accéder à mes fichiers</a>
                                                   </td>
                                              </tr>
                                              <tr>
