@@ -67,13 +67,13 @@ export default function Entreprise() {
                console.log(data);
                
                if(response.status === 200){
-                    setCurrentNomE(data.Nom_societe); 
-                    setCurrentTVA(data.TVA);
-                    setCurrentADRESSE(data.Adresse + ' ' + data.Code_Postal + ' ' + data.Ville);
-                    setCurrentTEL(data.Telephone);
-                    setCurrentEMAILE(data.Email);
-                    setCurrentSITE(data.Site_web);
-                    setUrlSHARE(data.URL_SharePoint);
+                    setCurrentNomE(data[0].Nom_societe); 
+                    setCurrentTVA(data[0].TVA);
+                    setCurrentADRESSE(data[0].Adresse + ' ' + data[0].Code_Postal + ' ' + data[0].Ville);
+                    setCurrentTEL(data[0].Telephone);
+                    setCurrentEMAILE(data[0].Email);
+                    setCurrentSITE(data[0].Site_web);
+                    setUrlSHARE(data[0].URL_SharePoint);
 
                     console.log(currentNomE);
                     console.log(currentTVA);
