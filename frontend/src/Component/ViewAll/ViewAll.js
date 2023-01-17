@@ -90,10 +90,10 @@ export default function ViewAll() {
 
      /* Ajout Benoit - Filtre par projet + mise à jour tâche (statut + temps + description) */
      function ProjectTasks(e){
-          let theProjet = e.target.value;
-          let detailProjet = allProject.filter(item => item.ID === parseInt(e));
+          let idProjet = e.target.value;
+          let detailProjet = allProjet.filter(item => item.ID === parseInt(idProjet));
           
-          console.log(theProjet);
+          console.log(idProjet);
           console.log(allProject);
           console.log(detailProjet);
 
