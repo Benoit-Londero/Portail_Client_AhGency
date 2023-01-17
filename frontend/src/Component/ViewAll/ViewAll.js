@@ -25,7 +25,7 @@ export default function ViewAll() {
      const [updateTask, setupdateTask] = useState(false); // Modale update tâche
      const [value_dtls, setValueDetails] = useState();
      
-     const [allProject, setAllProjects] = useState([]);
+     const [allProject, setAllProjects] = useState();
      const [dtlProjet, setDetailProjet] = useState([]);
      const [allLogs, setAllLogs] = useState([]); // Contient l'ensemble des logs
 
@@ -99,7 +99,6 @@ export default function ViewAll() {
 
           setFiltredtasks(ProjetFiltertask(theProjet));
           setDetailProjet(detailProjet);
-          
      }
 
      const closeTasks = (e) => {
@@ -182,15 +181,13 @@ export default function ViewAll() {
                     <label>Filtrer par client</label>
                     <select onChange={handleTasks}>
                          <option name="default" disabled> Default </option>
-                         {clients && clients.map((item,index) => {
+                         {clients.filter(item => item.Role === 'Client').map((item,index) => {
                               return(
                                    <option  key={index} value={item.ID} className="client_list" >{item.Nom} {item.Prenom}</option>
                               ) 
                          })}
                     </select>
                     
-
-               {/* A CORRIGER l'ID présent dans la colonne ID_Client n'est pas celle de l'ADMIN */}
                     <label> Assigné à</label>
                     <ul>
                          {clients.filter(data => data.Role === 'administrator').map((item,index) =>{
@@ -199,7 +196,6 @@ export default function ViewAll() {
                               )
                          })}
                     </ul>
-               {/* FIN CORRECTION*/}
 
                     <label>Tous les projets</label>
                     <ul className="AllProjet_box">
