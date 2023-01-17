@@ -29,7 +29,7 @@ export default function NameForm() {
 
      useEffect(() => {
           let dataU = {currentIDUser: currentIDU};
-          let dataE = {currentIDEntreprise: currentIDE};
+          /* let dataE = {currentIDEntreprise: currentIDE}; */
 
           const onLoad = async () => {
            
