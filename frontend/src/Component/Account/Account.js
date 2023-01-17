@@ -4,8 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import NavBar from "../NavBar/NavBar";
-import Entreprise from '../Entreprise/Entreprise.js';
+import NavBar from "../NavBar/NavBar";/* 
+import Entreprise from '../Entreprise/Entreprise.js'; */
 /* import Deconnexion from "../Deconnexion/Deconnexion"; */
 
 import * as BsIcons from "react-icons/bs";
