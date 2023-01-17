@@ -26,7 +26,7 @@ export default function ViewAll() {
      const [value_dtls, setValueDetails] = useState();
      
      const [allProject, setAllProjects] = useState([]);
-     const [detailProjets, setDetailProjet] = useState([]);
+     const [dtlProjet, setDetailProjet] = useState([]);
      const [allLogs, setAllLogs] = useState([]); // Contient l'ensemble des logs
 
 
@@ -94,6 +94,7 @@ export default function ViewAll() {
           let detailProjet = allProject.filter(donnee => donnee.ID === parseInt(e));
           
           console.log(theProjet);
+          console.log(detailProjet);
 
           setFiltredtasks(ProjetFiltertask(theProjet));
           setDetailProjet(detailProjet);
@@ -215,22 +216,19 @@ export default function ViewAll() {
           <Row>
                <Col className="tableauTS hide_mobile">
                     <table>
-                         <tbody>
-                              {detailProjets.map((item,index) => {
-                                   return(
-                                   <tr>
-                                        <td key={index} rowspan="3" className="first_col_pjt"><p className="bdg_user">{item.Tickets.substring(0,1)}</p></td>
-                                        <td><h1>{item.Tickets}</h1><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>
-                                        <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
-                                   </tr>)
-                              })
-                              }
-                              <tr> 
-                                   <td colspan="2"><h2>Description</h2>{detailProjets.map((item,index)=>{
-                                        return(<p key={index} className="descr__thead">{item.Description}</p>)
-                                   })}</td>
-                              </tr>
-                         </tbody>
+                         {dtlProjet.map((item,index) => {
+                              return(
+                                   <tbody>
+                                        <tr>
+                                             <td key={index} rowspan="3" className="first_col_pjt"><p className="bdg_user">{item.Tickets.substring(0,1)}</p></td>
+                                             <td><h1>{item.Tickets}</h1><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>                                                  <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
+                                        </tr>
+                                        <tr>
+                                             <td colspan="2"><h2>Description</h2><p className="descr__thead">{item.Description}</p></td>
+                                        </tr>
+                                   </tbody>
+                              )
+                         })}             
                     </table>
                </Col>
           </Row>
