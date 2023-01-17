@@ -97,7 +97,7 @@ export default function ViewAll() {
           console.log(allProject);
           console.log(detailProjet);
 
-          setFiltredtasks(ProjetFiltertask(theProjet));
+          setFiltredtasks(ProjetFiltertask(idProjet));
           setDetailProjet(detailProjet);
      }
 
