@@ -25,7 +25,7 @@ export default function ViewAll() {
      const [updateTask, setupdateTask] = useState(false); // Modale update tâche
      const [value_dtls, setValueDetails] = useState();
      
-     const [allProject, setAllProjects] = useState();
+     const [allProject, setAllProjects] = useState([]);
      const [dtlProjet, setDetailProjet] = useState([]);
      const [allLogs, setAllLogs] = useState([]); // Contient l'ensemble des logs
 
