@@ -42,20 +42,7 @@ export default function NameForm() {
 
      const [currentHeureREST, setCurrentHeureREST] = useState();
 
-     console.log(currentNomE);
-     console.log(currentTVA);
-     console.log(currentADRESSE);
-     console.log(currentTEL);
-     console.log(currentEMAILE);
-     console.log(currentSITE);
-     console.log(minEntreprise);
-     console.log(totminEntreprise);
-     console.log(tempsAlloue);
-     console.log(checkPercent);
-     console.log(moneySpend);
-     console.log(currentHeureREST);
-
-     const [profil, setProfil] = useState(false);
+     /* const [profil, setProfil] = useState(false); */
 
      useEffect(() => {
           let dataU = {currentIDUser: currentIDU};
@@ -190,14 +177,14 @@ export default function NameForm() {
           }           
      }
 
-     const handleOnglet = (e) => {
+     /* const handleOnglet = (e) => {
           let onglet = e.target.value;
           if(onglet === "entreprise") {
                setProfil(true);
           } else {
                setProfil(false);
           }
-     }
+     } */
 
      return (
           <div>
@@ -205,19 +192,20 @@ export default function NameForm() {
 
                <div className="project_sidebar">
                     <div className="tabs_account">
-                         <button className="btn noborder" value="profil" onClick={handleOnglet}>Mon profil</button>
-                         <button className="btn noborder" value="entreprise" onClick={handleOnglet}>Mon entreprise</button>
+                         <button className="btn noborder" value="profil" /* onClick={handleOnglet} */>Mon profil</button>
+                         {/* <button className="btn noborder" value="entreprise" onClick={handleOnglet}>Mon entreprise</button> */}
+                         <NavLink to="/Entreprise"> Entreprise</NavLink>
                     </div>
                </div>
           
                <Container id="page_account" className="main__content">
 
                     <div className="tabs_account">
-                         <button value="profil" className="btn noborder"  onClick={handleOnglet}>Mon profil</button>
-                         <button value="entreprise" className="btn noborder" onClick={handleOnglet}>Mon entreprise</button>
+                         <button value="profil" className="btn noborder"  /* onClick={handleOnglet} */>Mon profil</button>
+                         {/* <button value="entreprise" className="btn noborder" onClick={handleOnglet}>Mon entreprise</button> */}
                     </div>
                     
-                    {profil === false ? <div>
+                    {/* {profil === false ?  */}<div>
 
                          <Row>
                               <Col className="account_section">
@@ -268,7 +256,7 @@ export default function NameForm() {
                               </Col>
                          </Row>
                               
-                    </div> : <Entreprise></Entreprise>}
+                    </div>{/*  : <Entreprise></Entreprise>} */}
                </Container>
          </div>
      )
