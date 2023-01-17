@@ -62,23 +62,24 @@ export default function Entreprise() {
                     body: JSON.stringify(dataE)
                })
      
-               const data_E = await response.json();
+               const data = await response.json();
+
+               console.log(data);
                
                if(response.status === 200){
-                    setCurrentNomE(data_E.Nom_societe); 
-                    setCurrentTVA(data_E.TVA);
-                    setCurrentADRESSE(data_E.Adresse + ' ' + data_E.Code_Postal + ' ' + data_E.Ville);
-                    setCurrentTEL(data_E.Telephone);
-                    setCurrentEMAILE(data_E.Email);
-                    setCurrentSITE(data_E.Site_web);
-                    setUrlSHARE(data_E.URL_SharePoint);
+                    setCurrentNomE(data.Nom_societe); 
+                    setCurrentTVA(data.TVA);
+                    setCurrentADRESSE(data.Adresse + ' ' + data.Code_Postal + ' ' + data.Ville);
+                    setCurrentTEL(data.Telephone);
+                    setCurrentEMAILE(data.Email);
+                    setCurrentSITE(data.Site_web);
+                    setUrlSHARE(data.URL_SharePoint);
 
                     console.log(currentNomE);
                     console.log(currentTVA);
                     console.log(currentADRESSE);
                     console.log(currentTEL);
-                    console.log(currentEMAILE);
-                    console.log(currentSITE);
+                    console.log(currentEMAILE); 
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
@@ -179,7 +180,7 @@ export default function Entreprise() {
 
                <div className="project_sidebar">
                     <div className="tabs_account">
-                         <button className="btn noborder" value="profil" /* onClick={handleOnglet} */>Entreprise</button>
+                         <button className="btn noborder" value="profil">Entreprise</button>
                          <NavLink to="/Account"> Mon profil</NavLink>
                     </div>
                </div>
@@ -231,11 +232,11 @@ export default function Entreprise() {
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"><BsIcons.BsFillTelephoneFill/> Téléphone: </label></td>
-                                                  <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue ={currentTEL}></input></td>
+                                                  <td><input type="tel" id="telephone" name="telephone" placeholder="01/234.567" defaultValue ={currentTEL} /></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"><MdIcons.MdAlternateEmail/> Email: </label></td>
-                                                  <td><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue ={currentEMAILE}></input></td>
+                                                  <td><input type="mail" id="email" name="email" placeholder="bernard@bouchard.be" defaultValue ={currentEMAILE}/></td>
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Site: </label></td>
