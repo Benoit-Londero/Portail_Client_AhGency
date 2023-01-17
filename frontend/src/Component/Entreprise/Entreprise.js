@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import NavBar from "../NavBar/NavBar";
 
 import './Entreprise.css';
 
@@ -10,7 +11,7 @@ import * as BsIcons from "react-icons/bs";
 import * as MdIcons from "react-icons/md";
 
 import Button from 'react-bootstrap/Button';
-import { Linkv , NavLink } from "react-router-dom";
+import { Link , NavLink } from "react-router-dom";
 
 export default function Entreprise() {
 
