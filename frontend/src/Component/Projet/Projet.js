@@ -161,8 +161,10 @@ export default function Projet() {
                             <tr>
                                 <td>
                                     <select name="idEnt" id="idEnt">
-                                        {allEntreprise.map(item,index => {
-                                            <option key={index} value={item.ID_entreprise}>{item.Nom_societe}</option>
+                                        {allEntreprise.map((item,index) => {
+                                            return (
+                                                <option key={index} value={item.ID_entreprise}>{item.Nom_societe}</option>
+                                            )
                                         })}
                                     </select>
                                 </td>
