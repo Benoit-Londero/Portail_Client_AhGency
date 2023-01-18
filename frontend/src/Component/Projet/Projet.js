@@ -149,16 +149,19 @@ export default function Projet() {
                                 <td colspan="2"><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br>
                                 <textarea id="tache" name="tache" placeholder="tâche" required></textarea></td>
                             </tr>
-                            {currentRole === 'administator' ? 
-                                <tr>
-                                    <td><label for="allocation">Combien de temps est alloué à cette demande ?<span className="required">*</span> (en heures)</label></td>
-                                    <td>
-                                        <input id="allocation" name="allocation" type="number" placeholder="15"/>
-                                    </td>
-                                </tr> : <tr><td><input type="hidden" name="allocation" value="0"/></td></tr>}
-                            <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
                             {currentRole === 'administrator' ? 
                             <tr>
+                                <td><label for="allocation">Combien de temps est alloué à cette demande ?<span className="required">*</span> (en heures)</label></td>
+                                <td>
+                                    <input id="allocation" name="allocation" type="number" placeholder="15"/>
+                                </td>
+                            </tr> : <tr><td><input type="hidden" name="allocation" value="0"/></td></tr>}
+
+                            <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
+
+                            {currentRole === 'administrator' ? 
+                            <tr>
+                                <td><label for="idEnt">Associer cette demande à une entreprise</label></td>
                                 <td>
                                     <select name="idEnt" id="idEnt">
                                         {allEntreprise.map((item,index) => {
