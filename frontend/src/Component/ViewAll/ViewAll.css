@@ -9,7 +9,8 @@
 }
 
 .customer_card_all{ 
-     margin-top:100px;
+     padding:0px;
+
 }
 
 .customer_card_all table h2{
@@ -22,6 +23,7 @@
 .tableauTS{
     margin-bottom:50px;
     background: #fafafa;
+    border-radius: 5px;
 }
 
 #list_all_tasks p{
