@@ -66,7 +66,7 @@ export default function AdminHeure() {
                   <td><select id='for_who' name="for_who" required>
                         <option id="disabled"> Sélectionnez un client </option>
                           {usersInfos.map((user, index) => 
-                            <option key={index} value={user.ID}>{user.Login}</option>
+                            <option key={index} value={user.ID}>{user.Nom + ' ' + user.Prenom}</option>
                           )}
                       </select>
                   </td>

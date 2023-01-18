@@ -15,6 +15,8 @@ export default function AdminForm() {
     const [projetFiltered, setProjetFiltered] = useState([]);
 
     const [nameProjet, setNameProjet] = useState();
+    const [emailUser, setEmailUser] = useState();
+    const [nameAgent, setNameUser] = useState();
   
     //const navigate = useNavigate();
     useEffect (() => {
@@ -36,7 +38,9 @@ export default function AdminForm() {
         let TSFormData = new FormData(TSForm);
 
         const conJSON = buildJsonFormData(TSFormData);
-        conJSON.ticket = nameProjet; // On rajoute à l'objet le nom du ticket/projet
+        conJSON.ticket = nameProjet[0]; // On rajoute à l'objet le nom du ticket/projet
+        conJSON.EmailToNotif = emailUser[0]; // On rajoute à l'objet l'email de l'agent
+        conJSON.for_who = nameAgent[0]; // On rajoute à l'objet le nom de l'agent
 
         //On crée une boucle pour transformer le FormData en JSON
         function buildJsonFormData(TSFormData){
@@ -47,8 +51,6 @@ export default function AdminForm() {
 
           return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
         }
-
-
 
         fetch('/api/postTimesheet', {method: 'POST', body: JSON.stringify(conJSON)})
         .then(res => res.json())
@@ -69,8 +71,10 @@ export default function AdminForm() {
       
       let idE = idUFiltered[0].ID_entreprise;
       let projetFiltered = projetInfos.filter(data => data.ID_entreprise === parseInt(idE));
-      setProjetFiltered(projetFiltered);
+      
 
+      setProjetFiltered(projetFiltered);
+      
       console.log(projetFiltered);
       
     }
@@ -82,6 +86,21 @@ export default function AdminForm() {
       })
       console.log(nameprojet)
       setNameProjet(nameprojet);
+    }
+
+    const handleEmailAgent = (e) => {
+      let uid = parseInt(e.target.value);
+      let email = usersInfos.filter(data => data.Login === uid).map((item,index) => {
+        return ( item.Email)
+      })
+
+      setEmailUser(email);
+
+      let name = usersInfos.filter(data => data.ID === uid).map((item,index) => {
+        return (item.Prenom + ' ' + item.Nom)
+      })
+
+      setNameUser(name)
     }
   return (      
 
@@ -111,20 +130,20 @@ export default function AdminForm() {
                 <tr>
                   <td><label for="who_do_it"><BsIcons.BsPerson/> Assignée à<span className="required">*</span></label></td>
                   <td>
-                    <select id='who_do_it' name="who_do_it" required>
+                    <select id='who_do_it' name="who_do_it" onChange={handleEmailAgent} required>
                       <option id="disabled"> Sélectionnez un consultant </option>
-                      <option value="Fabian Hernandez Barco">Fabian Hernandez Barco</option>
-                      <option value="Quentin De Jarnac">Quentin De Jarnac</option>
-                      <option value="Benoit Londero">Benoit Londero</option>
-                      <option value="Aline Siraut">Aline Siraut</option>
-                      <option value="Client">Client</option>
+                      {usersInfos.map((index,item) => {
+                        return(
+                          <option key={index} value={item.ID}>{item.Nom + ' ' + item.Prenom}</option>
+                        )
+                      })}
                     </select>
                   </td>
                 </tr>
                 <tr>
                   <td><label for="for_who"> <BsIcons.BsFlag/> Client<span className="required">*</span></label></td>
                   <td>
-                    <select id='for_who' name="for_who" onChange={handleSelect} required>
+                    <select id='for_who' name="the_Agent" onChange={handleSelect} required>
                       <option id="disabled"> Sélectionnez un client </option>
                       {usersInfos.filter(donnee => donnee.Role === 'Client').map((user, index) => 
                         <option key={index} value={user.ID}>{user.Prenom + ' ' + user.Nom}</option>
