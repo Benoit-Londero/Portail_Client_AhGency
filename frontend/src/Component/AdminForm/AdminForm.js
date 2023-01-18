@@ -40,7 +40,7 @@ export default function AdminForm() {
         const conJSON = buildJsonFormData(TSFormData);
         conJSON.ticket = nameProjet[0]; // On rajoute à l'objet le nom du ticket/projet
         conJSON.EmailToNotif = emailUser[0]; // On rajoute à l'objet l'email de l'agent
-        conJSON.for_who = nameAgent[0]; // On rajoute à l'objet le nom de l'agent
+        conJSON.who_do_it = nameAgent[0]; // On rajoute à l'objet le nom de l'agent
 
         //On crée une boucle pour transformer le FormData en JSON
         function buildJsonFormData(TSFormData){
@@ -90,7 +90,7 @@ export default function AdminForm() {
 
     const handleEmailAgent = (e) => {
       let uid = parseInt(e.target.value);
-      let email = usersInfos.filter(data => data.Login === uid).map((item,index) => {
+      let email = usersInfos.filter(data => data.ID === uid).map((item,index) => {
         return ( item.Email)
       })
 
@@ -130,7 +130,7 @@ export default function AdminForm() {
                 <tr>
                   <td><label for="who_do_it"><BsIcons.BsPerson/> Assignée à<span className="required">*</span></label></td>
                   <td>
-                    <select id='who_do_it' name="who_do_it" onChange={handleEmailAgent} required>
+                    <select id='who_do_it' name="theAgent" onChange={handleEmailAgent} required>
                       <option id="disabled"> Sélectionnez un consultant </option>
                       {usersInfos.map((index,item) => {
                         return(
@@ -143,7 +143,7 @@ export default function AdminForm() {
                 <tr>
                   <td><label for="for_who"> <BsIcons.BsFlag/> Client<span className="required">*</span></label></td>
                   <td>
-                    <select id='for_who' name="the_Agent" onChange={handleSelect} required>
+                    <select id='for_who' name="for_who" onChange={handleSelect} required>
                       <option id="disabled"> Sélectionnez un client </option>
                       {usersInfos.filter(donnee => donnee.Role === 'Client').map((user, index) => 
                         <option key={index} value={user.ID}>{user.Prenom + ' ' + user.Nom}</option>
