@@ -19,6 +19,8 @@ export default function Projet() {
     const [currentRole, setCurrentRole] = useState();
     const [message, setMessage] = useState(false);
 
+    const [allEntreprise, setAllEntreprise] = useState([]);
+
     const [formHeures, setFormHeures] = useState(false);
     const [formTasks, setFormTasks] = useState(false);
     const [formProjet, setFormProjet] = useState(true);
@@ -43,6 +45,12 @@ export default function Projet() {
         }
 
         onLoad();
+
+        fetch('/api/getAllEntreprise')
+            .then(res => res.json())
+            .then(json => setAllEntreprise(json))
+            .catch(err => console.info(err))
+        
     }, [currentIDU])
 
     const handleDemande = async e => {
@@ -134,7 +142,7 @@ export default function Projet() {
                         <thead></thead>
                         <tbody>
                             <tr>
-                                <td colspan="2"><label for="title">Nom du projet <span className="required">*</span></label>
+                                <td colspan="2"><label for="title">Nom de la demande <span className="required">*</span></label>
                                 <input type="text" placeholder="Créer un projet..." id="title" name="title" required/></td>
                             </tr>
                             <tr>
@@ -143,7 +151,7 @@ export default function Projet() {
                             </tr>
                             {currentRole === 'administator' ? 
                                 <tr>
-                                    <td><label for="allocation">Combien de temps est alloué à ce projet ?<span className="required">*</span> (en heures)</label></td>
+                                    <td><label for="allocation">Combien de temps est alloué à cette demande ?<span className="required">*</span> (en heures)</label></td>
                                     <td>
                                         <input id="allocation" name="allocation" type="number" placeholder="15"/>
                                     </td>
@@ -154,7 +162,7 @@ export default function Projet() {
                                 <td>
                                     <select name="idEnt" id="idEnt">
                                         {allEntreprise.map(item,index => {
-                                            <option value={item.ID_entreprise}>{item.Nom_societe}</option>
+                                            <option key={index} value={item.ID_entreprise}>{item.Nom_societe}</option>
                                         })}
                                     </select>
                                 </td>

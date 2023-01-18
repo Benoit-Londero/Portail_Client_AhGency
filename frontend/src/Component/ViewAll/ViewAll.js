@@ -406,7 +406,7 @@ export default function ViewAll() {
                                              <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
                                         </tr>
                                         <tr>
-                                             <th><p className="bold">Statut du projet</p></th>
+                                             <th><p className="bold">Statut de la tâche</p></th>
                                              <th className="statut_task">
                                                   <select name="state" required>
                                                        <option defaultValue={item.Statut} default disabled> - </option>
