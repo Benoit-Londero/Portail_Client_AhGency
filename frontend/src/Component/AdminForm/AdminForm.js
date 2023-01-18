@@ -12,28 +12,24 @@ export default function AdminForm() {
 
     const [usersInfos, setUsersInfos] = useState([]);
     const [projetInfos, setProjetInfos] = useState([]);
+    const [nomsoc, setNomSociete] = useState([]);
     const [projetFiltered, setProjetFiltered] = useState([]);
 
-    
-
+  
     //const navigate = useNavigate();
 
     useEffect (() => {
 
-      fetch('/api/getAllClient')
+      fetch('/api/getAllUsers')
         .then(res => res.json())
         .then(json => setUsersInfos(json))
         .catch(err => console.info(err))
 
       fetch('/api/getAllProjet')
-      .then(res => res.json())
-      .then(json => setProjetInfos(json))
-      .catch(err => console.info(err))
+        .then(res => res.json())
+        .then(json => setProjetInfos(json))
+        .catch(err => console.info(err))
     }, [])
-            
-    console.log(usersInfos);
-    console.log(projetFiltered);
-    console.log(projetInfos);
 
     const handleSubmitTS = evt =>  {
         evt.preventDefault();
@@ -57,6 +53,8 @@ export default function AdminForm() {
         .then(json => console.log(json))
         .catch(err => console.info(err))
         .then(alert('Données enregistrées'))
+
+        conJSON.nomsoc = nomsoc;
         
         fetch('https://hook.eu1.make.com/8avz3iho36j9mjcuuukd6ugucjwzavq7', {
           method: 'POST',
@@ -67,12 +65,13 @@ export default function AdminForm() {
     const handleSelect = (e) => {
       let idU = parseInt(e.target.value);
       let idUFiltered = usersInfos.filter(donnee => donnee.ID === idU);
+      let nameProjet = idUFiltered[0].Nom_societe;
       let idE = idUFiltered[0].ID_entreprise;
       let projetFiltered = projetInfos.filter(data => data.ID_entreprise === parseInt(idE));
       setProjetFiltered(projetFiltered);
+      setNomSociete(nameProjet);
       console.log(projetFiltered);
     }
-
   return (      
 
     <div>
@@ -116,7 +115,7 @@ export default function AdminForm() {
                   <td>
                     <select id='for_who' name="for_who" onChange={handleSelect} required>
                       <option id="disabled"> Sélectionnez un client </option>
-                      {usersInfos.map((user, index) => 
+                      {usersInfos.filter(donnee => donnee.Role === 'Client').map((user, index) => 
                         <option key={index} value={user.ID}>{user.Prenom + ' ' + user.Nom}</option>
                       )}
                     </select>
