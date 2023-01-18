@@ -94,13 +94,12 @@ export default function AdminForm() {
         return ( item.Email)
       })
 
-      setEmailUser(email);
-
       let name = usersInfos.filter(data => data.ID === uid).map((item,index) => {
         return (item.Prenom + ' ' + item.Nom)
       })
 
-      setNameUser(name)
+      setNameUser(name);
+      setEmailUser(email);
     }
   return (      
 
@@ -131,8 +130,8 @@ export default function AdminForm() {
                   <td><label for="who_do_it"><BsIcons.BsPerson/> Assignée à<span className="required">*</span></label></td>
                   <td>
                     <select id='who_do_it' name="theAgent" onChange={handleEmailAgent} required>
-                      <option id="disabled"> Sélectionnez un consultant </option>
-                      {usersInfos.map((index,item) => {
+                      <option id="disabled"> Sélectionnez la personne en charge </option>
+                      {usersInfos.map((item,index) => {
                         return(
                           <option key={index} value={item.ID}>{item.Nom + ' ' + item.Prenom}</option>
                         )
