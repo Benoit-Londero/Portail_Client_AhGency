@@ -12,12 +12,12 @@ export default function AdminForm() {
 
     const [usersInfos, setUsersInfos] = useState([]);
     const [projetInfos, setProjetInfos] = useState([]);
-    const [nomsoc, setNomSociete] = useState();
+    const [nomTicket, setNameTickets] = useState();
     const [projetFiltered, setProjetFiltered] = useState([]);
 
   
     //const navigate = useNavigate();
-
+    console.log(nomsoc);
     useEffect (() => {
 
       fetch('/api/getAllUsers')
@@ -38,14 +38,15 @@ export default function AdminForm() {
 
         const conJSON = buildJsonFormData(TSFormData);
 
+        conJSON.ticket = nomTicket;
+        console.log(conJSON)
+
         //On crée une boucle pour transformer le FormData en JSON
         function buildJsonFormData(TSFormData){
           const jsonFormData = {};
           for(const pair of TSFormData){
               jsonFormData[pair[0]] = pair[1];
           }
-
-          jsonFormData['nomsoc'] = nomsoc;
 
           return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
         }
@@ -55,8 +56,6 @@ export default function AdminForm() {
         .then(json => console.log(json))
         .catch(err => console.info(err))
         .then(alert('Données enregistrées'))
-
-        
         
         fetch('https://hook.eu1.make.com/8avz3iho36j9mjcuuukd6ugucjwzavq7', {
           method: 'POST',
@@ -68,12 +67,13 @@ export default function AdminForm() {
     const handleSelect = (e) => {
       let idU = parseInt(e.target.value);
       let idUFiltered = usersInfos.filter(donnee => donnee.ID === idU);
-      let nameProjet = idUFiltered[0].Nom_societe;
+      let namTicket = idUFiltered[0].Tickets;
       let idE = idUFiltered[0].ID_entreprise;
       let projetFiltered = projetInfos.filter(data => data.ID_entreprise === parseInt(idE));
       setProjetFiltered(projetFiltered);
-      setNomSociete(nameProjet);
+      setNameTickets(namTicket);
       console.log(projetFiltered);
+      
     }
   return (      
 
