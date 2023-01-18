@@ -213,11 +213,15 @@
 
 .AllProjet_box{
     overflow: scroll;
-    height: 310px;
+    height: 280px;
     margin: 0;
     padding: 20px 10px;
     box-shadow: inset 1px -3px 10px 0px rgb(0 0 0 / 19%);
     border-radius: 13px;
+}
+
+.AllProjet_box btn{
+    width:98%;
 }
 
 .filter_admin{
