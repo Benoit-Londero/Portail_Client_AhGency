@@ -58,6 +58,11 @@ export default function AdminForm() {
         .catch(err => console.info(err))
         .then(alert('Données enregistrées'))
         .then(fetch('s978qlou8k7k7cuiqije21kc25hixa5q@hook.eu1.make.com', {method: 'GET', }))
+
+        fetch('https://hook.eu1.make.com/8avz3iho36j9mjcuuukd6ugucjwzavq7', {
+          method: 'POST',
+          body : JSON.stringify(conJSON)
+        })
     }
 
     const handleSelect = (e) => {
