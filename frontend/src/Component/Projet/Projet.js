@@ -16,6 +16,7 @@ export default function Projet() {
     const currentIDE = localStorage.getItem("currentIDE");
 
     const [currentMAIL, setCurrentMAIL] = useState();
+    const [currentRole, setCurrentRole] = useState();
     const [message, setMessage] = useState(false);
 
     const [formHeures, setFormHeures] = useState(false);
@@ -35,6 +36,7 @@ export default function Projet() {
             const data = await response.json();
             if(response.status === 200){
                 setCurrentMAIL(data.Email);
+                setCurrentRole(data.Role);
             } else {
                 alert('Erreur du serveur, veuillez réessayer plus tard');
             }
@@ -125,7 +127,6 @@ export default function Projet() {
                 </ul>
             </div>
                 
-
             {formProjet === true ? 
                 <div>
                     <h1>Informations sur la demande</h1>
@@ -140,22 +141,24 @@ export default function Projet() {
                                 <td colspan="2"><label for="tache">Expliquez votre demande <span className="required">*</span></label><br></br>
                                 <textarea id="tache" name="tache" placeholder="tâche" required></textarea></td>
                             </tr>
+                            {currentRole === 'administator' ? 
+                                <tr>
+                                    <td><label for="allocation">Combien de temps est alloué à ce projet ?<span className="required">*</span> (en heures)</label></td>
+                                    <td>
+                                        <input id="allocation" name="allocation" type="number" placeholder="15"/>
+                                    </td>
+                                </tr> : <tr><td><input type="hidden" name="allocation" value="0"/></td></tr>}
+                            <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
+                            {currentRole === 'administrator' ? 
                             <tr>
-                                <td><label for="title">Combien de temps désirez-vous allouer à votre projet ?<span className="required">*</span></label></td>
                                 <td>
-                                    <select id="allocation" name="allocation">
-                                        <option value="0"> 0</option>
-                                        <option value="60">1 heure</option>
-                                        <option value="120">2 heures</option>
-                                        <option value="180">3 heures</option>
-                                        <option value="240">4 heures</option>
-                                        <option value="300">5 heures</option>
-                                        <option value="600">10 heures</option>
+                                    <select name="idEnt" id="idEnt">
+                                        {allEntreprise.map(item,index => {
+                                            <option value={item.ID_entreprise}>{item.Nom_societe}</option>
+                                        })}
                                     </select>
                                 </td>
-                            </tr>
-                            <tr><td><input id="email" name="email" value={currentMAIL} hidden></input></td></tr>
-                            <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>
+                            </tr> : <tr><td><input id="idEnt" name="idEnt" value={currentIDE} hidden></input></td></tr>}
                             <tr><td><input id="dateEnvoi" name="dateEnvoi" value={new Date().toJSON().slice(0, 10)} hidden></input></td></tr>
 
                             <tr>

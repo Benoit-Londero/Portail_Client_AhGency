@@ -4,8 +4,6 @@ import * as RiIcons from "react-icons/ri";
 import * as MdIcons from "react-icons/md";
 import * as FiIcons from "react-icons/fi";
 
-//import * as HiIcons from "react-icons/hi";
-
 //création Array pour les icones et chemin de navigation
 export const SidebarData = [
     {
@@ -17,15 +15,6 @@ export const SidebarData = [
         category: 'app',
         responsive: true
     },
-    /* {
-        title:'Admin Projet',
-        path: '/AdminProjet',
-        icon: <FiIcons.FiPlusSquare/>,
-        cName: 's-sidebar__nav-link',
-        admin: false,
-        category: 'admin',
-        responsive: true
-    }, */
     {
         title:'Achat',
         path: '/Credits',
