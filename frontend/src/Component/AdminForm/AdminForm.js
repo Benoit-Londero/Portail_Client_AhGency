@@ -12,9 +12,7 @@ export default function AdminForm() {
 
     const [usersInfos, setUsersInfos] = useState([]);
     const [projetInfos, setProjetInfos] = useState([]);
-    const [nomTicket, setNameTickets] = useState();
     const [projetFiltered, setProjetFiltered] = useState([]);
-
   
     //const navigate = useNavigate();
     useEffect (() => {
@@ -40,7 +38,7 @@ export default function AdminForm() {
         let id_Ticket = parseInt(conJSON.projet);
         let name_ticket = projetInfos.filter(data => data.ID_entreprise === id_Ticket);
 
-        let theName = name_ticket.Ticket;
+        let theName = name_ticket.Tickets;
         console.log(theName);
         console.log(name_ticket);
         
