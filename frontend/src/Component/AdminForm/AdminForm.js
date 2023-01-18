@@ -13,6 +13,8 @@ export default function AdminForm() {
     const [usersInfos, setUsersInfos] = useState([]);
     const [projetInfos, setProjetInfos] = useState([]);
     const [projetFiltered, setProjetFiltered] = useState([]);
+
+    const [nameProjet, setNameProjet] = useState();
   
     //const navigate = useNavigate();
     useEffect (() => {
@@ -34,16 +36,7 @@ export default function AdminForm() {
         let TSFormData = new FormData(TSForm);
 
         const conJSON = buildJsonFormData(TSFormData);
-
-        let id_Ticket = parseInt(conJSON.projet);
-        let name_ticket = projetInfos.filter(data => data.ID_entreprise === id_Ticket);
-
-        let theName = name_ticket.Tickets;
-        console.log(theName);
-        console.log(name_ticket);
-        
-        conJSON.ticket = theName;
-        console.log(conJSON)
+        conJSON.ticket = nameProjet; // On rajoute à l'objet le nom du ticket/projet
 
         //On crée une boucle pour transformer le FormData en JSON
         function buildJsonFormData(TSFormData){
@@ -54,6 +47,8 @@ export default function AdminForm() {
 
           return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
         }
+
+
 
         fetch('/api/postTimesheet', {method: 'POST', body: JSON.stringify(conJSON)})
         .then(res => res.json())
@@ -78,6 +73,15 @@ export default function AdminForm() {
 
       console.log(projetFiltered);
       
+    }
+
+    const handleNameTicket = (e) => {
+      let pid = parseInt(e.target.value);
+      let nameprojet = projetInfos.filter(data => data.ID === pid).map((item,index) => {
+        return( item.Tickets )
+      })
+      console.log(nameprojet)
+      setNameProjet(nameprojet);
     }
   return (      
 
@@ -131,7 +135,7 @@ export default function AdminForm() {
                 <tr>
                   <td><label for="projet"> <BsIcons.BsClipboardCheck/> Projet<span className="required">*</span></label></td>
                   <td>
-                      <select id='projet' name="projet" required>
+                      <select id='projet' name="projet" required onChange={handleNameTicket}>
                           <option id="disabled"> Sélectionnez un projet </option>
                           {projetFiltered.map((pro, index) => 
                               <option key={index} value={pro.ID}>{pro.Tickets}</option>
