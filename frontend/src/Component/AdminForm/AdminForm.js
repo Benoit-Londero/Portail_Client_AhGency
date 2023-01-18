@@ -17,7 +17,7 @@ export default function AdminForm() {
 
   
     //const navigate = useNavigate();
-    console.log(nomsoc);
+    console.log(nomTicket);
     useEffect (() => {
 
       fetch('/api/getAllUsers')
