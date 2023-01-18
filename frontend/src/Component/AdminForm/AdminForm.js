@@ -12,7 +12,7 @@ export default function AdminForm() {
 
     const [usersInfos, setUsersInfos] = useState([]);
     const [projetInfos, setProjetInfos] = useState([]);
-    const [nomsoc, setNomSociete] = useState([]);
+    const [nomsoc, setNomSociete] = useState();
     const [projetFiltered, setProjetFiltered] = useState([]);
 
   
@@ -45,6 +45,8 @@ export default function AdminForm() {
               jsonFormData[pair[0]] = pair[1];
           }
 
+          jsonFormData['nomsoc'] = nomsoc;
+
           return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
         }
 
@@ -54,10 +56,11 @@ export default function AdminForm() {
         .catch(err => console.info(err))
         .then(alert('Données enregistrées'))
 
-        conJSON.nomsoc = nomsoc;
+        
         
         fetch('https://hook.eu1.make.com/8avz3iho36j9mjcuuukd6ugucjwzavq7', {
           method: 'POST',
+          headers: {'Content-Type': 'application/json'},
           body : JSON.stringify(conJSON)
         })
     }
