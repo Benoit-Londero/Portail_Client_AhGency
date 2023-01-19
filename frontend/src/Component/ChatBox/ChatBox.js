@@ -9,11 +9,12 @@ export default function ChatBox(){
      const currentIDE = localStorage.getItem("currentIDE");
 
      useEffect (() => {
+          let dataU = {currentIDU: currentIDU};
           async function fetchMessages() {
                try {
                  const response = await fetch('/api/getMessages', {
                     method: 'POST',
-                    body : {currentIDU : JSON.stringify(currentIDU)}
+                    body : JSON.stringify(dataU)
                  });
                  const data = await response.json();
                  setOldermessage(data);
