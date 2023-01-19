@@ -10,12 +10,13 @@ export default function ChatBox(){
      const [message, setNewmessage] = useState();
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
-     const [idEntreprise, setCurrentIDE] = useState('');
+     const [idEntreprise, setCurrentIDE] = useState();
 
      const currentIDU = localStorage.getItem("currentIDU");
 
      useEffect (() => {
           let dataU = {currentIDE: idEntreprise};
+          console.log(dataU)
           async function fetchMessages() {
                try {
                  const response = await fetch('/api/getMessages', {
@@ -71,6 +72,7 @@ export default function ChatBox(){
 
      const handleChange = (e) => {
           const pid = e.target.value;
+          console.log(pid);
           setCurrentIDE(pid);
      }
 
@@ -100,7 +102,7 @@ export default function ChatBox(){
                          />
                          <input type="hidden" name="currentIDE" value={idEntreprise}></input>
                          <input type="hidden" name="currentIDU" value={currentIDU}></input>
-                         <button type="submit">Send</button>
+                         <button type="submit">envoyer mon message</button>
                     </form>
                </Container>
           </div>
