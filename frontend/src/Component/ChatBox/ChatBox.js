@@ -22,7 +22,7 @@ export default function ChatBox(){
           try {
             const response = await fetch('/api/getMessages', {
                method: 'POST',
-               body : JSON.stringify({currentIDU: idEntreprise, currentIDU})
+               body : JSON.stringify({currentIDU: idEntreprise})
             });
             const data = await response.json();
             setOldermessage(prevMessages => [...prevMessages, ...data]);
@@ -87,7 +87,7 @@ export default function ChatBox(){
                <div className="project_sidebar">
                     {AllProjet.map((item,index) => {
                          return(
-                              <li key={index}><Button className="btn_primary" onClick={handleChange} value={item.ID}>{item.Tickets}</Button></li>
+                              <li key={index}><Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button></li>
                          )
                     })}
                </div>
