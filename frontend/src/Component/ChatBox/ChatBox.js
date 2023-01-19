@@ -10,20 +10,22 @@ export default function ChatBox(){
      const [message, setNewmessage] = useState();
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
-     const [idEntreprise, setCurrentIDE] = useState();
+     const [idConversation, setCurrentIDC] = useState();
 
      const currentIDU = localStorage.getItem("currentIDU");
-     let dataU = {currentIDE: idEntreprise};
 
-     console.log('idEntreprise :' + idEntreprise);
-     console.log('dataU' + dataU)
+     console.log('idConversation :' + idEntreprise);
      
+
      fetch('/api/getAllProjet')
           .then(res => res.json())
           .then(json => setAllProjects(json))
           .catch(err => console.info(err))
 
      useEffect (() => {
+          let dataU = {currentIDE: idEntreprise};
+          console.log('dataU' + dataU)
+
           async function fetchMessages() {
                try {
                  const response = await fetch('/api/getMessages', {
@@ -39,8 +41,7 @@ export default function ChatBox(){
 
           const intervalId = setInterval(fetchMessages, 5000);
           return () => clearInterval(intervalId);
-          
-     }, [dataU])
+     }, [])
 
      const sendMessage = async (e) => {
           e.preventDefault();
@@ -73,9 +74,9 @@ export default function ChatBox(){
      }
 
      const handleChange = (e) => {
-          const pid = e.target.value;
+          const cid = e.target.value;
           console.log(pid);
-          setCurrentIDE(pid);
+          setCurrentIDC(cid);
      }
 
   return (
