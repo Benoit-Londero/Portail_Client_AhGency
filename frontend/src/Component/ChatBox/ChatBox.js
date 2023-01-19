@@ -43,7 +43,7 @@ export default function ChatBox(){
           const intervalId = setInterval(fetchMessages, 5000);
           return () => clearInterval(intervalId);
           
-     }, [])
+     }, [dataU])
 
      const sendMessage = async (e) => {
           e.preventDefault();
