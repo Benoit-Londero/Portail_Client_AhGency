@@ -103,7 +103,7 @@ export default function ChatBox(){
                               name="mess"
                               onChange={e => setNewmessage(e.target.value)}
                          />
-                         <input type="hidden" name="currentIDE" value={idConveration}></input>
+                         <input type="hidden" name="currentIDE" value={idConversation}></input>
                          <input type="hidden" name="currentIDU" value={currentIDU}></input>
                          <button type="submit">envoyer mon message</button>
                     </form>
