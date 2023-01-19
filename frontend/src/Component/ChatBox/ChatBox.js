@@ -93,7 +93,7 @@ export default function ChatBox(){
                     })}
                </div>
 
-               <Container id="page_dashboard"  className="main__content">
+               <Container id="page_chatbox"  className="main__content">
 
                     <MessageList messages={oldMessage} className={(message) => message.ID_client === currentIDU ? 'sender' : 'receiver'} />
 
