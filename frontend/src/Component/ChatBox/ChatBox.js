@@ -6,13 +6,14 @@ export default function ChatBox(){
      const [oldMessage, setOldermessage] = useState([]);
 
      const currentIDU = localStorage.getItem("currentIDU");
+     const currentIDE = localStorage.getItem("currentIDE");
 
      useEffect (() => {
           async function fetchMessages() {
                try {
                  const response = await fetch('/api/getMessages', {
                     method: 'POST',
-                    body : JSON.stringify(currentIDU)
+                    body : {currentIDU : JSON.stringify(currentIDU)}
                  });
                  const data = await response.json();
                  setOldermessage(data);
@@ -50,8 +51,11 @@ export default function ChatBox(){
            type="text"
            placeholder="Enter your message"
            value={message}
+           name="mess"
            onChange={e => setNewmessage(e.target.value)}
          />
+         <input type="hidden" name="currentIDE" value={currentIDE}></input>
+         <input type="hidden" name="currentIDU" value={currentIDU}></input>
          <button type="submit">Send</button>
        </form>
     </div>
