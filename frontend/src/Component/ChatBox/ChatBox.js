@@ -46,8 +46,10 @@ export default function ChatBox(){
 
      const sendMessage = async (e) => {
           e.preventDefault();
+          
+          let newMess = document.getElementById('submitMessage'); //on récupère l'élement <form> et ces différents <input>
+          let postMess = new FormData(newMess); //que l'on intègre à un formData
 
-          let postMess = new FormData(formRef.current);
 
           const jsonForm = buildJsonFormData(postMess);
 
