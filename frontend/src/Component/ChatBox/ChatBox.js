@@ -4,7 +4,7 @@ import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
 
 import Button from 'react-bootstrap/Button';
-import './ChatBox';
+import './ChatBox.css';
 
 const timeoutIdRef = useRef(null);
 
@@ -12,7 +12,7 @@ export default function ChatBox(){
      const [message, setNewmessage] = useState();
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
-     const [idEntreprise, setCurrentIDE] = useState();
+     const [idEntreprise, setCurrentIDE] = useState(null);
 
      const currentIDU = localStorage.getItem("currentIDU");
 
@@ -36,7 +36,7 @@ export default function ChatBox(){
           .then(res => res.json())
           .then(json => setAllProjects(json))
           .catch(err => console.info(err))
-          
+
           // your useEffect code
           timeoutIdRef.current = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutIdRef.current);
