@@ -22,7 +22,7 @@ export default function ChatBox(){
           try {
             const response = await fetch('/api/getMessages', {
                method: 'POST',
-               body : JSON.stringify({currentIDU: idEntreprise, currentIDE})
+               body : JSON.stringify({currentIDU: idEntreprise, currentIDU})
             });
             const data = await response.json();
             setOldermessage(prevMessages => [...prevMessages, ...data]);
