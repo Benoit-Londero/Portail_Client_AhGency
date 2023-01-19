@@ -31,14 +31,15 @@ export default function ChatBox(){
 
      
      useEffect(() => {
-          // your useEffect code
-          timeoutIdRef.current = setTimeout(fetchMessages, 5000);
-          return () => clearTimeout(timeoutIdRef.current);
 
           fetch('/api/getAllProjet')
           .then(res => res.json())
           .then(json => setAllProjects(json))
           .catch(err => console.info(err))
+          
+          // your useEffect code
+          timeoutIdRef.current = setTimeout(fetchMessages, 5000);
+          return () => clearTimeout(timeoutIdRef.current);
 
     }, [])
 
