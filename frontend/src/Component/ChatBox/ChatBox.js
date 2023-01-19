@@ -28,20 +28,19 @@ export default function ChatBox(){
             console.error('Error fetching messages:', error);
           }
      }
-
      
      useEffect(() => {
-
           fetch('/api/getAllProjet')
           .then(res => res.json())
           .then(json => setAllProjects(json))
           .catch(err => console.info(err))
 
           // your useEffect code
-          timeoutIdRef.current = setTimeout(fetchMessages, 5000);
-          return () => clearTimeout(timeoutIdRef.current);
-
-    }, [])
+           // your useEffect code
+           timeoutIdRef.current = setTimeout(fetchMessages, 5000);
+           return () => clearTimeout(timeoutIdRef.current);
+ 
+     }, [])
 
      const sendMessage = async (e) => {
           e.preventDefault();
