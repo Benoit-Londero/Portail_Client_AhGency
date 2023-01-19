@@ -4,7 +4,7 @@ import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
 
 import Button from 'react-bootstrap/Button';
-import './ChatBox.css'
+import './ChatBox';
 
 export default function ChatBox(){
      const [message, setNewmessage] = useState();
@@ -28,18 +28,17 @@ export default function ChatBox(){
           } catch (error) {
             console.error('Error fetching messages:', error);
           }
-     }
-
-     useEffect (() => {
-
-          fetch('/api/getAllProjet')
-          .then(res => res.json())
-          .then(json => setAllProjects(json))
-          .catch(err => console.info(err))
 
           const timeoutId = setTimeout(fetchMessages, 5000);
           setTimeoutId(timeoutId);
           return () => clearTimeout(timeoutId);
+     }
+
+     useEffect (() => {
+          fetch('/api/getAllProjet')
+          .then(res => res.json())
+          .then(json => setAllProjects(json))
+          .catch(err => console.info(err))
           
      }, [])
 
@@ -48,7 +47,6 @@ export default function ChatBox(){
           
           let newMess = document.getElementById('submitMessage'); //on récupère l'élement <form> et ces différents <input>
           let postMess = new FormData(newMess); //que l'on intègre à un formData
-
 
           const jsonForm = buildJsonFormData(postMess);
 
@@ -96,7 +94,7 @@ export default function ChatBox(){
 
                <Container id="page_chatbox"  className="main__content">
 
-                    <MessageList messages={oldMessage} className={(message) => message.ID_client === currentIDU ? 'sender' : 'receiver'} />
+                    <MessageList messages={oldMessage} className={(message) => message.ID_client === parseInt(currentIDU) ? 'sender' : 'receiver'} />
 
                     <form id="submitMessage" onSubmit={sendMessage}>
                          <input
