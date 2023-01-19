@@ -1,14 +1,28 @@
 import React from 'react';
 
+const render = (message) => {
+  if(message.ID_client === currentIDU){
+    return(
+      <li className='sendByMe' key={message.id}>
+        <p>{message.ID_client} à envoyé</p>
+        <p>{message.Message}</p>
+      </li>
+    )
+  } else {
+    return(
+      <li className='sendToMe' key={message.id}>
+        <p>{message.ID_client} à envoyé</p>
+        <p>{message.Message}</p>
+      </li>
+    )
+  }
+}
+
 function MessageList({ messages }) {
   return (
     <ul>
       {messages.map(message => (
-        <li key={message.id}>
-          <div>
-          {message.ID_client} à envoyé :
-          </div> : {message.Message}
-        </li>
+        {render}
       ))}
     </ul>
   );

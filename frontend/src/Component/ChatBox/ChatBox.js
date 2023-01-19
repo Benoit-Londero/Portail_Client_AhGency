@@ -4,6 +4,7 @@ import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
 
 import Button from 'react-bootstrap/Button';
+import './Chatbox.css'
 
 export default function ChatBox(){
      const [message, setNewmessage] = useState();
@@ -14,7 +15,7 @@ export default function ChatBox(){
      const currentIDU = localStorage.getItem("currentIDU");
 
      useEffect (() => {
-          let dataU = {currentIDU: currentIDU};
+          let dataU = {currentIDE: currentIDE};
           async function fetchMessages() {
                try {
                  const response = await fetch('/api/getMessages', {
