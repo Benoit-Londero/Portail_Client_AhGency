@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import MessageList from '../MessageList/MessageList';
 import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
@@ -12,7 +12,6 @@ export default function ChatBox(){
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState();
      const [timeoutId, setTimeoutId] = useState();
-     const formRef = useRef(null);
 
      console.log(timeoutId);
 
