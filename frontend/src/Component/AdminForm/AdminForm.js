@@ -8,7 +8,7 @@ import * as MdIcons from "react-icons/md";
 import * as BsIcons from "react-icons/bs";
 
 
-export default function AdminForm() {
+export default function AdminForm(){
 
     const [usersInfos, setUsersInfos] = useState([]);
     const [projetInfos, setProjetInfos] = useState([]);
@@ -101,6 +101,7 @@ export default function AdminForm() {
       setNameUser(name);
       setEmailUser(email);
     }
+
   return (      
 
     <div>

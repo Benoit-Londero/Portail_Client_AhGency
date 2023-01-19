@@ -14,6 +14,7 @@ import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
 import Entreprise from './Component/Entreprise/Entreprise.js'/* 
 import AdminProjet from './Component/AdminProjet/AdminProjet.js' */
+import ChatBox from './Component/ChatBox/ChatBox.js'
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -109,6 +110,7 @@ function App() {
               <Route path="/AdminForm" element={< AdminForm />}></Route>
               <Route path="/AdminHeure" element={< AdminHeure />}></Route>
               <Route path="/ViewAll" element={< ViewAll />}></Route>
+              <Route path="/ChatBox" element={< ChatBox />}></Route>
               <Route path='/Account' element={< NameForm />}></Route>
               <Route path="/Clients" element={< Clients/>}></Route>
               <Route path="/Entreprise" element={< Entreprise />}></Route>

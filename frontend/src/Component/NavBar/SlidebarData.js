@@ -86,5 +86,14 @@ export const SidebarData = [
         admin: true,
         category: 'admin',
         responsive: false
+    },
+    {
+        title: 'ChatBox',
+        path: '/ChatBox',
+        icon: <FiIcons.FiUsers />,
+        cName: 's-sidebar__nav-link',
+        admin: true,
+        category: 'admin',
+        reponsive: false
     }
 ]
