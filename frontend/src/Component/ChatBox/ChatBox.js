@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef} from 'react';
 import MessageList from '../MessageList/MessageList';
 import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
@@ -6,15 +6,15 @@ import NavBar from "../NavBar/NavBar";
 import Button from 'react-bootstrap/Button';
 import './ChatBox';
 
+const timeoutIdRef = useRef(null);
+
 export default function ChatBox(){
      const [message, setNewmessage] = useState();
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState();
-     const [timeoutId, setTimeoutId] = useState();
-
-     console.log(timeoutId);
-
+/*      const [timeoutId, setTimeoutId] = useState();
+ */
      const currentIDU = localStorage.getItem("currentIDU");
 
      const fetchMessages = async () => {
@@ -28,19 +28,18 @@ export default function ChatBox(){
           } catch (error) {
             console.error('Error fetching messages:', error);
           }
-
-          const timeoutId = setTimeout(fetchMessages, 5000);
-          setTimeoutId(timeoutId);
-          return () => clearTimeout(timeoutId);
      }
 
-     useEffect (() => {
-          fetch('/api/getAllProjet')
+     fetch('/api/getAllProjet')
           .then(res => res.json())
           .then(json => setAllProjects(json))
           .catch(err => console.info(err))
-          
-     }, [])
+
+     useEffect(() => {
+          // your useEffect code
+          timeoutIdRef.current = setTimeout(fetchMessages, 5000);
+          return () => clearTimeout(timeoutIdRef.current);
+    }, [])
 
      const sendMessage = async (e) => {
           e.preventDefault();
