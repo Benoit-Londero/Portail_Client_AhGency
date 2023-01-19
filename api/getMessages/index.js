@@ -10,7 +10,7 @@ module.exports = async function (context, req) {
   messages = await new Promise((resolve,reject) => {
       
       let sql = "SELECT * FROM conversation WHERE ID_projet = ?";
-      let currentClt = req.body.currentIDU;
+      let currentClt = req.body.currentIDE;
 
       con.query(sql,[currentClt],function(err,result){
         if (err) throw err;
