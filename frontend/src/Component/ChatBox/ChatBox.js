@@ -123,22 +123,23 @@ export default function ChatBox() {
     const [timeoutId, setTimeoutId] = useState();
     const formRef = useRef(null);
 
-    const currentIDU = localStorage.getItem("currentIDU");
 
-    useEffect(() => {
-        async function fetchMessages() {
-            try {
-                const response = await fetch('/api/getMessages', {
-                    method: 'POST',
-                    body: JSON.stringify({ currentIDE: idEntreprise, currentIDU }),
-                    headers: { 'Content-Type': 'application/json' },
-                });
-                const data = await response.json();
-                setOldermessage(prevMessages => [...prevMessages, ...data]);
-            } catch (error) {
-                console.error('Error fetching messages:', error);
-            }
+    console.log(timeoutId);
+    const currentIDU = localStorage.getItem("currentIDU");
+    async function fetchMessages() {
+        try {
+            const response = await fetch('/api/getMessages', {
+                method: 'POST',
+                body: JSON.stringify({ currentIDE: idEntreprise, currentIDU }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+            const data = await response.json();
+            setOldermessage(prevMessages => [...prevMessages, ...data]);
+        } catch (error) {
+            console.error('Error fetching messages:', error);
         }
+    }
+    useEffect(() => {
         Promise.all([
             fetch('/api/getAllProjet')
                 .then(res => res.json())
