@@ -94,7 +94,7 @@ export default function ChatBox(){
 
                <Container id="page_dashboard"  className="main__content">
 
-                    <MessageList messages={oldMessage} />
+                    <MessageList messages={oldMessage} className={(message) => message.ID_client === currentIDU ? 'sender' : 'receiver'} />
 
                     <form id="submitMessage" onSubmit={sendMessage}>
                          <input
