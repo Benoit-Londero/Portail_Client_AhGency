@@ -16,12 +16,14 @@ export default function ChatBox(){
      let dataU = {currentIDE: idEntreprise};
 
      console.log('idEntreprise :' + idEntreprise);
+     console.log('dataU' + dataU)
+     
+     fetch('/api/getAllProjet')
+          .then(res => res.json())
+          .then(json => setAllProjects(json))
+          .catch(err => console.info(err))
 
      useEffect (() => {
-          
-
-          console.log('dataU' + dataU)
-
           async function fetchMessages() {
                try {
                  const response = await fetch('/api/getMessages', {
@@ -34,11 +36,6 @@ export default function ChatBox(){
                  console.error('Error fetching messages:', error);
                }
           }
-
-          fetch('/api/getAllProjet')
-          .then(res => res.json())
-          .then(json => setAllProjects(json))
-          .catch(err => console.info(err))
 
           const intervalId = setInterval(fetchMessages, 5000);
           return () => clearInterval(intervalId);
