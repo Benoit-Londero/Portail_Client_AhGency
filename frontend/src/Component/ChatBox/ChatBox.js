@@ -4,7 +4,7 @@ import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
 
 import Button from 'react-bootstrap/Button';
-import './Chatbox.css'
+import './ChatBox.css'
 
 export default function ChatBox(){
      const [message, setNewmessage] = useState();

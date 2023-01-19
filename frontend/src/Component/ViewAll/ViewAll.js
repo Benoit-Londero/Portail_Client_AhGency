@@ -257,7 +257,7 @@ export default function ViewAll() {
                               <tr key={index} className="line_task">
                                    <td className="title_of_task"><p>{ item.Titre}</p></td>
                                    <td className="admin_view_task">{item_statut(item.Statut)}</td>
-                                   <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
+                                   <td><p className="bdg_user"> {item.Agent}</p></td>
                                    <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                    <td className="last-child">
                                         <Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button>
@@ -279,7 +279,7 @@ export default function ViewAll() {
                               <tr key={index} className="line_task">
                                    <td className="title_of_task"><p>{ item.Titre }</p></td>
                                    <td className="time"><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                   <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
+                                   <td><p className="bdg_user"> {item.Agent}</p></td>
                                    <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
                               </tr>
                          )
@@ -308,7 +308,7 @@ export default function ViewAll() {
                                    <tbody>
                                         <tr>
                                              <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
-                                             <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                             <td><p className="agent__"><span className="developer">{item.Agent}</span> {item.Agent}</p></td>
                                         </tr>
                                         <tr>
                                              <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
@@ -358,7 +358,7 @@ export default function ViewAll() {
                                    <tbody>
                                         <tr>
                                              <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
-                                             <td><p className="agent__"><span className="developer">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                             <td><p className="agent__"><span className="developer">{item.Agent}</span> {item.Agent}</p></td>
                                         </tr>
                                         <tr>
                                              <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
@@ -406,7 +406,7 @@ export default function ViewAll() {
                                              <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
                                         </tr>
                                         <tr>
-                                             <th><p className="bold">Statut de la tâche</p></th>
+                                             <th><p className="bold">Statut de</p></th>
                                              <th className="statut_task">
                                                   <select name="state" required>
                                                        <option defaultValue={item.Statut} default disabled> - </option>
@@ -420,7 +420,7 @@ export default function ViewAll() {
                                    <tbody>
                                         <tr>
                                              <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
-                                             <td><p className="agent__"><span className="bdg_user">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                             <td><p className="agent__"> {item.Agent}</p></td>
                                         </tr>
                                         <tr>
                                              <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
@@ -463,7 +463,7 @@ export default function ViewAll() {
                                    <tbody>
                                         <tr>
                                              <td><p className="bold"><BsIcons.BsPerson/> Assigné</p></td>
-                                             <td><p className="agent__"><span className="bdg_user">{item.Agent.substring(0,1)}</span> {item.Agent}</p></td>
+                                             <td><p className="agent__"><span className="bdg_user">{item.Agent}</span> {item.Agent}</p></td>
                                         </tr>
                                         <tr>
                                              <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
