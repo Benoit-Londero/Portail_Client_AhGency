@@ -29,10 +29,25 @@ export default function ChatBox(){
 
      const sendMessage = async (e) => {
           e.preventDefault();
+
+          let newMess = document.getElementById('submitMessage');
+          let postMess = new FormData(newMess);
+
+          const jsonForm = buildJsonFormData(postMess);
+
+          function buildJsonFormData(postMess){
+            const jsonFormData = {};
+            for(const pair of postMess){
+                jsonFormData[pair[0]] = pair[1];
+            }
+
+            return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
+          }
+
           try {
                const response = await fetch('/api/postMessage', {
                  method: 'POST',
-                 body: JSON.stringify({ message }),
+                 body: JSON.stringify(jsonForm),
                  headers: { 'Content-Type': 'application/json' },
                });
                const data = await response.json();
@@ -46,7 +61,7 @@ export default function ChatBox(){
     <div>
       <MessageList messages={oldMessage} />
 
-      <form onSubmit={sendMessage}>
+      <form id="submitMessage" onSubmit={sendMessage}>
          <input
            type="text"
            placeholder="Enter your message"
