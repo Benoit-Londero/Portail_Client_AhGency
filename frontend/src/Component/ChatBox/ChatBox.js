@@ -18,14 +18,14 @@ export default function ChatBox(){
 
      const currentIDU = localStorage.getItem("currentIDU");
 
-     async function fetchMessages() {
+     const fetchMessages = async () => {
           try {
             const response = await fetch('/api/getMessages', {
                method: 'POST',
                body : JSON.stringify({currentIDE: idEntreprise, currentIDU})
             });
             const data = await response.json();
-            setOldermessage(prevMessages => [...prevMessages, ...data]);
+            setOldermessage(data);
           } catch (error) {
             console.error('Error fetching messages:', error);
           }
@@ -77,6 +77,7 @@ export default function ChatBox(){
           const pid = e.target.value;
           console.log(pid);
           setCurrentIDE(pid);
+          setOldermessage([]);
           fetchMessages()
      }
 
