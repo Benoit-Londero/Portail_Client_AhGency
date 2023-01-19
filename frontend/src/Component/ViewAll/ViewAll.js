@@ -257,7 +257,7 @@ export default function ViewAll() {
                               <tr key={index} className="line_task">
                                    <td className="title_of_task"><p>{ item.Titre}</p></td>
                                    <td className="admin_view_task">{item_statut(item.Statut)}</td>
-                                   <td><p className="bdg_user"> {item.Agent}</p></td>
+                                   <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
                                    <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
                                    <td className="last-child">
                                         <Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button>

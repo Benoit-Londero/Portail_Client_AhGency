@@ -10,12 +10,12 @@ export default function ChatBox(){
      const [message, setNewmessage] = useState();
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
-     const [currentIDE, setCurrentIDE] = useState('');
+     const [idUser, setCurrentIDE] = useState('');
 
      const currentIDU = localStorage.getItem("currentIDU");
 
      useEffect (() => {
-          let dataU = {currentIDE: currentIDE};
+          let dataU = {currentIDE: idUser};
           async function fetchMessages() {
                try {
                  const response = await fetch('/api/getMessages', {
@@ -81,7 +81,7 @@ export default function ChatBox(){
                <div className="project_sidebar">
                     {AllProjet.map((item,index) => {
                          return(
-                              <li key={index}><Button onClick={handleChange} value={item.ID}>{item.Tickets}</Button></li>
+                              <li key={index}><Button className="btn_primary" onClick={handleChange} value={item.ID}>{item.Tickets}</Button></li>
                          )
                     })}
                </div>
