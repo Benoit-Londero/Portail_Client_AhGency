@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect} from 'react';
 import MessageList from '../MessageList/MessageList';
 import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
 
 import Button from 'react-bootstrap/Button';
 import './ChatBox.css';
-
-const timeoutIdRef = useRef(null);
 
 export default function ChatBox(){
      const [message, setNewmessage] = useState();
@@ -37,8 +35,8 @@ export default function ChatBox(){
 
           // your useEffect code
            // your useEffect code
-           timeoutIdRef.current = setTimeout(fetchMessages, 5000);
-           return () => clearTimeout(timeoutIdRef.current);
+           timeoutId = setTimeout(fetchMessages, 5000);
+           return () => clearTimeout(timeoutId);
  
      }, [])
 
