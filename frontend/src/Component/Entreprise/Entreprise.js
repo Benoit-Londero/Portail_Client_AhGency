@@ -244,11 +244,11 @@ export default function Entreprise() {
                                              </tr>
                                              <tr>
                                                   <td><label className="bold"> Membres: </label></td>
-                                                  <td>
+                                                  {/* <td>
                                                        {allUsers.filter(data => data[0].ID_entreprise === currentIDE).map((item,index) =>{
                                                        return(<p key={index} className="bdg_user">{item.Prenom.substring(0,1)}</p>)
                                                   })}
-                                                  </td>
+                                                  </td> */}
                                              </tr>
 
                                              <tr>
