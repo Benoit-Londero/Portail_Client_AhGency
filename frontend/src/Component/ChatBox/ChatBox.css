@@ -2,8 +2,13 @@
      list-style: none;
 }
 
-#projet_chatbox li{
+#projet_chatbox ul li{
      max-width: 30vw;
+     width: 30vw;
+     margin-bottom: 20px;
+     border-radius: 5px;
+     text-align: left;
+     padding: 5px 20px;
      
 }
 
