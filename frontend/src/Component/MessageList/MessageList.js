@@ -5,7 +5,9 @@ function MessageList({ messages }) {
     <ul>
       {messages.map(message => (
         <li key={message.id}>
-          {message.userName} : {message.message}
+          <div>
+          {message.ID_client} à envoyé :
+          </div> : {message.Message}
         </li>
       ))}
     </ul>

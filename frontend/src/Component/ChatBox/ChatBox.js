@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import MessageList from '../MessageList/MessageList';
+import Container from "react-bootstrap/esm/Container";
+import NavBar from "../NavBar/NavBar";
+
+import Button from 'react-bootstrap/Button';
 
 export default function ChatBox(){
      const [message, setNewmessage] = useState();
      const [oldMessage, setOldermessage] = useState([]);
+     const [AllProjet, setAllProjects] = useState([]);
+     const [currentIDE, setCurrentIDE] = useState('');
 
      const currentIDU = localStorage.getItem("currentIDU");
-     const currentIDE = localStorage.getItem("currentIDE");
 
      useEffect (() => {
           let dataU = {currentIDU: currentIDU};
@@ -22,6 +27,11 @@ export default function ChatBox(){
                  console.error('Error fetching messages:', error);
                }
           }
+
+          fetch('/api/getAllProjet')
+          .then(res => res.json())
+          .then(json => setAllProjects(json))
+          .catch(err => console.info(err))
 
           const intervalId = setInterval(fetchMessages, 5000);
           return () => clearInterval(intervalId);
@@ -58,22 +68,40 @@ export default function ChatBox(){
           }
      }
 
-  return (
-    <div>
-      <MessageList messages={oldMessage} />
+     const handleChange = (e) => {
+          const pid = e.target.value;
+          setCurrentIDE(pid);
+     }
 
-      <form id="submitMessage" onSubmit={sendMessage}>
-         <input
-           type="text"
-           placeholder="Enter your message"
-           value={message}
-           name="mess"
-           onChange={e => setNewmessage(e.target.value)}
-         />
-         <input type="hidden" name="currentIDE" value={currentIDE}></input>
-         <input type="hidden" name="currentIDU" value={currentIDU}></input>
-         <button type="submit">Send</button>
-       </form>
-    </div>
+  return (
+          <div>
+               <NavBar />
+          
+               <div className="project_sidebar">
+                    {AllProjet.map((item,index) => {
+                         return(
+                              <li key={index}><Button onClick={handleChange} value={item.ID}>{item.Tickets}</Button></li>
+                         )
+                    })}
+               </div>
+
+               <Container id="page_dashboard"  className="main__content">
+
+                    <MessageList messages={oldMessage} />
+
+                    <form id="submitMessage" onSubmit={sendMessage}>
+                         <input
+                              type="text"
+                              placeholder="Enter your message"
+                              value={message}
+                              name="mess"
+                              onChange={e => setNewmessage(e.target.value)}
+                         />
+                         <input type="hidden" name="currentIDE" value={currentIDE}></input>
+                         <input type="hidden" name="currentIDU" value={currentIDU}></input>
+                         <button type="submit">Send</button>
+                    </form>
+               </Container>
+          </div>
   );
 }
