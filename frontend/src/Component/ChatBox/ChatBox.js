@@ -13,8 +13,7 @@ export default function ChatBox(){
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState();
-/*      const [timeoutId, setTimeoutId] = useState();
- */
+
      const currentIDU = localStorage.getItem("currentIDU");
 
      const fetchMessages = async () => {
@@ -30,15 +29,17 @@ export default function ChatBox(){
           }
      }
 
-     fetch('/api/getAllProjet')
-          .then(res => res.json())
-          .then(json => setAllProjects(json))
-          .catch(err => console.info(err))
-
+     
      useEffect(() => {
           // your useEffect code
           timeoutIdRef.current = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutIdRef.current);
+
+          fetch('/api/getAllProjet')
+          .then(res => res.json())
+          .then(json => setAllProjects(json))
+          .catch(err => console.info(err))
+
     }, [])
 
      const sendMessage = async (e) => {
