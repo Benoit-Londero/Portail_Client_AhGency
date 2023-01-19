@@ -14,7 +14,7 @@ export default function ChatBox(){
 
      const currentIDU = localStorage.getItem("currentIDU");
 
-     console.log('idConversation :' + idEntreprise);
+     console.log('idConversation :' + idConversation);
      
 
      fetch('/api/getAllProjet')
@@ -23,7 +23,7 @@ export default function ChatBox(){
           .catch(err => console.info(err))
 
      useEffect (() => {
-          let dataU = {currentIDE: idEntreprise};
+          let dataU = {currentIDE: idConversation};
           console.log('dataU' + dataU)
 
           async function fetchMessages() {
@@ -75,7 +75,7 @@ export default function ChatBox(){
 
      const handleChange = (e) => {
           const cid = e.target.value;
-          console.log(pid);
+          console.log(cid);
           setCurrentIDC(cid);
      }
 
