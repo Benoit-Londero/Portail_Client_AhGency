@@ -23,7 +23,7 @@ export default function ChatBox(){
 
           async function fetchMessages() {
                try {
-                 const response = await fetch(`/api/getMessages?currentIDE=${idEntreprise}`);
+                 const response = await fetch(`/api/getMessages?currentIDU=${idEntreprise}`);
                  const data = await response.json();
                  setOldermessage(data);
                } catch (error) {
