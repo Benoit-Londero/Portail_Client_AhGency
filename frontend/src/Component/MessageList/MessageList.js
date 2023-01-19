@@ -1,7 +1,6 @@
 import React from 'react';
 
 const render = (message) => {
-
   const currentIDU = localStorage.getItem("currentIDU");
   
   if(message.ID_client === currentIDU){

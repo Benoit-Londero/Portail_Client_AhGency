@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/* import React, { useState, useEffect } from 'react';
 import MessageList from '../MessageList/MessageList';
 import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
@@ -10,22 +10,13 @@ export default function ChatBox(){
      const [message, setNewmessage] = useState();
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
-     const [idConversation, setCurrentIDC] = useState();
+     const [idEntreprise, setCurrentIDE] = useState();
 
      const currentIDU = localStorage.getItem("currentIDU");
 
-     console.log('idConversation :' + idConversation);
-     
-
-     fetch('/api/getAllProjet')
-          .then(res => res.json())
-          .then(json => setAllProjects(json))
-          .catch(err => console.info(err))
-
      useEffect (() => {
-          let dataU = {currentIDE: idConversation};
-          console.log('dataU' + dataU)
-
+          let dataU = {currentIDE: idEntreprise};
+          console.log(dataU)
           async function fetchMessages() {
                try {
                  const response = await fetch('/api/getMessages', {
@@ -39,8 +30,14 @@ export default function ChatBox(){
                }
           }
 
+          fetch('/api/getAllProjet')
+          .then(res => res.json())
+          .then(json => setAllProjects(json))
+          .catch(err => console.info(err))
+
           const intervalId = setInterval(fetchMessages, 5000);
           return () => clearInterval(intervalId);
+          
      }, [])
 
      const sendMessage = async (e) => {
@@ -74,9 +71,9 @@ export default function ChatBox(){
      }
 
      const handleChange = (e) => {
-          const cid = e.target.value;
-          console.log(cid);
-          setCurrentIDC(cid);
+          const pid = e.target.value;
+          console.log(pid);
+          setCurrentIDE(pid);
      }
 
   return (
@@ -103,11 +100,102 @@ export default function ChatBox(){
                               name="mess"
                               onChange={e => setNewmessage(e.target.value)}
                          />
-                         <input type="hidden" name="currentIDE" value={idConversation}></input>
+                         <input type="hidden" name="currentIDE" value={idEntreprise}></input>
                          <input type="hidden" name="currentIDU" value={currentIDU}></input>
                          <button type="submit">envoyer mon message</button>
                     </form>
                </Container>
           </div>
   );
+} */
+
+import React, { useState, useEffect, useRef } from 'react';
+import MessageList from '../MessageList/MessageList';
+import Container from "react-bootstrap/Container";
+import NavBar from "../NavBar/NavBar";
+import Button from 'react-bootstrap/Button';
+import './ChatBox.css'
+
+export default function ChatBox() {
+    const [oldMessage, setOldermessage] = useState([]);
+    const [AllProjet, setAllProjects] = useState([]);
+    const [idEntreprise, setCurrentIDE] = useState();
+    const [timeoutId, setTimeoutId] = useState();
+    const formRef = useRef(null);
+
+    const currentIDU = localStorage.getItem("currentIDU");
+
+    useEffect(() => {
+        async function fetchMessages() {
+            try {
+                const response = await fetch('/api/getMessages', {
+                    method: 'POST',
+                    body: JSON.stringify({ currentIDE: idEntreprise, currentIDU }),
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                const data = await response.json();
+                setOldermessage(prevMessages => [...prevMessages, ...data]);
+            } catch (error) {
+                console.error('Error fetching messages:', error);
+            }
+        }
+        Promise.all([
+            fetch('/api/getAllProjet')
+                .then(res => res.json())
+                .then(json => setAllProjects(json))
+                .catch(err => console.info(err)),
+            fetchMessages()
+        ])
+        const timeoutId = setTimeout(fetchMessages, 5000);
+        setTimeoutId(timeoutId);
+        return () => clearTimeout(timeoutId);
+    }, [idEntreprise]);
+
+    const sendMessage = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch('/api/postMessage', {
+                method: 'POST',
+                body: new FormData(formRef.current),
+                headers: { 'Content-Type': 'application/json' },
+            });
+            const data = await response.json();
+            console.log('Message sent successfully:', data);
+            fetchMessages();
+        } catch (error) {
+            console.error('Error sending message:', error);
+        }
+    }
+
+    const handleChange = (e) => {
+        const pid = e.target.value;
+        console.log(pid);
+        setCurrentIDE(pid);
+    }
+
+    return (
+     <div>
+         <NavBar />
+         <div className="project_sidebar">
+             {AllProjet.map((item, index) => {
+                 return (
+                     <li key={index}><Button className="btn_primary" onClick={handleChange} value={item.ID}>{item.Tickets}</Button></li>
+                 )
+             })}
+         </div>
+         <Container id="page_dashboard" className="main__content">
+             <MessageList messages={oldMessage} />
+             <form ref={formRef} onSubmit={sendMessage}>
+                 <input
+                     type="text"
+                     placeholder="Enter your message"
+                     name="mess"
+                 />
+                 <input type="hidden" name="currentIDE" value={idEntreprise}></input>
+                 <input type="hidden" name="currentIDU" value={currentIDU}></input>
+                 <button type="submit">envoyer mon message</button>
+             </form>
+         </Container>
+     </div>
+ )
 }
