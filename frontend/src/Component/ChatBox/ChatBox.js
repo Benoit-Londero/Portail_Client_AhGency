@@ -3,6 +3,7 @@ import MessageList from '../MessageList/MessageList';
 
 export default function ChatBox(){
      const [message, setNewmessage] = useState();
+     const [oldMessage, setOldermessage] = useState([]);
 
      const currentIDU = localStorage.getItem("currentIDU");
 
@@ -42,7 +43,7 @@ export default function ChatBox(){
 
   return (
     <div>
-      <MessageList messages={messages} />
+      <MessageList messages={oldMessage} />
 
       <form onSubmit={sendMessage}>
          <input
