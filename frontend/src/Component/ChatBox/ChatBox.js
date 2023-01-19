@@ -14,9 +14,13 @@ export default function ChatBox(){
 
      const currentIDU = localStorage.getItem("currentIDU");
 
+     console.log('idEntreprise :' + idEntreprise);
+
      useEffect (() => {
           let dataU = {currentIDE: idEntreprise};
-          console.log(dataU)
+
+          console.log('dataU' + dataU)
+
           async function fetchMessages() {
                try {
                  const response = await fetch('/api/getMessages', {
