@@ -57,14 +57,16 @@ export default function ChatBox(){
 
           messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
 
+          const timeoutId = setTimeout(fetchMessages, 5000);
+          return () => clearTimeout(timeoutId);
+     }, [])
+
+     useEffect(() =>{
           currentRole === 'administrator' 
                     ? setFilterProjet(AllProjet) 
                     : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
 
           console.log(filteredProjet);
-
-          const timeoutId = setTimeout(fetchMessages, 5000);
-          return () => clearTimeout(timeoutId);
      }, [])
 
      console.log(AllProjet);
