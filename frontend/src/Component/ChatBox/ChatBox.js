@@ -13,9 +13,19 @@ export default function ChatBox(){
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState(null);
 
-     
-
      const currentIDU = localStorage.getItem("currentIDU");
+
+
+     /**
+      * Ajout badge notification
+      */
+
+     const lastMessageSeen = localStorage.getItem("lastMessageSeen") || '';
+     let badgeCount = 0;
+
+     /**
+      * Fin badge notification
+      */
 
      const fetchMessages = async () => {
           try {
@@ -25,6 +35,14 @@ export default function ChatBox(){
             });
             const data = await response.json();
             setOldermessage(data);
+
+            if( data.length > 0){
+               const newestMessage = data[data.length - 1];
+               if (newestMessage.Message !== lastMessageSeen){
+                    localStorage,seItem('lastMessageSeen', newestMessage.Message);
+                    badgeCount += 1;
+               }
+            }
           } catch (error) {
             console.error('Error fetching messages:', error);
           }
@@ -86,7 +104,10 @@ export default function ChatBox(){
                <div className="project_sidebar">
                     {AllProjet.map((item,index) => {
                          return(
-                              <li key={index}><Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button></li>
+                              <li key={index}>
+                                   <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
+                                   {badgeCount !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
+                              </li>
                          )
                     })}
                </div>
