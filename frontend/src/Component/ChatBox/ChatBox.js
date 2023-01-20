@@ -27,6 +27,12 @@ export default function ChatBox(){
 
      /** Fin badge notification **/
 
+     /**
+      * Add sound effect
+      */
+
+     const newMessageSound = new Audio('../Sound/fast-whoosh.mp3');
+
      const fetchMessages = async () => {
           try {
             const response = await fetch('/api/getMessages', {
@@ -85,6 +91,9 @@ export default function ChatBox(){
                const data = await response.json();
                console.log('Message sent successfully:', data);
                fetchMessages();
+
+               newMessageSound.play();
+
              } catch (error) {
                console.error('Error sending message:', error);
           }
