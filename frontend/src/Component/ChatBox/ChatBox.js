@@ -50,18 +50,24 @@ export default function ChatBox(){
      }
      
      useEffect(() => {
-          fetch('/api/getAllProjet')
-          .then(res => res.json())
-          .then(json => setAllProjects(json))
-          .catch(err => console.info(err))
-
-          messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-
-          const filteredProjet = currentRole === 'administrator' 
+          async function fetchData(){
+               try {
+                    const response = await fetch('/api/getAllProjet');
+                    const data = await response.json();
+                    setAllProjects(data)
+                    const filteredProjet = currentRole === 'administrator' 
                     ? setFilterProjet(AllProjet) 
                     : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
 
-          setFilterProjet(filteredProjet);
+                    setFilterProjet(filteredProjet);
+               } catch (error) {
+                    console.error(error)
+               }
+          }
+
+          fetchData();
+
+          messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
 
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
