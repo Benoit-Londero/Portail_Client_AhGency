@@ -63,9 +63,9 @@ export default function ChatBox(){
 
           console.log(filteredProjet);
 
-          const timeoutId = setTimeout(fetchMessages, 5000);
-          return () => clearTimeout(timeoutId);
-     }, [])
+          fetchMessages();
+
+     }, [currentRole])
 
      console.log(AllProjet);
      console.log(filteredProjet);
@@ -116,7 +116,6 @@ export default function ChatBox(){
           );
      }
 
-     currentRole === 'administrator' ? setFilterProjet(AllProjet) : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
 
      return (
           <div>
