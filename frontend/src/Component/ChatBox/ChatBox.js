@@ -13,6 +13,8 @@ export default function ChatBox(){
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState(null);
 
+     
+
      const currentIDU = localStorage.getItem("currentIDU");
 
      const fetchMessages = async () => {
@@ -37,7 +39,6 @@ export default function ChatBox(){
           // your useEffect code
            const timeoutId = setTimeout(fetchMessages, 5000);
            return () => clearTimeout(timeoutId);
- 
      }, [])
 
      const sendMessage = async (e) => {
@@ -75,7 +76,7 @@ export default function ChatBox(){
           console.log(pid);
           setCurrentIDE(pid);
           setOldermessage([]);
-          fetchMessages()
+          fetchMessages();
      }
 
   return (
