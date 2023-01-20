@@ -20,19 +20,13 @@ export default function ChatBox(){
      const IDE_LocalStorage = localStorage.getItem("currentIDE");
      const currentRole = localStorage.getItem("currentRole");
 
-
-     /**
-      * Ajout badge notification
-      */
+     const messagesEndRef = useRef(null); // Permet le scroll jusqu'au bas de la discussion
+     /** Ajout badge notification **/
 
      const lastMessageSeen = localStorage.getItem("lastMessageSeen") || '';
      const {badgeCount} = useBadgeCount();
 
-     const messagesEndRef = useRef(null);
-
-     /**
-      * Fin badge notification
-      */
+     /** Fin badge notification **/
 
      const fetchMessages = async () => {
           try {
@@ -63,17 +57,15 @@ export default function ChatBox(){
 
           messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
 
-          const filteredProjet = () =>{
-               currentRole === 'administrator' 
+          const filteredProjet = currentRole === 'administrator' 
                     ? setFilterProjet(AllProjet) 
                     : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
-          }
-          
-          filteredProjet();
+
+          setFilterProjet(filteredProjet);
 
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
-     }, [oldMessage, currentIDU, currentRole, IDE_LocalStorage, AllProjet])
+     }, [oldMessage, currentIDU, currentRole, AllProjet , IDE_LocalStorage])
 
      const sendMessage = async (e) => {
           e.preventDefault();
@@ -120,8 +112,6 @@ export default function ChatBox(){
             </div>
           );
      }
-
-
 
   return (
           <div>
