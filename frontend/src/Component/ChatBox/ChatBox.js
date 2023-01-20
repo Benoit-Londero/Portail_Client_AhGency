@@ -55,11 +55,16 @@ export default function ChatBox(){
                     const response = await fetch('/api/getAllProjet');
                     const data = await response.json();
                     setAllProjects(data)
+
+                    console.log(AllProjet);
+                    console.log(IDE_LocalStorage);
+                    
                     const filteredProjet = currentRole === 'administrator' 
                     ? setFilterProjet(AllProjet) 
-                    : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
+                    : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === parseInt(IDE_LocalStorage)));
 
                     setFilterProjet(filteredProjet);
+                    
                } catch (error) {
                     console.error(error)
                }
