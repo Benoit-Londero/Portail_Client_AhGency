@@ -1,8 +1,8 @@
-#projet_chatbox ul{
+#page_chatbox ul{
      list-style: none;
 }
 
-#projet_chatbox ul li{
+#page_chatbox ul li{
      max-width: 30vw;
      width: 30vw;
      margin-bottom: 20px;
@@ -12,18 +12,25 @@
      
 }
 
-#projet_chatbox ul .receiver{
+#page_chatbox ul .receiver{
      background-color: rgb(84, 84, 84);
      border: 1px solid gray;
      color:#fff;
      text-align: left;
 }
 
-#projet_chatbox ul .sender{
+#page_chatbox ul .sender{
      background-color: rgb(196, 162, 255);
      border: 1px solid rgb(172, 21, 247);
      color:#fff;
      text-align: left;
      margin-left:auto;
      margin-right:0;
+}
+
+.input_newMess{
+     border:1px solid rgb(114, 114, 114);
+     min-height: 15vh;
+     text-align: justify;
+     border-radius: 5px;
 }

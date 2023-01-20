@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import MessageList from '../MessageList/MessageList';
 import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
+import { FiSend } from "react-icons/fi";
 
 import Button from 'react-bootstrap/Button';
 import './ChatBox.css';
@@ -94,16 +95,22 @@ export default function ChatBox(){
                     <MessageList messages={oldMessage} className={(message) => message.ID_client === parseInt(currentIDU) ? 'sender' : 'receiver'} />
 
                     <form id="submitMessage" onSubmit={sendMessage}>
-                         <input
-                              type="text"
-                              placeholder="Enter your message"
-                              value={message}
-                              name="mess"
-                              onChange={e => setNewmessage(e.target.value)}
-                         />
-                         <input type="hidden" name="currentIDE" value={idEntreprise}></input>
-                         <input type="hidden" name="currentIDU" value={currentIDU}></input>
-                         <button type="submit">envoyer mon message</button>
+                         <table>
+                              <tr>
+                                   <td><textarea
+                                        placeholder="Entrer votre message"
+                                        value={message}
+                                        className="input_newMess"
+                                        name="mess"
+                                        onChange={e => setNewmessage(e.target.value)}>
+                                        </textarea>
+                                        
+                                        <input type="hidden" name="currentIDE" value={idEntreprise}></input>
+                                        <input type="hidden" name="currentIDU" value={currentIDU}></input>
+                                   </td>
+                                   <td> <button type="submit"><FiSend/></button></td>
+                              </tr>
+                         </table>
                     </form>
                </Container>
           </div>
