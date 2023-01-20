@@ -39,7 +39,7 @@ export default function ChatBox(){
             if( data.length > 0){
                const newestMessage = data[data.length - 1];
                if (newestMessage.Message !== lastMessageSeen){
-                    localStorage,seItem('lastMessageSeen', newestMessage.Message);
+                    localStorage.seItem('lastMessageSeen', newestMessage.Message);
                     badgeCount += 1;
                }
             }
