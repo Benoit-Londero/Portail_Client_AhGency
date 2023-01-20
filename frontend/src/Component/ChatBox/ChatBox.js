@@ -34,8 +34,7 @@ export default function ChatBox(){
           .catch(err => console.info(err))
 
           // your useEffect code
-           // your useEffect code
-           timeoutId = setTimeout(fetchMessages, 5000);
+           const timeoutId = setTimeout(fetchMessages, 5000);
            return () => clearTimeout(timeoutId);
  
      }, [])
