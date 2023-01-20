@@ -17,9 +17,6 @@ export default function ChatBox(){
 
      const currentIDU = localStorage.getItem("currentIDU");
      const currentRole = localStorage.getItem("currentRole");
-
-     console.log(currentRole)
-
      const IDE = localStorage.getItem("currentIDE");
 
      const messagesEndRef = useRef(null); // Permet le scroll jusqu'au bas de la discussion
@@ -109,6 +106,10 @@ export default function ChatBox(){
           );
      }
 
+     const resetText = () =>{
+          document.getElementById("new_message").value="";
+     }
+
      return (
           <div>
                <NavBar />
@@ -145,9 +146,10 @@ export default function ChatBox(){
                     <form id="submitMessage" onSubmit={sendMessage}>
                          <table>
                               <tr>
-                                   <td><textarea
+                                   <td className="input_field"><textarea
                                         placeholder="Entrer votre message"
                                         value={message}
+                                        id="new_message"
                                         className="input_newMess"
                                         name="mess"
                                         onChange={e => setNewmessage(e.target.value)}>
@@ -156,7 +158,10 @@ export default function ChatBox(){
                                         <input type="hidden" name="currentIDE" value={idEntreprise}></input>
                                         <input type="hidden" name="currentIDU" value={currentIDU}></input>
                                    </td>
-                                   <td> <button type="submit"><FiSend/></button></td>
+                                   <td className="submit_mess">
+                                        <input type="submit"><FiSend/></input>
+                                        <input type="button" value="clear" onClick={resetText}></input>
+                                   </td>
                               </tr>
                          </table>
                     </form>

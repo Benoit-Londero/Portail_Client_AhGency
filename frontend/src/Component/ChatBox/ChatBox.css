@@ -35,19 +35,28 @@
      border-radius: 5px;
 }
 
-#page_chatbox button[type="submit"]{
-     width: 10vw;
-     height: 5vh;
-     color: #fff;
-     border: 1px solid;
-     border-radius: 10px;
-     background: #6610f2;
+#page_chatbox button[type=submit] {
+    width: 4vw;
+    height: 5vh;
+    color: #fff;
+    margin-top: 0;
+    border: 1px solid;
+    border-radius: 10px;
+    background: #6610f2;
 }
 
 #page_chatbox .chat_Window{
      max-height: 70vh;
      height: 70vh;
      overflow: scroll;
+}
+
+#page_chatbox .input_field{
+     width:90%;
+}
+
+#page_chatbox .submit_mess{
+     vertical-align: top;
 }
 
 .bdg_count{
