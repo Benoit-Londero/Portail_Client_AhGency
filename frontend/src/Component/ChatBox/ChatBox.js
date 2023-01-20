@@ -108,11 +108,9 @@ export default function ChatBox(){
           );
      }
 
-     const filteredProjet = currentRole === 'administrator' 
-                    ? setFilterProjet(AllProjet) 
-                    : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
+     currentRole === 'administrator' ? setFilterProjet(AllProjet) : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
 
-  return (
+     return (
           <div>
                <NavBar />
           
@@ -154,5 +152,5 @@ export default function ChatBox(){
                     </form>
                </Container>
           </div>
-  );
+     );
 }
