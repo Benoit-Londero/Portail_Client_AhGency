@@ -29,8 +29,23 @@
 }
 
 .input_newMess{
-     border:1px solid rgb(114, 114, 114);
+     border:1px solid rgb(179, 179, 179);
      min-height: 15vh;
      text-align: justify;
      border-radius: 5px;
+}
+
+#page_chatbox button[type="submit"]{
+     width: 10vw;
+     height: 5vh;
+     color: #fff;
+     border: 1px solid;
+     border-radius: 10px;
+     background: #6610f2;
+}
+
+#page_chatbox .chat_Window{
+     max-height: 70vh;
+     height: 70vh;
+     overflow: scroll;
 }
