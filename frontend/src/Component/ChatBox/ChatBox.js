@@ -21,7 +21,7 @@ export default function ChatBox(){
       */
 
      const lastMessageSeen = localStorage.getItem("lastMessageSeen") || '';
-     let badgeCount = 0;
+     const [badgeCount, setBadgeCount] = useState(0);
 
      const messageListRef = useRef(null);
 
@@ -42,7 +42,7 @@ export default function ChatBox(){
                const newestMessage = data[data.length - 1];
                if (newestMessage.Message !== lastMessageSeen){
                     localStorage.setItem('lastMessageSeen', newestMessage.Message);
-                    badgeCount += 1;
+                    setBadgeCount((prevBadgeCount) => prevBadgeCount + 1);
                     console.log(badgeCount);
                }
             }
