@@ -14,11 +14,11 @@ export default function ChatBox(){
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState(null);
-     const [filteredProjet, setFilterProjet] = useState([]); 
+/*      const [filteredProjet, setFilterProjet] = useState([]);  */
 
      const currentIDU = localStorage.getItem("currentIDU");
-     const IDE_LocalStorage = localStorage.getItem("currentIDE");
-     const currentRole = localStorage.getItem("currentRole");
+/*      const IDE_LocalStorage = localStorage.getItem("currentIDE");
+     const currentRole = localStorage.getItem("currentRole"); */
 
      const messagesEndRef = useRef(null); // Permet le scroll jusqu'au bas de la discussion
      /** Ajout badge notification **/
@@ -61,16 +61,16 @@ export default function ChatBox(){
           return () => clearTimeout(timeoutId);
      }, [])
 
-     useEffect(() =>{
+/*      useEffect(() =>{
           currentRole === 'administrator' 
                     ? setFilterProjet(AllProjet) 
                     : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
 
           console.log(filteredProjet);
-     }, [])
+     }, []) */
 
-     console.log(AllProjet);
-     console.log(filteredProjet);
+/*      console.log(AllProjet);
+     console.log(filteredProjet); */
 
      const sendMessage = async (e) => {
           e.preventDefault();
