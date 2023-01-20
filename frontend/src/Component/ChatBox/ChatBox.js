@@ -14,6 +14,7 @@ export default function ChatBox(){
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState(null);
+     const [filteredProjet, setFilterProjet] = useState([]);
 
      const currentIDU = localStorage.getItem("currentIDU");
      const IDE_LocalStorage = localStorage.getItem("currentIDE");
@@ -56,11 +57,18 @@ export default function ChatBox(){
 
           messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
 
-          
+          currentRole === 'administrator' 
+                    ? setFilterProjet(AllProjet) 
+                    : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
+
+          console.log(filteredProjet);
 
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
-     }, [ currentRole, AllProjet , IDE_LocalStorage])
+     }, [])
+
+     console.log(AllProjet);
+     console.log(filteredProjet);
 
      const sendMessage = async (e) => {
           e.preventDefault();
