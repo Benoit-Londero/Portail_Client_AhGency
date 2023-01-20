@@ -14,7 +14,7 @@ export default function ChatBox(){
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState(null);
-     const [filteredProjet, setFilterProjet] = useState([]);
+     const [filteredProjet, setFilterProjet] = useState([]); 
 
      const currentIDU = localStorage.getItem("currentIDU");
      const IDE_LocalStorage = localStorage.getItem("currentIDE");
@@ -118,14 +118,12 @@ export default function ChatBox(){
           );
      }
 
-     currentRole === 'administrator' ? setFilterProjet(AllProjet) : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
-
      return (
           <div>
                <NavBar />
           
                <div className="project_sidebar">
-                    {filteredProjet.map((item,index) => {
+                    {AllProjet.map((item,index) => {
                          return(
                               <li key={index}>
                                    <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
