@@ -159,8 +159,8 @@ export default function ChatBox(){
                                         <input type="hidden" name="currentIDU" value={currentIDU}></input>
                                    </td>
                                    <td className="submit_mess">
-                                        <input type="submit"><FiSend/></input>
-                                        <input type="button" value="clear" onClick={resetText}></input>
+                                        <button type="submit"><FiSend/></button>
+                                        <button value="clear" onClick={resetText}></button>
                                    </td>
                               </tr>
                          </table>
