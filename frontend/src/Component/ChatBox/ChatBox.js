@@ -65,7 +65,7 @@ export default function ChatBox(){
 
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
-     }, [ currentRole, AllProjet , IDE_LocalStorage])
+     }, [])
 
      console.log(AllProjet);
      console.log(filteredProjet);
