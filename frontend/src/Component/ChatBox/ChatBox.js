@@ -14,8 +14,11 @@ export default function ChatBox(){
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState(null);
+     const [filteredProjet, setFilterProjet] = useState([]);
 
      const currentIDU = localStorage.getItem("currentIDU");
+     const IDE_LocalStorage = localStorage.getItem("currentIDE");
+     const currentRole = localStorage.getItem("currentRole");
 
 
      /**
@@ -60,9 +63,17 @@ export default function ChatBox(){
 
           messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
 
+          const filteredProjet = () =>{
+               currentRole === 'administrator' 
+                    ? setFilterProjet(AllProjet) 
+                    : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
+          }
+          
+          filteredProjet();
+
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
-     }, [oldMessage ])
+     }, [oldMessage, currentIDU, currentRole, IDE_LocalStorage, AllProjet])
 
      const sendMessage = async (e) => {
           e.preventDefault();
@@ -110,12 +121,14 @@ export default function ChatBox(){
           );
      }
 
+
+
   return (
           <div>
                <NavBar />
           
                <div className="project_sidebar">
-                    {AllProjet.map((item,index) => {
+                    {filteredProjet.map((item,index) => {
                          return(
                               <li key={index}>
                                    <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>

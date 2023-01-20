@@ -92,8 +92,8 @@ export const SidebarData = [
         path: '/ChatBox',
         icon: <MdIcons.MdOutlineMarkChatRead />,
         cName: 's-sidebar__nav-link',
-        admin: true,
-        category: 'admin',
+        admin: false,
+        category: 'app',
         reponsive: false
     }
 ]
