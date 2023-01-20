@@ -90,9 +90,10 @@ export default function ChatBox(){
                });
                const data = await response.json();
                console.log('Message sent successfully:', data);
+               newMessageSound.play();
+
                fetchMessages();
 
-               newMessageSound.play();
 
              } catch (error) {
                console.error('Error sending message:', error);
