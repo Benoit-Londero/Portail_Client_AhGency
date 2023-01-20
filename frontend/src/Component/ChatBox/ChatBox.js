@@ -106,10 +106,6 @@ export default function ChatBox(){
           );
      }
 
-     const resetText = () =>{
-          document.getElementById("new_message").value="";
-     }
-
      return (
           <div>
                <NavBar />
@@ -160,7 +156,6 @@ export default function ChatBox(){
                                    </td>
                                    <td className="submit_mess">
                                         <button type="submit"><FiSend/></button>
-                                        <button value="clear" onClick={resetText}></button>
                                    </td>
                               </tr>
                          </table>
