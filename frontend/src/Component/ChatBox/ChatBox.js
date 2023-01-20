@@ -16,6 +16,9 @@ export default function ChatBox(){
      const [idEntreprise, setCurrentIDE] = useState(null);
 
      const currentIDU = localStorage.getItem("currentIDU");
+     const currentRole = localStorage.getItem("currentRole");
+
+     const IDE = localStorage.getItem("currentIDE");
 
      const messagesEndRef = useRef(null); // Permet le scroll jusqu'au bas de la discussion
      /** Ajout badge notification **/
@@ -109,15 +112,26 @@ export default function ChatBox(){
                <NavBar />
           
                <div className="project_sidebar">
-                    {AllProjet.map((item,index) => {
-                         return(
-                              <li key={index}>
-                                   <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
-                                   {parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
-                                   <CommonPlace badgeCount={badgeCount} />
-                              </li>
-                         )
-                    })}
+                    {currentRole === 'administrator' 
+                         ? AllProjet.map((item,index) => {
+                              return(
+                                   <li key={index}>
+                                        <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
+                                        {parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
+                                        <CommonPlace badgeCount={badgeCount} />
+                                   </li>
+                              )
+                         })
+                         : AllProjet.filter(donnee => donnee.ID_entreprise === parseInt(IDE)).map((item,index) => {
+                              return(
+                                   <li key={index}>
+                                        <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
+                                        {parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
+                                        <CommonPlace badgeCount={badgeCount} />
+                                   </li>
+                              )
+                    })
+                    }
                </div>
 
                <Container id="page_chatbox"  className="main__content">
