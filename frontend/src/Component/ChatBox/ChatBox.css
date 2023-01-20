@@ -49,3 +49,12 @@
      height: 70vh;
      overflow: scroll;
 }
+
+.bdg_count{
+     color:#fff;
+     background-color: red;
+     aspect-ratio: 1;
+     width:30px;
+     font-size: .4em;
+     border-radius: 15px;
+}
