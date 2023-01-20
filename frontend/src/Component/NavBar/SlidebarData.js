@@ -90,7 +90,7 @@ export const SidebarData = [
     {
         title: 'ChatBox',
         path: '/ChatBox',
-        icon: <FiIcons.FiUsers />,
+        icon: <MdIcons.MdOutlineMarkChatRead />,
         cName: 's-sidebar__nav-link',
         admin: true,
         category: 'admin',

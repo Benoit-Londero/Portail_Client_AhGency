@@ -3,6 +3,8 @@ import MessageList from '../MessageList/MessageList';
 import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
 import { FiSend } from "react-icons/fi";
+import { useBadgeCount } from './useBadgeCount';
+
 
 import Button from 'react-bootstrap/Button';
 import './ChatBox.css';
@@ -21,7 +23,7 @@ export default function ChatBox(){
       */
 
      const lastMessageSeen = localStorage.getItem("lastMessageSeen") || '';
-     const [badgeCount, setBadgeCount] = useState(0);
+     const [badgeCount, incrementBadgeCount] = useState(0);
 
      const messageListRef = useRef(null);
 
@@ -42,7 +44,7 @@ export default function ChatBox(){
                const newestMessage = data[data.length - 1];
                if (newestMessage.Message !== lastMessageSeen){
                     localStorage.setItem('lastMessageSeen', newestMessage.Message);
-                    setBadgeCount((prevBadgeCount) => prevBadgeCount + 1);
+                    incrementBadgeCount();
                     console.log(badgeCount);
                }
             }
@@ -61,9 +63,8 @@ export default function ChatBox(){
                messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
           }
 
-          // your useEffect code
-           const timeoutId = setTimeout(fetchMessages, 5000);
-           return () => clearTimeout(timeoutId);
+          const timeoutId = setTimeout(fetchMessages, 5000);
+          return () => clearTimeout(timeoutId);
      }, [messageListRef])
 
      const sendMessage = async (e) => {

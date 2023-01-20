@@ -51,10 +51,14 @@
 }
 
 .bdg_count{
-     color:#fff;
-     background-color: red;
-     aspect-ratio: 1;
-     width:30px;
-     font-size: .4em;
-     border-radius: 15px;
+     color: #fff;
+    background-color: red;
+    aspect-ratio: 1;
+    line-height: 30px;
+    font-size: 0.7em;
+    border-radius: 15px;
+    padding: 3px 6px;
+    position: relative;
+    top: -13px;
+    right: 10px;
 }
