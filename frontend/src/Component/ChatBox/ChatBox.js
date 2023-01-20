@@ -25,7 +25,7 @@ export default function ChatBox(){
      const lastMessageSeen = localStorage.getItem("lastMessageSeen") || '';
      const [badgeCount, incrementBadgeCount] = useBadgeCount();
 
-     const messageListRef = useRef(null);
+     const messagesEndRef = useRef(null);
 
      /**
       * Fin badge notification
@@ -59,9 +59,7 @@ export default function ChatBox(){
           .then(json => setAllProjects(json))
           .catch(err => console.info(err))
 
-          if (messageListRef.current) {
-               messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
-          }
+          messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
 
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
@@ -124,6 +122,7 @@ export default function ChatBox(){
 
                     <div ref={messageListRef}  className="chat_Window">
                          <MessageList messages={oldMessage} className={(message) => message.ID_client === parseInt(currentIDU) ? 'sender' : 'receiver'} />
+                         <div ref={messagesEndRef} />
                     </div>
                     <form id="submitMessage" onSubmit={sendMessage}>
                          <table>
