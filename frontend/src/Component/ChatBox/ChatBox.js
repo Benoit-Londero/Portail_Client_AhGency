@@ -18,6 +18,8 @@ export default function ChatBox(){
      const currentIDU = localStorage.getItem("currentIDU");
      const currentRole = localStorage.getItem("currentRole");
 
+     console.log(currentRole)
+
      const IDE = localStorage.getItem("currentIDE");
 
      const messagesEndRef = useRef(null); // Permet le scroll jusqu'au bas de la discussion
@@ -112,7 +114,7 @@ export default function ChatBox(){
                <NavBar />
           
                <div className="project_sidebar">
-                    {currentRole === 'administrator' 
+                    {currentRole === "administrator" 
                          ? AllProjet.map((item,index) => {
                               return(
                                    <li key={index}>
