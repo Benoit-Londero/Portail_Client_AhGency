@@ -63,7 +63,7 @@ export default function ChatBox(){
 
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
-     }, [messageListRef])
+     }, [oldMessage ])
 
      const sendMessage = async (e) => {
           e.preventDefault();
@@ -129,7 +129,7 @@ export default function ChatBox(){
 
                <Container id="page_chatbox"  className="main__content">
 
-                    <div ref={messageListRef}  className="chat_Window">
+                    <div className="chat_Window">
                          <MessageList messages={oldMessage} className={(message) => message.ID_client === parseInt(currentIDU) ? 'sender' : 'receiver'} />
                          <div ref={messagesEndRef} />
                     </div>
