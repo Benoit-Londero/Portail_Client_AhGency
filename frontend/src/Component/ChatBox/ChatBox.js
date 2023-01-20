@@ -50,32 +50,18 @@ export default function ChatBox(){
      }
      
      useEffect(() => {
-          async function fetchProjects() {
-               try {
-                   const response = await fetch('/api/getAllProjet');
-                   const data = await response.json();
-                   setAllProjects(data);
-               } catch (error) {
-                   console.error('Error fetching projects:', error);
-               }
-           }
-           fetchProjects();
-     }, [])
-
-     useEffect(() => {
-          if(AllProjet.length > 0){
-               if (currentRole === 'administrator') {
-                    setFilterProjet(AllProjet);
-                } else {
-                    setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
-                }
-          }
+          fetch('/api/getAllProjet')
+          .then(res => res.json())
+          .then(json => setAllProjects(json))
+          .catch(err => console.info(err))
 
           messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
 
+          
+
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
-     }, [AllProjet, currentRole, IDE_LocalStorage])
+     }, [ currentRole, AllProjet , IDE_LocalStorage])
 
      const sendMessage = async (e) => {
           e.preventDefault();
@@ -122,6 +108,12 @@ export default function ChatBox(){
             </div>
           );
      }
+
+     filteredProjet = currentRole === 'administrator' 
+                    ? setFilterProjet(AllProjet) 
+                    : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
+
+     setFilterProjet(filteredProjet);
 
   return (
           <div>
