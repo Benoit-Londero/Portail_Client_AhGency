@@ -114,7 +114,7 @@ export default function ChatBox(){
                <NavBar />
           
                <div className="project_sidebar">
-                    {currentRole === "administrator" 
+                    {localStorage.getItem("currentRole") === '"administrator"'
                          ? AllProjet.map((item,index) => {
                               return(
                                    <li key={index}>
