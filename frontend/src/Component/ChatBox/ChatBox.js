@@ -44,7 +44,6 @@ export default function ChatBox(){
                const newestMessage = data[data.length - 1];
                if (newestMessage.Message !== lastMessageSeen){
                     localStorage.setItem('lastMessageSeen', newestMessage.Message);
-                    incrementBadgeCount();
                     console.log(badgeCount);
                }
             }
