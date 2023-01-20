@@ -23,7 +23,7 @@ export default function ChatBox(){
       */
 
      const lastMessageSeen = localStorage.getItem("lastMessageSeen") || '';
-     const [badgeCount, incrementBadgeCount] = useState(0);
+     const [badgeCount, incrementBadgeCount] = useBadgeCount();
 
      const messageListRef = useRef(null);
 
