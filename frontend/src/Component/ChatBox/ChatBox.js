@@ -14,11 +14,8 @@ export default function ChatBox(){
      const [oldMessage, setOldermessage] = useState([]);
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState(null);
-     const [filteredProjet, setFilterProjet] = useState([]);
 
      const currentIDU = localStorage.getItem("currentIDU");
-     const IDE_LocalStorage = localStorage.getItem("currentIDE");
-     const currentRole = localStorage.getItem("currentRole");
 
      const messagesEndRef = useRef(null); // Permet le scroll jusqu'au bas de la discussion
      /** Ajout badge notification **/
@@ -57,18 +54,9 @@ export default function ChatBox(){
 
           messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
 
-          currentRole === 'administrator' 
-                    ? setFilterProjet(AllProjet) 
-                    : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
-
-          console.log(filteredProjet);
-
-          fetchMessages();
-
-     }, [currentRole])
-
-     console.log(AllProjet);
-     console.log(filteredProjet);
+          const timeoutId = setTimeout(fetchMessages, 5000);
+          return () => clearTimeout(timeoutId);
+     }, [oldMessage])
 
      const sendMessage = async (e) => {
           e.preventDefault();
@@ -116,13 +104,12 @@ export default function ChatBox(){
           );
      }
 
-
      return (
           <div>
                <NavBar />
           
                <div className="project_sidebar">
-                    {filteredProjet.map((item,index) => {
+                    {AllProjet.map((item,index) => {
                          return(
                               <li key={index}>
                                    <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
