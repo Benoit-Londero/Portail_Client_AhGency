@@ -23,7 +23,7 @@ export default function ChatBox(){
       */
 
      const lastMessageSeen = localStorage.getItem("lastMessageSeen") || '';
-     const [badgeCount, incrementBadgeCount] = useBadgeCount();
+     const {badgeCount} = useBadgeCount();
 
      const messagesEndRef = useRef(null);
 
@@ -103,6 +103,14 @@ export default function ChatBox(){
           fetchMessages();
      }
 
+     function CommonPlace({ badgeCount }) {
+          return (
+            <div>
+              {badgeCount !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
+            </div>
+          );
+     }
+
   return (
           <div>
                <NavBar />
@@ -113,6 +121,7 @@ export default function ChatBox(){
                               <li key={index}>
                                    <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
                                    {parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
+                                   <CommonPlace badgeCount={badgeCount} />
                               </li>
                          )
                     })}
