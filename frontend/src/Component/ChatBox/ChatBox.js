@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useRef, useState, useEffect} from 'react';
 import MessageList from '../MessageList/MessageList';
 import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
@@ -22,6 +22,8 @@ export default function ChatBox(){
 
      const lastMessageSeen = localStorage.getItem("lastMessageSeen") || '';
      let badgeCount = 0;
+
+     const messageListRef = useRef(null);
 
      /**
       * Fin badge notification
@@ -54,10 +56,14 @@ export default function ChatBox(){
           .then(json => setAllProjects(json))
           .catch(err => console.info(err))
 
+          if (messageListRef.current) {
+               messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+          }
+
           // your useEffect code
            const timeoutId = setTimeout(fetchMessages, 5000);
            return () => clearTimeout(timeoutId);
-     }, [])
+     }, [messageListRef])
 
      const sendMessage = async (e) => {
           e.preventDefault();
@@ -114,8 +120,9 @@ export default function ChatBox(){
 
                <Container id="page_chatbox"  className="main__content">
 
-                    <MessageList messages={oldMessage} className={(message) => message.ID_client === parseInt(currentIDU) ? 'sender' : 'receiver'} />
-
+                    <div ref={messageListRef}  className="chat_Window">
+                         <MessageList messages={oldMessage} className={(message) => message.ID_client === parseInt(currentIDU) ? 'sender' : 'receiver'} />
+                    </div>
                     <form id="submitMessage" onSubmit={sendMessage}>
                          <table>
                               <tr>
