@@ -50,33 +50,32 @@ export default function ChatBox(){
      }
      
      useEffect(() => {
-          async function fetchData(){
+          async function fetchProjects() {
                try {
-                    const response = await fetch('/api/getAllProjet');
-                    const data = await response.json();
-                    setAllProjects(data)
-
-                    console.log(AllProjet);
-                    console.log(IDE_LocalStorage);
-                    
-                    const filteredProjet = currentRole === 'administrator' 
-                    ? setFilterProjet(AllProjet) 
-                    : setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === parseInt(IDE_LocalStorage)));
-
-                    setFilterProjet(filteredProjet);
-                    
+                   const response = await fetch('/api/getAllProjet');
+                   const data = await response.json();
+                   setAllProjects(data);
                } catch (error) {
-                    console.error(error)
+                   console.error('Error fetching projects:', error);
                }
-          }
+           }
+           fetchProjects();
+     }, [])
 
-          fetchData();
+     useEffect(() => {
+          if(AllProjet.length > 0){
+               if (currentRole === 'administrator') {
+                    setFilterProjet(AllProjet);
+                } else {
+                    setFilterProjet(AllProjet.filter(donnee => donnee.ID_entreprise === IDE_LocalStorage));
+                }
+          }
 
           messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
 
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
-     }, [oldMessage, currentIDU, currentRole, AllProjet , IDE_LocalStorage])
+     }, [AllProjet, currentRole, IDE_LocalStorage])
 
      const sendMessage = async (e) => {
           e.preventDefault();
