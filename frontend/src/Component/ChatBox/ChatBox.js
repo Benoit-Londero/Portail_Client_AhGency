@@ -45,6 +45,7 @@ export default function ChatBox(){
                const newestMessage = data[data.length - 1];
                if (newestMessage.Message !== lastMessageSeen){
                     localStorage.setItem('lastMessageSeen', newestMessage.Message);
+                    localStorage.setItem('idLastMessageSeen', idEntreprise);
                     console.log(badgeCount);
                     setBadgeCount(1)
 
@@ -107,15 +108,8 @@ export default function ChatBox(){
           console.log(pid);
           setCurrentIDE(pid);
           setOldermessage([]);
+          setBadgeCount(0);
           fetchMessages();
-     }
-
-     function CommonPlace({ badgeCount }) {
-          return (
-            <div>
-              {badgeCount !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
-            </div>
-          );
      }
 
      return (
@@ -128,8 +122,7 @@ export default function ChatBox(){
                               return(
                                    <li key={index}>
                                         <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
-                                        {parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
-                                        <CommonPlace badgeCount={badgeCount} />
+                                        {localStorage.getItem('idLastMessageSeen') === parseInt(item.ID) && parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
                                    </li>
                               )
                          })
@@ -137,8 +130,7 @@ export default function ChatBox(){
                               return(
                                    <li key={index}>
                                         <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
-                                        {parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
-                                        <CommonPlace badgeCount={badgeCount} />
+                                        {localStorage.getItem('idLastMessageSeen') === parseInt(item.ID) && parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
                                    </li>
                               )
                     })
