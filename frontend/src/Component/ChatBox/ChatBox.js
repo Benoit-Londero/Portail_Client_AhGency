@@ -29,7 +29,7 @@ export default function ChatBox(){
      /**
       * Add sound effect
       */
-
+     const sendMessageSound = new Audio('https://cdn.pixabay.com/download/audio/2022/03/24/audio_2c68c4317a.mp3?filename=high-pitched-bamboo-swish-101368.mp3');
      const newMessageSound = new Audio('https://cdn.pixabay.com/download/audio/2022/10/30/audio_6634b0add4.mp3?filename=click-124467.mp3');
 
      const fetchMessages = async () => {
@@ -95,7 +95,7 @@ export default function ChatBox(){
                });
                const data = await response.json();
                console.log('Message sent successfully:', data);
-               newMessageSound.play();
+               sendMessageSound.play();
 
                fetchMessages();
 
