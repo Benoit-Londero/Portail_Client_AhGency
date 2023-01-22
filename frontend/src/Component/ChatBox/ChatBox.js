@@ -106,9 +106,10 @@ export default function ChatBox(){
      const handleChange = (e) => {
           const pid = e.target.value;
           console.log(pid);
+
           setCurrentIDE(pid);
           setOldermessage([]);
-          setBadgeCount(0);
+
           fetchMessages();
      }
 
