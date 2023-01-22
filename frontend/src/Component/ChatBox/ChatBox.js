@@ -123,7 +123,7 @@ export default function ChatBox(){
                               return(
                                    <li key={index}>
                                         <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
-                                        {(localStorage.getItem('idLastMessageSeen') === parseInt(item.ID) && parseInt(badgeCount) !== 0) ? <span className="bdg_count">{badgeCount}</span> : ''}
+                                        {parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
                                    </li>
                               )
                          })
@@ -131,7 +131,7 @@ export default function ChatBox(){
                               return(
                                    <li key={index}>
                                         <Button className="primary_btn" onClick={handleChange} value={item.ID}>{item.Tickets}</Button>
-                                        {(localStorage.getItem('idLastMessageSeen') === parseInt(item.ID) && parseInt(badgeCount) !== 0) ? <span className="bdg_count">{badgeCount}</span> : ''}
+                                        {parseInt(badgeCount) !== 0 ? <span className="bdg_count">{badgeCount}</span> : ''}
                                    </li>
                               )
                     })
