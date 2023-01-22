@@ -30,7 +30,7 @@ export default function ChatBox(){
       * Add sound effect
       */
 
-     const newMessageSound = new Audio('../Sound/fast-whoosh.mp3');
+     const newMessageSound = new Audio('https://cdn.pixabay.com/download/audio/2022/10/30/audio_6634b0add4.mp3?filename=click-124467.mp3');
 
      const fetchMessages = async () => {
           try {
@@ -118,6 +118,7 @@ export default function ChatBox(){
                <NavBar />
           
                <div className="project_sidebar">
+                    <ul>
                     {currentRole === '"administrator"'
                          ? AllProjet.map((item,index) => {
                               return(
@@ -135,7 +136,7 @@ export default function ChatBox(){
                                    </li>
                               )
                     })
-                    }
+                    }</ul>
                </div>
 
                <Container id="page_chatbox"  className="main__content">
@@ -167,5 +168,6 @@ export default function ChatBox(){
                     </form>
                </Container>
           </div>
+          
      );
 }
