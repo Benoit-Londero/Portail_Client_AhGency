@@ -46,6 +46,8 @@ export default function ChatBox(){
                if (newestMessage.Message !== lastMessageSeen){
                     localStorage.setItem('lastMessageSeen', newestMessage.Message);
                     localStorage.setItem('idLastMessageSeen', idEntreprise);
+                    newMessageSound.play();
+
                     console.log(badgeCount);
                     
                     setBadgeCount(1)

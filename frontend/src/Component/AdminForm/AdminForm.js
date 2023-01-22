@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as MdIcons from "react-icons/md";
 import * as BsIcons from "react-icons/bs";
 
-
 export default function AdminForm(){
 
     const [usersInfos, setUsersInfos] = useState([]);
@@ -17,6 +16,8 @@ export default function AdminForm(){
     const [nameProjet, setNameProjet] = useState();
     const [emailUser, setEmailUser] = useState();
     const [nameAgent, setNameUser] = useState();
+
+    const currentIDU = localStorage.getItem('currentIDU');
   
     //const navigate = useNavigate();
     useEffect (() => {
@@ -58,11 +59,12 @@ export default function AdminForm(){
         .catch(err => console.info(err))
         .then(alert('Données enregistrées'))
         
-        fetch('https://hook.eu1.make.com/8avz3iho36j9mjcuuukd6ugucjwzavq7', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body : JSON.stringify(conJSON)
-        })
+        if(TSFormData.get('theAgent') !== currentIDU){
+          fetch('https://hook.eu1.make.com/8avz3iho36j9mjcuuukd6ugucjwzavq7', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body : JSON.stringify(conJSON)
+        })}
     }
 
     const handleSelect = (e) => {
@@ -134,7 +136,7 @@ export default function AdminForm(){
                       <option id="disabled"> Sélectionnez la personne en charge </option>
                       {usersInfos.map((item,index) => {
                         return(
-                          <option key={index} value={item.ID}>{item.Nom + ' ' + item.Prenom}</option>
+                          <option key={index} value={item.ID} id="agent">{item.Nom + ' ' + item.Prenom}</option>
                         )
                       })}
                     </select>
