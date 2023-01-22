@@ -3,8 +3,6 @@ import MessageList from '../MessageList/MessageList';
 import Container from "react-bootstrap/esm/Container";
 import NavBar from "../NavBar/NavBar";
 import { FiSend } from "react-icons/fi";
-import { useBadgeCount } from './useBadgeCount';
-
 
 import Button from 'react-bootstrap/Button';
 import './ChatBox.css';
@@ -15,6 +13,8 @@ export default function ChatBox(){
      const [AllProjet, setAllProjects] = useState([]);
      const [idEntreprise, setCurrentIDE] = useState(null);
 
+     const [badgeCount, setBadgeCount] = useState(0);
+
      const currentIDU = localStorage.getItem("currentIDU");
      const currentRole = localStorage.getItem("currentRole");
      const IDE = localStorage.getItem("currentIDE");
@@ -23,7 +23,6 @@ export default function ChatBox(){
      /** Ajout badge notification **/
 
      const lastMessageSeen = localStorage.getItem("lastMessageSeen") || '';
-     const {badgeCount} = useBadgeCount();
 
      /** Fin badge notification **/
 
@@ -46,6 +45,9 @@ export default function ChatBox(){
                const newestMessage = data[data.length - 1];
                if (newestMessage.Message !== lastMessageSeen){
                     localStorage.setItem('lastMessageSeen', newestMessage.Message);
+                    console.log(badgeCount);
+                    setBadgeCount(1)
+
                     console.log(badgeCount);
                }
             }

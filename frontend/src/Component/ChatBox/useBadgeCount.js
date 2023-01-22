@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function useBadgeCount() {
+export default function useBadgeCount() {
   const [badgeCount, setBadgeCount] = useState(0);
 
   const incrementBadgeCount = () => {
