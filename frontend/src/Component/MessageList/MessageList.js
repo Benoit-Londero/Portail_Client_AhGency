@@ -6,7 +6,7 @@ useEffect(() => {
   fetch('/api/getAllUsers')
   .then(response => response.json())
   .then(json => setnameUser(json))
-  .catch(error => console.info(err))
+  .catch(err => console.info(err))
 
 }, [])
 
