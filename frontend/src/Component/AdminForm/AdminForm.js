@@ -147,7 +147,7 @@ export default function AdminForm(){
                   <td>
                     <select id='for_who' name="for_who" onChange={handleSelect} required>
                       <option id="disabled"> Sélectionnez un client </option>
-                      {usersInfos.filter(donnee => donnee.Role === 'Client').map((user, index) => 
+                      {usersInfos.map((user, index) => 
                         <option key={index} value={user.ID}>{user.Prenom + ' ' + user.Nom}</option>
                       )}
                     </select>
