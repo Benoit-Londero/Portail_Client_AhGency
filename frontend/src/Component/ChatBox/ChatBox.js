@@ -69,7 +69,7 @@ export default function ChatBox(){
 
           const timeoutId = setTimeout(fetchMessages, 5000);
           return () => clearTimeout(timeoutId);
-     }, [oldMessage])
+     })
 
      const sendMessage = async (e) => {
           e.preventDefault();

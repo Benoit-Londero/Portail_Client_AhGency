@@ -82,7 +82,7 @@ export default function Clients() {
           }
 
           listEntrep();
-     }, [])
+     })
 
      /* AJOUT BENOIT - DECEMBRE 2022 */
 

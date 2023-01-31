@@ -130,7 +130,7 @@ export default function Entreprise() {
 
           onLoad2();
 
-     }, [currentIDE])
+     })
 
      const handleClick = async e => {
           e.preventDefault();
