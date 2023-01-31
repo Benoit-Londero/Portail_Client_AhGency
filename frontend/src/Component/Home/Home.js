@@ -35,6 +35,7 @@ export default function Home() {
      const [currentHeureREST, setCurrentHeureREST] = useState();
      const [moneySpend, setMoneySpend] = useState();
      const [checkPercent, setCheckPercent] = useState();
+     const [nomE, setNomE] = useState();
 
      const  [handleDisplayMobile, sethandleDisplayMobile] = useState(false);
 
@@ -45,6 +46,15 @@ export default function Home() {
 
           let dataU = {currentIDUser: currentIDU};
           let dataE = {currentIDEnt: currentIDE};
+
+          fetch('/api/getInfosEntreprise', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(dataE)
+          })
+          .then(res => res.json())
+          .then(json => setNomE(json[0].Nom_societe))
+          .catch(err => console.info(err))
 
           fetch('/api/getTimesheet', { 
                method: 'POST', 
@@ -232,7 +242,7 @@ export default function Home() {
                          return(
                               <tr className="prjt_lst" key={index}>
                                    <td className="title_prjt">{item.Tickets}</td>
-                                   <td>{item.ID_entreprise}</td>
+                                   <td>{nomE}</td>
                                    <td><span className="bdg_user">{item.Email.substring(0,1)}</span></td>
                                    <td><Button className="btn btn_primary" value={item.ID} onClick={handleFilterProjet}>Voir plus</Button></td>
                               </tr>
@@ -248,7 +258,7 @@ export default function Home() {
                                    return(
                                    <tr>
                                         <td key={index} rowspan="3" className="first_col_pjt"><p className="bdg_user">{item.Tickets.substring(0,1)}</p></td>
-                                        <td><h1>{item.Tickets}</h1><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>
+                                        <td><h1>{item.Tickets}</h1><p>{nomE}</p><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>
                                         <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
                                    </tr>)
                               })
@@ -295,7 +305,7 @@ export default function Home() {
                                    return(
                                    <tr>
                                         <td key={index} rowspan="3" className="first_col_pjt"><p className="bdg_user">{item.Tickets.substring(0,1)}</p></td>
-                                        <td><h1>{item.Tickets}</h1><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>
+                                        <td><h1>{item.Tickets}</h1><p>{nomE}</p><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>
                                         <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
                                    </tr>)
                               })
