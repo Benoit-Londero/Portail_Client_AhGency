@@ -106,6 +106,8 @@ export default function Home() {
           onLoad();
      }, [currentIDU, currentIDE])
 
+     console.log(nomE);
+
      const handleFilter = (e) => {
           let IDTS = e.target.value;
           let filteredData = timesheet.filter(data => data.ID_TS === parseInt(IDTS));

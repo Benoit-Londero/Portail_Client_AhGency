@@ -38,7 +38,7 @@ export default function Entreprise() {
      console.log(currentHeureREST);
      
      useEffect(() => {
-          let dataE = {currentIDEntreprise: currentIDE};
+          let dataE = {currentIDEnt: currentIDE};
 
           const listUser = async () => {
                const response = await fetch('/api/getAllUsers');
