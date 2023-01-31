@@ -145,7 +145,7 @@ export default function Clients() {
           const handleShowEntreprise = (e) => {
                let id_entr = e.target.value;
                
-               let jsonID = {currentIDEntreprise: id_entr};
+               let jsonID = {currentIDEnt: id_entr};
                console.log(jsonID);
 
                fetch('/api/getInfosEntreprise', { 
@@ -420,7 +420,7 @@ export default function Clients() {
                                    <select name="entreprise">
                                         <option selected="selected" value='' disabled>Aucune entreprise</option>
                                         {allEntreprise && allEntreprise.map((item,index) => {
-                                             return(<option key={index} value={item.ID_entreprise}>{item.Nom_societe}</option>)
+                                             return(<option key={index} value={parseInt(item.ID_entreprise)}>{item.Nom_societe}</option>)
                                         })}
                                    </select>
                               </label>

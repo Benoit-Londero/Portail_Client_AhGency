@@ -28,6 +28,9 @@ export default function ViewAll() {
      const [allProject, setAllProjects] = useState([]);
      const [dtlProjet, setDetailProjet] = useState([]);
      const [allLogs, setAllLogs] = useState([]); // Contient l'ensemble des logs
+     
+     const [allEntreprise, setAllEntreprise] = useState([]);
+     const [nomEnt, setNomEnt] = useState();
 
 
      const currentIDU = localStorage.getItem("currentIDU");
@@ -51,6 +54,11 @@ export default function ViewAll() {
           fetch('/api/getAllLogs')
                .then(res => res.json())
                .then(json => setAllLogs(json))
+               .catch(err => console.info(err))
+
+          fetch('/api/getAllEntreprise')
+               .then(res => res.json())
+               .then(json => setAllEntreprise(json))
                .catch(err => console.info(err))
      }, [])
 
@@ -92,13 +100,19 @@ export default function ViewAll() {
      function ProjectTasks(e){
           let idProjet = e.target.value;
           let detailProjet = allProject.filter(item => item.ID === parseInt(idProjet));
+          let infoCurrentEntreprise = allEntreprise.filter(ent => ent.ID_entreprise === detailProjet[0].ID_entreprise);
           
           console.log(idProjet);
           console.log(allProject);
+          console.log(allEntreprise);
           console.log(detailProjet);
+          console.log(typeof detailProjet[0].ID_entreprise);
+          console.log(detailProjet[0].ID_entreprise);
+          console.log(infoCurrentEntreprise);
 
           setFiltredtasks(ProjetFiltertask(idProjet));
           setDetailProjet(detailProjet);
+          setNomEnt(infoCurrentEntreprise[0].Nom_societe)
      }
 
      const closeTasks = (e) => {
@@ -218,7 +232,7 @@ export default function ViewAll() {
                                    <tbody>
                                         <tr>
                                              <td key={index} rowspan="3" className="first_col_pjt"><p className="bdg_user">{item.Tickets.substring(0,1)}</p></td>
-                                             <td><h1>{item.Tickets}</h1><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>                                                  <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
+                                             <td><h1>{item.Tickets}</h1><p>{nomEnt}</p><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>                                                  <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
                                         </tr>
                                         <tr>
                                              <td colspan="2"><h2>Description</h2><p className="descr__thead">{item.Description}</p></td>
