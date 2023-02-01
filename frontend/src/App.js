@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import './App.css';
+
 import Connexion from './Component/Connexion/Connexion.js';
 import Deconnexion from './Component/Deconnexion/Deconnexion.js';
 import Boutique from './Component/Credits/Credits.js';
@@ -14,6 +14,8 @@ import Recuperation from './Component/Recuperation/Recuperation.js';
 import ViewAll from './Component/ViewAll/ViewAll.js';
 import Entreprise from './Component/Entreprise/Entreprise.js';
 import ChatBox from './Component/ChatBox/ChatBox.js';
+
+import './App.css';
 
 import useLocalStorage from "./useLocalStorage";
 
@@ -73,7 +75,6 @@ function App() {
       setCurrentHeureTOT(data.Minutes_Achetees); 
       setCurrentHeureREST(data.Minutes_Restantes);
       setCurrentRole(data.Role);
-      //setCurrentToken(json[1].token);
       setErreur(false);
       setLogin(true);
 
@@ -117,12 +118,11 @@ function App() {
               <Route path='/Credits' element={< Boutique />}></Route>
               <Route path='/Inscription' element={< Inscription />}></Route>
               <Route path='/Logout' element={< Deconnexion resetLogin={resetLogin}/>}></Route>
-              {/* <Route path="/AdminProjet" element={< AdminProjet/>}></Route> */}
             </Routes>
         </Router>
       </header>
     </div>
-  ); 
+  ) 
 }
 
 export default App;
