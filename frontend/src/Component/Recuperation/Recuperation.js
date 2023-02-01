@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import './Recuperation.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/esm/Container";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+import './Recuperation.css';
 
 
 

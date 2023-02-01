@@ -1,9 +1,6 @@
 .App {
-    text-align: center;
-}
-
-*{
     font-family: 'Lato','Manjari', arial!important;
+    text-align: center;
 }
 
 .App-logo {
@@ -18,10 +15,10 @@
 }
 
 .App-header {
-    min-height: 100vh;
+    align-items: center;
+    color: #282c34;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
     font-size: calc(10px + 2vmin)!important;
     color: #282c34!important;
@@ -58,30 +55,30 @@ table{
         font-size: 24px!important;
         font-weight: 400!important;
         line-height: 29px!important;
-        color: #6610f2;
         border-radius: 10px;
+        color: #6610f2;
         font-style: normal;
         letter-spacing: 0.3em;
         text-transform: uppercase;  
     }
 
     h2{
+        color: #363636;
         font-style: normal;
         font-weight: 700!important;
         font-size: 14px!important;
         line-height: 17px!important;
         letter-spacing: 0.3em;
         text-transform: uppercase;
-        color: #363636;
     }
 
     h3{
-        font-style: normal;
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 15px;
-        letter-spacing: 0.3em;
         color: #D7D7D7;
+        font-style: normal;
+        font-size: 12px!important;
+        font-weight: 400!important;
+        line-height: 15px!important;
+        letter-spacing: 0.3em;
     }
 
     p {
@@ -89,14 +86,14 @@ table{
     }
 
     label{
+        color: #000000;
         font-family: 'Poppins';
+        font-size: 12px;
         font-style: normal;
         font-weight: 600;
-        font-size: 12px;
         line-height: 15px;
         margin-top: 20px;
         text-align: left;
-        color: #000000;
         width:100%;
     }
 /****** FIN TEXTE - TITRE - LABEL ******/
@@ -112,9 +109,9 @@ table{
     }
 
     .btn:hover {
-        color: #fff;
         background-color: #6610f2;
         border-color: none;
+        color: #fff;
     }
 
     .primary_btn{
@@ -125,17 +122,15 @@ table{
 
     .primary_btn:active{
         background: #6610f2;
-        border:1px solid #6610f2;
         border: 1px solid #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     }
 
     .details_btn{
-        text-transform: lowercase;
-        text-transform: capitalize;
         background:#D1D1D1;
-        color:#acacac;
         border: 1px solid #D1D1D1;
+        color:#acacac;
+        text-transform: capitalize;
     }
 
     .details_btn:active{
@@ -149,16 +144,16 @@ table{
     }
 
     .disabled{
-        color:#D1D1D1!important;
         background: #F0F0F0!important;
         border: 1px solid #D1D1D1!important;
+        color:#D1D1D1!important;
     }
 
     .noborder{
         background: none;
         border: none;
-        text-align: left;
         color:#acacac;
+        text-align: left;
     }
 
     .active{
@@ -171,12 +166,12 @@ table{
     }
 
     .dts_client{
-        width: 35px;
         aspect-ratio: 1;
         background: #eee;
-        color: #aaaa;
-        border-radius: 20px;
         border: 1px solid;
+        border-radius: 20px;
+        color: #aaaa;
+        width: 35px;
     }
 
     #page_CRM #modal_desktop p,
@@ -184,58 +179,57 @@ table{
         text-align:left;
     }
     
-
     .failed{
-        color: red;
         background: #ffd3d3;
         border: 1px solid red;
         border-radius: 3px;
+        color: red;
         text-align: center!important;
         width: 50%;
     }
 
     .new{
-        color: rgb(85, 85, 85);
         background: #bcbcbc;
         border: 1px solid rgb(85, 85, 85);
         border-radius: 3px;
+        color: rgb(85, 85, 85);
         text-align: center!important;
         width: 50%;
     }
 
     .inProgress{
-        color:orange;
-        border:1px solid orange;
         background: rgb(253, 213, 139);
+        border:1px solid orange;
         border-radius: 3px;
+        color:orange;
         text-align: center!important;
         width: 50%;
     }
 
     .succeed{
-        color: #00f8bd;
-        font-weight: 800;
         background: #d4fff5;
         border: 1px solid #00ffc3;
         border-radius: 3px;
+        color: #00f8bd;
+        font-weight: 800;
         text-align: center!important;
         width: 50%;
     }
 
     .delete{
         aspect-ratio: 1;
+        border-radius: 25px;
         max-width: 35px;
         padding: 2px 7px;
-        border-radius: 25px;
         text-align: center!important;
     }
 
     .delete svg{
-        font-size: 20px!important;
+        font-size: 20px;
     }
 
     .delete:hover{
-        background-color: red!important;
+        background-color: red;
         color:#fff;
     }
 
@@ -244,50 +238,47 @@ table{
 
 .date_badge,
 .bdg_user{
+    aspect-ratio: 1;
     background: #6610f2;
     border: 2px solid #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    text-transform: uppercase;
     color: #FFFFFF;
-    font-size:20px;
-    vertical-align: middle;
-    max-height: 40px;
     font-family: 'Poppins';
+    font-size:20px;
     font-weight: 500;
-    padding: 5px 8px;
-    aspect-ratio: 1;
     line-height: 1em;
-    
+    max-height: 40px;
+    padding: 5px 8px;
+    text-transform: uppercase;
+    vertical-align: middle;
 }
 
 .date_badge{
-    text-align:left!important;
     border-radius: 10px;
+    text-align:left!important;
 }
 
 .bdg_user{
-    /* display: inline-block; */
-    text-align: center!important;
-    margin-left: -3px;
     border-radius: 20px;
     float:left;
+    margin-left: -3px;
+    text-align: center!important;
 }
 
 /*************************/
 /* Sidebar */
 .project_sidebar{
-    position: fixed;
-    left: 64px;
     top: 0;
     width: 220px!important;
     height: 100vh;
     background: #fafafa;
-    font-size: 14px;
-    text-align: left;
-    text-decoration: none;
+    font-size: 14px!important;
+    left: 64px;
     list-style: none;
     padding-top: 100px;
-    background: #fafafa;
+    position: fixed;
+    text-align: left;
+    text-decoration: none;
 }
 
 .project_sidebar ul{
@@ -300,16 +291,16 @@ table{
 }
 
 .modal__newTask{
-    position: fixed;
-    top: 0;
-    margin: 0;
-    border-radius: 0;
-    padding: 10px;
     background: rgba(0,0,0,.35);
-    width: 100vw;
-    z-index: 999999;
+    border-radius: 0;
     height: 100vh;
     left: 0;
+    margin: 0;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 999999;
 }
 
 .modal__newTask .project_sidebar{
@@ -321,15 +312,14 @@ table{
 input,
 textarea,
 select{
-    /*border:1px solid #e5e5e5;*/
     border:none;
     border-radius: 5px;
-    width:100%;
-    font-size: 12px;
-    text-align: left;
     color:rgb(97, 97, 97);
     padding: 5px 10px;
+    font-size: 12px;
     font-weight: 400;
+    text-align: left;
+    width:100%;
 }
 
 textarea{
@@ -343,37 +333,36 @@ input:hover{
 }
 
 input[type="submit"]{
-    color:#fff;
-    text-align: center;
     background-color: #6610f2;
-    font-weight: 600;
-    letter-spacing: 1px;
-    vertical-align: middle;
-    font-size: 12px;
     border: none;
     border-radius: 5px;
+    color:#fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
     margin-bottom: 6px;
+    text-align: center;
+    vertical-align: middle;
     width: 100%;
-    
 }
 
 input[type="submit"]:hover{
+    background-color: #fff;
     color:#6610f2;
     text-align: center;
-    background-color: #fff;
 }
 
 input[type="reset"]{
+    margin-right:10%;
     text-align:center;
     width:45%;
-    margin-right:10%;
 }
 
 form #title{
+    border: none;
     font-size: 24px;
     font-weight: 600;
     padding: 5px;
-    border: none;
 }
 
 /** Required + Disabled **/
@@ -384,10 +373,10 @@ form #title{
 }
 
 svg {
-    vertical-align: middle;
     font-size: 15px;
     color:currentColor!important;
-    stroke: currentColor!important;;
+    stroke: currentColor!important;
+    vertical-align: middle;
 }
 
 #TblClients tr,
@@ -410,7 +399,7 @@ svg {
 .stats_account,
 .stats{
     background:#160531;
-    width: 100%;
-    color:#fff;
     border-radius: 15px;
+    color:#fff;
+    width: 100%;
 }

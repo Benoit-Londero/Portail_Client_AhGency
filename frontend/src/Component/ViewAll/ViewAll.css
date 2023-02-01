@@ -3,27 +3,27 @@
 }
 
 .fst_col p{
-    text-transform: lowercase;
     line-height: 1.3em;
-    padding: 5px 0px 5px 0px;
+    padding: 5px 0;
+    text-transform: lowercase;
 }
 
 .customer_card_all{ 
-     padding:0px;
+     padding:0;
 
 }
 
 .customer_card_all table h2{
-     margin-top:0px!important;
+     margin-top:0!important;
 }
 
 /**********************************/
 /*** Tableau tableauTS récentes ***/
 
 .tableauTS{
-    margin-bottom:50px;
     background: #fafafa;
     border-radius: 5px;
+    margin-bottom:50px;
 }
 
 #list_all_tasks p{
@@ -31,9 +31,9 @@
 }
 
 #list_all_tasks .last-child {
+    padding: 20px 0;
     text-align: right;
     width: 100px;
-    padding: 20px 0px;
 }
 
 #list_all_tasks .col_duree{
@@ -57,31 +57,31 @@
     background: #949494;
     border: 2px solid;
     border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     color: #fff!important;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-size: 11px;
+    height: 35px;
     letter-spacing: 2px;
     padding: 2px 20px;
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;
-    height: 35px;
 }
 
 .btn_ts_bottom:hover,
 .btn_ts_bottom:focus{
     border: 2px solid #fff!important;
-    color: #fff!important;
     background: #6610f2;
+    color: #fff!important;
 }
 
 /*********************************/
 /***** Timesheet ******/
 
 .timesheet {
-    width: 100%;
     height: auto;
-    margin-left:0px;
+    margin-left:0;
+    width: 100%;
 }
 
 .timesheet li {
@@ -93,12 +93,12 @@
 }
 
 .allowed_time{
-    text-align: center!important;
     background: #6610f2;
+    border-radius: 7px;
     color: #fff;
     font-weight: 500;
     padding: 5px;
-    border-radius: 7px;
+    text-align: center!important;
 }
 
 .date_creation{
@@ -115,20 +115,21 @@
 }
 
 .timesheet .time_hrs_right {
-    text-align: right;
+    color: #444;
     font-size: 14px;
     font-weight: 500;
-    color: #444;
+    text-align: right;
+    
 }
 
 #modal_desktop{
-    width: 50vw;
-    margin: auto;
-    border-radius: 10px;
-    padding: 20px;
     background: #fff;
-    margin-top: 5vh;
+    border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
+    margin: auto; 
+    margin-top: 5vh;
+    padding: 20px;
+    width: 50vw;
 }
 
 /* Tableau tâches*/
@@ -138,8 +139,8 @@
 }
 
 .title_of_task p{
-    text-align: left!important;
     font-weight: 600;
+    text-align: left!important;
 }
 
 .tasks__descr{
@@ -168,8 +169,8 @@
 }
 
 .detail_TS p{
-    text-align:left;
     font-size: 12px;
+    text-align:left;
 }
 
 .detail_TS .tasks{
@@ -179,10 +180,10 @@
 .close_modale{
     border-radius: 5px;
     border: none;
-    width: 25px;
-    margin-bottom: 10px;
     font-size: 14px;
     float:right;
+    margin-bottom: 10px;
+    width: 25px;
 }
 
 .detail_TS .developer{
@@ -205,19 +206,19 @@
 
 .assigned_to{
     background: none;
-    color: #6610f2;
-    text-align: left;
     border: none;
+    color: #6610f2;
     font-size: .56rem;
+    text-align: left;
 }
 
 .AllProjet_box{
-    overflow: scroll;
+    border-radius: 13px;
+    box-shadow: inset 1px -3px 10px 0 rgb(0 0 0 / 19%);
     height: 280px;
     margin: 0;
+    overflow: scroll;
     padding: 20px 10px;
-    box-shadow: inset 1px -3px 10px 0px rgb(0 0 0 / 19%);
-    border-radius: 13px;
 }
 
 .AllProjet_box .btn{
@@ -233,10 +234,10 @@
 .admin_view_task .succeed,
 .admin_view_task .inProgress,
 .admin_view_task .new{
-    margin:0!important;
-    width:130px;
     font-size: 0.7rem;
+    margin:0!important;
     padding: 5px 15px;
+    width:130px;
 }
 
 /******************/
@@ -273,12 +274,12 @@
     }
   
     .col_mobile_badge{
-        vertical-align:top;
-        min-width:60px;
-        margin-right:10px;
         background: linear-gradient(90deg, rgba(255,255,255,0.34919905462184875) 48%,
                                              rgba(231,231,231,1) 50%,
                                              rgba(255,255,255,0) 52%);
+        margin-right:10px;
+        min-width:60px;
+        vertical-align:top;
     }
 
     .project_sidebar{
@@ -291,28 +292,24 @@
   
     .tasks{
         font-size:12px;
-        font-weight: 300;
         font-style: italic;
-        margin-top: 10px;
+        font-weight: 300;
         margin-bottom: 30px;
-        width: auto;
+        margin-top: 10px;
         text-align: justify;
+        width: auto;
     }
   
-    .dateoftask{
-        text-align: left;
-        line-height: 3em;
-    }
-
+    .dateoftask,
     .time{
-        text-align:left;
         line-height: 3em;
+        text-align: left;
     }
 
     .navbar_col_d,
     .navbar_col_g{
-        width:50%;
         display:inline-block;
+        width:50%;
     }
 
     .navbar_col_d label,

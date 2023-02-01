@@ -182,45 +182,45 @@ export default function ViewAll() {
           <NavBar />
 
           <Row>
-          <div className="project_sidebar">
-               <div className="navbar_col_g">
-                    <h2>Suivi de projet</h2>
+               <div className="project_sidebar">
+                    <div className="navbar_col_g">
+                         <h2>Suivi de projet</h2>
 
-                    <label>Voir toute les tâches </label>
-                    <button  value='all' className="btn primary_btn" onClick={handleTasks}>Tous</button>
+                         <label>Voir toute les tâches </label>
+                         <button  value='all' className="btn primary_btn" onClick={handleTasks}>Tous</button>
+                    </div>
+
+                    <div className="navbar_col_d filter_admin">
+                         <label>Filtrer par client</label>
+                         <select onChange={handleTasks}>
+                              <option name="default" disabled> Default </option>
+                              {clients.filter(item => item.Role === 'Client').map((item,index) => {
+                                   return(
+                                        <option  key={index} value={item.ID} className="client_list" >{item.Nom} {item.Prenom}</option>
+                                   ) 
+                              })}
+                         </select>
+                         
+                         <label> Assigné à</label>
+                         <ul>
+                              {clients.filter(data => data.Role === 'administrator').map((item,index) =>{
+                                   return(
+                                        <li key={index}><Button onClick={AssignedTasks} value={item.Prenom + ' ' + item.Nom} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
+                                   )
+                              })}
+                         </ul>
+
+                         <label>Tous les projets</label>
+                         <ul className="AllProjet_box">
+                              {allProject.map((item,index) =>{
+                                   return(
+                                        <li key={index}><Button className="primary_btn" onClick={ProjectTasks} value={item.ID}>{item.Tickets}</Button></li>
+                                   )
+                              })}
+                         </ul>
+                    </div>
                </div>
-
-               <div className="navbar_col_d filter_admin">
-                    <label>Filtrer par client</label>
-                    <select onChange={handleTasks}>
-                         <option name="default" disabled> Default </option>
-                         {clients.filter(item => item.Role === 'Client').map((item,index) => {
-                              return(
-                                   <option  key={index} value={item.ID} className="client_list" >{item.Nom} {item.Prenom}</option>
-                              ) 
-                         })}
-                    </select>
-                    
-                    <label> Assigné à</label>
-                    <ul>
-                         {clients.filter(data => data.Role === 'administrator').map((item,index) =>{
-                              return(
-                                   <li key={index}><Button onClick={AssignedTasks} value={item.Prenom + ' ' + item.Nom} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
-                              )
-                         })}
-                    </ul>
-
-                    <label>Tous les projets</label>
-                    <ul className="AllProjet_box">
-                         {allProject.map((item,index) =>{
-                              return(
-                                   <li key={index}><Button className="primary_btn" onClick={ProjectTasks} value={item.ID}>{item.Tickets}</Button></li>
-                              )
-                         })}
-                    </ul>
-               </div>
-          </div>
-     </Row>
+          </Row>
      <Container id="page_viewall" className="main__content">
           <Row>
                <Col className="tableauTS hide_mobile">
@@ -279,16 +279,16 @@ export default function ViewAll() {
                     <h2>Liste des tâches réalisées :</h2>               
                     
                     <table>
-                    {alltasks.map((item,index) => {
-                         return(
-                              <tr key={index} className="line_task">
-                                   <td className="title_of_task"><p>{ item.Titre }</p></td>
-                                   <td className="time"><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                   <td><p className="bdg_user"> {item.Agent}</p></td>
-                                   <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
-                              </tr>
-                         )
-                    })}
+                         {alltasks.map((item,index) => {
+                              return(
+                                   <tr key={index} className="line_task">
+                                        <td className="title_of_task"><p>{ item.Titre }</p></td>
+                                        <td className="time"><p>{ item.Temps_Min_Tache === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                        <td><p className="bdg_user"> {item.Agent}</p></td>
+                                        <td><Button className="btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button></td>
+                                   </tr>
+                              )
+                         })}
                     </table>
                </div>
           </Row>
