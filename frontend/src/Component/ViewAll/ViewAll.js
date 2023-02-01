@@ -131,7 +131,6 @@ export default function ViewAll() {
      }
 
      const item_statut = (props) => {
-          
           if( props === "Non démarrée"){
                return(
                     <tr><th><p className="new">{props}</p></th></tr>
@@ -223,7 +222,6 @@ export default function ViewAll() {
           </div>
      </Row>
      <Container id="page_viewall" className="main__content">
-
           <Row>
                <Col className="tableauTS hide_mobile">
                     <table>
@@ -234,9 +232,7 @@ export default function ViewAll() {
                                              <td key={index} rowspan="3" className="first_col_pjt"><p className="bdg_user">{item.Tickets.substring(0,1)}</p></td>
                                              <td><h1>{item.Tickets}</h1><p>{nomEnt}</p><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>                                                  <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
                                         </tr>
-                                        <tr>
-                                             <td colspan="2"><h2>Description</h2><p className="descr__thead">{item.Description}</p></td>
-                                        </tr>
+                                        <tr><td colspan="2"><h2>Description</h2><p className="descr__thead">{item.Description}</p></td></tr>
                                    </tbody>
                               )
                          })}             
@@ -249,38 +245,34 @@ export default function ViewAll() {
                </div>
 
                <table>
-                         <tbody>
-                              <tr>
+                    <tbody>
+                         <tr>
                                    <td><p>Minutes Totales : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Achetees)}</p></td>
                                    <td><p>Minutes Restantes : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Restantes)}</p></td>
-                              </tr>
-                         </tbody>
+                         </tr>
+                    </tbody>
                </table>
                
                <table id="desktop list_all_tasks">
-                         <thead>
-                              <tr>
-                              <td><h2>Tâches :</h2></td>
-                              </tr>
-                         </thead>
-                         <tbody>
-
+                    <thead>
+                         <tr><td><h2>Tâches :</h2></td></tr>
+                    </thead>
+                    <tbody>
                          {filtredtasks && filtredtasks.map((item,index) => {
-
-                         return (
-                              <tr key={index} className="line_task">
-                                   <td className="title_of_task"><p>{ item.Titre}</p></td>
-                                   <td className="admin_view_task">{item_statut(item.Statut)}</td>
-                                   <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
-                                   <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
-                                   <td className="last-child">
-                                        <Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button>
-                                        <Button className="btn_ts_bottom" value={item.ID_TS} onClick={updateTheTask}>...</Button>
-                                   </td>
-                              </tr>
+                              return (
+                                   <tr key={index} className="line_task">
+                                        <td className="title_of_task"><p>{ item.Titre}</p></td>
+                                        <td className="admin_view_task">{item_statut(item.Statut)}</td>
+                                        <td><p className="bdg_user"> {item.Agent.substring(0,1)}</p></td>
+                                        <td classname="col_durée"><p>Durée : {item.time === '' ? 'en cours' : item.Temps_Min_Tache + ' min'} </p></td>
+                                        <td className="last-child">
+                                             <Button className="btn btn_ts_bottom" value={item.ID_TS} onClick={handleAddTask}>Details</Button>
+                                             <Button className="btn_ts_bottom" value={item.ID_TS} onClick={updateTheTask}>...</Button>
+                                        </td>
+                                   </tr>
                               )
                          })}
-                         </tbody>
+                    </tbody>
                </table>
 
                <div class="mobile">
@@ -288,7 +280,6 @@ export default function ViewAll() {
                     
                     <table>
                     {alltasks.map((item,index) => {
-
                          return(
                               <tr key={index} className="line_task">
                                    <td className="title_of_task"><p>{ item.Titre }</p></td>
@@ -495,9 +486,8 @@ export default function ViewAll() {
                          })}
                     </div> 
                </Row>
-          : ''}
-          
+          : ''}   
      </Container>
      </div>
-      )
- }
+     )
+}
