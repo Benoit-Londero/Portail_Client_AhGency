@@ -12,8 +12,7 @@ import AdminForm from './Component/AdminForm/AdminForm.js'
 import AdminHeure from './Component/AdminHeures/AdminHeure.js'
 import Recuperation from './Component/Recuperation/Recuperation.js'
 import ViewAll from './Component/ViewAll/ViewAll.js'
-import Entreprise from './Component/Entreprise/Entreprise.js'/* 
-import AdminProjet from './Component/AdminProjet/AdminProjet.js' */
+import Entreprise from './Component/Entreprise/Entreprise.js'
 import ChatBox from './Component/ChatBox/ChatBox.js'
 
 import useLocalStorage from "./useLocalStorage";
