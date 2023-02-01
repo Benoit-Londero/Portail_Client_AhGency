@@ -9,7 +9,6 @@
     background:#fff;
 }
 
-
 /**********************************/
 /*** Tableau tableauTS récentes ***/
 
@@ -324,7 +323,6 @@
         display:none;
     }
 
-
     #modal_mobile{
         display:block!important;
         background: #fff;
@@ -359,8 +357,6 @@
         width: auto;
         text-align: justify;
     }
-
-    
 
     .dateoftask{
         text-align: left;

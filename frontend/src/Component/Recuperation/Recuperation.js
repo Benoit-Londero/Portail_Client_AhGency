@@ -47,13 +47,9 @@ export default function Recuperation() {
         }
     }
 
-    
-
-
     const handleChange = (e) => {
         setRecupEmail(e.target.value);
     }
-
 
     return (
         <div id="page_recup">
@@ -78,7 +74,6 @@ export default function Recuperation() {
                     </Col>
                 </Row>
             </Container>
-            
         </div>
     )
 }

@@ -1,19 +1,19 @@
 import React, {useState} from "react";
 import './App.css';
-import Connexion from './Component/Connexion/Connexion.js'
-import Deconnexion from './Component/Deconnexion/Deconnexion.js'
-import Boutique from './Component/Credits/Credits.js'
-import NameForm from './Component/Account/Account.js'
+import Connexion from './Component/Connexion/Connexion.js';
+import Deconnexion from './Component/Deconnexion/Deconnexion.js';
+import Boutique from './Component/Credits/Credits.js';
+import NameForm from './Component/Account/Account.js';
 import Clients from './Component/Clients/Clients.js';
-import Home from './Component/Home/Home.js'
-import Inscription from './Component/Inscription/Inscription.js'
-import Projet from './Component/Projet/Projet.js'
-import AdminForm from './Component/AdminForm/AdminForm.js'
-import AdminHeure from './Component/AdminHeures/AdminHeure.js'
-import Recuperation from './Component/Recuperation/Recuperation.js'
-import ViewAll from './Component/ViewAll/ViewAll.js'
-import Entreprise from './Component/Entreprise/Entreprise.js'
-import ChatBox from './Component/ChatBox/ChatBox.js'
+import Home from './Component/Home/Home.js';
+import Inscription from './Component/Inscription/Inscription.js';
+import Projet from './Component/Projet/Projet.js';
+import AdminForm from './Component/AdminForm/AdminForm.js';
+import AdminHeure from './Component/AdminHeures/AdminHeure.js';
+import Recuperation from './Component/Recuperation/Recuperation.js';
+import ViewAll from './Component/ViewAll/ViewAll.js';
+import Entreprise from './Component/Entreprise/Entreprise.js';
+import ChatBox from './Component/ChatBox/ChatBox.js';
 
 import useLocalStorage from "./useLocalStorage";
 
