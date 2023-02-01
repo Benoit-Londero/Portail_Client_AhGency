@@ -38,12 +38,12 @@
 }
 
 .tableauTS table td {
-    font-size: .8em;
+    font-size: .8em!important;
     vertical-align: top;
     text-align: justify;
     margin: 0;
     padding: 0;
-    line-height: 1.5em;
+    line-height: 1.5em!important;
 }
 
 .line_task{

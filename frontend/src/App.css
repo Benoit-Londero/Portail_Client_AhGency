@@ -3,7 +3,7 @@
 }
 
 *{
-    font-family: 'Lato','Manjari', arial;
+    font-family: 'Lato','Manjari', arial!important;
 }
 
 .App-logo {
@@ -23,14 +23,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    font-size: calc(10px + 2vmin);
-    color: #282c34;
+    font-size: calc(10px + 2vmin)!important;
+    color: #282c34!important;
 }
 
 .main__content{
-    width: 75vw;
-    margin-left: 20vw;
-    margin-top: 9vh;
+    width: 75vw!important;
+    margin-left: 20vw!important;
+    margin-top: 9vh!important;
 }
 
 .App-link {
@@ -55,9 +55,9 @@ table{
 
     h1{
         text-align: left;
-        font-size: 24px;
+        font-size: 24px!important;
         font-weight: 400!important;
-        line-height: 29px;
+        line-height: 29px!important;
         color: #6610f2;
         border-radius: 10px;
         font-style: normal;
@@ -67,9 +67,9 @@ table{
 
     h2{
         font-style: normal;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 17px;
+        font-weight: 700!important;
+        font-size: 14px!important;
+        line-height: 17px!important;
         letter-spacing: 0.3em;
         text-transform: uppercase;
         color: #363636;
@@ -103,12 +103,12 @@ table{
 /*************** BOUTONS ***************/
     .btn {
         font-style: normal;
-        font-weight: 400;
-        font-size: 10px;
+        font-weight: 400!important;
+        font-size: 10px!important;
         width: 180px;
         text-transform: uppercase;
         letter-spacing: 0.2em;
-        border-radius: 5px;
+        border-radius: 5px!important;
     }
 
     .btn:hover {
@@ -118,9 +118,9 @@ table{
     }
 
     .primary_btn{
-        color: #6610f2;
+        color: #6610f2!important;
         background: none;
-        border: 1px solid #6610f2;
+        border: 1px solid #6610f2!important;
     }
 
     .primary_btn:active{
@@ -279,7 +279,7 @@ table{
     position: fixed;
     left: 64px;
     top: 0;
-    width: 220px;
+    width: 220px!important;
     height: 100vh;
     background: #fafafa;
     font-size: 14px;
