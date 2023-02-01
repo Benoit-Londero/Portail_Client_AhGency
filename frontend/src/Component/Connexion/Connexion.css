@@ -1,7 +1,7 @@
 #page_connexion .container {
+    background: #fafafa!important;
     min-height: 100vh;
     min-width: 100vw!important;
-    background: #fafafa!important;
 }
 
 .connexion_form {
@@ -10,67 +10,67 @@
 
 .connexion_form a {
     color: #190933;
-    text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .connexion_form h1 {
-    text-align: center;
     color: #fff;
+    text-align: center;
 }
 
 #logForm {
     background: #fff;
     border-radius: 20px;
-    min-height: 0vh;
-    width: 50vw;
-    margin: auto;
     box-shadow: 5px 5px 15px #ffffff9b;
+    margin: auto;
+    min-height: 0;
     padding: 50px;
+    width: 50vw;
 }
 
 #logForm label {
-    text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 50px;
     min-width: 90%;
+    text-transform: uppercase;
 }
 
 #logForm input[type="text"],
 #logForm input[type="password"] {
     border: none;
-    box-shadow: inset 5px 5px 10px #00000026!important;
     border-radius: 5px;
-    padding: 5px 20px;
-    line-height: 1.5em;
+    box-shadow: inset 5px 5px 10px #00000026!important;
     font-size: 16px;
-    min-width: 90%;
+    line-height: 1.5em;
     margin-top: 10px;
-    text-align: center!important;
     min-height:3em;
+    min-width: 90%;
+    padding: 5px 20px;
+    text-align: center!important;
 }
 
 #logForm input[type="submit"] {
     background: #672bf2;
-    color: #fff;
     border: 2px solid #672bf2;
-    min-width: 60%;
-    width:90%;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 16px;
     border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    min-width: 60%;
+    letter-spacing: 2px;
     text-align: center;
+    text-transform: uppercase;
+    width:90%;
 }
 
 #logForm input[type="submit"]:hover,
 #logForm input[type="submit"]:focus {
     background: #fff;
-    color: #6610f2;
     border: 2px solid #6610f2;
+    color: #6610f2;
 }
 
 .link {
@@ -79,10 +79,10 @@
 
 .link a {
     color: #672bf2;
-    text-decoration: none;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
+    text-decoration: none;
 }
 
 a:hover,
@@ -92,14 +92,14 @@ a:focus{
 
 .alert-warning,
 .alert-danger {
-    width: 40vw;
-    margin: auto;
     font-size: 16px;
+    margin: auto;
+    width: 40vw;
 }
 
 .logo_ahgency{
-    width:250px;
     margin-bottom:50px;
+    width:250px;
 }
 
 /* Responsive Mobile */
@@ -111,17 +111,17 @@ a:focus{
     }
 
     #logForm label {
-        text-transform: inherit;
         text-align:left;
+        text-transform: inherit;
     }
 
     #logForm {
         background: #fff;
         border-radius: 20px;
+        box-shadow: 5px 5px 15px #e9e9e99b;
+        margin: auto;
         min-height: 30vh;
         min-width: 90vw;
-        margin: auto;
-        box-shadow: 5px 5px 15px #e9e9e99b;
         padding: 20px;
     }
     .alert-warning,

@@ -1,7 +1,7 @@
 #page_inscription .container {
+    background: #fafafa!important;
     min-height: 100vh;
     min-width: 100vw!important;
-    background: #fafafa!important;
 }
 
 .inscription_form {
@@ -9,26 +9,26 @@
 }
 
 .inscription_form h1 {
-    text-align: center;
     color: #fff;
+    text-align: center;
 }
 
 #inscForm {
     background: #fff;
     border-radius: 20px;
-    min-height: 30vh;
-    width: 50vw;
-    margin: auto;
     box-shadow: 5px 5px 15px #ffffff9b;
+    margin: auto;
+    min-height: 30vh;
     padding: 40px;
+    width: 50vw;
 }
 
 .inscription_form a {
     color: #6610f2;
-    text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 #inscForm label {
@@ -42,25 +42,25 @@
 #inscForm input[type="password"],
 #inscForm input[type="email"] {
     border: none;
-    box-shadow: inset 5px 5px 10px #BDE5F4;
     border-radius: 5px;
-    padding: 5px 20px;
-    line-height: 1.5em;
+    box-shadow: inset 5px 5px 10px #BDE5F4;
     font-size: 16px;
+    line-height: 1.5em;
     margin-top: 10px;
+    padding: 5px 20px;
     text-align: left;
 }
 
 #inscForm input[type="submit"] {
     background: #6610f2;
-    color: #fff;
     border: 2px solid #6610f2;
-    min-width: 60%;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 16px;
     border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2px;
+    min-width: 60%;
     text-align:center;
+    text-transform: uppercase;
 }
 
 #inscForm input[type="submit"]:hover,
@@ -73,9 +73,9 @@
 .thx_message{
     background: white;
     border-radius: 25px;
-    width: 40vw;
     margin: auto;
     padding: 50px;
+    width: 40vw;
 }
 
 .thx_message h1{
@@ -86,9 +86,9 @@
 
 .thx_message a{
     background: #6610f2;
-    padding: 10px 30px;
-    border-radius: 10px;
     border-bottom: 4px solid #3f0b94;
-    text-decoration: none;
+    border-radius: 10px;
     margin-top: 80px;
+    padding: 10px 30px;
+    text-decoration: none;
 }

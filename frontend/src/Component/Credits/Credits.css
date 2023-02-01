@@ -1,11 +1,11 @@
 .product_fiche{
-    width: 30%;
     background: #fff;
     border-radius: 15px;
-    padding: 20px;
     box-shadow: 7px 6px 9px 0px rgb(132 131 147 / 32%);
     display:inline-block;
     margin-left: 5%;
+    padding: 20px;
+    width: 30%;
 }
 
 #page_boutique ul{
@@ -19,8 +19,8 @@
 
 .product_fiche p {
     color: #bbb;
-    text-align: left;
     padding: 20px 0px;
+    text-align: left;
 }
 
 .product_fiche .price{
@@ -35,10 +35,10 @@
 }
 
 #catchow{
-    margin-top: 80px;
-    text-align: left;
     background: #eee;
+    margin-top: 80px;
     padding: 30px;
+    text-align: left;
 }
 
 #catchow h2{
@@ -47,8 +47,8 @@
 
 #catchow .col-gch{
     display:inline-block;
-    vertical-align: top;
     margin-top: 20px;
+    vertical-align: top;
 }
 
 #catchow p{
@@ -65,9 +65,9 @@
 
 #catchow img{
     display:inline-block;
-    width: 20%;
     margin-left: auto;
     margin-right:20px;
+    width: 20%;
 }
 
 .tbl p{
@@ -77,23 +77,22 @@
 @media screen and (max-width:756px) and (orientation: portrait){
 
     #page_boutique{
-        width: 100vw!important;
-        margin-left:0vw;
-        /*box-shadow: 5px 5px 10px #BDE5F4;*/
         border-radius: 10px;
-        padding: 20px;
         margin-top:9vh;
+        margin-left:0;
+        padding: 20px;
+        width: 100vw!important;
     }
 
     .product_fiche{
-        width: 100%;
         background: #fff;
         border-radius: 15px;
-        padding: 20px;
         box-shadow: 7px 6px 9px 0px rgb(132 131 147 / 32%);
         display: block;
         margin-top:5%;
-        margin-left: 0px;
+        margin-left: 0;
+        padding: 20px;
+        width: 100%;
     }
 
     #catchow .col-gch,
@@ -103,8 +102,8 @@
     }
 
     #catchow img{
-        width: 70%;
         margin:auto;
+        width: 70%;
     }
 
     .resume{

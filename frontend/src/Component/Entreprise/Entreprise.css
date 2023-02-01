@@ -2,8 +2,8 @@
      text-align: left;
 }
 .stats_account{
-     text-align: left!important;
      padding:10px;
+     text-align: left!important;
 }
 
 .stats_account h2{
@@ -11,8 +11,8 @@
 }
 
 .tabs_account button{
-     text-transform: uppercase;
      padding:0;
+     text-transform: uppercase;
 }
 
 .tabs_account:active{
@@ -22,8 +22,8 @@
 #progress_bar{
      background: #6610f2;
      border-radius: 10px;
-     text-align: right;
      padding: 5px;
+     text-align: right;
 }
 
 #progress_bar p{

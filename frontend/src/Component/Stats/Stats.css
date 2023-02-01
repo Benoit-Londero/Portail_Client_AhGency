@@ -1,33 +1,29 @@
 /***** Statistiques ******/
 
 .stats h2{
-     color:#fff;
- }
+    color:#fff;
+}
  
- .stats p {
-     font-size:11px;
-     margin-bottom: 0;
- }
+.stats p {
+    font-size:11px;
+    margin-bottom: 0;
+}
  
- .CircularProgressbar {
-     margin-top: 20px;
-     margin-bottom: 40px;
- }
+.CircularProgressbar {
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
 
- .stats{
-     height: auto;
-     border-radius: 15px;
-     margin: 10px;
-     padding: 20px 30px;
-     background:#fff;
-     background-color: #12032c;
-     padding: 10px;
-     font-size: 10px;
-     position: absolute;
-     bottom: 5px;
-     left: 5px;
-     right: 5px;
+.stats{
+    background:#fff;
+    background-color: #12032c;
+    border-radius: 15px;
+    bottom: 5px;
+    font-size: 10px;
+    height: auto;
+    left: 5px;
+    margin: 10px;
+    padding: 20px 30px;
+    position: absolute;
+    right: 5px;
  }
- 
- 
- /**********************************/

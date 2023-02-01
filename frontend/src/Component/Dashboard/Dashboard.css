@@ -4,20 +4,20 @@
 .stats,
 .tableauTS,
 .timesheet {
-    height: auto;
+    background:#fff;
     border-radius: 15px;
+    height: auto;
     margin: 10px;
     padding: 20px 30px;
-    background:#fff;
 }
 
 .stats{
     background-color: #12032c;
-    padding: 10px;
-    font-size: 10px;
-    position: absolute;
     bottom: 5px;
+    font-size: 10px;
     left: 5px;
+    padding: 10px;
+    position: absolute;
     right: 5px;
 }
 
@@ -26,19 +26,19 @@
 /***** Panel User ******/
 
 .date_badge{
-    font-size: 20px;
-    text-align: center!important;
-    width: 40px;
-    vertical-align: middle;
-    line-height: 1.4em;
+    aspect-ratio: 1;
     background: #6610f2;
     border-radius: 10px;
     color: #ffffff;
     font-family: 'Poppins';
+    font-size: 20px;
     font-weight: 500;
-    padding: 5px;
-    aspect-ratio: 1;
+    line-height: 1.4em;
     max-height: 40px;
+    padding: 5px;
+    text-align: center!important;
+    vertical-align: middle;
+    width: 40px;
 }
 
 /*************************/
@@ -54,16 +54,16 @@
 }
 
 .CircularProgressbar {
-    margin-top: 20px;
     margin-bottom: 40px;
+    margin-top: 20px;
 }
 
 /**********************************/
 /*** Tableau tableauTS récentes ***/
 
 .tableauTS{
-    margin-bottom:50px;
     background: #fafafa;
+    margin-bottom:50px;
 }
 
 .descr__thead{
@@ -87,11 +87,11 @@
 .tableauTS table td {
     font-size: .8em;
     font-weight: 300;
-    vertical-align: top;
-    text-align: justify;
+    line-height: 1.5em;
     margin: 0;
     padding: 0;
-    line-height: 1.5em;
+    vertical-align: top;
+    text-align: justify;
 }
 
 .stats p{
@@ -99,25 +99,24 @@
 }
 
 .tableauTS a {
-    font-size: .7em;
-    border: none;
     background: rgba(43,43,43,0.5);
-    color: #fff;
-    border-radius: 10px;
     border: 2px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: .7em;
 }
 
 .tableauTS a:hover {
     background: #fff;
-    color: #6610f2;
     border: 2px solid #6610f2;
+    color: #6610f2;
 }
 
 .tableauTS button:hover,
 .tableauTS button:focus {
     background: #fff;
-    color: #6610f2;
     border: 2px solid #6610f2;
+    color: #6610f2;
 }
 
 .btn_ts_bottom{
@@ -127,12 +126,12 @@
     border-radius: 10px;
     color: #fff!important;
     font-size: 11px;
+    height: 35px;
     letter-spacing: 2px;
     padding: 2px 20px;
     text-decoration: none;
     text-transform: uppercase;
     vertical-align: middle;
-    height: 35px;
 }
 
 .btn_ts_bottom:hover,
@@ -145,9 +144,9 @@
 /***** Timesheet ******/
 
 .timesheet {
-    width: 100%;
     height: auto;
-    margin-left:0px;
+    margin-left:0;
+    width: 100%;
 }
 
 .timesheet h2 {
@@ -164,12 +163,12 @@
 }
 
 .allowed_time{
-    text-align: center!important;
     background: #6610f2;
+    border-radius: 7px;
     color: #fff;
     font-weight: 500;
     padding: 5px;
-    border-radius: 7px;
+    text-align: center!important;
 }
 
 .date_creation{
@@ -190,20 +189,20 @@
 }
 
 .timesheet .time_hrs_right {
-    text-align: right;
+    color: #444;
     font-size: 14px;
     font-weight: 500;
-    color: #444;
+    text-align: right;
 }
 
 #desktop{
-    width: 50vw;
-    margin: auto;
-    border-radius: 10px;
-    padding: 20px;
     background: #fff;
-    margin-top: 5vh;
+    border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.35);
+    margin: auto;
+    margin-top: 5vh;
+    padding: 20px;
+    width: 50vw;
 }
 
 .agent__{
@@ -214,8 +213,8 @@
 }
 
 .detail_TS p{
-    text-align:left;
     font-size: 12px;
+    text-align:left;
 }
 
 .detail_TS .date_badge{
@@ -229,11 +228,11 @@
 }
 
 .close_modale{
-    border-radius: 5px;
     border: none;
-    width: 25px;
-    margin-bottom: 10px;
+    border-radius: 5px;
     font-size: 14px;
+    margin-bottom: 10px;
+    width: 25px;
 }
 
 .detail_TS .developer{
@@ -245,9 +244,9 @@
 }
 
 .descr__prjt{
-    text-align: justify;
     font-size: 12px;
     line-height: 1.5em;
+    text-align: justify;
 }
 
 /* Responsive tablet */
@@ -265,20 +264,20 @@
 @media screen and (max-width:756px) and (orientation: portrait) {
 
     #page_dashboard{
-        width: 90vw!important;
         margin: auto!important;
+        width: 90vw!important;
     }
     
     .resume,
     .stats,
     .tableauTS,
     .timesheet {
-        height: auto;
         border-radius: 20px;
         box-shadow: 5px 5px 10px rgba(189, 229, 244, 0.4);
+        height: auto;
         margin-bottom: 30px;
-        padding: 30px 10px;
         min-width: 80vw;
+        padding: 30px 10px;
     }
 
     .resume{
@@ -291,9 +290,9 @@
 
     /***** Timesheet ******/
     .timesheet {
-        width: 100%;
-        height: auto;
         margin-bottom: 200px;
+        height: auto;
+        width: 100%;
     }
 
     #desktop{
@@ -309,40 +308,40 @@
     }
 
     .col_mobile_badge{
-        vertical-align:top;
-        min-width:60px;
-        margin-right:10px;
         background: linear-gradient(90deg, rgba(255,255,255,0.34919905462184875) 48%,
                                            rgba(231,231,231,1) 50%,
                                            rgba(255,255,255,0) 52%);
+        margin-right:10px;
+        min-width:60px;
+        vertical-align:top;
     }
 
     .title_of_task{
-        text-align: left;
         font-weight: 600;
+        text-align: left;
     }
 
     .tasks{
         font-size:12px;
-        font-weight: 300;
         font-style: italic;
+        font-weight: 300;
         margin-top: 20px;
-        width: auto;
         text-align: justify;
+        width: auto;
     }
 
     .dateoftask{
-        text-align: left;
         line-height: 3em;
+        text-align: left;
     }
 }
 
 .modal__newTask #timesheetForm{
-    margin: auto;
     background: #fff;
-    padding: 20px;
     border-radius: 15px;
     box-shadow: 3px 3px 10px rgb(0 0 0 / 70%);
+    margin: auto;
+    padding: 20px;
 }
 
 .modal__newTask .s-sidebar__nav{

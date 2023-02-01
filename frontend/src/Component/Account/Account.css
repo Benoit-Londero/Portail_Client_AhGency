@@ -51,13 +51,10 @@
     text-align: left;
 }
 
-
 @media screen and (max-width:756px) and (orientation: portrait) {
     #page_account{
+        margin: 9vh auto 20vh 0; 
         width: 90vw;
-        margin-left:0px;
-        margin-top:9vh;
-        margin-bottom: 20vh;
     }
 
     .my-contact{
@@ -70,8 +67,8 @@
     }
 
     .tabs_account button{
-        margin-right: 10px;
         font-size: .8rem!important;
+        margin-right: 10px;
     }
 
     .profil{
@@ -79,12 +76,12 @@
     }
 
     #page_account .mobile a{
-        font-size: .6em;
-        text-transform: uppercase;
-        text-align: left;
-        display: block;
-        letter-spacing: 2px;
         color: red;
+        display: block;
+        font-size: .6em;
+        letter-spacing: 2px;
         margin-top: 50px;
+        text-align: left;
+        text-transform: uppercase;
     }
 }

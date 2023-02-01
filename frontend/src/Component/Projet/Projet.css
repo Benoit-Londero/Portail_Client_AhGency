@@ -7,8 +7,8 @@
 }
 
 .illu_prjt{
-     width:20vw;
      float:right;
+     width:20vw;
 }
 
 @media screen and (max-width:756px) and (orientation: portrait) {
@@ -21,9 +21,9 @@
      }
 
      .illu_prjt{
-          width:50vw;
           float:inherit;
           margin-top:60px;
+          width:50vw;
      }
 
      #DemandeForm .mobile{
@@ -32,21 +32,18 @@
 
      #DemandeForm .mobile ul{
           display:inline-flex;
+          margin:20px 0px 50px -20px;
           padding: 0;
-          margin:0;
-          margin-top:20px;
-          margin-bottom:50px;
-          margin-left:-20px;
      }
 
      #DemandeForm .mobile li{
-          width: 30vw;
           text-align: center;
+          width: 30vw;
      }
 
      #DemandeForm .mobile button{
-          width: 30vw;
           text-align: center;
+          width: 30vw;
      }
 
      #DemandeForm #timesheetForm{
@@ -56,6 +53,4 @@
      #DemandeForm .s-sidebar__nav{
           display:none;
      }
-
-
- }
+}

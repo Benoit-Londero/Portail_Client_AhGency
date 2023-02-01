@@ -10,65 +10,47 @@
 #mdpForm {
     background: #fff;
     border-radius: 20px;
-    min-height: 30vh;
-    width: 60vw;
     margin: auto;
+    min-height: 30vh;
     padding: 40px;
+    width: 60vw;
 }
 
 .recup_form a {
     color: #fff;
-    text-transform: uppercase;
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 #mdpForm label {
-    text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 50px;
     min-width: 90%;
+    text-transform: uppercase;
     width: 100%;
 }
 
 #mdpForm input[type="email"] {
     border: none;
-    box-shadow: inset 5px 5px 10px #BDE5F4;
     border-radius: 5px;
-    padding: 5px 20px;
-    line-height: 1.5em;
+    box-shadow: inset 5px 5px 10px #BDE5F4;
     font-size: 16px;
+    line-height: 1.5em;
     margin-top: 10px;
+    padding: 5px 20px;
     text-align: center;
     width: 80%!important;
 }
 
-/* #mdpForm input[type="submit"] {
-    background: #6610f2;
-    color: #fff;
-    border: 2px solid #6610f2;
-    min-width: 60%;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-#mdpForm input[type="submit"]:hover,
-#mdpForm input[type="submit"]:focus {
-    background: #fff;
-    color: #6610f2;
-    border: 2px solid #6610f2;
-} */
-
 .thx_message{
     background: white;
     border-radius: 25px;
-    width: 40vw;
     margin: auto;
     padding: 50px;
+    width: 40vw;
 }
 
 .thx_message h1{
@@ -79,9 +61,9 @@
 
 .thx_message a{
     background: #6610f2;
-    padding: 10px 30px;
-    border-radius: 10px;
     border-bottom: 4px solid #3f0b94;
-    text-decoration: none;
+    border-radius: 10px;
     margin-top: 80px;
+    padding: 10px 30px;
+    text-decoration: none;
 }
