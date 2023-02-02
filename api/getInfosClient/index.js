@@ -13,8 +13,8 @@ module.exports = async function (context, req) {
         let query = "SELECT * FROM users WHERE ID = ?";
         req = con.query(query, [IDU], function (err,rows){
             if (err) throw err;
-            console.log(rows[0]);
-            informations = rows[0];
+            console.log(rows);
+            informations = rows;
             resolve(informations)
         })
     })

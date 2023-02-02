@@ -83,20 +83,20 @@ export default function Home() {
                const data = await response.json();
           
                if(response.status === 200){
-                    setCurrentHeureTOT(data.Minutes_Achetees);
-                    setCurrentHeureREST(data.Minutes_Restantes);
+                    setCurrentHeureTOT(data[0].Minutes_Achetees);
+                    setCurrentHeureREST(data[0].Minutes_Restantes);
 
                     //Calcul temps restants (On soustrait le temps dépensé au temps total)
-                    const timeSpend = data.Minutes_Achetees - data.Minutes_Restantes;
+                    const timeSpend = data[0].Minutes_Achetees - data[0].Minutes_Restantes;
 
                     //Calcul du montant dépensé (temps dépensé)
                     setMoneySpend(Math.round(((timeSpend/60) * 75)));
 
-                    if (parseInt(data.Minutes_Achetees) === 0) {
+                    if (parseInt(data[0].Minutes_Achetees) === 0) {
                          const percentage = 0;
                          setCheckPercent(percentage);
                     } else {
-                         const percentage = Math.round(((100*data.Minutes_Restantes) / data.Minutes_Achetees));
+                         const percentage = Math.round(((100*data[0].Minutes_Restantes) / data[0].Minutes_Achetees));
                          setCheckPercent(percentage);
                     }
                } else {

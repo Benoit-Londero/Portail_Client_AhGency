@@ -20,36 +20,11 @@ export default function Clients() {
      const [showDetails, setShowDetails] = useState(false); //Affichage Modale Client
      const [showDetailsEntr, setShowDetailsEntreprise] = useState(false); //Affichage Modale Entreprise
 
-     /* Variables pour liste + infos Clients - AJOUT BENOIT DEC. 2022 */
-     const [currentNOM, setCurrentNOM] = useState();
-     const [currentPNOM, setCurrentPNOM] = useState();
-     const [currentMAIL, setCurrentMAIL] = useState();
-     const [currentID, setCurrentID] = useState();
-     const [currentIDentr, setCurrentIDentr] = useState();
-     const [currentRole, setCurrentRole] = useState();
-     const [currentMina, setCurrentMina] = useState();
-     const [currentTitre, setCurrentTitre] = useState();
-
      const [allUsers, setAllUsers] = useState([]);
-     const [data,setDataClient] = useState();
+     const [dataClient,setDataClient] = useState([]);
 
-     /* Variables pour liste + infos Entreprise - AJOUT BENOIT DEC. 2022 */
-
-     const [currentIDE, setCurrentIDE] = useState();
-     const [currentNOMSOC, setCurrentNOMSOC] = useState();
-     const [currentMAILE, setCurrentMAILE] = useState();
-     const [currentTVA, setCurrentTVA] = useState();
-     const [currentADR, setCurrentADR] = useState();
-     const [currentTelEnt, setCurrentTelEnt] = useState();
-     const [currentDatCrea, setCurrentDatCrea] = useState();
-     const [currentMaint, setCurrentMaint] = useState();
-     const [currentSiteWeb, setCurrentSiteWeb] = useState();
-     const [currentMembers, setCurrentMembers] = useState('');
-
-     console.log(currentIDE + currentNOMSOC + currentMAILE + currentTVA + currentADR + currentTelEnt + currentDatCrea + currentMaint + currentSiteWeb + currentMembers);
-     
      const [allEntreprise, setAllEntreprise] = useState([]); //Affiche toutes les entreprises
-     const [dataE, setDataEntr] = useState(); //Défini l'ID pour la page détailsEntreprise
+     const [dataEntr, setDataEntr] = useState([]);
 
      const [selectMembers, setMembers] = useState([]); //Sélection des membres en fonction de l'ID_ENTR
 
@@ -61,7 +36,6 @@ export default function Clients() {
                const result = await response.json();
                if(response.status === 200){
                     setAllUsers(result)
-                    console.log(allUsers);
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
@@ -75,14 +49,13 @@ export default function Clients() {
                const res = await response2.json();
                if(response2.status === 200){
                     setAllEntreprise(res);
-                    console.log(allEntreprise);
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard')
                }
           }
 
           listEntrep();
-     })
+     }, [])
 
      /* AJOUT BENOIT - DECEMBRE 2022 */
 
@@ -126,17 +99,7 @@ export default function Clients() {
                })
                .then(res => res.json())
                .then(json => setDataClient(json))
-               .then(console.log(data))
-
-               .then(setCurrentID(data.ID))
-               .then(setCurrentNOM(data.Nom))
-               .then(setCurrentPNOM(data.Prenom))
-               .then(setCurrentMAIL(data.Email))
-               .then(setCurrentIDentr(data.ID_entreprise))
-               .then(setCurrentRole(data.Role))
-               .then(setCurrentMina(data.Minutes_Achetees))
-               .then(setCurrentTitre(data.Titre))
-
+               .then(json => console.log(json))
                .then(setShowDetails(true))
                .catch(err => console.info(err))
           }
@@ -154,21 +117,8 @@ export default function Clients() {
                     body: JSON.stringify(jsonID)
                })
                .then(res => res.json())
-               .then(json => setDataEntr(json))
-               .then(console.log(dataE))     
-
-               .then(setCurrentIDE(dataE.ID_entreprise))
-               .then(setCurrentNOMSOC(dataE.Nom_societe))
-               .then(setCurrentTVA(dataE.TVA))
-               .then(setCurrentADR(dataE.Adresse))
-               .then(setCurrentTelEnt(dataE.Telephone))
-               .then(setCurrentMAILE(dataE.Email))
-               .then(setCurrentDatCrea(dataE.Date_creation))
-               .then(setCurrentMaint(dataE.Maintenance))
-               .then(setCurrentSiteWeb(dataE.Site_Web))
-               .then(setCurrentMembers(dataE.Membres))
+               .then(json => setDataEntr(json))  
                .then(setShowDetailsEntreprise(true))
-
                .catch(err => console.info(err))
           }
 
@@ -494,41 +444,48 @@ export default function Clients() {
                          <h2>Détails Client</h2>
 
                          <div>
-                              <table>
-                                   <tr>
-                                        <td><p className="bold">ID Client :</p></td>
-                                        <td><p>{currentID}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Role :</p></td>
-                                        <td><p>{currentRole}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Nom :</p></td>
-                                        <td><p>{currentNOM}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Prénom :</p></td>
-                                        <td><p>{currentPNOM}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Adresse mail :</p></td>
-                                        <td><p>{currentMAIL}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">ID Entreprise :</p></td>
-                                        <td><p>{currentIDentr}</p></td>
-                                   </tr>
-                                   <tr>
-                                        <td><p className="bold">Fonction :</p></td>
-                                        <td><p>{currentTitre}</p></td>
-                                   </tr>
-                                   
-                                   <tr>
-                                        <td><p className="bold">Minutes achetées :</p></td>
-                                        <td><p>{currentMina}</p></td>
-                                   </tr>
-                              </table>
+                              {dataClient.map((item,index) => {
+                                   return(
+                                        <table key={index}>
+                                             <tr>
+                                                  <td><p className="bold">ID Client :</p></td>
+                                                  <td><p>{item.ID}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Role :</p></td>
+                                                  <td><p>{item.Role}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Nom :</p></td>
+                                                  <td><p>{item.Nom}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Prénom :</p></td>
+                                                  <td><p>{item.Prenom}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Adresse mail :</p></td>
+                                                  <td><p>{item.Email}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">ID Entreprise :</p></td>
+                                                  <td><p>{item.ID_entreprise}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Fonction :</p></td>
+                                                  <td><p>{item.Titre}</p></td>
+                                             </tr>
+                                             
+                                             <tr>
+                                                  <td><p className="bold">Minutes achetées :</p></td>
+                                                  <td><p>{item.Minutes_Achetees}</p></td>
+                                             </tr>
+                                             <tr>
+                                                  <td><p className="bold">Minutes restantes :</p></td>
+                                                  <td><p>{item.Minutes_Restantes}</p></td>
+                                             </tr>
+                                        </table>
+                                   )})}
                          </div>
                     </div>  
                </Row>
@@ -541,7 +498,7 @@ export default function Clients() {
                          <h2>Détails Entreprise</h2>
 
                          <div>
-                              {dataE && dataE.map((item,index) => {
+                              {dataEntr.map((item,index) => {
                                    return(
                                         <table key={index}>
                                              <tr>

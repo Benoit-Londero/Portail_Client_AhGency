@@ -14,7 +14,7 @@ module.exports = async function (context, req) {
         let query = "SELECT * FROM entreprise WHERE ID_entreprise = ?"
         req = con.query(query, [IDE], function (err,rows){
             if (err) throw err;
-
+            console.log(rows);
             informations = rows;
             resolve(informations)
         })

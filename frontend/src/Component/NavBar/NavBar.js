@@ -25,8 +25,8 @@ function NavBar(){
 
       const data = await response.json();
       if(response.status === 200){
-        setRole(data.Role);
-        if (data.Role !== "administrator") {
+        setRole(data[0].Role);
+        if (data[0].Role !== "administrator") {
           SidebarData.filter(recherche => recherche.admin === false).map((donnee) => setMenu(menu => [...menu, donnee]));
         } else {
           SidebarData.map((donnee) => setMenu(menu => [...menu, donnee]));

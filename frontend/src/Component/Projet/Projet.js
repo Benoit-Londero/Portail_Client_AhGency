@@ -34,8 +34,8 @@ export default function Projet() {
         
             const data = await response.json();
             if(response.status === 200){
-                setCurrentMAIL(data.Email);
-                setCurrentRole(data.Role);
+                setCurrentMAIL(data[0].Email);
+                setCurrentRole(data[0].Role);
             } else {
                 alert('Erreur du serveur, veuillez réessayer plus tard');
             }

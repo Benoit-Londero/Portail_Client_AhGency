@@ -34,9 +34,9 @@ export default function NameForm() {
                const data = await response.json();
                
                if(response.status === 200){
-                    setCurrentNOM(data.Nom);
-                    setCurrentPNOM(data.Prenom);
-                    setCurrentMAIL(data.Email);
+                    setCurrentNOM(data[0].Nom);
+                    setCurrentPNOM(data[0].Prenom);
+                    setCurrentMAIL(data[0].Email);
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }

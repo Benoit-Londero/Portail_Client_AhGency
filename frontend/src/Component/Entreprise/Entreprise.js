@@ -22,23 +22,29 @@ export default function Entreprise() {
      const [currentEMAILE, setCurrentEMAILE] = useState();
      const [currentSITE, setCurrentSITE] = useState();
      const [currentURLShare, setUrlSHARE] = useState([]);
-     const [minEntreprise, setMinEntreprise] = useState();
-     const [totminEntreprise,setTotMinEntreprise] = useState();
+     const [totminEntreprise,setTotMinEntreprise] = useState(0);
      const [tempsAlloue, setTempsAlloue] = useState();
      const [validation, setValidation] = useState(false);
      const [allUsers, setAllUsers] = useState([]);
 
      const [checkPercent, setCheckPercent] = useState();
-     const [moneySpend, setMoneySpend] = useState();
+     const [moneySpend, setMoneySpend] = useState(0);
 
-     const [currentHeureREST, setCurrentHeureREST] = useState();
+     const [currentHeureRestEnt, setCurrentHeureRestEnt] = useState(0);
 
      const currentIDE = localStorage.getItem("currentIDE");
-
-     console.log(currentHeureREST);
      
      useEffect(() => {
           let dataE = {currentIDEnt: currentIDE};
+
+          fetch('/api/getTempsAlloue', { 
+               method: 'POST',
+               headers: {'Content-Type': 'application/json'},
+               body: JSON.stringify(dataE)
+          })
+          .then(res => res.json())
+          .then(json => setTempsAlloue(json[0].minutesAllouees))
+          .catch(err => console.info(err))
 
           const listUser = async () => {
                const response = await fetch('/api/getAllUsers');
@@ -46,7 +52,6 @@ export default function Entreprise() {
                const result = await response.json();
                if(response.status === 200){
                     setAllUsers(result)
-                    console.log(allUsers);
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
@@ -63,8 +68,6 @@ export default function Entreprise() {
                })
      
                const data = await response.json();
-
-               console.log(data);
                
                if(response.status === 200){
                     setCurrentNomE(data[0].Nom_societe); 
@@ -74,33 +77,12 @@ export default function Entreprise() {
                     setCurrentEMAILE(data[0].Email);
                     setCurrentSITE(data[0].Site_web);
                     setUrlSHARE(data[0].URL_SharePoint);
-
-                    console.log(currentNomE);
-                    console.log(currentTVA);
-                    console.log(currentADRESSE);
-                    console.log(currentTEL);
-                    console.log(currentEMAILE); 
                } else {
                     alert('Erreur du serveur, veuillez réessayer plus tard');
                }
+          }
 
-               fetch('/api/getHeureEntreprise', { 
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(dataE)
-               })
-               .then(res => res.json())
-               .then(json => setMinEntreprise(json[0].minutesEntreprise))
-               .catch(err => console.info(err))
-
-               fetch('/api/getTempsAlloue', { 
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify(dataE)
-               })
-               .then(res => res.json())
-               .then(json => setTempsAlloue(json[0].minutesAllouees))
-               .catch(err => console.info(err))
+          const onLoad3 = async () => {
 
                const reponse = await fetch('/api/getTotHeurEntreprise', { 
                     method: 'POST',
@@ -112,11 +94,11 @@ export default function Entreprise() {
 
                if(reponse.status === 200){
                     setTotMinEntreprise(data_2[0].totachEntreprise);
-                    setCurrentHeureREST(data_2[0].restheEntreprise);
+                    setCurrentHeureRestEnt(data_2[0].restheEntreprise);
 
-                    const minRes = data_2[0].totachEntreprise - data_2[0].restheEntreprise;
+                    const minUtilisees = data_2[0].totachEntreprise - data_2[0].restheEntreprise;
 
-                    setMoneySpend(Math.round(((minRes/60) * 90)));
+                    setMoneySpend(Math.round(((minUtilisees/60) * 90)));
 
                     if (parseInt(data_2[0].totachEntreprise) === 0) {
                          const percentage = 0;
@@ -129,9 +111,10 @@ export default function Entreprise() {
           }
 
           onLoad2();
+          onLoad3();
+     }, [currentIDE])
 
-     })
-
+     console.log(allUsers);
      const handleClick = async e => {
           e.preventDefault();
           let editForm = document.getElementById('editForm'); //on récupère l'élement <form> et ces différents <input>
@@ -194,7 +177,7 @@ export default function Entreprise() {
                                    <tr>
                                         <td>
                                              <p>Achetées : {Math.round(totminEntreprise/60)} h</p>
-                                             <p className="highlight">Restantes : {Math.trunc(minEntreprise /60)} h {minEntreprise % 60 } min 
+                                             <p className="highlight">Restantes : {Math.trunc(currentHeureRestEnt /60)} h {currentHeureRestEnt % 60 } min 
                                                   <br></br> (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
                                         </td>
                                         <td><p><b>Dépensé : {moneySpend} €</b></p></td>                              
@@ -242,15 +225,13 @@ export default function Entreprise() {
                                                   <td><label className="bold"> Site: </label></td>
                                                   <td><input type="text" id="web" name="web"  defaultValue ={currentSITE}></input></td>
                                              </tr>
-                                             <tr>
+                                             {/* <tr>
                                                   <td><label className="bold"> Membres: </label></td>
-                                                  {/* <td>
-                                                       {allUsers.filter(data => data[0].ID_entreprise === currentIDE).map((item,index) =>{
-                                                       return(<p key={index} className="bdg_user">{item.Prenom.substring(0,1)}</p>)
-                                                  })}
-                                                  </td> */}
-                                             </tr>
-
+                                                  <td>
+                                                  {allUsers.filter(data => data.ID_entreprise === currentIDE).map((item,index) =>{
+                                                       return(<span key={index} className="bdg_user">{item.Prenom.substring(0,1)}</span>)
+                                                  })}</td>
+                                             </tr> */}
                                              <tr>
                                                   <td><label className="bold">Lien SharePoint : </label></td>
                                                   <td>
