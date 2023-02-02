@@ -31,6 +31,7 @@ export default function ViewAll() {
      
      const [allEntreprise, setAllEntreprise] = useState([]);
      const [nomEnt, setNomEnt] = useState();
+     const [calculTemps, setCalculTemps] = useState(0);
 
 
      const currentIDU = localStorage.getItem("currentIDU");
@@ -69,10 +70,14 @@ export default function ViewAll() {
 
      function handleTasks(e) {
           let theClient = e.target.value;
-          console.log(theClient);
 
           theClient !== "all" ? setFiltredtasks(filtertask(theClient)) : setFiltredtasks(alltasks);
+          let taskFiltered = theClient !== "all" ? filtertask(theClient) : alltasks;
           theClient === "all" ? setIdClient('') : setIdClient(theClient);
+
+          let newArrayTemps = taskFiltered.map(item => item.Temps_Min_Tache);
+          let calculTempsTotale = newArrayTemps.length === 0 ? 0 : newArrayTemps.reduce((accumulator, currentValue) => accumulator + currentValue);
+          setCalculTemps(calculTempsTotale);
      }
 
      /* Filtre par Agent */
@@ -83,10 +88,14 @@ export default function ViewAll() {
 
      function AssignedTasks(e) {
           let theAgent = e.target.value;
-          console.log(theAgent);
 
           theAgent !== "all" ? setFiltredtasks(AssignedFiltertask(theAgent)) : setFiltredtasks(alltasks);
+          let taskFiltered = theAgent !== "all" ? AssignedFiltertask(theAgent) : alltasks;
           theAgent === "all" ? setIdClient('') : setIdClient(theAgent);
+
+          let newArrayTemps = taskFiltered.map(item => item.Temps_Min_Tache);
+          let calculTempsTotale = newArrayTemps.length === 0 ? 0 : newArrayTemps.reduce((accumulator, currentValue) => accumulator + currentValue);
+          setCalculTemps(calculTempsTotale);
      }
      /* Fin filtre par agent */
 
@@ -101,18 +110,14 @@ export default function ViewAll() {
           let idProjet = e.target.value;
           let detailProjet = allProject.filter(item => item.ID === parseInt(idProjet));
           let infoCurrentEntreprise = allEntreprise.filter(ent => ent.ID_entreprise === detailProjet[0].ID_entreprise);
-          
-          console.log(idProjet);
-          console.log(allProject);
-          console.log(allEntreprise);
-          console.log(detailProjet);
-          console.log(typeof detailProjet[0].ID_entreprise);
-          console.log(detailProjet[0].ID_entreprise);
-          console.log(infoCurrentEntreprise);
+          let projetFilteredTask = ProjetFiltertask(idProjet);
+          let newArrayTemps = projetFilteredTask.map(item => item.Temps_Min_Tache);
+          let calculTempsTotale = newArrayTemps.length === 0 ? 0 : newArrayTemps.reduce((accumulator, currentValue) => accumulator + currentValue);
 
-          setFiltredtasks(ProjetFiltertask(idProjet));
+          setFiltredtasks(projetFilteredTask);
           setDetailProjet(detailProjet);
           setNomEnt(infoCurrentEntreprise[0].Nom_societe)
+          setCalculTemps(calculTempsTotale);
      }
 
      const closeTasks = (e) => {
@@ -230,7 +235,8 @@ export default function ViewAll() {
                                    <tbody>
                                         <tr>
                                              <td key={index} rowspan="3" className="first_col_pjt"><p className="bdg_user">{item.Tickets.substring(0,1)}</p></td>
-                                             <td><h1>{item.Tickets}</h1><p>{nomEnt}</p><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>                                                  <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
+                                             <td><h1>{item.Tickets}</h1><p>{nomEnt}</p><p className="date_creation">Créé le {Moment(item.Date).format('DD-MM-YYYY')}</p></td>
+                                             <td className="col__timeToUse"><p className="ref allowed_time">Temps alloué : {Math.trunc(item.AllocationTemps /60)} h {item.AllocationTemps % 60 } min</p></td>
                                         </tr>
                                         <tr><td colspan="2"><h2>Description</h2><p className="descr__thead">{item.Description}</p></td></tr>
                                    </tbody>
@@ -255,7 +261,7 @@ export default function ViewAll() {
                
                <table id="desktop list_all_tasks">
                     <thead>
-                         <tr><td><h2>Tâches :</h2></td></tr>
+                         <tr><td colspan="3"><h2>Tâches :</h2></td><td><p>Durée totale : {Math.trunc(calculTemps /60)} h {calculTemps % 60 } min</p></td></tr>
                     </thead>
                     <tbody>
                          {filtredtasks && filtredtasks.map((item,index) => {
