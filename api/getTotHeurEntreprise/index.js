@@ -8,7 +8,7 @@ module.exports = async function (context, req) {
 
     totHeure = await new Promise((resolve,reject) => {
 
-        let entreprise = req.body.currentIDEntreprise;
+        let entreprise = req.body.currentIDEnt;
         let query = "SELECT SUM(Minutes_Achetees) as totachEntreprise, SUM(Minutes_Restantes) as restheEntreprise FROM users WHERE ID_entreprise = ?";
 
         req = con.query(query, [entreprise], function (err,rows){

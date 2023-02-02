@@ -22,15 +22,15 @@ export default function Entreprise() {
      const [currentEMAILE, setCurrentEMAILE] = useState();
      const [currentSITE, setCurrentSITE] = useState();
      const [currentURLShare, setUrlSHARE] = useState([]);
-     const [totminEntreprise,setTotMinEntreprise] = useState(0);
+     const [totminEntreprise,setTotMinEntreprise] = useState();
      const [tempsAlloue, setTempsAlloue] = useState();
      const [validation, setValidation] = useState(false);
      const [allUsers, setAllUsers] = useState([]);
 
      const [checkPercent, setCheckPercent] = useState();
-     const [moneySpend, setMoneySpend] = useState(0);
+     const [moneySpend, setMoneySpend] = useState();
 
-     const [currentHeureRestEnt, setCurrentHeureRestEnt] = useState(0);
+     const [currentHeureRestEnt, setCurrentHeureRestEnt] = useState();
 
      const currentIDE = localStorage.getItem("currentIDE");
      
@@ -96,6 +96,11 @@ export default function Entreprise() {
                     setTotMinEntreprise(data_2[0].totachEntreprise);
                     setCurrentHeureRestEnt(data_2[0].restheEntreprise);
 
+                    console.log(data_2);
+
+                    console.log(data_2[0].totachEntreprise);
+                    console.log(data_2[0].restheEntreprise);
+
                     const minUtilisees = data_2[0].totachEntreprise - data_2[0].restheEntreprise;
 
                     setMoneySpend(Math.round(((minUtilisees/60) * 90)));
@@ -114,7 +119,8 @@ export default function Entreprise() {
           onLoad3();
      }, [currentIDE])
 
-     console.log(allUsers);
+     console.log(currentHeureRestEnt);
+     console.log(checkPercent);
      const handleClick = async e => {
           e.preventDefault();
           let editForm = document.getElementById('editForm'); //on récupère l'élement <form> et ces différents <input>
@@ -176,8 +182,8 @@ export default function Entreprise() {
                                    <tr><td colspan="4"><h2>Statistiques</h2></td></tr>          
                                    <tr>
                                         <td>
-                                             <p>Achetées : {Math.round(totminEntreprise/60)} h</p>
-                                             <p className="highlight">Restantes : {Math.trunc(currentHeureRestEnt /60)} h {currentHeureRestEnt % 60 } min 
+                                             <p>Votre compte d'heures totales : {Math.round(totminEntreprise/60)} h</p>
+                                             <p className="highlight">Votre compte d'heures restantes : {Math.trunc(currentHeureRestEnt /60)} h {currentHeureRestEnt % 60 } min 
                                                   <br></br> (dont {Math.trunc(tempsAlloue /60)} h {tempsAlloue % 60 } allouées)</p> 
                                         </td>
                                         <td><p><b>Dépensé : {moneySpend} €</b></p></td>                              
