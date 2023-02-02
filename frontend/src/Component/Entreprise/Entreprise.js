@@ -25,7 +25,6 @@ export default function Entreprise() {
      const [totminEntreprise,setTotMinEntreprise] = useState();
      const [tempsAlloue, setTempsAlloue] = useState();
      const [validation, setValidation] = useState(false);
-     const [allUsers, setAllUsers] = useState([]);
 
      const [checkPercent, setCheckPercent] = useState();
      const [moneySpend, setMoneySpend] = useState();
@@ -45,19 +44,6 @@ export default function Entreprise() {
           .then(res => res.json())
           .then(json => setTempsAlloue(json[0].minutesAllouees))
           .catch(err => console.info(err))
-
-          const listUser = async () => {
-               const response = await fetch('/api/getAllUsers');
-
-               const result = await response.json();
-               if(response.status === 200){
-                    setAllUsers(result)
-               } else {
-                    alert('Erreur du serveur, veuillez réessayer plus tard');
-               }
-          }
-
-          listUser();
           
           const onLoad2 = async () => {
 
