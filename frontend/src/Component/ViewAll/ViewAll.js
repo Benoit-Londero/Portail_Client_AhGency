@@ -376,7 +376,7 @@ export default function ViewAll() {
                                    {allLogs.filter(item => item.ID_Tache === parseInt(value_dtls)).map((item,index) =>{
                                         return(
                                              <tr>
-                                                  <td><p>{item.ID_Logs_TS}</p></td>
+                                                  <td><p>{item.Date_entree}</p></td>
                                                   <td><p>{item.Temps} min.</p></td>
                                                   <td><p>{item.Détails}</p></td>
                                              </tr>
