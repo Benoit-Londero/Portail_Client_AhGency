@@ -52,8 +52,6 @@ export default function Stats(){
           onLoad();
      },[currentIDU]);
 
-
-
      return (
           <div className="stats">
                <h2>Statistiques</h2>
@@ -70,7 +68,7 @@ export default function Stats(){
                          // Customize the circle behind the path, i.e. the "total progress"
                          trail: {
                               stroke: '#e7e7e7',
-                              strokeLinecap: 'round',
+                              strokeLinecap: 'round'
                          },
                               
                          text: {
@@ -93,7 +91,7 @@ export default function Stats(){
                     // Customize the circle behind the path, i.e. the "total progress"
                     trail: {
                          stroke: '#e7e7e7',
-                         strokeLinecap: 'round',
+                         strokeLinecap: 'round'
                     },
                          
                     text: {

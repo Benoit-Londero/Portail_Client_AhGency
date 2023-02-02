@@ -1,12 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import NavBar from "../NavBar/NavBar";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import AdminHeure from "../AdminHeures/AdminHeure";
 import AdminForm from "../AdminForm/AdminForm";
-
 import Button from 'react-bootstrap/Button';
-
 import illu from '../../img/Brainstorming_session_Monochromatic.png';
 
 import './Projet.css';
