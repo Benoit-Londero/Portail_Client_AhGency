@@ -1,5 +1,5 @@
 .App {
-    font-family: 'Lato','Manjari', arial!important;
+    font-family: 'Lato','Manjari', arial;
     text-align: center;
 }
 
@@ -20,14 +20,14 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    font-size: calc(10px + 2vmin)!important;
+    font-size: calc(10px + 2vmin);
     color: #282c34!important;
 }
 
 .main__content{
-    width: 75vw!important;
-    margin-left: 20vw!important;
-    margin-top: 9vh!important;
+    width: 75vw;
+    margin-left: 20vw;
+    margin-top: 9vh;
 }
 
 .App-link {
@@ -52,9 +52,9 @@ table{
 
     h1{
         text-align: left;
-        font-size: 24px!important;
-        font-weight: 400!important;
-        line-height: 29px!important;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29px;
         border-radius: 10px;
         color: #6610f2;
         font-style: normal;
@@ -65,9 +65,9 @@ table{
     h2{
         color: #363636;
         font-style: normal;
-        font-weight: 700!important;
-        font-size: 14px!important;
-        line-height: 17px!important;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
         letter-spacing: 0.3em;
         text-transform: uppercase;
     }
@@ -75,9 +75,9 @@ table{
     h3{
         color: #D7D7D7;
         font-style: normal;
-        font-size: 12px!important;
-        font-weight: 400!important;
-        line-height: 15px!important;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
         letter-spacing: 0.3em;
     }
 
@@ -100,12 +100,12 @@ table{
 /*************** BOUTONS ***************/
     .btn {
         font-style: normal;
-        font-weight: 400!important;
-        font-size: 10px!important;
+        font-weight: 400;
+        font-size: 10px;
         width: 180px;
         text-transform: uppercase;
         letter-spacing: 0.2em;
-        border-radius: 5px!important;
+        border-radius: 5px;
     }
 
     .btn:hover {
@@ -115,9 +115,9 @@ table{
     }
 
     .primary_btn{
-        color: #6610f2!important;
+        color: #6610f2;
         background: none;
-        border: 1px solid #6610f2!important;
+        border: 1px solid #6610f2;
     }
 
     .primary_btn:active{
@@ -269,10 +269,10 @@ table{
 /* Sidebar */
 .project_sidebar{
     top: 0;
-    width: 220px!important;
+    width: 220px;
     height: 100vh;
     background: #fafafa;
-    font-size: 14px!important;
+    font-size: 14px;
     left: 64px;
     list-style: none;
     padding-top: 100px;

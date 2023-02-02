@@ -16,6 +16,7 @@ export default function AdminForm(){
     const [nameProjet, setNameProjet] = useState();
     const [emailUser, setEmailUser] = useState();
     const [nameAgent, setNameUser] = useState();
+    const [userID, setUserID] = useState();
 
     const currentIDU = localStorage.getItem('currentIDU');
   
@@ -86,7 +87,6 @@ export default function AdminForm(){
       let nameprojet = projetInfos.filter(data => data.ID === pid).map((item,index) => {
         return( item.Tickets )
       })
-      console.log(nameprojet)
       setNameProjet(nameprojet);
     }
 
@@ -100,6 +100,7 @@ export default function AdminForm(){
         return (item.Prenom + ' ' + item.Nom)
       })
 
+      setUserID(uid);
       setNameUser(name);
       setEmailUser(email);
     }
@@ -170,6 +171,7 @@ export default function AdminForm(){
                     <textarea id="tache" name="tache" placeholder="tâche" required></textarea>
                   </td>
                 </tr>
+                <tr><td><input type ="hidden" id='id_Agent' name="id_Agent" value={userID}/></td></tr>
                 <tr className="row_submit">
                   <td><input type="reset" id="reset"/></td>
                   <td><input type="submit" className="btn btn_primary" value="Enregistrer"/></td>

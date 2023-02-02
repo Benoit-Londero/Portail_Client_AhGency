@@ -18,7 +18,6 @@ export default function ViewAll() {
      const [alltasks, setAllTasks] = useState([]); // Retourne toutes les tâches
 
      const [clients, setClients] = useState([]); // Retourne tous les clients
-     const [idClient, setIdClient] = useState();
 
      const [filtredtasks, setFiltredtasks] = useState(null);
      const [detailTask, setdetailTask] = useState(false); // Modale affichage détails tâche
@@ -73,7 +72,6 @@ export default function ViewAll() {
 
           theClient !== "all" ? setFiltredtasks(filtertask(theClient)) : setFiltredtasks(alltasks);
           let taskFiltered = theClient !== "all" ? filtertask(theClient) : alltasks;
-          theClient === "all" ? setIdClient('') : setIdClient(theClient);
 
           let newArrayTemps = taskFiltered.map(item => item.Temps_Min_Tache);
           let calculTempsTotale = newArrayTemps.length === 0 ? 0 : newArrayTemps.reduce((accumulator, currentValue) => accumulator + currentValue);
@@ -91,7 +89,6 @@ export default function ViewAll() {
 
           theAgent !== "all" ? setFiltredtasks(AssignedFiltertask(theAgent)) : setFiltredtasks(alltasks);
           let taskFiltered = theAgent !== "all" ? AssignedFiltertask(theAgent) : alltasks;
-          theAgent === "all" ? setIdClient('') : setIdClient(theAgent);
 
           let newArrayTemps = taskFiltered.map(item => item.Temps_Min_Tache);
           let calculTempsTotale = newArrayTemps.length === 0 ? 0 : newArrayTemps.reduce((accumulator, currentValue) => accumulator + currentValue);
@@ -246,18 +243,6 @@ export default function ViewAll() {
                </Col>
           </Row>
           <Row className="customer_card_all timesheet">
-               <div class="tableauTS">
-                    <h2>{clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Nom)}</h2>
-               </div>
-
-               <table>
-                    <tbody>
-                         <tr>
-                                   <td><p>Minutes Totales : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Achetees)}</p></td>
-                                   <td><p>Minutes Restantes : {clients.filter(obj => obj.ID === parseInt(idClient)).map(item => item.Minutes_Restantes)}</p></td>
-                         </tr>
-                    </tbody>
-               </table>
                
                <table id="desktop list_all_tasks">
                     <thead>
