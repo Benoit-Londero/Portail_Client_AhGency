@@ -1,10 +1,12 @@
-#page_recup .container {
-    min-height: 100vh;
-    min-width: 100vw!important;
+#page_recup {
+    background:#fafafa;
+    width: 100vw;
+    height: 100vh;
 }
 
 .recup_form {
     padding-top: 20vh;
+    width:60vw;
 }
 
 #mdpForm {
@@ -13,7 +15,6 @@
     margin: auto;
     min-height: 30vh;
     padding: 40px;
-    width: 60vw;
 }
 
 .recup_form a {
@@ -29,7 +30,6 @@
     font-weight: 600;
     margin-bottom: 50px;
     min-width: 90%;
-    text-transform: uppercase;
     width: 100%;
 }
 
@@ -42,7 +42,6 @@
     margin-top: 10px;
     padding: 5px 20px;
     text-align: center;
-    width: 80%!important;
 }
 
 .thx_message{
@@ -50,7 +49,7 @@
     border-radius: 25px;
     margin: auto;
     padding: 50px;
-    width: 40vw;
+    width: 40vw;        
 }
 
 .thx_message h1{

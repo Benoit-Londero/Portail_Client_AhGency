@@ -57,9 +57,9 @@ export default function Recuperation() {
             <Container>
                 <Row className="recup_form">
                 {messageValidation === false ? <Col lg={12}>
-                        <h1>Merci d'entrer votre email !!</h1>
+                        <h1>Mot de passe oublié</h1>
                     <form id="mdpForm" onSubmit={handleSubmit}>
-                        <label>Email<br/>
+                        <label>Veuillez entrer l'email du compte<br/>
                             <input type="email" name="email" placeholder="Votre email" required onChange={handleChange}/>
                         </label><br/>
                         <input type="submit" name="recuperation" value="Valider" />
