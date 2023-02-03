@@ -1,0 +1,18 @@
+.card_Report{
+     background:#eee;
+     padding:5px;
+     margin:15px 7px;
+     text-align: justify!important;
+     vertical-align: top!important;
+     min-width: 10vw;
+}
+
+.Lundi,
+.Mardi,
+.Mercredi,
+.Jeudi,
+.Vendredi{
+     vertical-align: top!important;
+     text-align: justify!important;
+     line-height: .7em;   
+}

@@ -14,6 +14,7 @@ import Recuperation from './Component/Recuperation/Recuperation.js';
 import ViewAll from './Component/ViewAll/ViewAll.js';
 import Entreprise from './Component/Entreprise/Entreprise.js';
 import ChatBox from './Component/ChatBox/ChatBox.js';
+import Report from './Component/Report/Report.js';
 
 import './App.css';
 
@@ -118,6 +119,7 @@ function App() {
               <Route path='/Credits' element={< Boutique />}></Route>
               <Route path='/Inscription' element={< Inscription />}></Route>
               <Route path='/Logout' element={< Deconnexion resetLogin={resetLogin}/>}></Route>
+              <Route path="/Report" element={< Report />}></Route>
             </Routes>
         </Router>
       </header>
