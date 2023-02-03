@@ -46,7 +46,7 @@ export default function Report() {
      /** Filtre par DateRange */
      const handleFilter = () => {
           // Filter logs based on start and end date
-          const dateRange = allLogs.filter(data => Moment(data.Date_entree).format() >= Moment(startDate).format() && Moment(data.Date_entree).format() <= Moment(endDate).format());
+          const dateRange = allLogs.filter(data => Moment(data.Date_entree).format("yyyy-MM-dd") >= Moment(startDate).format("yyyy-MM-dd") && Moment(data.Date_entree).format("yyyy-MM-dd") <= Moment(endDate).format("yyyy-MM-dd"));
 
           /* console.log(startDate);
           console.log(typeof(startDate));
@@ -57,13 +57,13 @@ export default function Report() {
      };
      
      // Function to handle preset value for previous week
-     const handlePreviousWeek = () => {
+      const handlePreviousWeek = () => {
           const currentDate = new Date();
           const prevWeekStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 7);
           const prevWeekEnd = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 1);
           setStartDate(prevWeekStart);
           setEndDate(prevWeekEnd);
-     };
+     }; 
 
      return (
      <div>
