@@ -43,7 +43,6 @@ export default function Report() {
      }
      /* Fin filtre par agent */
 
-     /* Calcul total min/jours*/
 
      return (
      <div>
@@ -52,6 +51,7 @@ export default function Report() {
           <Row>
                <div className="project_sidebar">
                     <div className="navbar_col_d filter_admin">
+                          <h2>Planning</h2>
                          <label> Planning de : </label>
                          <ul>
                               <li><Button value="all" onClick={AssignedLogs} className="assigned_to">Toute l'équipe</Button></li>
@@ -73,7 +73,7 @@ export default function Report() {
      <Container id="page_Report" className="main__content">
           <Row className="customer_card_all timesheet">
                <div>
-                    <h2>Planning :</h2>               
+                    <h2>Planning :</h2>
                     
                     <table>
                          <thead>
