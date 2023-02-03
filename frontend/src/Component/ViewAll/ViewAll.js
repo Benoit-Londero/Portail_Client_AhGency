@@ -8,6 +8,8 @@ import NavBar from "../NavBar/NavBar";
 import "./ViewAll.css";
 import Moment from "moment";
 
+import { NavLink } from "react-router-dom";
+
 import Button from 'react-bootstrap/Button';
 
 import * as MdIcons from "react-icons/md";
@@ -160,7 +162,6 @@ export default function ViewAll() {
                   for(const pair of upd_){
                       jsonFormData[pair[0]] = pair[1];
                   }
-  
                   return jsonFormData; // On retourne l'objet pour pouvoir l'envoyer
           }
   
@@ -188,6 +189,8 @@ export default function ViewAll() {
 
                          <label>Voir toute les tâches </label>
                          <button  value='all' className="btn primary_btn" onClick={handleTasks}>Tous</button>
+
+                         <NavLink to="/Report"><Button className="btn noborder">Planning</Button></NavLink>
                     </div>
 
                     <div className="navbar_col_d filter_admin">
@@ -400,7 +403,7 @@ export default function ViewAll() {
                                              <th colspan="2" className="right_tabs--close_modale"><button className="close_modale" onClick={closeTasks}>X</button></th>
                                         </tr>
                                         <tr>
-                                             <th><p className="bold">Statut de</p></th>
+                                             <th><label for="state" className="bold">Statut de</label></th>
                                              <th className="statut_task">
                                                   <select name="state" required>
                                                        <option defaultValue={item.Statut} default disabled> - </option>
@@ -417,10 +420,14 @@ export default function ViewAll() {
                                              <td><p className="agent__"> {item.Agent}</p></td>
                                         </tr>
                                         <tr>
-                                             <td><p className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</p></td>
+                                             <td><label for="date_tache"><BsIcons.BsCalendarCheck/> Date d'éxecution<span className="required">*</span></label></td>
+                                             <td><input type="date" placeholder="Date" id='date_tache' name="date_tache" required/></td>
+                                        </tr>
+                                        <tr>
+                                             <td><label for="timeSpend" className="bold"><MdIcons.MdOutlineMoreTime /> Suivi de temps</label></td>
                                              <td><input type="number" id="timespend" name="timeSpend" defaultValue="0" required></input></td>
                                         </tr>
-                                        <tr><td><p className="bold"><BsIcons.BsTextParagraph/>Détails action(s) réalisée(s)</p></td></tr>
+                                        <tr><td><label for="descr_" className="bold"><BsIcons.BsTextParagraph/>Détails action(s) réalisée(s)</label></td></tr>
                                         <tr><td colspan="2"><textarea name="descr_" className="tasks" required>{item.Informations}</textarea></td></tr>
                                         <tr><td colspan="2"><input type="submit" name="updateTask" value="Mettre à jour"></input>
                                         <input type="hidden" name="id_task" value={item.ID_TS}></input>
@@ -434,7 +441,6 @@ export default function ViewAll() {
 
                     <div id="modal_desktop" className="mobile">
                          {alltasks.filter(item => item.ID_TS === parseInt(value_dtls)).map((item,index) => {
-
                          return(
                          <form id="updateTask" onSubmit={handleUpdate}>
                               <table className="detail_TS" key={index}>

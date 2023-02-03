@@ -42,6 +42,8 @@ export default function Report() {
      }
      /* Fin filtre par agent */
 
+     /* Calcul total min/jours*/
+
      return (
      <div>
           <NavBar />
@@ -69,11 +71,11 @@ export default function Report() {
                     <table>
                          <thead>
                               <tr>
-                                   <th>Lundi</th>
-                                   <th>Mardi</th>
-                                   <th>Mercredi</th>
-                                   <th>Jeudi</th>
-                                   <th>Vendredi</th>
+                                   <th><h2 className="bold">Lundi</h2></th>
+                                   <th><h2 className="bold">Mardi</h2></th>
+                                   <th><h2 className="bold">Mercredi</h2></th>
+                                   <th><h2 className="bold">Jeudi</h2></th>
+                                   <th><h2 className="bold">Vendredi</h2></th>
                               </tr>
 
                          </thead>
@@ -83,7 +85,7 @@ export default function Report() {
                                    {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Monday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
-                                                  <p><span className="bold">Durée :</span>{ item.Temps}</p>
+                                                  <p><span className="bold">Durée :</span>{ item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
                                                             <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
@@ -98,13 +100,13 @@ export default function Report() {
                                    {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Tuesday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
-                                                  <p><span className="bold">Durée :</span> { item.Temps}</p>
+                                                  <p><span className="bold">Durée :</span> { item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
                                                             <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
                                                        )
                                                   })}
-                                                  <p>{ item.Détails}</p>
+                                                  <p>{item.Détails}</p>
                                              </div>
                                         )
                                    })}
@@ -113,7 +115,7 @@ export default function Report() {
                                    {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Wednesday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
-                                                  <p><span className="bold">Durée :</span>{ item.Temps}</p>
+                                                  <p><span className="bold">Durée :</span>{ item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
                                                             <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
@@ -128,7 +130,7 @@ export default function Report() {
                                    {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Thursday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
-                                                  <p><span className="bold">Durée :</span>{ item.Temps}</p>
+                                                  <p><span className="bold">Durée :</span>{ item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
                                                             <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
@@ -143,7 +145,7 @@ export default function Report() {
                                    {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Friday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
-                                                  <p><span className="bold">Durée :</span>{ item.Temps}</p>
+                                                  <p><span className="bold">Durée :</span>{ item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
                                                             <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
