@@ -149,7 +149,6 @@ export default function ViewAll() {
      }
 
      const handleUpdate = async e => {
-          e.preventDefault();
           let updateTaskForm = document.getElementById('updateTask'); //on récupère l'élement <form> et ces différents <input>
           let upd_ = new FormData(updateTaskForm); //que l'on intègre à un formData
   
@@ -175,7 +174,6 @@ export default function ViewAll() {
           if(response.status === 200){
                console.log(data);
                setupdateTask(false);
-               window.location.reload();
           }
       }
 
