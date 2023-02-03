@@ -153,7 +153,7 @@ export default function Report() {
                                                   <p><span className="bold">Durée :</span> { item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
-                                                            <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
+                                                            <p key={index} className="inProgress">{item.Prenom} {item.Nom}</p>
                                                        )
                                                   })}
                                                   <p>{item.Détails}</p>
@@ -168,7 +168,7 @@ export default function Report() {
                                                   <p><span className="bold">Durée :</span>{ item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
-                                                            <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
+                                                            <p key={index} className="inProgress">{item.Prenom} {item.Nom}</p>
                                                        )
                                                   })}
                                                   <p>{ item.Détails}</p>
@@ -183,7 +183,7 @@ export default function Report() {
                                                   <p><span className="bold">Durée :</span>{ item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
-                                                            <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
+                                                            <p key={index} className="inProgress">{item.Prenom} {item.Nom}</p>
                                                        )
                                                   })}
                                                   <p>{ item.Détails}</p>
@@ -198,7 +198,7 @@ export default function Report() {
                                                   <p><span className="bold">Durée :</span>{ item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
-                                                            <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
+                                                            <p key={index} className="inProgress">{item.Prenom} {item.Nom}</p>
                                                        )
                                                   })}
                                                   <p>{ item.Détails}</p>
