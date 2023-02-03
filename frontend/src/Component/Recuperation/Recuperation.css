@@ -66,3 +66,16 @@
     padding: 10px 30px;
     text-decoration: none;
 }
+
+
+@media screen and (max-width:756px) and (orientation: portrait) {
+    .recup_form{
+        width: 90vw;
+        text-align: center;
+        margin: auto;
+    }
+    
+    .recup_form h1{
+        text-align:center;
+    }
+}
