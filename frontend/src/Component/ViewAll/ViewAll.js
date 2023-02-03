@@ -189,8 +189,6 @@ export default function ViewAll() {
 
                          <label>Voir toute les tâches </label>
                          <button  value='all' className="btn primary_btn" onClick={handleTasks}>Tous</button>
-
-                         <NavLink to="/Report"><Button className="btn noborder">Planning</Button></NavLink>
                     </div>
 
                     <div className="navbar_col_d filter_admin">
@@ -199,19 +197,20 @@ export default function ViewAll() {
                               <option name="default" disabled> Default </option>
                               {clients.filter(item => item.Role === 'Client').map((item,index) => {
                                    return(
-                                        <option  key={index} value={item.ID} className="client_list" >{item.Nom} {item.Prenom}</option>
+                                        <option  key={index} value={item.ID} className="client_list" >{item.Prenom} {item.Nom}</option>
                                    ) 
                               })}
                          </select>
                          
                          <label> Assigné à</label>
-                         <ul>
+                         <select onChange={AssignedTasks}>
+                              <option name="default" disabled> Default </option>
                               {clients.filter(data => data.Role === 'administrator').map((item,index) =>{
                                    return(
-                                        <li key={index}><Button onClick={AssignedTasks} value={item.Prenom + ' ' + item.Nom} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
-                                   )
+                                        <option  key={index} value={item.Prenom + ' ' + item.Nom} className="client_list" >{item.Prenom} {item.Nom}</option>
+                                   ) 
                               })}
-                         </ul>
+                         </select>
 
                          <label>Tous les projets</label>
                          <ul className="AllProjet_box">
@@ -221,6 +220,12 @@ export default function ViewAll() {
                                    )
                               })}
                          </ul>
+                    </div>
+
+                    <div className="navbar_col_g nav_planner">
+                         <h2>Planning</h2>
+
+                         <NavLink to="/Report"><Button className="btn noborder">Allez au planner</Button></NavLink>
                     </div>
                </div>
           </Row>

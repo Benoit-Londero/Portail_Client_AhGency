@@ -214,7 +214,7 @@
 
 .AllProjet_box{
     border-radius: 13px;
-    box-shadow: inset 1px -3px 10px 0 rgb(0 0 0 / 19%);
+    box-shadow: inset 0px -3px 6px 0 rgb(0 0 0 / 10%);
     height: 280px;
     margin: 0;
     overflow: scroll;
@@ -222,7 +222,9 @@
 }
 
 .AllProjet_box .btn{
-    width:98%;
+    width: 98%;
+    font-size: .6em;
+    padding: 5px;
 }
 
 .filter_admin{
@@ -240,6 +242,21 @@
     width:130px;
 }
 
+.nav_planner{
+    margin-top:20%;
+}
+
+.nav_planner .btn{
+    background-color: #6610f2;
+    border-color: 1px solid #6610f2;
+    color: #fff;
+}
+
+.nav_planner .btn:hover{
+    background-color: #150331;
+    border-color: 1px solid #fff;
+    color: #fff;
+}
 /******************/
 
 @media screen and (max-width:756px) and (orientation: portrait) {

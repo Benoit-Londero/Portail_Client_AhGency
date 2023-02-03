@@ -1,12 +1,12 @@
 #page_Report td{
-     min-width: 10vw;
      max-width: 10vw;
+     min-width: 10vw;
 }
 
 .card_Report{
      background:#eee;
-     padding:5px 15px;
      margin:15px 7px;
+     padding:5px 15px;
      text-align: justify!important;
      vertical-align: top!important;
 }
@@ -16,7 +16,23 @@
 .Mercredi,
 .Jeudi,
 .Vendredi{
-     vertical-align: top!important;
+     line-height: .7em;
      text-align: justify!important;
-     line-height: .7em;   
+     vertical-align: top!important;
 }
+
+.nav_planner{
+     margin-top:20%;
+ }
+ 
+ .nav_planner .btn{
+     background-color: #6610f2;
+     border-color: 1px solid #6610f2;
+     color: #fff;
+ }
+ 
+ .nav_planner .btn:hover{
+     background-color: #150331;
+     border-color: 1px solid #fff;
+     color: #fff;
+ }

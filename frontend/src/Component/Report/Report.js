@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Row from 'react-bootstrap/Row';
 
 import NavBar from "../NavBar/NavBar";
+import { NavLink } from "react-router-dom";
 import "./Report.css";
 import Moment from "moment";
 
@@ -60,6 +61,12 @@ export default function Report() {
                                    )
                               })}
                          </ul>
+                    </div>
+
+                    <div className="navbar_col_g nav_planner">
+                         <h2>Projets</h2>
+
+                         <NavLink to="/ViewAll"><Button className="btn noborder">Allez aux projets</Button></NavLink>
                     </div>
                </div>
           </Row>
