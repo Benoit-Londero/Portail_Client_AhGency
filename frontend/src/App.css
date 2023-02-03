@@ -403,3 +403,9 @@ svg {
     color:#fff;
     width: 100%;
 }
+
+.main__content{
+    margin-left:auto!important;
+    margin-right:auto!important;
+    width:90vw;
+}

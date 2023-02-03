@@ -16,6 +16,9 @@ export default function Report() {
      const [allLogs, setAllLogs] = useState([]); // Contient l'ensemble des logs
      const [filteredLogs, setFilteredLogs] = useState([]); // Filtre les logs
 
+     const [startDate, setStartDate] = useState(null); // state to store start date
+     const [endDate, setEndDate] = useState(null); // state to store end date
+
      useEffect (() => {
 
           fetch('/api/getAllUsers')
@@ -32,17 +35,35 @@ export default function Report() {
      /* Filtre par Agent */
      function AssignedFilterlogs(agent){
           let filtredLogs = allLogs.filter(item => item.ID_Admin === parseInt(agent));
-          return filtredLogs;/* 
-          console.log(filtredLogs);  */    
+          return filtredLogs; 
      }
 
      function AssignedLogs(e) {
           let theAgent = e.target.value;
           theAgent !== "all" ? setFilteredLogs(AssignedFilterlogs(theAgent)) : setFilteredLogs(allLogs);
-          /* console.log(theAgent); */
      }
-     /* Fin filtre par agent */
 
+     /** Filtre par DateRange */
+     const handleFilter = () => {
+          // Filter logs based on start and end date
+          const dateRange = allLogs.filter(data => Moment(data.Date_entree).format() >= Moment(startDate).format() && Moment(data.Date_entree).format() <= Moment(endDate).format());
+
+          /* console.log(startDate);
+          console.log(typeof(startDate));
+          console.log(endDate);
+          console.log(typeof(endDate));
+          console.log(allLogs); */
+          setFilteredLogs(dateRange);
+     };
+     
+     // Function to handle preset value for previous week
+     const handlePreviousWeek = () => {
+          const currentDate = new Date();
+          const prevWeekStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 7);
+          const prevWeekEnd = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 1);
+          setStartDate(prevWeekStart);
+          setEndDate(prevWeekEnd);
+     };
 
      return (
      <div>
@@ -61,6 +82,26 @@ export default function Report() {
                                    )
                               })}
                          </ul>
+
+                         <div>
+                         <label>Filtrer par date</label>
+                         <label htmlFor="start-date">Date de debut:</label>
+                         <input
+                              type="date"
+                              id="start-date"
+                              value={startDate}
+                              onChange={e => setStartDate(e.target.value)}
+                         />
+                         <label htmlFor="end-date">Date de fin:</label>
+                         <input
+                              type="date"
+                              id="end-date"
+                              value={endDate}
+                              onChange={e => setEndDate(e.target.value)}
+                         />
+                         <button onClick={handleFilter}>Filtrer</button>
+                         <button onClick={handlePreviousWeek}>Previous Week</button>
+                </div>
                     </div>
 
                     <div className="navbar_col_g nav_planner">
@@ -74,6 +115,8 @@ export default function Report() {
           <Row className="customer_card_all timesheet">
                <div>
                     <h2>Planning :</h2>
+
+                    
                     
                     <table>
                          <thead>
@@ -95,7 +138,7 @@ export default function Report() {
                                                   <p><span className="bold">Durée :</span>{ item.Temps} min.</p>
                                                   {clients.filter(data => parseInt(data.ID) === parseInt(item.ID_Admin)).map((item,index) => {
                                                        return(
-                                                            <p key={index} className="succeed">{item.Prenom} {item.Nom}</p>
+                                                            <p key={index} className="inProgress">{item.Prenom} {item.Nom}</p>
                                                        )
                                                   })}
                                                   <p>{ item.Détails}</p>
