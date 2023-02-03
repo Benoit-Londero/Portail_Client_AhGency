@@ -13,6 +13,7 @@ export default function Report() {
 
      const [clients, setClients] = useState([]); // Retourne tous les clients
      const [allLogs, setAllLogs] = useState([]); // Contient l'ensemble des logs
+     const [filteredLogs, setFilteredLogs] = useState([]); // Filtre les logs
 
      useEffect (() => {
 
@@ -25,19 +26,20 @@ export default function Report() {
                .then(res => res.json())
                .then(json => setAllLogs(json))
                .catch(err => console.info(err))
-
      }, [])
 
      /* Filtre par Agent */
-     /* function AssignedFilterlogs(agent){
-          let filtredLogs = allLogs.filter(item => item.ID_Admin === agent);
-          return filtredLogs;     
+     function AssignedFilterlogs(agent){
+          let filtredLogs = allLogs.filter(item => item.ID_Admin === parseInt(agent));
+          return filtredLogs;
+          console.log(filtredLogs);     
      }
 
      function AssignedLogs(e) {
           let theAgent = e.target.value;
-          theAgent !== "all" ? setFiltredlogs(AssignedFilterlogs(theAgent)) : setFiltredlogs(allLogs);
-     } */
+          theAgent !== "all" ? setFilteredLogs(AssignedFilterlogs(theAgent)) : setFilteredLogs(allLogs);
+          console.log(theAgent);
+     }
      /* Fin filtre par agent */
 
      return (
@@ -47,21 +49,22 @@ export default function Report() {
           <Row>
                <div className="project_sidebar">
                     <div className="navbar_col_d filter_admin">
-                         <label> Assigné à</label>
+                         <label> Planning de : </label>
                          <ul>
+                              <li><Button value="all" onClick={AssignedLogs} className="assigned_to">Toute l'équipe</Button></li>
                               {clients.filter(data => data.Role === 'administrator').map((item,index) =>{
                                    return(
-                                        <li key={index}><Button value={item.Prenom + ' ' + item.Nom} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
+                                        <li key={index}><Button value={item.ID} onClick={AssignedLogs} className="assigned_to">{item.Prenom} {item.Nom}</Button></li>
                                    )
                               })}
                          </ul>
                     </div>
                </div>
           </Row>
-     <Container id="page_viewall" className="main__content">
+     <Container id="page_Report" className="main__content">
           <Row className="customer_card_all timesheet">
                <div>
-                    <h2>Report :</h2>               
+                    <h2>Planning :</h2>               
                     
                     <table>
                          <thead>
@@ -77,7 +80,7 @@ export default function Report() {
                          <tbody></tbody>
                          <tr>
                               <td class="Lundi">
-                                   {allLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Monday").map((item,index) => {
+                                   {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Monday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
                                                   <p><span className="bold">Durée :</span>{ item.Temps}</p>
@@ -92,7 +95,7 @@ export default function Report() {
                                    })}
                               </td>
                               <td class="Mardi">
-                                   {allLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Tuesday").map((item,index) => {
+                                   {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Tuesday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
                                                   <p><span className="bold">Durée :</span> { item.Temps}</p>
@@ -107,7 +110,7 @@ export default function Report() {
                                    })}
                               </td>
                               <td class="Mercredi">
-                                   {allLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Wednesday").map((item,index) => {
+                                   {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Wednesday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
                                                   <p><span className="bold">Durée :</span>{ item.Temps}</p>
@@ -122,7 +125,7 @@ export default function Report() {
                                    })}
                               </td>
                               <td class="Jeudi">
-                                   {allLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Thursday").map((item,index) => {
+                                   {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Thursday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
                                                   <p><span className="bold">Durée :</span>{ item.Temps}</p>
@@ -137,7 +140,7 @@ export default function Report() {
                                    })}
                               </td>
                               <td class="Vendredi">
-                                   {allLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Friday").map((item,index) => {
+                                   {filteredLogs.filter(data => Moment(data.Date_entree).format('dddd') === "Friday").map((item,index) => {
                                         return(
                                              <div className="card_Report" key={index}>
                                                   <p><span className="bold">Durée :</span>{ item.Temps}</p>

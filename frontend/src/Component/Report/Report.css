@@ -1,10 +1,14 @@
+#page_Report td{
+     min-width: 10vw;
+     max-width: 10vw;
+}
+
 .card_Report{
      background:#eee;
      padding:5px;
      margin:15px 7px;
      text-align: justify!important;
      vertical-align: top!important;
-     min-width: 10vw;
 }
 
 .Lundi,
