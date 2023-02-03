@@ -31,14 +31,14 @@ export default function Report() {
      /* Filtre par Agent */
      function AssignedFilterlogs(agent){
           let filtredLogs = allLogs.filter(item => item.ID_Admin === parseInt(agent));
-          return filtredLogs;
-          console.log(filtredLogs);     
+          return filtredLogs;/* 
+          console.log(filtredLogs);  */    
      }
 
      function AssignedLogs(e) {
           let theAgent = e.target.value;
           theAgent !== "all" ? setFilteredLogs(AssignedFilterlogs(theAgent)) : setFilteredLogs(allLogs);
-          console.log(theAgent);
+          /* console.log(theAgent); */
      }
      /* Fin filtre par agent */
 
