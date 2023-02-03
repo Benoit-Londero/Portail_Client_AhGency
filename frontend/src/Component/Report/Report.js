@@ -57,13 +57,13 @@ export default function Report() {
      };
      
      // Function to handle preset value for previous week
-      const handlePreviousWeek = () => {
+     /* const handlePreviousWeek = () => {
           const currentDate = new Date();
           const prevWeekStart = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 7);
           const prevWeekEnd = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - 1);
           setStartDate(prevWeekStart);
           setEndDate(prevWeekEnd);
-     }; 
+     };  */
 
      return (
      <div>
@@ -100,8 +100,8 @@ export default function Report() {
                               onChange={e => setEndDate(e.target.value)}
                          />
                          <button onClick={handleFilter}>Filtrer</button>
-                         <button onClick={handlePreviousWeek}>Previous Week</button>
-                </div>
+{/*                          <button onClick={handlePreviousWeek}>Previous Week</button>
+ */}                </div>
                     </div>
 
                     <div className="navbar_col_g nav_planner">
